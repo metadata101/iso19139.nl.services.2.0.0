@@ -747,6 +747,13 @@
         <!-- extract the uuid from csw request and add as operateson -->
         <Field name="operatesOn" string="{tokenize(tokenize(string(.),'&amp;id=')[2],'&amp;')[1]}" store="true"
                index="true"/>
+        <!-- also store the full URI in case this is not a CSW request -->
+        <Field name="operatesOn" string="{string(.)}" store="true"
+               index="true"/>
+        <!-- todo: In case this is not a CSW request but a URI,
+             resolve the URI to a metadata document, and extract
+             the UUID from the resolved document (option to store
+             the document in the catalogue if it's not yet available) -->
       </xsl:for-each>
 
       <xsl:for-each
