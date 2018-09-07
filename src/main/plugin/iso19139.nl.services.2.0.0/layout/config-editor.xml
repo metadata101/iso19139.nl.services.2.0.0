@@ -1,0 +1,1553 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (C) 2001-2016 Food and Agriculture Organization of the
+  ~ United Nations (FAO-UN), United Nations World Food Programme (WFP)
+  ~ and United Nations Environment Programme (UNEP)
+  ~
+  ~ This program is free software; you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation; either version 2 of the License, or (at
+  ~ your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful, but
+  ~ WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+  ~ General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program; if not, write to the Free Software
+  ~ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
+  ~
+  ~ Contact: Jeroen Ticheler - FAO - Viale delle Terme di Caracalla 2,
+  ~ Rome - Italy. email: geonetwork@osgeo.org
+  -->
+
+<editor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:gn="http://www.fao.org/geonetwork"
+        xmlns:gco="http://www.isotc211.org/2005/gco"
+        xmlns:gmd="http://www.isotc211.org/2005/gmd"
+        xmlns:gmx="http://www.isotc211.org/2005/gmx"
+        xmlns:srv="http://www.isotc211.org/2005/srv"
+        xmlns:gml="http://www.opengis.net/gml"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        xsi:noNamespaceSchemaLocation="../../../../../../config-editor.xsd">
+
+  <!-- Form field type configuration. Default is text. -->
+  <fields>
+    <for name="gmd:abstract" use="textarea"/>
+    <for name="gmd:checkPointDescription" use="textarea"/>
+    <for name="gmd:credit" use="textarea"/>
+    <for name="gmd:description" use="textarea"/>
+    <for name="gmd:evaluationMethodDescription" use="textarea"/>
+    <for name="gmd:explanation" use="textarea"/>
+    <for name="gmd:handlingDescription" use="textarea"/>
+    <for name="gmd:maintenanceNote" use="textarea"/>
+    <for name="gmd:measureDescription" use="textarea"/>
+    <for name="gmd:purpose" use="textarea"/>
+    <for name="gmd:orderingInstructions" use="textarea"/>
+    <for name="gmd:otherConstraints" use="textarea"/>
+    <for name="gmd:statement" use="textarea"/>
+    <for name="gmd:supplementalInformation" use="textarea"/>
+    <for name="gmd:specificUsage" use="textarea"/>
+    <for name="gmd:userNote" use="textarea"/>
+    <for name="gmd:useLimitation" use="textarea"/>
+
+
+    <for name="gco:Distance" use="number"/>
+    <for name="gco:Decimal" use="number"/>
+    <for name="gco:Integer" use="number"/>
+    <for name="gco:Real" use="number"/>
+    <for name="gco:Boolean" use="checkbox"/>
+
+    <!-- TODO: Specific in Dutch schema - data-hide-time -->
+    <for name="gco:Date" use="data-gn-date-picker">
+		<directiveAttributes data-hide-time="true"/></for>
+    <for name="gco:DateTime" use="data-gn-date-picker">
+    <directiveAttributes data-hide-time="true"/></for>
+    <for name="gmd:date" use="data-gn-date-picker">
+    <directiveAttributes data-hide-time="true"/></for>
+
+
+    <!-- gmx:FileName/@src attribute -->
+    <for name="src" use="data-gn-logo-selector"/>
+
+    <for name="gmd:electronicMailAddress" use="email"/>
+
+    <for name="gmd:language" use="data-gn-language-picker"/>
+    <for name="gmd:languageCode" use="data-gn-language-picker"/>
+
+    <for name="gmd:country" use="data-gn-country-picker"/>
+
+    <for name="gmd:referenceSystemInfo" addDirective="data-gn-crs-selector"/>
+
+
+    <!--
+    Enable the following to use subtemplates for extent type.
+    <for name="gmd:extent" addDirective="data-gn-directory-entry-selector">
+      <directiveAttributes
+        data-template-add-action="true"
+        data-search-action="true"
+        data-popup-action="true"
+        data-template-type="extent"
+        data-filter='{"_root": "gmd:EX_Extent"}'
+        data-insert-modes=""/>
+    </for>
+
+    for formats:
+    <for name="gmd:resourceFormat" addDirective="data-gn-directory-entry-selector">
+      <directiveAttributes
+              data-template-add-action="false"
+              data-search-action="true"
+              data-popup-action="true"
+              data-template-type="format"
+              data-filter='{"_root": "gmd:MD_Format"}'
+              data-insert-modes="xlink"/>
+    </for>
+    <for name="gmd:distributionFormat" addDirective="data-gn-directory-entry-selector">
+      <directiveAttributes
+              data-template-add-action="false"
+              data-search-action="true"
+              data-popup-action="true"
+              data-template-type="format"
+              data-filter='{"_root": "gmd:MD_Format"}'
+              data-insert-modes="xlink"/>
+    </for>
+    -->
+
+    <!-- TODO: Review Dutch schemas - For 1.3  data-insert-modes="" was not set, maybe new in GN 3.4 -->
+    <for name="gmd:contact" addDirective="data-gn-directory-entry-selector">
+      <directiveAttributes
+        data-template-add-action="true"
+        data-search-action="true"
+        data-popup-action="true"
+        data-template-type="contact"
+        data-insert-modes=""
+        data-variables="gmd:role/gmd:CI_RoleCode/@codeListValue~{role}"/>
+    </for>
+    <for name="gmd:pointOfContact" addDirective="data-gn-directory-entry-selector">
+      <directiveAttributes
+        data-template-add-action="true"
+        data-search-action="true"
+        data-popup-action="true"
+        data-template-type="contact"
+        data-insert-modes=""
+        data-variables="gmd:role/gmd:CI_RoleCode/@codeListValue~{role}"/>
+    </for>
+    <for name="gmd:distributorContact" addDirective="data-gn-directory-entry-selector">
+      <directiveAttributes
+        data-template-add-action="true"
+        data-search-action="true"
+        data-popup-action="true"
+        data-template-type="contact"
+        data-insert-modes=""
+        data-variables="gmd:role/gmd:CI_RoleCode/@codeListValue~{role}"/>
+    </for>
+    <for name="gmd:processor" addDirective="data-gn-directory-entry-selector">
+      <directiveAttributes
+        data-template-add-action="true"
+        data-search-action="true"
+        data-popup-action="true"
+        data-template-type="contact"
+        data-insert-modes=""
+        data-variables="gmd:role/gmd:CI_RoleCode/@codeListValue~{role}"/>
+    </for>
+    <for name="gmd:citedResponsibleParty" addDirective="data-gn-directory-entry-selector">
+      <directiveAttributes
+        data-template-add-action="true"
+        data-search-action="true"
+        data-popup-action="true"
+        data-template-type="contact"
+        data-insert-modes=""
+        data-variables="gmd:role/gmd:CI_RoleCode/@codeListValue~{role}"/>
+    </for>
+    <for name="gmd:report" addDirective="data-gn-directory-entry-selector">
+      <directiveAttributes
+        data-template-add-action="true"
+        data-search-action="true"
+        data-popup-action="true"
+        data-filter='{"_root": "gmd:DQ_DomainConsistency"}'
+        data-insert-modes=""
+        data-template-type="report"/>
+    </for>
+
+
+    <!-- Example configuration: Add onLine source from subtemplate
+    <for name="gmd:onLine" addDirective="data-gn-directory-entry-selector">
+      <directiveAttributes
+              data-template-add-action="true"
+              data-template-type="onLine"
+              data-filter='{"_root": "gmd:CI_OnlineResource"}'/>
+    </for>
+    -->
+
+
+    <for name="gmd:descriptiveKeywords" addDirective="data-gn-thesaurus-selector">
+      <!--
+      Example of configuration to disable free text keywords in the thesaurus selector
+      <directiveAttributes data-allow-free-text-keywords="false" />
+
+      To restrict the list of thesaurus allowed, set the include attribute
+      for the directive:
+      <directiveAttributes data-include="external.theme.inspire-theme,external.place.regions"/>
+
+      Exclude a thesaurus:
+      <directiveAttributes data-include="-external.place.regions"/>
+
+      Exclude all thesaurus already used in the metadata:
+      -->
+
+      <!-- TODO: Review in Dutch schema, in ISO19139 is enabled -->
+      <!--<directiveAttributes data-include="xpath::string-join(gmd:MD_Metadata/gmd:identificationInfo
+                                          //gmd:thesaurusName/*/gmd:identifier/*/
+                                            gmd:code/gmx:Anchor/
+                                              concat('-', substring-after(text()[. != ''], 'geonetwork.thesaurus.')), ',')"/>-->
+    </for>
+  </fields>
+
+
+  <fieldsWithFieldset>
+    <name>gmd:MD_Metadata</name>
+    <name>gmd:identificationInfo</name>
+    <name>gmd:distributionInfo</name>
+    <name>gmd:portrayalCatalogueInfo</name>
+    <name>gmd:portrayalCatalogueCitation</name>
+    <name>gmd:thesaurusName</name>
+    <name>gmd:resourceConstraints</name>
+    <name>gmd:spatialRepresentationInfo</name>
+    <name>gmd:pointOfContact</name>
+    <name>gmd:contact</name>
+    <name>gmd:graphicOverview</name>
+    <name>gmd:citedResponsibleParty</name>
+    <name>gmd:dataQualityInfo</name>
+    <name>gmd:contentInfo</name>
+    <name>gmd:distributionFormat</name>
+    <name>gmd:referenceSystemInfo</name>
+    <name>gmd:spatialResolution</name>
+    <name>gmd:offLine</name>
+    <name>gmd:onLine</name>
+    <name>gmd:address</name>
+    <name>gmd:projection</name>
+    <name>gmd:ellipsoid</name>
+    <name>gmd:attributes</name>
+    <name>gmd:geographicBox</name>
+    <name>gmd:EX_TemporalExtent</name>
+    <!-- TODO: Disabled in Dutch schema -->
+    <!--<name>gmd:EX_VerticalExtent</name>-->
+    <name>gmd:MD_Distributor</name>
+    <name>srv:containsOperations</name>
+    <!-- TODO: Disabled in Dutch schema -->
+    <!--<name>srv:SV_Parameter</name>-->
+    <!-- TODO: Disabled in Dutch schema -->
+    <!--<name>srv:connectPoint</name>-->
+    <name>srv:SV_CoupledResource</name>
+    <name>gmd:metadataConstraints</name>
+    <name>gmd:aggregationInfo</name>
+    <name>gmd:processStep</name>
+    <name>gmd:lineage</name>
+    <name>gmd:centerPoint</name>
+    <name>gml:verticalCS</name>
+    <name>gml:verticalDatum</name>
+    <!-- TODO: Disabled in Dutch schema -->
+    <!--<name>gmd:axisDimensionProperties</name>-->
+    <name>gmd:identifier</name>
+    <name>gmd:topicCategory</name>
+
+    <!-- TODO: Review Specific for Dutch schema -->
+    <name>gmd:verticalCRS</name>
+  </fieldsWithFieldset>
+
+  <multilingualFields>
+    <!-- In multilingual mode, define which mode
+    the widget should have. If expanded, then one
+    field per language is displayed. -->
+    <expanded>
+      <name>gmd:title</name>
+      <name>gmd:abstract</name>
+    </expanded>
+    <!-- All fields in ISO could be multilingual.
+    Define element to exclude.
+
+      The name element can optionally have ancestor, child or parent attributes to
+      further restrict the exclusion.  For example if some gmd:code elements are
+      multilingual but others are not then adding a parent/child/parent attribute
+      can restrict the exclude to only some elements.
+
+      For example:
+        <name ancestor="gmd:thesaurusName">gmd:code</name>
+        or
+        <name child="gmx:Anchor">gmd:code</name>
+    -->
+    <exclude>
+      <name>gmd:identifier</name>
+      <name>gmd:metadataStandardName</name>
+      <name>gmd:metadataStandardVersion</name>
+      <name>gmd:hierarchyLevelName</name>
+      <name>gmd:dataSetURI</name>
+      <name>gmd:postalCode</name>
+      <name>gmd:city</name>
+      <name>gmd:language</name>
+      <name>gmd:administrativeArea</name>
+      <name>gmd:voice</name>
+      <name>gmd:facsimile</name>
+      <name>gmd:dataset</name>
+      <name>gmd:other</name>
+      <name>gmd:hoursOfService</name>
+      <name>gmd:applicationProfile</name>
+      <name>gmd:page</name>
+      <name>gmd:date</name>
+      <name>gmd:linkage</name>
+      <name>gmd:fileName</name>
+      <name>gmd:protocol</name>
+      <name>gmd:fileType</name>
+      <name>gmd:unitsOfDistribution</name>
+      <name>gmd:amendmentNumber</name>
+      <name>gmd:specification</name>
+      <name>gmd:fileDecompressionTechnique</name>
+      <name>gmd:turnaround</name>
+      <name>gmd:fees</name>
+      <name>gmd:userDeterminedLimitations</name>
+      <name>gmd:codeSpace</name>
+      <name>gmd:version</name>
+      <name>gmd:edition</name>
+      <name>gmd:ISBN</name>
+      <name>gmd:ISSN</name>
+      <name>gmd:errorStatistic</name>
+      <name>gmd:schemaAscii</name>
+      <name>gmd:softwareDevelopmentFileFormat</name>
+      <name>gmd:shortName</name>
+      <name>gmd:condition</name>
+      <name>gmd:maximumOccurence</name>
+      <name>gmd:domainValue</name>
+      <name>gmd:minimumValue</name>
+      <name>gmd:maximumValue</name>
+      <name>gmd:densityUnits</name>
+      <name>gmd:descriptor</name>
+      <name>gmd:denominator</name>
+      <name>gmd:classificationSystem</name>
+      <name>gmd:checkPointDescription</name>
+      <name>gmd:transformationDimensionDescription</name>
+      <name>gmd:orientationParameterDescription</name>
+      <name>gmd:distance</name>
+      <name>srv:name</name>
+      <name>srv:invocationName</name>
+      <name>srv:serviceTypeVersion</name>
+      <name>srv:operationName</name>
+      <name>srv:identifier</name>
+      <name>srv:serviceType</name>
+      <name ancestor="gmd:thesaurusName">gmd:code</name>
+      <name ancestor="gmd:aggregateDataSetIdentifier">gmd:code</name>
+      <name ancestor="gmd:CI_Citation">gmd:code</name>
+    </exclude>
+  </multilingualFields>
+
+  <!-- TODO: Check if table format is used in Dutch schema, otherwise requires to be commented
+           and override some templates in layout.xsl probably -->
+  <tableFields>
+    <table for="gmd:CI_ResponsibleParty">
+      <header>
+        <!-- TODO: Add label from strings.xml / label with context-->
+        <col label="gmd:organisationName"/>
+        <col label="gmd:individualName"/>
+        <col label="gmd:electronicMailAddress"/>
+        <col label="gmd:role"/>
+        <col/>
+      </header>
+      <row>
+        <col xpath="gmd:organisationName"/>
+        <col xpath="gmd:individualName"/>
+        <col xpath="gmd:contactInfo/*/gmd:address/*/gmd:electronicMailAddress"/>
+        <col xpath="gmd:role"/>
+        <col del=".."/>
+      </row>
+    </table>
+    <table for="gmd:CI_OnlineResource">
+      <header>
+        <col label="gmd:protocol"/>
+        <col label="gmd:linkage"/>
+        <col label="gmd:name"/>
+        <col/>
+      </header>
+      <row>
+        <col xpath="gmd:protocol"/>
+        <col xpath="gmd:linkage"/>
+        <col xpath="gmd:name"/>
+        <col del=".."/>
+      </row>
+    </table>
+    <table for="srv:SV_OperationMetadata">
+      <header>
+        <col label="srv:operationName"/>
+        <col label="srv:DCP"/>
+        <col label="srv:connectPoint"/>
+        <col/>
+      </header>
+      <row>
+        <col xpath="srv:operationName"/>
+        <col xpath="srv:DCP"/>
+        <col xpath="srv:connectPoint/gmd:CI_OnlineResource/gmd:linkage"/>
+        <col del=".."/>
+        <section xpath="srv:SV_OperationMetadata/srv:parameters"
+                 or="parameters" in="srv:SV_OperationMetadata"/>
+      </row>
+    </table>
+    <table for="srv:SV_CoupledResource">
+      <header>
+        <col label="srv:operationName"/>
+        <col label="gco:ScopedName"/>
+        <col label="srv:identifier"/>
+        <col/>
+      </header>
+      <row>
+        <col xpath="srv:operationName"/>
+        <col xpath="gco:ScopedName"/>
+        <col xpath="srv:identifier"/>
+        <col del=".."/>
+      </row>
+    </table>
+    <table for="gmd:MD_Format">
+      <header>
+        <col label="gmd:name"/>
+        <col label="gmd:version"/>
+        <col/>
+      </header>
+      <row>
+        <col xpath="gmd:name"/>
+        <col xpath="gmd:version"/>
+        <col del=".."/>
+      </row>
+    </table>
+    <table for="gmd:PT_Locale">
+      <header>
+        <col label="gmd:languageCode"/>
+        <col label="gmd:characterEncoding"/>
+        <col/>
+      </header>
+      <row>
+        <col xpath="gmd:languageCode"/>
+        <col xpath="gmd:characterEncoding"/>
+        <col del=".."/>
+      </row>
+    </table>
+  </tableFields>
+
+  <!-- View configuration -->
+  <views>
+    <view name="default" upAndDownControlHidden="true" displayTooltips="true" displayTooltipsMode="icon">
+
+      <sidePanel>
+        <directive data-gn-validation-report=""/>
+        <directive data-gn-suggestion-list=""/>
+      </sidePanel>
+
+
+      <tab id="default" default="true" mode="flat">
+        <text ref="viewTitle"/>
+        <text ref="viewDescription"/>
+
+        <directive data-gn-onlinesrc-list=""/>
+
+        <section name="Basis">
+
+          <!-- 5.2.1 Resource title -->
+          <field
+            xpath="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/gmd:citation/gmd:CI_Citation/gmd:title" />
+
+          <action type="add"
+                  btnLabel="addTitle"
+                  if="count(gmd:MD_Metadata/gmd:identificationInfo/*/gmd:citation/gmd:CI_Citation/gmd:title) = 0"
+                  name="title" or="title"
+                  in="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:citation/gmd:CI_Citation">
+            <template>
+              <snippet>
+                <gmd:title><gco:CharacterString></gco:CharacterString></gmd:title>
+              </snippet>
+            </template>
+          </action>
+
+          <field
+            xpath="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/gmd:citation/gmd:CI_Citation/gmd:alternateTitle"></field>
+          <action type="add" del="." removable="true"
+                  btnLabel="addAlternateTitle"
+                  name="alternateTitle" or="alternateTitle"
+                  in="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/gmd:citation/gmd:CI_Citation">
+            <template>
+              <snippet>
+                <gmd:alternateTitle gco:nilReason="missing">
+                  <gco:CharacterString/>
+                </gmd:alternateTitle>
+              </snippet>
+            </template>
+          </action>
+
+          <field xpath="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/gmd:citation/gmd:CI_Citation/gmd:date"/>
+
+          <action type="add" name="referenceDate" or="date"
+                  btnLabel="addDate"
+                  if="count(gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/gmd:citation/gmd:CI_Citation/gmd:date) &lt; 3"
+                  in="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/gmd:citation/gmd:CI_Citation">
+            <template>
+              <snippet>
+                <gmd:date>
+                  <gmd:CI_Date>
+                    <gmd:date>
+                      <gco:Date></gco:Date>
+                    </gmd:date>
+                    <gmd:dateType><!--   5.22 Datum type van de bron.. -->
+                      <gmd:CI_DateTypeCode
+                        codeList="http://www.isotc211.org/2005/resources/codeList.xml#CI_DateTypeCode"
+                        codeListValue="revision"/>
+                    </gmd:dateType>
+                  </gmd:CI_Date>
+                </gmd:date>
+              </snippet>
+            </template>
+          </action>
+
+
+          <!-- 5.2.2 Resource abstract -->
+          <field
+            xpath="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/gmd:abstract"
+          />
+
+
+
+          <!--  5.2.21 Responsible party  -->
+          <field name="pointOfContact"
+                 templateModeOnly="true"
+                 xpath="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/gmd:pointOfContact"
+                 del=".">
+            <template>
+              <values readonlyIf="count(@xlink:href) > 0">
+                <key label="individualName" tooltip="gmd:individualName"
+                     xpath="gmd:CI_ResponsibleParty/gmd:individualName/gco:CharacterString"/>
+                <key label="organisationName" required="true" tooltip="gmd:organisationName"
+                     xpath="gmd:CI_ResponsibleParty/gmd:organisationName/gco:CharacterString"/>
+                <key label="positionName" tooltip="gmd:positionName"
+                     xpath="gmd:CI_ResponsibleParty/gmd:positionName/gco:CharacterString"/>
+                <key label="voice" tooltip="gmd:voice"
+                     xpath="gmd:CI_ResponsibleParty/gmd:contactInfo/gmd:CI_Contact/gmd:phone/gmd:CI_Telephone/gmd:voice/gco:CharacterString"/>
+                <key label="facsimile" tooltip="gmd:facsimile"
+                     xpath="gmd:CI_ResponsibleParty/gmd:contactInfo/gmd:CI_Contact/gmd:phone/gmd:CI_Telephone/gmd:facsimile/gco:CharacterString"/>
+                <key label="deliveryPoint" tooltip="gmd:deliveryPoint"
+                     xpath="gmd:CI_ResponsibleParty/gmd:contactInfo/gmd:CI_Contact/gmd:address/gmd:CI_Address/gmd:deliveryPoint/gco:CharacterString"/>
+                <key label="city" tooltip="gmd:city"
+                     xpath="gmd:CI_ResponsibleParty/gmd:contactInfo/gmd:CI_Contact/gmd:address/gmd:CI_Address/gmd:city/gco:CharacterString"/>
+                <key label="administrativeArea" tooltip="gmd:administrativeArea"
+                     xpath="gmd:CI_ResponsibleParty/gmd:contactInfo/gmd:CI_Contact/gmd:address/gmd:CI_Address/gmd:administrativeArea/gco:CharacterString"/>
+                <key label="postalCode" tooltip="gmd:postalCode"
+                     xpath="gmd:CI_ResponsibleParty/gmd:contactInfo/gmd:CI_Contact/gmd:address/gmd:CI_Address/gmd:postalCode/gco:CharacterString"/>
+                <key label="country" tooltip="gmd:country"
+                     xpath="gmd:CI_ResponsibleParty/gmd:contactInfo/gmd:CI_Contact/gmd:address/gmd:CI_Address/gmd:country/gco:CharacterString"/>
+                <key label="electronicMailAddress" tooltip="gmd:electronicMailAddress"
+                     xpath="gmd:CI_ResponsibleParty/gmd:contactInfo/gmd:CI_Contact/gmd:address/gmd:CI_Address/gmd:electronicMailAddress/gco:CharacterString"
+                     use="email" required="true"/>
+                <key label="onlineResource" tooltip="gmd:onlineResource"
+                     xpath="gmd:CI_ResponsibleParty/gmd:contactInfo/gmd:CI_Contact/gmd:onlineResource/gmd:CI_OnlineResource/gmd:linkage/gmd:URL"/>
+                <key label="role" required="true" tooltip="gmd:CI_RoleCode"
+                     xpath="gmd:CI_ResponsibleParty/gmd:role/gmd:CI_RoleCode/@codeListValue">
+                  <codelist name="gmd:CI_RoleCode"/>
+                </key>
+              </values>
+              <snippet>
+                <gmd:contact>
+                  <gmd:CI_ResponsibleParty>
+                    <gmd:individualName><gco:CharacterString>{{individualName}}</gco:CharacterString></gmd:individualName>
+                    <gmd:organisationName><gco:CharacterString>{{organisationName}}</gco:CharacterString></gmd:organisationName>
+                    <gmd:positionName><gco:CharacterString>{{positionName}}</gco:CharacterString></gmd:positionName>
+                    <gmd:contactInfo>
+                      <gmd:CI_Contact>
+                        <gmd:phone>
+                          <gmd:CI_Telephone>
+                            <gmd:voice><gco:CharacterString>{{voice}}</gco:CharacterString></gmd:voice>
+                            <gmd:facsimile><gco:CharacterString>{{facsimile}}</gco:CharacterString></gmd:facsimile></gmd:CI_Telephone>
+                        </gmd:phone>
+                        <gmd:address>
+                          <gmd:CI_Address>
+                            <gmd:deliveryPoint><gco:CharacterString>{{deliveryPoint}}</gco:CharacterString></gmd:deliveryPoint>
+                            <gmd:city><gco:CharacterString >{{city}}</gco:CharacterString></gmd:city>
+                            <gmd:administrativeArea><gco:CharacterString >{{administrativeArea}}</gco:CharacterString></gmd:administrativeArea>
+                            <gmd:postalCode><gco:CharacterString >{{postalCode}}</gco:CharacterString></gmd:postalCode>
+                            <gmd:country><gco:CharacterString >{{country}}</gco:CharacterString></gmd:country>
+                            <gmd:electronicMailAddress><gco:CharacterString >{{electronicMailAddress}}</gco:CharacterString></gmd:electronicMailAddress>
+                          </gmd:CI_Address>
+                        </gmd:address>
+                        <gmd:onlineResource>
+                          <gmd:CI_OnlineResource><gmd:linkage><gmd:URL>{{onlineResource}}</gmd:URL></gmd:linkage></gmd:CI_OnlineResource>
+                        </gmd:onlineResource>
+                      </gmd:CI_Contact>
+                    </gmd:contactInfo>
+                    <gmd:role><gmd:CI_RoleCode codeListValue="{{role}}" codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_RoleCode"/></gmd:role>
+                  </gmd:CI_ResponsibleParty>
+                </gmd:contact>
+              </snippet>
+            </template>
+          </field>
+
+          <!--  5.2.12 Keyword value -->
+          <field
+            xpath="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/
+            gmd:descriptiveKeywords
+            [gmd:MD_Keywords/gmd:thesaurusName/gmd:CI_Citation/gmd:title/gco:CharacterString = 'INSPIRE Service taxonomy']"></field>
+
+          <field
+            xpath="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/
+            gmd:descriptiveKeywords/gmd:MD_Keywords[gmd:type/gmd:MD_KeywordTypeCode/@codeListValue='theme'
+            and not(gmd:thesaurusName)]/gmd:keyword"
+            or="keyword"
+            in="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/
+            gmd:descriptiveKeywords/gmd:MD_Keywords[gmd:type/gmd:MD_KeywordTypeCode/@codeListValue='theme'
+            and not(gmd:thesaurusName)]"/>
+          <!-- FIXME: MUST be provided in template and thesaurus available in the catalog, to be displayed properly -->
+
+          <!-- 5.2.13 Originating controlled vocabulary -->
+          <!-- 5.2.14 Geographic location -->
+          <field
+            xpath="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/
+              srv:extent/gmd:EX_Extent/gmd:geographicElement/gmd:EX_GeographicBoundingBox"/>
+          <action type="add" name="extent" or="extent" btnLabel="addExtent"
+                  in="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification"
+                  if="count(gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/
+              srv:extent/gmd:EX_Extent/gmd:geographicElement/gmd:EX_GeographicBoundingBox)=0">
+            <template>
+              <snippet>
+                <srv:extent>
+                  <gmd:EX_Extent>
+                    <gmd:geographicElement>
+                      <gmd:EX_GeographicBoundingBox>
+                        <gmd:westBoundLongitude>
+                          <gco:Decimal/>
+                        </gmd:westBoundLongitude>
+                        <gmd:eastBoundLongitude>
+                          <gco:Decimal/>
+                        </gmd:eastBoundLongitude>
+                        <gmd:southBoundLatitude>
+                          <gco:Decimal/>
+                        </gmd:southBoundLatitude>
+                        <gmd:northBoundLatitude>
+                          <gco:Decimal/>
+                        </gmd:northBoundLatitude>
+                      </gmd:EX_GeographicBoundingBox>
+                    </gmd:geographicElement>
+                  </gmd:EX_Extent>
+                </srv:extent>
+              </snippet>
+            </template>
+          </action>
+          <!-- 5.2.15 Temporal reference -->
+
+
+
+          <field templateModeOnly="true" notDisplayedIfMissing="true" del="."
+                 xpath="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/srv:extent/gmd:EX_Extent/gmd:temporalElement">
+            <template>
+              <values>
+                <!-- -Need a * for gml:TimePeriodTypeCHOICE_ELEMENT2 added by editor enumerated tree -->
+                <key label="beginPosition"
+                     xpath="gmd:EX_TemporalExtent/gmd:extent/gml:TimePeriod/*/gml:beginPosition"
+                     use="gn-date-picker"
+                     tooltip="gmd:extent|gmd:EX_TemporalExtent">
+                  <directiveAttributes data-hide-time="true"
+                                       data-tag-name="gml:beginPosition"/>
+                </key>
+                <key label="endPosition"
+                     xpath="gmd:EX_TemporalExtent/gmd:extent/gml:TimePeriod/*/gml:endPosition"
+                     use="gn-date-picker"
+                     tooltip="gmd:extent|gmd:EX_TemporalExtent"
+                >
+                  <directiveAttributes data-hide-time="true"
+                                       data-tag-name="gml:endPosition"/>
+                  <!--                      data-indeterminate-position="eval#gmd:EX_TemporalExtent/gmd:extent/gml:TimePeriod/*/gml:endPosition/@indeterminatePosition"/>-->
+                </key>
+              </values>
+              <snippet>
+                <gmd:temporalElement>
+                  <gmd:EX_TemporalExtent>
+                    <gmd:extent>
+                      <gml:TimePeriod id="period">
+                        <gml:beginPosition>2018-01-01</gml:beginPosition>
+                        <gml:endPosition>2018-01-01</gml:endPosition>
+                      </gml:TimePeriod>
+                    </gmd:extent>
+                  </gmd:EX_TemporalExtent>
+                </gmd:temporalElement>
+              </snippet>
+            </template>
+          </field>
+          <action type="add"
+                  if="count(gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/srv:extent/gmd:EX_Extent/gmd:temporalElement) = 0"
+                  btnLabel="addTemporalExtent"
+                  name="temporalExtent" or="temporalElement"
+                  in="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/srv:extent/gmd:EX_Extent">
+            <template>
+              <snippet>
+                <gmd:temporalElement>
+                  <gmd:EX_TemporalExtent>
+                    <gmd:extent>
+                      <gml:TimePeriod>
+                        <gml:beginPosition/>
+                        <gml:endPosition/>
+                      </gml:TimePeriod>
+                    </gmd:extent>
+                  </gmd:EX_TemporalExtent>
+                </gmd:temporalElement>
+              </snippet>
+            </template>
+          </action>
+
+
+
+          <!--  5.2.18 Specification  -->
+          <!--  5.2.19 Limitations on public access  -->
+          <!-- 5.2.20 Conditions applying to access and use  -->
+
+        </section>
+
+        <section name="referenceSystemInfo">
+          <!--     5.27 Code referentiesysteem ... -->
+          <field name="rsIdentifier" templateModeOnly="true"
+                 xpath="/gmd:MD_Metadata/gmd:referenceSystemInfo/gmd:MD_ReferenceSystem/gmd:referenceSystemIdentifier"
+                 del="../..">
+            <template>
+              <values>
+                <key label="code"
+                     xpath="gmd:RS_Identifier/gmd:code/gco:CharacterString"
+                     tooltip="gmd:code"/>
+                <key label="codeSpace" tooltip="gmd:codeSpace"
+                     xpath="gmd:RS_Identifier/gmd:codeSpace/gco:CharacterString"/>
+                <!-- TODO: Get the helper -->
+              </values>
+              <snippet>
+                <gmd:referenceSystemIdentifier>
+                  <gmd:RS_Identifier>
+                    <gmd:code>
+                      <gco:CharacterString>{{code}}</gco:CharacterString>
+                    </gmd:code>
+                    <gmd:codeSpace>
+                      <gco:CharacterString>{{codeSpace}}</gco:CharacterString>
+                    </gmd:codeSpace>
+                    <gn:copy select="gmd:version"/>
+                  </gmd:RS_Identifier>
+                </gmd:referenceSystemIdentifier>
+              </snippet>
+            </template>
+          </field>
+          <action type="add" del="."
+                  btnLabel="addReferenceSystem"
+                  or="referenceSystemInfo"
+                  in="/gmd:MD_Metadata">
+            <template>
+              <snippet>
+                <gmd:referenceSystemInfo>
+                  <gmd:MD_ReferenceSystem>
+                    <gmd:referenceSystemIdentifier>
+                      <gmd:RS_Identifier>
+                        <gmd:code>
+                          <gco:CharacterString></gco:CharacterString>
+                        </gmd:code>
+                        <gmd:codeSpace>
+                          <gco:CharacterString></gco:CharacterString>
+                        </gmd:codeSpace>
+                      </gmd:RS_Identifier>
+                    </gmd:referenceSystemIdentifier>
+                  </gmd:MD_ReferenceSystem>
+                </gmd:referenceSystemInfo>
+              </snippet>
+            </template>
+          </action>
+
+        </section>
+
+
+        <section name="restrictions">
+
+          <field del="." removable="true"
+                 xpath="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/gmd:resourceConstraints/gmd:MD_Constraints"/>
+          <action type="add"
+                  btnLabel="addResourceConstraints"
+                  name="resourceConstraints" or="resourceConstraints" forceLabel="true"
+                  in="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification"
+                  if="count(gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/gmd:resourceConstraints/gmd:MD_Constraints)=0">
+            <template>
+              <snippet>
+                <gmd:resourceConstraints>
+                  <gmd:MD_Constraints>
+                    <gmd:useLimitation>
+                      <gco:CharacterString></gco:CharacterString>
+                    </gmd:useLimitation>
+                  </gmd:MD_Constraints>
+                </gmd:resourceConstraints>
+              </snippet>
+            </template>
+          </action>
+
+
+          <field del="." removable="true"
+                 xpath="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/gmd:resourceConstraints/gmd:MD_LegalConstraints"/>
+
+          <action type="add"
+                  btnLabel="addResourceConstraints"
+                  name="resourceConstraints" or="resourceConstraints" forceLabel="true"
+                  in="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification"
+                  if="count(gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/gmd:resourceConstraints/gmd:MD_LegalConstraints)=0">
+            <template>
+              <snippet>
+                <gmd:resourceConstraints>
+                  <gmd:MD_LegalConstraints>
+                    <gmd:accessConstraints>
+                      <gmd:MD_RestrictionCode
+                        codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_RestrictionCode"
+                        codeListValue="otherRestrictions"/>
+                    </gmd:accessConstraints>
+                    <gmd:otherConstraints>
+                      <gco:CharacterString></gco:CharacterString>
+                    </gmd:otherConstraints>
+                    <gmd:otherConstraints>
+                      <gco:CharacterString></gco:CharacterString>
+                    </gmd:otherConstraints>
+                  </gmd:MD_LegalConstraints>
+                </gmd:resourceConstraints>
+              </snippet>
+            </template>
+          </action>
+
+
+
+        </section>
+
+
+        <section name="serviceInfo">
+
+
+          <!-- 5.2.3 Resource type - zie bij metadata -->
+
+          <!-- Resource locator - zie zijpneel -->
+          <!-- 5.2.5 Protocol -->
+          <!-- 5.2.6 Connect Point Linkage -->
+          <!-- 5.2.7 Coupled resource - zie zijpaneel-->
+
+          <!-- 5.2.8 Coupling Type -->
+          <field
+            xpath="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/srv:couplingType"/>
+          <action type="add"
+                  forceLabel="true"
+                  btnLabel="addCouplingType"
+                  or="serviceType"
+                  in="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification"
+                  if="count(gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/srv:couplingType) = 0">
+            <template>
+              <snippet>
+                <srv:couplingType></srv:couplingType>
+              </snippet>
+            </template>
+          </action>
+          <!-- 5.2.9 Spatial data service type -->
+          <field
+            xpath="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/srv:serviceType"/>
+          <action type="add"
+                  forceLabel="true"
+                  btnLabel="addServiceType"
+                  or="serviceType"
+                  in="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification"
+                  if="count(gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/srv:serviceType) = 0">
+            <template>
+              <snippet>
+                <srv:serviceType><gco:LocalName></gco:LocalName></srv:serviceType>
+              </snippet>
+            </template>
+          </action>
+
+          <field
+            xpath="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/srv:serviceTypeVersion"/>
+          <action type="add"
+                  forceLabel="true"
+                  btnLabel="addServiceTypeVersion"
+                  or="serviceTypeVersion"
+                  in="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification"
+                  if="count(gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/srv:serviceTypeVersion) = 0">
+            <template>
+              <snippet>
+                <srv:serviceTypeVersion><gco:CharacterString></gco:CharacterString></srv:serviceTypeVersion>
+              </snippet>
+            </template>
+          </action>
+
+          <!-- 5.2.10 Operation Name -->
+
+          <!-- 5.2.11 DCP -->
+          <field
+            xpath="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/srv:containsOperations"/>
+
+          <action type="add"
+                  forceLabel="true"
+                  btnLabel="addOperation"
+                  name="sds-addOperation"
+                  or="containsOperations"
+                  in="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification"
+                  if="count(gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification) > 0">
+            <template>
+              <snippet>
+                <srv:containsOperations>
+                  <srv:SV_OperationMetadata>
+                    <srv:operationName>
+                      <gco:CharacterString></gco:CharacterString>
+                    </srv:operationName>
+                    <srv:DCP>
+                      <srv:DCPList
+                        codeList="http://inspire.ec.europa.eu/metadata-codelist/DCPList"
+                        codeListValue="webServices">Web services
+                      </srv:DCPList>
+                    </srv:DCP>
+                    <srv:connectPoint>
+                      <gmd:CI_OnlineResource>
+                        <gmd:linkage>
+                          <gmd:URL>http://</gmd:URL>
+                        </gmd:linkage>
+                      </gmd:CI_OnlineResource>
+                    </srv:connectPoint>
+                  </srv:SV_OperationMetadata>
+                </srv:containsOperations>
+              </snippet>
+            </template>
+          </action>
+
+          <field name="coupledResource" templateModeOnly="true" notDisplayedIfMissing="true" del="."
+                 xpath="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/srv:coupledResource">
+            <template>
+              <values>
+                <key label="operationName" tooltip="srv:operationName"
+                     xpath="srv:SV_CoupledResource/srv:operationName/gco:CharacterString"/>
+                <key label="dsIdentifier" tooltip="srv:identifier"
+                     xpath="srv:SV_CoupledResource/srv:identifier/gco:CharacterString"/>
+                <key label="codeSpace" tooltip="codeSpace"
+                     xpath="srv:SV_CoupledResource/gco:ScopedName/@codeSpace"/>
+                <key label="layername" tooltip="gco:ScopedName"
+                     xpath="srv:SV_CoupledResource/gco:ScopedName"/>
+              </values>
+              <snippet>
+                <srv:coupledResource>
+                  <srv:SV_CoupledResource>
+                    <srv:operationName>
+                      <gco:CharacterString>{{operationName}}</gco:CharacterString>
+                    </srv:operationName>
+                    <srv:identifier>
+                      <gco:CharacterString>{{dsIdentifier}}</gco:CharacterString>
+                    </srv:identifier>
+                    <gco:ScopedName codeSpace="{{codeSpace}}">{{layername}}</gco:ScopedName>
+                  </srv:SV_CoupledResource>
+                </srv:coupledResource>
+              </snippet>
+            </template>
+          </field>
+
+          <action type="add" forceLabel="true"
+                  btnLabel="addCoupledResource"
+                  or="coupledResource"
+                  in="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification"
+                  if="count(gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification) > 0">
+            <template>
+              <snippet>
+                <srv:coupledResource>
+                  <srv:SV_CoupledResource>
+                    <srv:operationName>
+                      <gco:CharacterString></gco:CharacterString>
+                    </srv:operationName>
+                    <srv:identifier>
+                      <gco:CharacterString></gco:CharacterString>
+                    </srv:identifier>
+                    <gco:ScopedName codeSpace=""></gco:ScopedName>
+                  </srv:SV_CoupledResource>
+                </srv:coupledResource>
+              </snippet>
+            </template>
+          </action>
+
+          <field
+            xpath="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/srv:operatesOn"
+            name="operatesOn" templateModeOnly="true" notDisplayedIfMissing="true" del=".">
+
+            <template>
+              <values>
+                <key label="dsIdentifier" tooltip="uuidref"
+                     xpath="./@uuidref"/>
+                <key label="metadataLink" tooltip="xlink:href"
+                     xpath="./@xlink:href"/>
+                <key label="linkTitle" tooltip="xlink:title"
+                     xpath="./@xlink:title"/>
+              </values>
+              <snippet>
+                <srv:operatesOn uuidref="{{dsIdentifier}}" xlink:href="{{metadataLink}}" xlink:title="{{linkTitle}}"/>
+              </snippet>
+            </template>
+          </field>
+
+          <action type="add"
+                  forceLabel="true"
+                  btnLabel="addOperatesOn"
+                  or="operatesOn"
+                  in="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification"
+                  if="count(gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification) > 0">
+            <template>
+              <snippet>
+                <srv:operatesOn uuidref="" xlink:href="" xlink:title=""/>
+              </snippet>
+            </template>
+          </action>
+
+
+
+        </section>
+
+
+        <section name="dataQuality">
+
+
+          <!--  5.2.16 Scope -->
+          <field
+            xpath="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:scope"/>
+
+          <action type="add"
+                  btnLabel="addQualityLevel"
+                  if="count(gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:scope/gmd:DQ_Scope/gmd:level/gmd:MD_ScopeCode) = 0"
+                  name="DQ_Scope" or="DQ_Scope"
+                  in="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:scope">
+            <template>
+              <snippet>
+
+                <gmd:DQ_Scope>
+                  <gmd:level>
+                    <gmd:MD_ScopeCode
+                      codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#MD_ScopeCode"
+                      codeListValue="service"/>
+                  </gmd:level>
+                </gmd:DQ_Scope>
+
+              </snippet>
+            </template>
+          </action>
+          <action type="add"
+                  btnLabel="addQualityLevel"
+                  if="count(gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:scope) = 0"
+                  name="DQ_Scope" or="DQ_Scope"
+                  in="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality">
+            <template>
+              <snippet>
+                <gmd:scope>
+                  <gmd:DQ_Scope>
+                    <gmd:level>
+                      <gmd:MD_ScopeCode
+                        codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#MD_ScopeCode"
+                        codeListValue="service"/>
+                    </gmd:level>
+                  </gmd:DQ_Scope>
+                </gmd:scope>
+              </snippet>
+            </template>
+          </action>
+
+
+          <!-- 5.2.17 Degree -->
+
+          <field
+            xpath="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/gmd:DQ_DomainConsistency/gmd:result"/>
+
+
+          <action type="add"
+                  btnLabel="addConformance"
+                  name="conformanceStatement"
+                  or="report"
+                  in="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality">
+            <template>
+              <snippet>
+                <gmd:report>
+                  <gmd:DQ_DomainConsistency>
+                    <gmd:result>
+                      <gmd:DQ_ConformanceResult>
+                        <gmd:specification>
+                          <gmd:CI_Citation>
+                            <gmd:title>
+                              <gco:CharacterString></gco:CharacterString>
+                            </gmd:title>
+                            <gmd:date>
+                              <gmd:CI_Date>
+                                <gmd:date>
+                                  <gco:Date></gco:Date>
+                                </gmd:date>
+                                <gmd:dateType>
+                                  <gmd:CI_DateTypeCode
+                                    codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#CI_DateTypeCode"
+                                    codeListValue="publication"/>
+                                </gmd:dateType>
+                              </gmd:CI_Date>
+                            </gmd:date>
+                          </gmd:CI_Citation>
+                        </gmd:specification>
+                        <gmd:explanation>
+                          <gco:CharacterString></gco:CharacterString>
+                        </gmd:explanation>
+                        <gmd:pass>
+                          <gco:Boolean></gco:Boolean>
+                        </gmd:pass>
+                      </gmd:DQ_ConformanceResult>
+                    </gmd:result>
+                  </gmd:DQ_DomainConsistency>
+                </gmd:report>
+              </snippet>
+            </template>
+          </action>
+
+
+
+        </section>
+        <section name="Metadata">
+
+          <!-- 5.2.22 Responsible party role  -->
+
+
+          <!--  5.2.23 Metadata identifier  -->
+          <!--  5.2.24 Metadata point of contact  -->
+          <!--  5.53 Taal van de metadata.. -->
+          <field xpath="/gmd:MD_Metadata/gmd:language" or="language" in="/gmd:MD_Metadata"/>
+          <action type="add"
+                  btnLabel="addLanguage"
+                  if="count(gmd:MD_Metadata/gmd:language) = 0"
+                  name="md_language" or="language"
+                  in="/gmd:MD_Metadata">
+            <template>
+              <snippet>
+                <gmd:language>
+                  <gmd:LanguageCode codeList="http://www.loc.gov/standards/iso639-2/" codeListValue="dut">Nederlands
+                  </gmd:LanguageCode>
+                </gmd:language>
+              </snippet>
+            </template>
+          </action>
+
+          <!--  charcterset van de metadata.. -->
+          <field xpath="/gmd:MD_Metadata/gmd:characterSet" or="characterSet" in="/gmd:MD_Metadata"/>
+          <action type="add"
+                  btnLabel="addCharacterSet"
+                  if="count(gmd:MD_Metadata/gmd:characterSet) = 0"
+                  name="characterSet" or="characterSet"
+                  in="/gmd:MD_Metadata">
+            <template>
+              <snippet>
+                <gmd:characterSet>
+                  <gmd:MD_CharacterSetCode
+                    codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_CharacterSetCode"
+                    codeListValue="utf8">
+                  </gmd:MD_CharacterSetCode>
+                </gmd:characterSet>
+              </snippet>
+            </template>
+          </action>
+
+
+
+
+          <!-- 5.4 Hiërarchieniveau.-->
+          <field
+            xpath="/gmd:MD_Metadata/gmd:hierarchyLevel" removable="false" />
+
+          <action type="add"
+                  btnLabel="addHierarchy"
+                  or="hierarchyLevel"
+                  in="/gmd:MD_Metadata" >
+            <template>
+              <snippet>
+                <gmd:hierarchyLevel>
+                  <gmd:MD_ScopeCode
+                    codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_ScopeCode"
+                    codeListValue="service"/>
+                </gmd:hierarchyLevel>
+              </snippet>
+            </template>
+          </action>
+
+          <field
+            xpath="/gmd:MD_Metadata/gmd:hierarchyLevelName" removable="true" />
+          <action type="add"
+                  btnLabel="addHierarchyLevelName"
+                  name="hierarchyLevelName" or="hierarchyLevelName"
+                  in="/gmd:MD_Metadata">
+            <template>
+              <snippet>
+                <gmd:hierarchyLevelName>
+                  <gco:CharacterString></gco:CharacterString>
+                </gmd:hierarchyLevelName>
+              </snippet>
+            </template>
+          </action>
+
+          <!--  5.49 Verantwoordelijke organisatie metadata  -->
+
+
+          <field name="metadataPointOfContact" templateModeOnly="true"
+                 notDisplayedIfMissing="true"
+                 xpath="/gmd:MD_Metadata/gmd:contact" del=".">
+            <template>
+              <values readonlyIf="count(@xlink:href) > 0">
+                <key label="individualName" tooltip="gmd:individualName"
+                     xpath="gmd:CI_ResponsibleParty/gmd:individualName/gco:CharacterString"/>
+                <key label="organisationName" required="true" tooltip="gmd:organisationName"
+                     xpath="gmd:CI_ResponsibleParty/gmd:organisationName/gco:CharacterString"/>
+                <key label="positionName" tooltip="gmd:positionName"
+                     xpath="gmd:CI_ResponsibleParty/gmd:positionName/gco:CharacterString"/>
+                <key label="voice" tooltip="gmd:voice"
+                     xpath="gmd:CI_ResponsibleParty/gmd:contactInfo/gmd:CI_Contact/gmd:phone/gmd:CI_Telephone/gmd:voice/gco:CharacterString"/>
+                <key label="facsimile" tooltip="gmd:facsimile"
+                     xpath="gmd:CI_ResponsibleParty/gmd:contactInfo/gmd:CI_Contact/gmd:phone/gmd:CI_Telephone/gmd:facsimile/gco:CharacterString"/>
+                <key label="deliveryPoint" tooltip="gmd:deliveryPoint"
+                     xpath="gmd:CI_ResponsibleParty/gmd:contactInfo/gmd:CI_Contact/gmd:address/gmd:CI_Address/gmd:deliveryPoint/gco:CharacterString"/>
+                <key label="city" tooltip="gmd:city"
+                     xpath="gmd:CI_ResponsibleParty/gmd:contactInfo/gmd:CI_Contact/gmd:address/gmd:CI_Address/gmd:city/gco:CharacterString"/>
+                <key label="administrativeArea" tooltip="gmd:administrativeArea"
+                     xpath="gmd:CI_ResponsibleParty/gmd:contactInfo/gmd:CI_Contact/gmd:address/gmd:CI_Address/gmd:administrativeArea/gco:CharacterString"/>
+                <key label="postalCode" tooltip="gmd:postalCode"
+                     xpath="gmd:CI_ResponsibleParty/gmd:contactInfo/gmd:CI_Contact/gmd:address/gmd:CI_Address/gmd:postalCode/gco:CharacterString"/>
+                <key label="country" tooltip="gmd:country"
+                     xpath="gmd:CI_ResponsibleParty/gmd:contactInfo/gmd:CI_Contact/gmd:address/gmd:CI_Address/gmd:country/gco:CharacterString"/>
+                <key label="electronicMailAddress" tooltip="gmd:electronicMailAddress"
+                     xpath="gmd:CI_ResponsibleParty/gmd:contactInfo/gmd:CI_Contact/gmd:address/gmd:CI_Address/gmd:electronicMailAddress/gco:CharacterString"
+                     use="email" required="true"/>
+                <key label="onlineResource" tooltip="gmd:onlineResource"
+                     xpath="gmd:CI_ResponsibleParty/gmd:contactInfo/gmd:CI_Contact/gmd:onlineResource/gmd:CI_OnlineResource/gmd:linkage/gmd:URL"/>
+                <key label="role" required="true" tooltip="gmd:CI_RoleCode"
+                     xpath="gmd:CI_ResponsibleParty/gmd:role/gmd:CI_RoleCode/@codeListValue">
+                  <codelist name="gmd:CI_RoleCode"/>
+                </key>
+              </values>
+              <snippet>
+                <gmd:contact>
+                  <gmd:CI_ResponsibleParty>
+                    <gmd:individualName><gco:CharacterString>{{individualName}}</gco:CharacterString></gmd:individualName>
+                    <gmd:organisationName><gco:CharacterString>{{organisationName}}</gco:CharacterString></gmd:organisationName>
+                    <gmd:positionName><gco:CharacterString>{{positionName}}</gco:CharacterString></gmd:positionName>
+                    <gmd:contactInfo>
+                      <gmd:CI_Contact>
+                        <gmd:phone>
+                          <gmd:CI_Telephone>
+                            <gmd:voice><gco:CharacterString>{{voice}}</gco:CharacterString></gmd:voice>
+                            <gmd:facsimile><gco:CharacterString>{{facsimile}}</gco:CharacterString></gmd:facsimile></gmd:CI_Telephone>
+                        </gmd:phone>
+                        <gmd:address>
+                          <gmd:CI_Address>
+                            <gmd:deliveryPoint><gco:CharacterString>{{deliveryPoint}}</gco:CharacterString></gmd:deliveryPoint>
+                            <gmd:city><gco:CharacterString >{{city}}</gco:CharacterString></gmd:city>
+                            <gmd:administrativeArea><gco:CharacterString >{{administrativeArea}}</gco:CharacterString></gmd:administrativeArea>
+                            <gmd:postalCode><gco:CharacterString >{{postalCode}}</gco:CharacterString></gmd:postalCode>
+                            <gmd:country><gco:CharacterString >{{country}}</gco:CharacterString></gmd:country>
+                            <gmd:electronicMailAddress><gco:CharacterString >{{electronicMailAddress}}</gco:CharacterString></gmd:electronicMailAddress>
+                          </gmd:CI_Address>
+                        </gmd:address>
+                        <gmd:onlineResource>
+                          <gmd:CI_OnlineResource><gmd:linkage><gmd:URL>{{onlineResource}}</gmd:URL></gmd:linkage></gmd:CI_OnlineResource>
+                        </gmd:onlineResource>
+                      </gmd:CI_Contact>
+                    </gmd:contactInfo>
+                    <gmd:role><gmd:CI_RoleCode codeListValue="{{role}}" codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_RoleCode"/></gmd:role>
+                  </gmd:CI_ResponsibleParty>
+                </gmd:contact>
+              </snippet>
+            </template>
+          </field>
+
+          <action type="add" name="metadataPointOfContact"
+                  btnLabel="addPointOfContact"
+                  or="contact" in="/gmd:MD_Metadata">
+            <template>
+              <snippet>
+                <gmd:contact>
+                  <gmd:CI_ResponsibleParty>
+                    <gmd:organisationName><gco:CharacterString></gco:CharacterString></gmd:organisationName>
+                    <gmd:role><gmd:CI_RoleCode codeListValue="pointOfContact" codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_RoleCode"/></gmd:role>
+
+                  </gmd:CI_ResponsibleParty>
+                </gmd:contact>
+              </snippet>
+            </template>
+          </action>
+
+          <!--      5.50 Verantwoordelijke organisatie metadata: rol ..-->
+          <!--  5.51 Verantwoordelijke organisatie metadata: e-mail . -->
+          <!--    5.52 Metadata datum . -->
+
+
+          <!--      5.54 Metadata standaard naam -->
+          <field xpath="/gmd:MD_Metadata/gmd:metadataStandardName"/>
+          <action type="add"
+                  btnLabel="addStandardName"
+                  if="count(gmd:MD_Metadata/gmd:metadataStandardName) = 0"
+                  name="metadataStandardName" or="metadataStandardName"
+                  in="/gmd:MD_Metadata">
+            <template>
+              <snippet>
+                <gmd:metadataStandardName>
+                  <gco:CharacterString >ISO 19115</gco:CharacterString>
+                </gmd:metadataStandardName>
+              </snippet>
+            </template>
+          </action>
+
+
+          <!--    5.55 Metadata standaard versie -->
+          <field xpath="/gmd:MD_Metadata/gmd:metadataStandardVersion"/>
+          <action type="add"
+                  btnLabel="addStandardVersion"
+                  if="count(gmd:MD_Metadata/gmd:metadataStandardVersion) = 0"
+                  name="metadataStandardVersion" or="metadataStandardVersion"
+                  in="/gmd:MD_Metadata">
+            <template>
+              <snippet>
+                <gmd:metadataStandardVersion>
+                  <gco:CharacterString >Nederlands metadata profiel op ISO 19119 voor services 1.2.1
+                  </gco:CharacterString>
+                </gmd:metadataStandardVersion>
+              </snippet>
+            </template>
+          </action>
+
+
+          <!--  5.2.26 Metadata date  -->
+
+        </section>
+      </tab>
+
+    </view>
+
+    <view name="advanced" displayTooltips="true" displayTooltipsMode="icon">
+
+      <sidePanel>
+        <directive data-gn-validation-report=""/>
+        <directive data-gn-suggestion-list=""/>
+      </sidePanel>
+
+      <tab id="identificationInfo" default="true">
+        <text ref="fullViewTitle"/>
+        <text ref="fullViewDescription"/>
+
+        <directive data-gn-onlinesrc-list=""/>
+
+        <section xpath="/gmd:MD_Metadata/gmd:identificationInfo" or="identificationInfo"
+                 in="/gmd:MD_Metadata"/>
+
+        <section name="metadata">
+          <field xpath="/gmd:MD_Metadata/gmd:fileIdentifier"/>
+          <field xpath="/gmd:MD_Metadata/gmd:language" or="language" in="/gmd:MD_Metadata"/>
+          <field xpath="/gmd:MD_Metadata/gmd:characterSet"/>
+          <field xpath="/gmd:MD_Metadata/gmd:hierarchyLevel" or="hierarchyLevel"
+                 in="/gmd:MD_Metadata"/>
+          <field xpath="/gmd:MD_Metadata/gmd:hierarchyLevelName" or="hierarchyLevelName"
+                 in="/gmd:MD_Metadata"/>
+          <field xpath="/gmd:MD_Metadata/gmd:dateStamp"/>
+          <field xpath="/gmd:MD_Metadata/gmd:metadataStandardName"/>
+          <field xpath="/gmd:MD_Metadata/gmd:metadataStandardVersion"/>
+          <field xpath="/gmd:MD_Metadata/gmd:contact" or="contact" in="/gmd:MD_Metadata"/>
+          <field xpath="/gmd:MD_Metadata/gmd:dataSetURI" or="dataSetURI" in="/gmd:MD_Metadata"/>
+          <field xpath="/gmd:MD_Metadata/gmd:locale" or="locale" in="/gmd:MD_Metadata"/>
+          <field xpath="/gmd:MD_Metadata/gmd:series"/>
+          <field xpath="/gmd:MD_Metadata/gmd:describes"/>
+          <field xpath="/gmd:MD_Metadata/gmd:propertyType"/>
+          <field xpath="/gmd:MD_Metadata/gmd:featureType"/>
+          <field xpath="/gmd:MD_Metadata/gmd:featureAttribute"/>
+        </section>
+      </tab>
+      <tab id="metadataConstraints" toggle="true">
+        <text ref="fullViewTitle"/>
+        <text ref="fullViewDescription"/>
+
+        <directive data-gn-onlinesrc-list=""/>
+
+        <section xpath="/gmd:MD_Metadata/gmd:metadataConstraints" or="metadataConstraints"
+                 in="/gmd:MD_Metadata"/>
+      </tab>
+      <tab id="metadataMaintenance" toggle="true">
+        <text ref="fullViewTitle"/>
+        <text ref="fullViewDescription"/>
+
+        <directive data-gn-onlinesrc-list=""/>
+
+        <section xpath="/gmd:MD_Metadata/gmd:metadataMaintenance" or="metadataMaintenance"
+                 in="/gmd:MD_Metadata"/>
+      </tab>
+      <tab id="applicationSchemaInfo" toggle="true">
+        <text ref="fullViewTitle"/>
+        <text ref="fullViewDescription"/>
+
+        <directive data-gn-onlinesrc-list=""/>
+
+        <section xpath="/gmd:MD_Metadata/gmd:applicationSchemaInfo" or="applicationSchemaInfo"
+                 in="/gmd:MD_Metadata"/>
+      </tab>
+    </view>
+
+    <view name="xml">
+
+      <sidePanel>
+        <directive data-gn-validation-report=""/>
+        <directive data-gn-suggestion-list=""/>
+      </sidePanel>
+
+      <text ref="xmlViewTitle"/>
+      <text ref="xmlViewDescription"/>
+
+      <directive data-gn-onlinesrc-list=""/>
+
+      <tab id="xml" default="true"/>
+    </view>
+  </views>
+  <batchEditing>
+    <section name="identification">
+      <!-- Update existing title in metadata record -->
+      <field name="title"
+             xpath="gmd:identificationInfo/*/gmd:citation/*/gmd:title"
+             insertMode="gn_replace"
+             indexField="title">
+        <template><![CDATA[<gco:CharacterString xmlns:gco='http://www.isotc211.org/2005/gco'>{{value}}</gco:CharacterString>]]></template>
+      </field>
+
+      <!-- Insert a new keyword in the first gmd:descriptiveKeywords found.
+      Warning: The section may contains a thesaurusName reference and
+      the keyword may not be part of it.
+      Warning: Duplicates may be inserted.
+      -->
+      <field name="keyword"
+             xpath="gmd:identificationInfo/gmd:MD_DataIdentification/
+                      gmd:descriptiveKeywords/gmd:MD_Keywords/gmd:keyword"
+             indexField="keyword"
+             insertMode="gn_create">
+        <template>
+          <![CDATA[<gco:CharacterString xmlns:gco='http://www.isotc211.org/2005/gco'>{{value}}</gco:CharacterString>]]></template>
+      </field>
+
+      <!-- Insert a new topic category
+      Warning: Duplicates may be inserted.
+      -->
+      <field name="topicCats"
+             xpath="gmd:identificationInfo/*/
+                      gmd:topicCategory"
+             use="data-gn-codelist-picker"
+             codelist="gmd:MD_TopicCategoryCode"
+             indexField="topicCat"
+             insertMode="gn_create">
+        <template>
+          <![CDATA[<gmd:MD_TopicCategoryCode xmlns:gmd='http://www.isotc211.org/2005/gmd'>{{value}}</gmd:MD_TopicCategoryCode>]]></template>
+      </field>
+
+      <!-- Insert a new extent
+      Warning: Duplicates may be inserted.
+      -->
+      <field name="extent"
+             xpath="gmd:identificationInfo/gmd:MD_DataIdentification/gmd:extent"
+             use="data-gn-draw-bbox"
+             insertMode="gn_create"/>
+
+      <!-- Insert a new resource language
+      Warning: Duplicates may be inserted.
+      -->
+      <field name="language"
+             xpath="gmd:identificationInfo/*/
+                      gmd:language"
+             use="data-gn-language-picker"
+             insertMode="gn_replace"
+             removable="true">
+        <template>
+          <![CDATA[<gmd:LanguageCode xmlns:gmd='http://www.isotc211.org/2005/gmd' codeListValue='{{value}}'/>]]></template>
+      </field>
+
+      <!-- Insert, or replace if existing, the parent identifier.
+      Warning: Duplicates may be inserted.
+      -->
+      <field name="parentIdentifier"
+             xpath="gmd:parentIdentifier"
+             use="data-gn-metadata-picker"
+             insertMode="gn_replace"
+             removable="true">
+        <template>
+          <![CDATA[<gco:CharacterString xmlns:gco='http://www.isotc211.org/2005/gco'>{{value}}</gco:CharacterString>]]></template>
+      </field>
+
+      <field name="resourceStatus"
+             xpath="gmd:identificationInfo/*/
+                      gmd:status"
+             use="data-gn-codelist-picker"
+             codelist="gmd:MD_ProgressCode"
+             insertMode="gn_replace"
+             removable="true">
+        <template>
+          <![CDATA[<gmd:MD_ProgressCode xmlns:gmd='http://www.isotc211.org/2005/gmd' codeListValue='{{value}}'/>]]></template>
+      </field>
+    </section>
+
+    <section name="resourceConstraints">
+      <!-- Insert a new access contraints
+            Warning: Duplicates may be inserted.
+      -->
+      <field name="legalConstraints"
+             xpath="gmd:identificationInfo/*/
+                      gmd:resourceConstraints/gmd:MD_LegalConstraints/
+                        gmd:accessConstraints"
+             use="data-gn-codelist-picker"
+             codelist="gmd:MD_RestrictionCode"
+             insertMode="gn_create"
+             removable="true">
+        <template>
+          <![CDATA[<gmd:MD_RestrictionCode xmlns:gmd='http://www.isotc211.org/2005/gmd' codeListValue='{{value}}'/>]]></template>
+      </field>
+
+      <!-- Insert a new other contraints
+            Warning: Duplicates may be inserted.
+      -->
+      <field name="otherConstraints"
+             xpath="gmd:identificationInfo/*/
+                      gmd:resourceConstraints/gmd:MD_LegalConstraints/
+                        gmd:otherConstraints"
+             use="textarea"
+             insertMode="gn_create"
+             removable="true">
+        <template>
+          <![CDATA[<gco:CharacterString xmlns:gco='http://www.isotc211.org/2005/gco'>{{value}}</gco:CharacterString>]]></template>
+      </field>
+    </section>
+
+
+    <!-- Replace current lineage or insert a new one.
+          Warning: Duplicates may be inserted.
+    -->
+    <section name="quality">
+      <field name="lineage"
+             xpath="gmd:dataQualityInfo/gmd:DQ_DataQuality/
+                      gmd:lineage/gmd:LI_Lineage/gmd:statement"
+             use="textarea"
+             insertMode="gn_replace"
+             removable="true">
+        <template>
+          <![CDATA[<gco:CharacterString xmlns:gco='http://www.isotc211.org/2005/gco'>{{value}}</gco:CharacterString>]]></template>
+      </field>
+    </section>
+
+    <section name="contact">
+      <field name="resourceContact"
+             xpath="gmd:identificationInfo/gmd:MD_DataIdentification/gmd:pointOfContact"
+             use="data-gn-directory-entry-selector"
+             insertMode="gn_create"/>
+      <field name="distributor"
+             xpath="gmd:distributionInfo/gmd:MD_Distribution/gmd:distributor/gmd:MD_Distributor/gmd:distributorContact"
+             use="data-gn-directory-entry-selector"
+             insertMode="gn_create"/>
+      <field name="mdContact"
+             xpath="gmd:contact"
+             use="data-gn-directory-entry-selector"
+             insertMode="gn_create"/>
+    </section>
+
+    <section name="metadata">
+      <field name="mdLanguage"
+             xpath="gmd:language"
+             use="data-gn-language-picker"
+             removable="true">
+        <template>
+          <![CDATA[<gmd:LanguageCode xmlns:gmd='http://www.isotc211.org/2005/gmd' codeListValue='{{value}}'/>]]></template>
+      </field>
+    </section>
+  </batchEditing>
+</editor>
