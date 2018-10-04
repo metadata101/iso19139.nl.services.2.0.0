@@ -432,7 +432,7 @@
 
   <!-- View configuration -->
   <views>
-    <view name="default" upAndDownControlHidden="true" displayTooltips="true" displayTooltipsMode="icon">
+    <view name="default" hideTimeInCalendar="true" upAndDownControlHidden="true" displayTooltips="true" displayTooltipsMode="icon">
 
       <sidePanel>
         <directive data-gn-validation-report=""/>
@@ -1314,7 +1314,7 @@
 
     </view>
 
-    <view name="advanced" displayTooltips="true" displayTooltipsMode="icon">
+    <view name="advanced" hideTimeInCalendar="true" displayTooltips="true" displayTooltipsMode="icon">
 
       <sidePanel>
         <directive data-gn-validation-report=""/>
