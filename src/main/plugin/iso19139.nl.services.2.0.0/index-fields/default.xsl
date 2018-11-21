@@ -747,13 +747,49 @@
         <!-- extract the uuid from csw request and add as operateson -->
         <Field name="operatesOn" string="{tokenize(tokenize(string(.),'&amp;id=')[2],'&amp;')[1]}" store="true"
                index="true"/>
-        <!-- also store the full URI in case this is not a CSW request -->
-        <Field name="operatesOn" string="{string(.)}" store="true"
-               index="true"/>
-        <!-- todo: In case this is not a CSW request but a URI,
-             resolve the URI to a metadata document, and extract
-             the UUID from the resolved document (option to store
-             the document in the catalogue if it's not yet available) -->
+
+
+        <xsl:variable name="xlinkHref" select="." />
+        <xsl:message>xlink:href: <xsl:value-of select="$xlinkHref" /> -  <xsl:value-of select="not(starts-with($xlinkHref, $siteUrl))" /></xsl:message>
+
+        <xsl:choose>
+          <xsl:when test="not(starts-with($xlinkHref, $siteUrl))">
+            <!-- also store the full URI in case this is not a CSW request -->
+            <!--<Field name="operatesOn" string="{string(.)}" store="true"
+                   index="true"/>-->
+            <!-- todo: In case this is not a CSW request but a URI,-->
+            <!-- resolve the URI to a metadata document, and extract
+            the UUID from the resolved document (option to store
+            the document in the catalogue if it's not yet available) -->
+
+
+            <!-- remote url: request the document to index data -->
+            <xsl:variable name="remoteDoc" select="util:getUrlContent(.)" />
+
+            <!-- Remote url that uuid is stored also locally: Use local -->
+            <xsl:variable name="datasetUuid" select="$remoteDoc//gmd:fileIdentifier/gco:CharacterString" />
+
+            <xsl:variable name="existsLocally" select="not(normalize-space(util:getRecord($datasetUuid)) = '')" />
+
+            <xsl:choose>
+              <xsl:when test="not($existsLocally)">
+                <xsl:variable name="datasetTitle" select="$remoteDoc//*[gmd:MD_DataIdentification or @gco:isoType='gmd:MD_DataIdentification']//gmd:citation//gmd:title/gco:CharacterString" />
+
+                <xsl:variable name="datasetAbstract" select="$remoteDoc//*[gmd:MD_DataIdentification or @gco:isoType='gmd:MD_DataIdentification']//gmd:abstract/gco:CharacterString" />
+
+                <Field name="operatesOnRemote" string="{concat($datasetUuid, '|', normalize-space($datasetTitle), '|', normalize-space($datasetAbstract), '|', $xlinkHref)}" store="true"
+                       index="true"/>
+              </xsl:when>
+              <xsl:otherwise>
+                <Field name="operatesOn" string="{$datasetUuid}" store="true"
+                       index="true"/>
+              </xsl:otherwise>
+            </xsl:choose>
+          </xsl:when>
+          <xsl:otherwise>
+
+          </xsl:otherwise>
+        </xsl:choose>
       </xsl:for-each>
 
       <xsl:for-each
