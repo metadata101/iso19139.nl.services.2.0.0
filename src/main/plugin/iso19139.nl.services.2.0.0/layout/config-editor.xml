@@ -47,11 +47,14 @@
     <for name="gmd:orderingInstructions" use="textarea"/>
     <for name="gmd:otherConstraints" use="textarea"/>
     <for name="gmd:statement" use="textarea"/>
-    <for name="gmd:supplementalInformation" use="textarea"/>
+    <!--<for name="gmd:supplementalInformation" use="textarea"/>-->
     <for name="gmd:specificUsage" use="textarea"/>
     <for name="gmd:userNote" use="textarea"/>
     <for name="gmd:useLimitation" use="textarea"/>
 
+    <for name="gmd:code" xpath="/gmd:MD_Metadata/gmd:identifier/gmd:MD_Identifier/gmd:code" use="data-gn-anchor-switcher"/>
+    <for name="gmd:supplementalInformation" use="data-gn-anchor-switcher"/>
+    <for name="gmd:organisationName" use="data-gn-anchor-switcher"/>
 
     <for name="gco:Distance" use="number"/>
     <for name="gco:Decimal" use="number"/>
@@ -781,21 +784,7 @@
 
           <field
             xpath="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/srv:operatesOn"
-            name="operatesOn" templateModeOnly="true" notDisplayedIfMissing="true" del=".">
-
-            <template>
-              <values>
-                <key label="dsIdentifier" tooltip="uuidref"
-                     xpath="./@uuidref"/>
-                <key label="metadataLink" tooltip="xlink:href"
-                     xpath="./@xlink:href"/>
-                <key label="linkTitle" tooltip="xlink:title"
-                     xpath="./@xlink:title"/>
-              </values>
-              <snippet>
-                <srv:operatesOn uuidref="{{dsIdentifier}}" xlink:href="{{metadataLink}}" xlink:title="{{linkTitle}}"/>
-              </snippet>
-            </template>
+            name="operatesOn"  notDisplayedIfMissing="true">
           </field>
 
           <action type="add"
@@ -806,7 +795,7 @@
                   if="count(gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification) > 0">
             <template>
               <snippet>
-                <srv:operatesOn uuidref="" xlink:href="" xlink:title=""/>
+                <srv:operatesOn xlink:href="" />
               </snippet>
             </template>
           </action>
