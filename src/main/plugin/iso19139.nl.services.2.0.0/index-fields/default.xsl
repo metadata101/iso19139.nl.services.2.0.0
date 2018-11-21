@@ -748,9 +748,9 @@
         <Field name="operatesOn" string="{tokenize(tokenize(string(.),'&amp;id=')[2],'&amp;')[1]}" store="true"
                index="true"/>
 
+        <xsl:variable name="siteUrl" select="util:getSiteUrl()" />
 
         <xsl:variable name="xlinkHref" select="." />
-        <xsl:message>xlink:href: <xsl:value-of select="$xlinkHref" /> -  <xsl:value-of select="not(starts-with($xlinkHref, $siteUrl))" /></xsl:message>
 
         <xsl:choose>
           <xsl:when test="not(starts-with($xlinkHref, $siteUrl))">
