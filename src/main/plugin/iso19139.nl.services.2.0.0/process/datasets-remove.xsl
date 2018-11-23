@@ -25,7 +25,8 @@
 <xsl:stylesheet xmlns:geonet="http://www.fao.org/geonetwork" xmlns:gco="http://www.isotc211.org/2005/gco"
                 xmlns:srv="http://www.isotc211.org/2005/srv"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                version="2.0">
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                version="2.0" exclude-result-prefixes="#all">
   <xsl:import href="../../iso19139/process/datasets-remove.xsl"/>
 
   <!-- TODO: Review with ISO19139 version, some differences -->
