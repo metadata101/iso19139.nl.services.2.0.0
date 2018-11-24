@@ -31,9 +31,9 @@
   <!-- Register here the list of process for the schema-->
   <!--<xsl:include href="process/keywords-comma-exploder.xsl"/>
   <xsl:include href="process/scale-denominator-formatter.xsl"/>
-  <xsl:include href="process/add-extent-from-geokeywords.xsl"/>-->
-  <xsl:include href="process/add-info-from-wms.xsl"/>
-  <xsl:include href="process/add-service-info-from-wxs.xsl"/>
+  <xsl:include href="process/add-extent-from-geokeywords.xsl"/>
+  <xsl:include href="process/add-info-from-wms.xsl"/>-->
+  <xsl:include href="process/add-service-info-from-wxs-nl-200.xsl"/>
   <xsl:include href="process/linked-data-checker.xsl"/>
   <xsl:include href="process/related-metadata-checker.xsl"/>
   <!--<xsl:include href="process/add-resource-id.xsl"/>
@@ -46,8 +46,8 @@
 
   <xsl:variable name="processes">
     <p>linked-data-checker</p>
-    <p>add-info-from-wms</p>
-    <p>add-service-info-from-wxs-nl</p>
+    <!--<p>add-info-from-wms</p>-->
+    <p>add-service-info-from-wxs-nl-200</p>
     <p>related-metadata-checker</p>
     <p>inspire-themes-and-topiccategory</p>
   </xsl:variable>
