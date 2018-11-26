@@ -160,6 +160,9 @@
                                             gmd:code/gmx:Anchor/
                                               concat('-', substring-after(text()[. != ''], 'geonetwork.thesaurus.')), ',')"/>-->
     </for>
+    <for name="gmd:code" use="data-gn-anchor-switcher2">
+
+    </for>
   </fields>
 
 
