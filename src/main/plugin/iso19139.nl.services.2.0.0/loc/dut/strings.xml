@@ -65,7 +65,7 @@
   <!-- INSPIRE view labels and help -->
   <url>Online resource</url>
   <identifier>Resource identifier</identifier>
-  <rsIdentifier>Projection</rsIdentifier>
+
   <referenceDate>Temporal information</referenceDate>
   <creationDate>Creation date</creationDate>
   <hierarchyLevel>Hierarchy level</hierarchyLevel>
@@ -85,12 +85,11 @@
   <organisationName>Organisation name</organisationName>
   <electronicMailAddress>Email</electronicMailAddress>
   <role>Role</role>
-  <encoding>Encoding</encoding>
+
   <inspireTheme>INSPIRE themes</inspireTheme>
   <inspireThemeURI>INSPIRE themes</inspireThemeURI>
-  <format>Format</format>
-  <format_version>Version</format_version>
-  <format_specification>Specification</format_specification>
+
+
   <lineage>Lineage</lineage>
   <spatialResolution>Spatial resolution (scale)</spatialResolution>
   <spatialDistance>Spatial resolution (distance)</spatialDistance>
@@ -115,7 +114,6 @@
   <metadataLanguage>Metadata language</metadataLanguage>
   <inspireServiceTaxonomy>INSPIRE Service Taxonomy</inspireServiceTaxonomy>
   <otherConstraints>Other constraints</otherConstraints>
-  <operatesOn>Coupled resource</operatesOn>
   <extent>Geographic bounding box</extent>
   <freeTextKeywords>Other keywords</freeTextKeywords>
 
@@ -208,7 +206,7 @@
 
   <!-- Dutch schema custom strings -->
   <viewTitle>
-    <h3>Basis weergave</h3>
+    <h3>Nederlands profiel voor Services 2.0 - Basis</h3>
   </viewTitle>
   <viewDescription>
     <div>Het basis formulier kan gebruikt worden voor het bewerken van metadata van Nederlandstalige datasets die
@@ -219,14 +217,14 @@
   </viewDescription>
 
   <dutchProfileTitle>
-    <h3>Nederlands profiel weergave</h3>
+    <h3>Nederlands profiel voor Services 2.0 - Volledig</h3>
   </dutchProfileTitle>
   <dutchProfileDescription>
     <div>In deze weergave worden alle elementen van het Nederlands profiel getoond.</div>
   </dutchProfileDescription>
 
   <fullViewTitle>
-    <h3>Volledige weergave</h3>
+    <h3>Volledige iso19139 + services weergave</h3>
   </fullViewTitle>
   <fullViewDescription>
     <div>De volledige weergave toont alle ISO elementen.</div>
@@ -322,7 +320,7 @@
   <addOperatesOn>Dataset koppeling toevoegen</addOperatesOn>
 
   <operationName>Operatienaam</operationName>
-  <identifier>Identifier</identifier>
+
   <layername>Laagnaam</layername>
   <value>Waarde</value>
   <measure>Maatregel</measure>
