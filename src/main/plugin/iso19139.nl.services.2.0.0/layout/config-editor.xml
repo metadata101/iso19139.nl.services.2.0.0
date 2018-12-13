@@ -390,7 +390,9 @@
 
   <!-- View configuration -->
   <views>
-    <view name="Basis" hideTimeInCalendar="true" upAndDownControlHidden="true" displayTooltips="true" displayTooltipsMode="icon">
+    <view name="Basis" default="true"
+      hideTimeInCalendar="true" upAndDownControlHidden="true"
+      displayTooltips="true" displayTooltipsMode="icon">
 
       <sidePanel>
         <directive data-gn-validation-report=""/>
@@ -402,7 +404,8 @@
         <text ref="viewTitle"/>
         <text ref="viewDescription"/>
 
-        <directive data-gn-onlinesrc-list=""/>
+        <directive data-gn-onlinesrc-list=""
+          types="thumbnail|onlinesrc|dataset"/>
 
         <section name="Basis">
 
@@ -961,7 +964,8 @@
 
 
     <view
-        name="dutchprofile" hideTimeInCalendar="true" upAndDownControlHidden="true"
+        name="dutchprofile"
+        upAndDownControlHidden="true" hideTimeInCalendar="true"
         displayTooltips="true" displayTooltipsMode="icon">
 
       <sidePanel>
@@ -974,7 +978,8 @@
         <text ref="dutchProfileTitle"/>
         <text ref="dutchProfileDescription"/>
 
-        <directive data-gn-onlinesrc-list=""/>
+        <directive data-gn-onlinesrc-list=""
+          types="thumbnail|onlinesrc|dataset"/>
 
         <section name="dataIdentificatie">
 
@@ -1665,6 +1670,21 @@
         </section>
 
         <section name="distributionInfo">
+
+ <!-- Butotn to add distribution section if not present -->
+          <action type="add"
+                  btnLabel="addDistribution"
+                  name="distributionInfo" or="distributionInfo"
+                  if="count(gmd:MD_Metadata/gmd:distributionInfo) = 0"
+                  in="/gmd:MD_Metadata">
+            <template>
+              <snippet>
+                <gmd:distributionInfo>
+                  <gmd:MD_Distribution />
+                </gmd:distributionInfo>
+              </snippet>
+            </template>
+          </action>
 
           <!-- Naam distributie formaat . -->
           <field name="encoding" templateModeOnly="true" notDisplayedIfMissing="true"
@@ -2451,7 +2471,9 @@
       </thesaurusList>
     </view>
 
-    <view name="advanced" hideTimeInCalendar="true" displayTooltips="true" displayTooltipsMode="icon">
+    <view name="advanced"
+      upAndDownControlHidden="true" hideTimeInCalendar="true"
+      displayTooltips="true" displayTooltipsMode="icon">
 
       <sidePanel>
         <directive data-gn-validation-report=""/>
@@ -2462,7 +2484,8 @@
         <text ref="fullViewTitle"/>
         <text ref="fullViewDescription"/>
 
-        <directive data-gn-onlinesrc-list=""/>
+        <directive data-gn-onlinesrc-list=""
+          types="thumbnail|onlinesrc|dataset"/>
 
         <section xpath="/gmd:MD_Metadata/gmd:identificationInfo" or="identificationInfo"
                  in="/gmd:MD_Metadata"/>
@@ -2492,7 +2515,8 @@
         <text ref="fullViewTitle"/>
         <text ref="fullViewDescription"/>
 
-        <directive data-gn-onlinesrc-list=""/>
+        <directive data-gn-onlinesrc-list=""
+          types="thumbnail|onlinesrc|dataset"/>
 
         <section xpath="/gmd:MD_Metadata/gmd:metadataConstraints" or="metadataConstraints"
                  in="/gmd:MD_Metadata"/>
@@ -2501,7 +2525,8 @@
         <text ref="fullViewTitle"/>
         <text ref="fullViewDescription"/>
 
-        <directive data-gn-onlinesrc-list=""/>
+        <directive data-gn-onlinesrc-list=""
+          types="thumbnail|onlinesrc|dataset"/>
 
         <section xpath="/gmd:MD_Metadata/gmd:metadataMaintenance" or="metadataMaintenance"
                  in="/gmd:MD_Metadata"/>
@@ -2510,7 +2535,8 @@
         <text ref="fullViewTitle"/>
         <text ref="fullViewDescription"/>
 
-        <directive data-gn-onlinesrc-list=""/>
+        <directive data-gn-onlinesrc-list=""
+          types="thumbnail|onlinesrc|dataset"/>
 
         <section xpath="/gmd:MD_Metadata/gmd:applicationSchemaInfo" or="applicationSchemaInfo"
                  in="/gmd:MD_Metadata"/>
