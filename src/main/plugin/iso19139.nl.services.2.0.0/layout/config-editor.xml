@@ -1988,10 +1988,13 @@
           </action>
 
           <!--   5.33 Conformiteitindicatie met de specificatie  -->
-          <field
-            xpath="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/gmd:DQ_DomainConsistency/gmd:result"/>
+          <field name="conformanceStatement"
+                 xpath="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report[gmd:DQ_DomainConsistency]"
+                 or="report"
+                 in="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality"/>
 
-          <action type="add"
+
+          <!--<action type="add"
                   btnLabel="addConformance"
                   name="conformanceStatement"
                   or="report"
@@ -2033,7 +2036,7 @@
                 </gmd:report>
               </snippet>
             </template>
-          </action>
+          </action>-->
 
           <!--    5.34 Verklaring.. -->
           <!--      5.35 Specificatie  -->
