@@ -1225,8 +1225,8 @@
 
   <element name="srv:DCP"
            context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/srv:containsOperations/srv:SV_OperationMetadata/srv:DCP">
-    <label>DCP</label>
-    <description>DCP staat voor Distributed Computing Platforms waarop de operatie is geimplementeerd.INSPIRE gaat
+    <label>Platform</label>
+    <description>Distributed Computing Platforms waarop de operatie is geimplementeerd.INSPIRE gaat
       van de default waarde WebServices uit.
     </description>
     <help_link>http://wiki.geonovum.nl/index.php/2.5.12_DCP</help_link>
@@ -1237,8 +1237,8 @@
 
   <element name="srv:DCPList"
            context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/srv:containsOperations/srv:SV_OperationMetadata/srv:DCP/srv:DCPList">
-    <label>Distributed Computing Platforms List</label>
-    <description>DCP staat voor Distributed Computing Platforms waarop de operatie is geimplementeerd.</description>
+    <label>Platforms List</label>
+    <description>Lijst van Distributed Computing Platforms waarop de operatie is geimplementeerd.</description>
   </element>
 
   <!-- ==================================================== -->
