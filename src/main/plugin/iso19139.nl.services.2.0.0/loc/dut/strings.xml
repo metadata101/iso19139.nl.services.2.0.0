@@ -211,18 +211,18 @@
     <h3>Nederlands profiel voor Services 2.0 - Basis</h3>
   </viewTitle>
   <viewDescription>
-    <div>Het basis formulier kan gebruikt worden voor het bewerken van metadata van Nederlandstalige datasets die
+    <div>Het basis formulier kan gebruikt worden voor het bewerken van metadata van services op Nederlandstalige datasets die
       gebaseerd zijn op het Rijksdriehoekstelsel. Dit formulier toont een beperkte set van elementen en doet een
       aantal aannames. Voor het bewerken van alle elementen uit het Nederlands profiel gebruikt u het formulier
-      met titel "Nederlands profiel" (via de weergave knop met het "oogje" aan de rechter zijkant).
+      met titel "Optionele &amp; conditionele elementen" (via de weergave knop met het "oogje" aan de rechter zijkant).
     </div>
   </viewDescription>
 
   <dutchProfileTitle>
-    <h3>Nederlands profiel voor Services 2.0 - Optionele elementen</h3>
+    <h3>Nederlands profiel voor Services 2.0 - Optionele &amp; conditionele elementen</h3>
   </dutchProfileTitle>
   <dutchProfileDescription>
-    <div>In deze weergave worden ook de optionele elementen van het Nederlands profiel getoond.</div>
+    <div>In deze weergave worden ook de optionele en conditionele elementen van het Nederlands profiel getoond.</div>
   </dutchProfileDescription>
 
   <fullViewTitle>
@@ -339,4 +339,6 @@
   <addUseConstraint>Gebruiksbeperking toevoegen</addUseConstraint>
   <addOtherConstraint>Overige beperking toevoegen</addOtherConstraint>
   <addConceptualConsistency>Conceptuele consistentie toevoegen</addConceptualConsistency>
+  <addQualityScope>Niveau kwaliteitsbeschrijving toevoegen</addQualityScope>
+  <addQualityScopeDesc>Beschrijving niveau kwaliteitsbeschrijving toevoegen</addQualityScopeDesc>
 </strings>
