@@ -30,7 +30,7 @@
   <mdContactInfo>Metadata contact</mdContactInfo>
   <refDate>Referentie datum</refDate>
   <temporalRef>Temporele informatie</temporalRef>
-  <constraintInfo>Toegang restrictie informatie</constraintInfo>
+  <constraintInfo>Beperkingen</constraintInfo>
 
   <!-- New strings added for the AngularJS editor -->
   <!-- View and tabs -->
@@ -58,7 +58,7 @@
   <referenceSystemInfo>Ref. systeem</referenceSystemInfo>
   <contentInfo>Inhoud</contentInfo>
   <portrayalCatalogueInfo>Weergave</portrayalCatalogueInfo>
-  <metadataConstraints>Md. restricties</metadataConstraints>
+  <metadataConstraints>Md. beperkingen</metadataConstraints>
   <metadataMaintenance>Md. ouderhoud</metadataMaintenance>
   <applicationSchemaInfo>Schema info</applicationSchemaInfo>
   <noThesaurusName>Trefwoorden</noThesaurusName>
@@ -68,33 +68,44 @@
   <url>Online resource</url>
   <identifier>Resource identifier</identifier>
 
-  <referenceDate>Temporal information</referenceDate>
-  <creationDate>Creation date</creationDate>
-  <hierarchyLevel>Hierarchy level</hierarchyLevel>
-  <publicationDate>Publication date</publicationDate>
-  <revisionDate>Revision date</revisionDate>
+  <referenceDate>Temporele informatie</referenceDate>
+  <creationDate>Creatie datum</creationDate>
+  <hierarchyLevel>Hierarchisch niveau</hierarchyLevel>
+  <publicationDate>Publicatie datum</publicationDate>
+  <revisionDate>Revisie datum</revisionDate>
   <temporalRangeSection>Temporal extent</temporalRangeSection>
   <beginPosition>Begin</beginPosition>
-  <endPosition>End</endPosition>
-  <conformity>Conformity</conformity>
-  <conformity_title>Title</conformity_title>
-  <conformity_date>Date</conformity_date>
-  <explanation>Explanation</explanation>
-  <pass>Conformity</pass>
+  <endPosition>Eind</endPosition>
+  <conformity>Conformiteit</conformity>
+  <conformity_title>Titel</conformity_title>
+  <conformity_date>Datum</conformity_date>
+  <explanation>Verklaring</explanation>
+  <pass>Conformiteit</pass>
   <indeterminatePosition>Indeterminate position</indeterminatePosition>
   <pointOfContact>Contact for the resource</pointOfContact>
   <metadataPointOfContact>Contact for the metadata</metadataPointOfContact>
-  <organisationName>Organisation name</organisationName>
+  <organisationName>Organisatie naam</organisationName>
   <electronicMailAddress>Email</electronicMailAddress>
-  <role>Role</role>
+  <positionName>Functie</positionName>
+  <voice>Telefoon</voice>
+  <facsimile>Fax</facsimile>
+  <deliveryPoint>Adres</deliveryPoint>
+  <postalCode>Postcode</postalCode>
+  <city>Plaats</city>
+  <administrativeArea>Provincie</administrativeArea>
+  <country>Land</country>
+  <telephone>Telefoon</telephone>
+  <website>Website</website>
+  <onlineResource>Url</onlineResource>
+  <role>Rol</role>
 
-  <inspireTheme>INSPIRE themes</inspireTheme>
-  <inspireThemeURI>INSPIRE themes</inspireThemeURI>
+  <inspireTheme>INSPIRE thema</inspireTheme>
+  <inspireThemeURI>INSPIRE themas</inspireThemeURI>
 
 
-  <lineage>Lineage</lineage>
-  <spatialResolution>Spatial resolution (scale)</spatialResolution>
-  <spatialDistance>Spatial resolution (distance)</spatialDistance>
+  <lineage>Herkomst</lineage>
+  <spatialResolution>Spatial resolutie (schaal)</spatialResolution>
+  <spatialDistance>Spatial resolutie (afstand)</spatialDistance>
 
   <useConstraints>Gebruiks beperkingen</useConstraints>
   <useLimitation>Gebruiks limitatie</useLimitation>
@@ -164,7 +175,6 @@
   <conformity_desc>Tech spec title</conformity_desc>
   <conformity_linkage>Tech spec URL</conformity_linkage>
 
-
   <sds-section-qos>Quality of Service</sds-section-qos>
   <sds-add-qualityofservice>Add missing Quality of Service criteria</sds-add-qualityofservice>
   <sds-add-qualityofserviceHelp>INSPIRE SDS requires three quality of service criteria to be
@@ -186,24 +196,24 @@
   <sds-add-accesspoint>Add Access Point</sds-add-accesspoint>
 
   <sds-endpoint>Endpoint URL</sds-endpoint>
-  <sds-add-endpoint>Add Endpoint</sds-add-endpoint>
+  <sds-add-endpoint>Voeg Endpoint toe</sds-add-endpoint>
 
-  <sds-addNoConstraints>No Limitation</sds-addNoConstraints>
+  <sds-addNoConstraints>Geen Limitatie</sds-addNoConstraints>
   <sds-addNoConstraintsHelp>Add an element that documents that there are no limitation for this
     service.
   </sds-addNoConstraintsHelp>
-  <sds-addUnknownConstraints>Unknown Limitation</sds-addUnknownConstraints>
+  <sds-addUnknownConstraints>Onbekende Limitatie</sds-addUnknownConstraints>
   <sds-addConstraints>Customizable constraints</sds-addConstraints>
 
   <sds>
-    <noConditionsApply>No conditions apply</noConditionsApply>
-    <conditionsUnknown>Conditions unknown</conditionsUnknown>
+    <noConditionsApply>Beperkingen</noConditionsApply>
+    <conditionsUnknown>Voorwaarden onbekend</conditionsUnknown>
   </sds>
 
-  <sds-limitation>Limitation</sds-limitation>
+  <sds-limitation>Limitatie</sds-limitation>
 
-  <sds-section-custodian>Responsible custodian</sds-section-custodian>
-  <sds-addOperation>Add Operation</sds-addOperation>
+  <sds-section-custodian>Verantwoordelijke beheerder</sds-section-custodian>
+  <sds-addOperation>Operatie toevoegen</sds-addOperation>
 
 
   <!-- Dutch schema custom strings -->
@@ -240,9 +250,13 @@
   </xmlViewDescription>
 
   <Add_DQ_TopologicalConsistency>Topologische samenhang toevoegen</Add_DQ_TopologicalConsistency>
+  <DQ_TopologicalConsistency>Topologische samenhang toevoegen</DQ_TopologicalConsistency>
   <Add_DQ_AbsoluteExternalPositionalAccuracy>Geometrische nauwkeurigheid toevoegen
   </Add_DQ_AbsoluteExternalPositionalAccuracy>
+  <DQ_AbsoluteExternalPositionalAccuracy>Geometrische nauwkeurigheid
+  </DQ_AbsoluteExternalPositionalAccuracy>
   <Add_DQ_CompletenessOmission>Compleetheid toevoegen</Add_DQ_CompletenessOmission>
+  <DQ_CompletenessOmission>Compleetheid</DQ_CompletenessOmission>
   <addIdentifier>Identificatie toevoegen</addIdentifier>
   <addStatus>Status toevoegen</addStatus>
   <addLanguage>Taal toevoegen</addLanguage>
@@ -252,8 +266,8 @@
   <addDate>Datum toevoegen</addDate>
   <addLineage>Herkomst toevoegen</addLineage>
   <addUseLimitation>Gebruiksbeperking toevoegen</addUseLimitation>
-  <legalConstraints>Juridische restrictie</legalConstraints>
-  <addLegalConstraints>Juridische restrictie toevoegen</addLegalConstraints>
+  <legalConstraints>Juridische beperkingen</legalConstraints>
+  <addLegalConstraints>Juridische beperking toevoegen</addLegalConstraints>
   <addResourceConstraints>Beperking toevoegen</addResourceConstraints>
   <addUrl>URL toevoegen</addUrl>
   <addStandardName>Standaard toevoegen</addStandardName>
@@ -303,7 +317,7 @@
   <LI_Source>Bron en inwinning</LI_Source>
 
   <addHierarchy>Hiërarchisch niveau toevoegen</addHierarchy>
-  <addHierarchyLevelName>Beschrijving hiërarchisch niveau toevoegen</addHierarchyLevelName>
+  <addHierarchyLevelName>Naam hiërarchisch niveau toevoegen</addHierarchyLevelName>
   <AddSource>Voeg bron toe</AddSource>
   <AddProcessStep>Voeg bewerkingsstap toe</AddProcessStep>
   <addTemporalExtent>Voeg inhoudelijke geldigheid toe</addTemporalExtent>
@@ -314,7 +328,7 @@
   <accessConstraints>Toegangs beperkingen</accessConstraints>
   <Conformance>Conformiteit</Conformance>
   <serviceInfo>Service operaties en gekoppelde bronnen</serviceInfo>
-  <restrictions>Restricties en beperkingen</restrictions>
+  <restrictions>Beperkingen</restrictions>
   <dataQuality>Service kwaliteit</dataQuality>
   <coupledResource>Relatie operatie met dataset</coupledResource>
   <addCoupledResource>Dataset operaties toevoegen</addCoupledResource>
@@ -327,18 +341,27 @@
   <value>Waarde</value>
   <measure>Maatregel</measure>
   <description>Omschrijving</description>
-  <ConceptualConsistency>Conceptuele consistentie</ConceptualConsistency>
   <addExtent>Omgrenzende rechthoek toevoegen</addExtent>
 
   <dsIdentifier>Identificatie dataset</dsIdentifier>
   <metadataLink>Metadata identificatie</metadataLink>
   <linkTitle>Link titel</linkTitle>
 
-  <securityConstraints>Veiligheidsrestricties</securityConstraints>
-  <addSecurityConstraints>Voeg veiligheidsrestricties toe</addSecurityConstraints>
+  <securityConstraints>Veiligheids beperkingen</securityConstraints>
+  <addSecurityConstraints>Voeg veiligheids beperkingen toe</addSecurityConstraints>
   <addUseConstraint>Gebruiksbeperking toevoegen</addUseConstraint>
   <addOtherConstraint>Overige beperking toevoegen</addOtherConstraint>
   <addConceptualConsistency>Conceptuele consistentie toevoegen</addConceptualConsistency>
+  <addGeographicBoundingBox>Dekking toevoegen</addGeographicBoundingBox>
   <addQualityScope>Niveau kwaliteitsbeschrijving toevoegen</addQualityScope>
   <addQualityScopeDesc>Beschrijving niveau kwaliteitsbeschrijving toevoegen</addQualityScopeDesc>
+  <spatialInfo>Ruimtelijke informatie</spatialInfo>
+  <Add_DQ_ConceptualConsistency>Quality of service toevoegen</Add_DQ_ConceptualConsistency>
+  <ConformanceResult>Conformiteit</ConformanceResult>
+<DomainConsistency>Conformiteit met een domein specificatie</DomainConsistency>
+<TopologicalConsistency>Topologische samenhang</TopologicalConsistency>
+<CompletenessOmission>Compleetheid</CompletenessOmission>
+<ConceptualConsistency>Quality of Service</ConceptualConsistency>
+<AbsoluteExternalPositionalAccuracy>Geometrische nauwkeurigheid</AbsoluteExternalPositionalAccuracy>
+<ProcessStep>Bewerkings stap</ProcessStep>
 </strings>

@@ -134,6 +134,8 @@
 
   <!-- ==================================================== -->
 
+
+
   <element name="gmd:CI_Citation"
            context="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/DQ_DomainConsistency/gmd:result/gmd:DQ_ConformanceResult/gmd:specification/gmd:CI_Citation">
     <label>Citatie</label>
@@ -289,7 +291,7 @@
   </element>
 
   <element name="gmd:pointOfContact"
-           context="/gmd:MD_Metadata//gmd:identificationInfo/gmd:MD_DataIdentification/gmd:pointOfContact">
+           context="/gmd:MD_Metadata//gmd:identificationInfo/srv:SV_ServiceIdentification/gmd:pointOfContact">
     <label>Contactgegevens voor de service</label>
     <btnLabel>Contactgegevens toevoegen</btnLabel>
     <description>Gegevens van de voor de service verantwoordelijke organisatie.</description>
@@ -432,7 +434,18 @@
     <description>Conformiteit met de specificatie.</description>
     <condition>mandatory</condition>
   </element>
-
+<element name="gmd:report" context="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report[gmd:DQ_AbsoluteExternalPositionalAccuracy]">
+    <label>Geometrische nauwkeurigheid</label>
+    <description></description>
+  </element>
+  <element name="gmd:report" context="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report[gmd:DQ_ConceptualConsistency]">
+    <label>Service kwaliteit</label>
+    <description></description>
+  </element>
+  <element name="gmd:report" context="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report[gmd:DQ_CompletenessOmission]">
+    <label>Compleetheid</label>
+    <description>Data welke niet aanwezig is in de dataset zoals beschreven in het toepassingsgebied.</description>
+  </element>
   <!-- ==================================================== -->
 
   <element name="gmd:DQ_DomainConsistency"
@@ -440,7 +453,10 @@
     <label>Domein consistentie</label>
     <description>Informatie over de specificatie (INSPIRE) of het informatiemodel van de gegevens.</description>
   </element>
-
+<element name="gmd:report" context="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report[gmd:DQ_AbsoluteExternalPositionalAccuracy]">
+    <label>Geometrische nauwkeurigheid</label>
+    <description></description>
+  </element>
   <!-- ==================================================== -->
 
   <element name="gmd:DQ_DataQuality" context="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality">
@@ -571,10 +587,18 @@
     <condition>mandatory</condition>
   </element>
 
+<!-- ==================================================== -->
+  <element name="gmd:hierarchyLevelName" context="/gmd:MD_Metadata/gmd:hierarchyLevelName">
+    <label>Hiërarchisch niveau naam</label>
+    <description>Naam van het hiërarchisch niveau waar de metadata betrekking op heeft.</description>
+    <help_link>http://wiki.geonovum.nl/index.php/2.4.4_Hi%C3%ABrarchieniveau naam</help_link>
+    <condition>M</condition>
+  </element>
+
   <!-- ==================================================== -->
 
   <element name="gmd:graphicOverview"
-           context="/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:graphicOverview">
+           context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/gmd:graphicOverview">
     <label>Voorbeeldweergave</label>
     <btnLabel>Weergave toevoegen</btnLabel>
     <description>Een afbeelding welke de inhoud van de dataset weergeeft .</description>
@@ -1161,30 +1185,6 @@
     <condition>mandatory</condition>
   </element>
 
-  <!-- ==================================================== -->
-  <!-- === GCO namespace                                    -->
-  <!-- ==================================================== -->
-
-  <element name="gco:Date" context="/gmd:MD_Metadata/gmd:dateStamp/gco:Date">
-    <label>Datum</label>
-    <description>Als in 2007-09-12 (YYYY-MM-DD)</description>
-  </element>
-
-  <!-- ==================================================== -->
-
-  <element name="gco:Date"
-           context="/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:date/gmd:CI_Date/gmd:date/gco:Date">
-    <label>Datum</label>
-    <description>Als in 2007-09-12 (YYYY-MM-DD)</description>
-  </element>
-
-  <!-- ==================================================== -->
-
-  <element name="gco:Date"
-           context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/gmd:descriptiveKeywords/gmd:MD_Keywords/gmd:thesaurusName/gmd:CI_Citation/gmd:Date/gm:CI_Date/gmd:date/gco:Date">
-    <label>Datum</label>
-    <description>Als in 2007-09-12 (YYYY-MM-DD)</description>
-  </element>
 
   <!-- ==================================================== -->
   <!-- === GML namespace -->
@@ -1342,30 +1342,12 @@
   <!-- ==================================================== -->
 
   <element name="srv:operatesOn"
-           context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/srv:operatesOn/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:title">
+           context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/srv:operatesOn">
     <label>Operates on titel</label>
   </element>
 
   <!-- ==================================================== -->
 
-  <element name="srv:operatesOn"
-           context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/srv:operatesOn/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:date">
-    <label>Operates on datum</label>
-  </element>
-
-  <!-- ==================================================== -->
-
-  <element name="srv:operatesOn"
-           context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/srv:operatesOn/gmd:MD_DataIdentification/gmd:abstract">
-    <label>Operates on samenvatting</label>
-  </element>
-
-  <!-- ==================================================== -->
-
-  <element name="srv:operatesOn"
-           context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/srv:operatesOn/gmd:MD_DataIdentification/gmd:language">
-    <label>Operates on taal</label>
-  </element>
 
   <!-- ==================================================== -->
 
@@ -1450,23 +1432,6 @@
 
   <!-- ==================================================== -->
 
-  <element name="gco:ScopedName"
-           context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/srv:coupledResource/srv:SV_CoupledResource/gco:ScopedName">
-    <label>ScopedName</label>
-    <description>Naam van de kaartlaag. Verplicht voor WMS, WFS en WCS.</description>
-    <help_link>http://wiki.geonovum.nl/index.php/2.5.7_Scoped_Name</help_link>
-  </element>
-
-  <!-- ==================================================== -->
-
-  <element name="gco:ScopedName">
-    <label>ScopedName</label>
-    <description>Naam van de kaartlaag. Verplicht voor WMS, WFS en WCS.</description>
-    <help_link>http://wiki.geonovum.nl/index.php/2.5.7_Scoped_Name</help_link>
-  </element>
-
-  <!-- ==================================================== -->
-
   <element name="gml:beginPosition"
            context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/srv:extent/gmd:EX_Extent/gmd:temporalElement/gmd:EX_TemporalExtent/gmd:extent/gml:TimePeriod/gml:beginPosition">
     <label>Begindatum</label>
@@ -1518,7 +1483,7 @@
 
   <!-- ==================================================== -->
   <element name="gmd:description"
-           context="gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:extent/gmd:EX_Extent/gmd:description">
+           context="gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/gmd:extent/gmd:EX_Extent/gmd:description">
     <label>Beschrijving temporele dekking</label>
     <btnLabel>Beschrijving toevoegen</btnLabel>
     <description>Inhoudelijke geldigheid van de data, gespecificeerd als een periode.</description>
@@ -1569,6 +1534,53 @@
   <element name="srv:SV_ParameterDirection">
     <label>Parameter richting</label>
     <description>De richting van de parameter</description>
+  </element>
+
+<!-- ==================================================== -->
+  <!-- === GCO namespace                                    -->
+  <!-- ==================================================== -->
+
+  <element name="gco:nilReason">
+    <label>Reden van lege waarde</label>
+    <description>Geef aan waarom dit element leeg gelaten wordt</description>
+  </element>
+
+  <element name="gco:Date" context="/gmd:MD_Metadata/gmd:dateStamp/gco:Date">
+    <label>Datum</label>
+    <description>Als in 2007-09-12 (YYYY-MM-DD)</description>
+  </element>
+
+  <!-- ==================================================== -->
+
+  <element name="gco:Date"
+           context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/gmd:citation/gmd:CI_Citation/gmd:date/gmd:CI_Date/gmd:date/gco:Date">
+    <label>Datum</label>
+    <description>Als in 2007-09-12 (YYYY-MM-DD)</description>
+  </element>
+
+  <!-- ==================================================== -->
+
+  <element name="gco:Date"
+           context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/gmd:descriptiveKeywords/gmd:MD_Keywords/gmd:thesaurusName/gmd:CI_Citation/gmd:Date/gm:CI_Date/gmd:date/gco:Date">
+    <label>Datum</label>
+    <description>Als in 2007-09-12 (YYYY-MM-DD)</description>
+  </element>
+
+<!-- ==================================================== -->
+
+  <element name="gco:ScopedName"
+           context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/srv:coupledResource/srv:SV_CoupledResource/gco:ScopedName">
+    <label>ScopedName</label>
+    <description>Naam van de kaartlaag. Verplicht voor WMS, WFS en WCS.</description>
+    <help_link>http://wiki.geonovum.nl/index.php/2.5.7_Scoped_Name</help_link>
+  </element>
+
+  <!-- ==================================================== -->
+
+  <element name="gco:ScopedName">
+    <label>ScopedName</label>
+    <description>Naam van de kaartlaag. Verplicht voor WMS, WFS en WCS.</description>
+    <help_link>http://wiki.geonovum.nl/index.php/2.5.7_Scoped_Name</help_link>
   </element>
 
   <!-- ==================================================== -->
@@ -1624,4 +1636,40 @@
       <option value="TEXT">TEXT</option>
     </helper>
   </element>
+
+ <!-- ==================================================== -->
+  <element name="gco:Record" context="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/gmd:DQ_CompletenessOmission/gmd:result/gmd:DQ_QuantitativeResult/gmd:value/gco:Record">
+    <label>Compleetheid</label>
+    <description>Omschrijving in hoeverre een dataset compleet is, of anders gezegd, een inschatting van wat er nog ontbreekt.</description>
+  </element>
+  <element name="gco:Record" context="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/gmd:DQ_AbsoluteExternalPositionalAccuracy/gmd:result/gmd:DQ_QuantitativeResult/gmd:value/gco:Record">
+    <label>Geometrische nauwkeurigheid</label>
+    <description>Afwijking van de x- en y-coÃ¶rdinaten ten opzichte van de werkelijke plaats op aarde.</description>
+  </element>
+  <element name="gco:Record" context="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/gmd:DQ_TopologicalConsistency/gmd:result/gmd:DQ_QuantitativeResult/gmd:value/gco:Record">
+    <label>Topologische samenhang</label>
+    <description>juistheid van de topologische kenmerkenvan de dataset, Verplicht voor INSPIRE als voor netwerken de aansluiting van hartlijnen niet is verzekerd. In dat geval moet de Connectivity tolerance parameter vastgelegd worden om automatische creatie van hartlijn topologie mogelijk te maken</description>
+    <help_link>http://wiki.geonovum.nl/index.php/Topologische samenhang</help_link>
+    <condition>C</condition>
+  </element>
+  <element name="gco:LocalName" context="/gmd:MD_Metadata/gmd:contentInfo/gmd:MD_FeatureCatalogueDescription/gmd:featureTypes/gco:LocalName">
+    <label>FeatureTypes</label>
+    <description>Featuretypes uit de featurecatalog die in de dataset voorkomen.</description>
+  </element>
+
+<!-- ==================================================== -->
+  <!-- === GMX namespace                                    -->
+  <!-- ==================================================== -->
+
+  <element name="gmx:Anchor">
+    <label>Anker</label>
+    <description>URL naar meer informatie</description>
+  </element>
+
+  <element name="gmx:MX_ScopeCode">
+    <label>Scope code</label>
+    <description>Code die de scope van het beschreven element aangeeft</description>
+  </element>
+
+
 </labels>
