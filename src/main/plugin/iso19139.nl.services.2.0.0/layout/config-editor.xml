@@ -563,7 +563,7 @@
         <directive data-gn-suggestion-list=""/>
       </sidePanel>
 
-      <tab id="dutch-default" default="true" mode="flat">
+      <tab id="default" default="true" mode="flat">
 
         <text ref="dutchProfileTitle"/>
         <text ref="dutchProfileDescription"/>
