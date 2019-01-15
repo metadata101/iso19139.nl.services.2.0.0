@@ -859,22 +859,22 @@
 
           <!--   5.17 bounds -->
           <field
-            xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:extent/gmd:EX_Extent/gmd:geographicElement[gmd:EX_GeographicBoundingBox]"/>
+            xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/srv:extent/gmd:EX_Extent/gmd:geographicElement[gmd:EX_GeographicBoundingBox]"/>
 
           <action type="add"
                   btnLabel="addGeographicBoundingBox"
                   or="extent" name="geographicElement" forceLabel="true"
                   in="/gmd:MD_Metadata/gmd:identificationInfo/*"
-                  if="count(gmd:MD_Metadata/gmd:identificationInfo/*/gmd:extent/gmd:EX_Extent/gmd:geographicElement)=0">
+                  if="count(gmd:MD_Metadata/gmd:identificationInfo/*/srv:extent/gmd:EX_Extent/gmd:geographicElement)=0">
             <template>
               <snippet>
-                <gmd:extent>
+                <srv:extent>
                   <gmd:EX_Extent>
                     <gmd:geographicElement>
                       <gmd:EX_GeographicBoundingBox></gmd:EX_GeographicBoundingBox>
                     </gmd:geographicElement>
                   </gmd:EX_Extent>
-                </gmd:extent>
+                </srv:extent>
               </snippet>
             </template>
           </action>
