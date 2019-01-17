@@ -368,6 +368,18 @@
         <col del=".."/>
       </row>
     </table>
+    <table for="srv:operatesOn">
+      <header>
+        <col label="xlink:href"/>
+        <col label="uuidref"/>
+        <col/>
+      </header>
+      <row>
+        <col xpath="@uuidref"/>
+        <col xpath="@xlink:href"/>
+        <col del="."/>
+      </row>
+    </table>
     <table for="gmd:MD_Format">
       <header>
         <col label="gmd:name"/>
@@ -412,116 +424,7 @@
       </row>
     </table>
 
-    <table for="gmd:DQ_ConformanceResult" label="ConformanceResult">
-      <header>
-        <col label="gmd:title"/>
-        <col label="gmd:date"/>
-        <col label="gmd:explanation"/>
-        <col label="gmd:pass"/>
-        <col/>
-      </header>
-      <row>
-        <col xpath="gmd:specification/gmd:CI_Citation/gmd:title"/>
-        <col xpath="gmd:specification/gmd:CI_Citation/gmd:date/gmd:CI_Date/gmd:date"/>
-        <col xpath="gmd:explanation"/>
-        <col xpath="gmd:pass"/>
-        <col del=".."/>
-      </row>
-    </table>
-
-    <table for="gmd:DQ_DomainConsistency" label="DomainConsistency">
-      <header>
-        <col label="gmd:title"/>
-        <col label="gmd:date"/>
-        <col label="gmd:explanation"/>
-        <col label="gmd:pass"/>
-        <col/>
-      </header>
-      <row>
-        <col xpath="gmd:result/gmd:DQ_ConformanceResult/gmd:specification/gmd:CI_Citation/gmd:title"/>
-        <col xpath="gmd:result/gmd:DQ_ConformanceResult/gmd:specification/gmd:CI_Citation/gmd:date/gmd:CI_Date/gmd:date"/>
-        <col xpath="gmd:result/gmd:DQ_ConformanceResult/gmd:explanation"/>
-        <col xpath="gmd:result/gmd:DQ_ConformanceResult/gmd:pass"/>
-        <col del=".."/>
-      </row>
-    </table>
-
-    <table for="gmd:DQ_ConceptualConsistency" label="ConceptualConsistency">
-      <header>
-        <col label="gmd:nameOfMeasure"/>
-        <col label="gmd:measureDescription"/>
-        <col label="gml:identifier"/>
-        <col label="gml:unitsSystem"/>
-        <col label="gmd:value"/>
-        <col/>
-      </header>
-      <row>
-        <col xpath="gmd:nameOfMeasure"/>
-        <col xpath="gmd:measureDescription"/>
-        <col xpath="gmd:result/gmd:DQ_QuantitativeResult/gmd:valueUnit/gml:BaseUnit/gml:identifier"/>
-        <col xpath="gmd:result/gmd:DQ_QuantitativeResult/gmd:valueUnit/gml:BaseUnit/gml:unitsSystem"/>
-        <col xpath="gmd:result/gmd:DQ_QuantitativeResult/gmd:value"/>
-        <col del=".."/>
-      </row>
-    </table>
-
-    <table for="gmd:DQ_TopologicalConsistency" label="TopologicalConsistency">
-      <header>
-        <col label="gmd:nameOfMeasure"/>
-        <col label="gmd:measureDescription"/>
-        <col label="gml:identifier"/>
-        <col label="gml:unitsSystem"/>
-        <col label="gmd:value"/>
-        <col/>
-      </header>
-      <row>
-        <col xpath="gmd:nameOfMeasure"/>
-        <col xpath="gmd:measureDescription"/>
-        <col xpath="gmd:result/gmd:DQ_QuantitativeResult/gmd:valueUnit/gml:BaseUnit/gml:identifier"/>
-        <col xpath="gmd:result/gmd:DQ_QuantitativeResult/gmd:valueUnit/gml:BaseUnit/gml:unitsSystem"/>
-        <col xpath="gmd:result/gmd:DQ_QuantitativeResult/gmd:value"/>
-        <col del=".."/>
-      </row>
-    </table>
-
-
-    <table for="gmd:DQ_CompletenessOmission" label="CompletenessOmission">
-      <header>
-        <col label="gmd:nameOfMeasure"/>
-        <col label="gmd:measureDescription"/>
-        <col label="gml:identifier"/>
-        <col label="gml:unitsSystem"/>
-        <col label="gmd:value"/>
-        <col/>
-      </header>
-      <row>
-        <col xpath="gmd:nameOfMeasure"/>
-        <col xpath="gmd:measureDescription"/>
-        <col xpath="gmd:result/gmd:DQ_QuantitativeResult/gmd:valueUnit/gml:BaseUnit/gml:identifier"/>
-        <col xpath="gmd:result/gmd:DQ_QuantitativeResult/gmd:valueUnit/gml:BaseUnit/gml:unitsSystem"/>
-        <col xpath="gmd:result/gmd:DQ_QuantitativeResult/gmd:value"/>
-        <col del=".."/>
-      </row>
-    </table>
-
-    <table for="gmd:DQ_AbsoluteExternalPositionalAccuracy" label="AbsoluteExternalPositionalAccuracy">
-      <header>
-        <col label="gmd:nameOfMeasure"/>
-        <col label="gmd:measureDescription"/>
-        <col label="gml:identifier"/>
-        <col label="gml:unitsSystem"/>
-        <col label="gmd:value"/>
-        <col/>
-      </header>
-      <row>
-        <col xpath="gmd:nameOfMeasure"/>
-        <col xpath="gmd:measureDescription"/>
-        <col xpath="gmd:result/gmd:DQ_QuantitativeResult/gmd:valueUnit/gml:BaseUnit/gml:identifier"/>
-        <col xpath="gmd:result/gmd:DQ_QuantitativeResult/gmd:valueUnit/gml:BaseUnit/gml:unitsSystem"/>
-        <col xpath="gmd:result/gmd:DQ_QuantitativeResult/gmd:value"/>
-        <col del=".."/>
-      </row>
-    </table>
+    
 
     <table for="gmd:LI_ProcessStep" label="ProcessStep">
       <header>
@@ -540,7 +443,6 @@
     </table>
 
   </tableFields>
-
 
   <views>
 
@@ -1283,21 +1185,7 @@
           </action>
 
           <field
-            xpath="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/srv:operatesOn"
-            name="operatesOn" templateModeOnly="true" notDisplayedIfMissing="true" del=".">
-
-            <template>
-              <values>
-                <key label="dsIdentifier" tooltip="uuidref"
-                     xpath="./@uuidref"/>
-                <key label="metadataLink" tooltip="xlink:href"
-                     xpath="./@xlink:href"/>
-              </values>
-              <snippet>
-                <srv:operatesOn uuidref="{{dsIdentifier}}" xlink:href="{{metadataLink}}" />
-              </snippet>
-            </template>
-          </field>
+            xpath="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/srv:operatesOn"/>
 
           <action type="add"
                   forceLabel="true"
@@ -1596,31 +1484,21 @@
 
           <!--    5.23 Beschrijving scope kwaliteitsbeschrijving -->
           <field name="levelDescription"
-            xpath="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:scope/gmd:DQ_Scope/gmd:levelDescription" templateModeOnly="true"
-                 del=".">
-            <template>
-              <values>
-                <key label="levelDescription" tooltip="gmd:features"
-                     xpath="gmd:features/@xlink:title">
-                </key>
-              </values>
-              <snippet>
-                <gmd:levelDescription>
-                    <gmd:features xlink:title="{{levelDescription}}" />
-                  </gmd:levelDescription>
-              </snippet>
-            </template>
+                xpath="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:scope/gmd:DQ_Scope/gmd:levelDescription/gmd:other" templateModeOnly="true"
+                del="../.">
             </field>
 
           <action type="add"
                   btnLabel="addQualityScopeDesc"
                   name="levelDescription" or="levelDescription"
-                  if="count(gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:scope/gmd:DQ_Scope/gmd:levelDescription)=0"
+                  if="count(gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:scope/gmd:DQ_Scope/gmd:levelDescription/gmd:other)=0"
                   in="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:scope/gmd:DQ_Scope">
             <template>
               <snippet>
                   <gmd:levelDescription>
-                    <gmd:features xlink:title="" />
+                    <gmd:other>
+                      <gco:CharacterString />
+                    </gmd:other>
                   </gmd:levelDescription>
               </snippet>
             </template>

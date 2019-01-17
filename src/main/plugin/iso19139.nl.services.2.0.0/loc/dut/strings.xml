@@ -35,7 +35,7 @@
   <!-- New strings added for the AngularJS editor -->
   <!-- View and tabs -->
   <advanced>Volledig</advanced>
-  <dutchprofile>Optionele elementen</dutchprofile>
+  <dutchprofile>Nederlands profiel</dutchprofile>
   <Basis>Basis</Basis>
   <default>Standaard</default>
   <simple>Eenvoudig</simple>
@@ -47,7 +47,7 @@
   <providedBy>Provided by</providedBy>
   <shareOnSocialSite>Share on social sites</shareOnSocialSite>
   <viewMode>Views</viewMode>
-  <keywordFrom>Trefwoord van </keywordFrom>
+  <keywordFrom>Trefwoord uit </keywordFrom>
   <resource>Bron</resource>
   <xml>XML</xml>
   <metadata>Metadata</metadata>
