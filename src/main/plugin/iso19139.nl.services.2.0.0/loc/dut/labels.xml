@@ -428,34 +428,53 @@
 
   <!-- ==================================================== -->
 
-  <element name="gmd:DQ_ConformanceResult"
-           context="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/DQ_DomainConsistency/gmd:result/gmd:DQ_ConformanceResult">
-    <label>Conformiteitindicatie</label>
+  <element name="gmd:DQ_ConformanceResult">
+    <label>Conformiteit indicatie</label>
     <description>Conformiteit met de specificatie.</description>
     <condition>mandatory</condition>
   </element>
-<element name="gmd:report" context="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report[gmd:DQ_AbsoluteExternalPositionalAccuracy]">
+
+<element name="gmd:DQ_QuantitativeResult"
+  context="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/gmd:DQ_TopologicalConsistency/gmd:result/gmd:DQ_QuantitativeResult">
+    <label>Topologische Consistentie</label>
+    <description>Juistheid van de topologische kenmerken van de dataset. &lt;a href='http://geonovum.github.io/Metadata-ISO19115/#Type-waarde'&gt;Lees verder&lt;/a&gt;</description>
+  </element>
+  <element name="gmd:DQ_QuantitativeResult" 
+  context="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/gmd:DQ_AbsoluteExternalPositionalAccuracy/gmd:result/gmd:DQ_QuantitativeResult">
     <label>Geometrische nauwkeurigheid</label>
-    <description></description>
+    <description>Afwijking van de x- en y-coördinaten ten opzichte van de werkelijke plaats op aarde.</description>
   </element>
-  <element name="gmd:report" context="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report[gmd:DQ_ConceptualConsistency]">
-    <label>Service kwaliteit</label>
-    <description></description>
+  <element name="gmd:DQ_QuantitativeResult" 
+  context="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/gmd:DQ_ConceptualConsistency/gmd:result/gmd:DQ_QuantitativeResult">
+    <label>Meet resultaat</label>
+    <description>Kwaliteit van de service</description>
   </element>
-  <element name="gmd:report" context="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report[gmd:DQ_CompletenessOmission]">
+  <element name="gmd:DQ_QuantitativeResult"
+  context="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/gmd:DQ_CompletenessOmission/gmd:result/gmd:DQ_QuantitativeResult" >
     <label>Compleetheid</label>
     <description>Data welke niet aanwezig is in de dataset zoals beschreven in het toepassingsgebied.</description>
   </element>
-  <!-- ==================================================== -->
 
+<element name="gmd:DQ_TopologicalConsistency">
+    <label>Topologische Consistentie</label>
+    <description>Juistheid van de topologische kenmerken van de dataset. &lt;a href='http://geonovum.github.io/Metadata-ISO19115/#Type-waarde'&gt;Lees verder&lt;/a&gt;</description>
+  </element>
+  <element name="gmd:DQ_AbsoluteExternalPositionalAccuracy" >
+    <label>Geometrische nauwkeurigheid</label>
+    <description>Afwijking van de x- en y-coördinaten ten opzichte van de werkelijke plaats op aarde.</description>
+  </element>
+  <element name="gmd:DQ_ConceptualConsistency" >
+    <label>Service kwaliteit</label>
+    <description>Kwaliteit van de service</description>
+  </element>
+  <element name="gmd:DQ_CompletenessOmission" >
+    <label>Compleetheid</label>
+    <description>Data welke niet aanwezig is in de dataset zoals beschreven in het toepassingsgebied.</description>
+  </element>
   <element name="gmd:DQ_DomainConsistency"
-           context="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/DQ_DomainConsistency">
+           >
     <label>Domein consistentie</label>
     <description>Informatie over de specificatie (INSPIRE) of het informatiemodel van de gegevens.</description>
-  </element>
-<element name="gmd:report" context="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report[gmd:DQ_AbsoluteExternalPositionalAccuracy]">
-    <label>Geometrische nauwkeurigheid</label>
-    <description></description>
   </element>
   <!-- ==================================================== -->
 
@@ -843,28 +862,6 @@
     <description>Andere restricties of beperkingen. Dit veld is te gebruiken om de URL naar de licentie van Public
       domain, Creative Commons Publieke Domein Verklaring (CC0) of Geo Gedeeld in te vullen.
     </description>
-    <helper>
-      <option value="http://creativecommons.org/publicdomain/mark/1.0/deed.nl">Opendata (publiek domein)</option>
-      <option value="http://creativecommons.org/publicdomain/zero/1.0/deed.nl">Opendata (CCO)</option>
-      <option value="http://creativecommons.org/licenses/by/3.0/nl">Opendata (CC-BY)</option>
-      <option value="http://creativecommons.org/licenses/by-sa/3.0/nl">Gebruiksvoorwaarden (naamsvermelding,
-        gelijk delen)
-      </option>
-      <option value="http://creativecommons.org/licenses/by-nc/3.0/nl">Gebruiksvoorwaarden (naamsvermelding, niet
-        commercieel)
-      </option>
-      <option value="http://creativecommons.org/licenses/by-nc-sa/3.0/nl">Gebruiksvoorwaarden (naamsvermelding,
-        niet commercieel, gelijke wijzen delen)
-      </option>
-      <option value="http://creativecommons.org/licenses/by-nd/3.0/nl">Gebruiksvoorwaarden (naamsvermelding, geen
-        afgeleide werken)
-      </option>
-      <option value="http://creativecommons.org/licenses/by-nc-nd/3.0/nl">Gebruiksvoorwaarden (naamsvermelding,
-        niet commerieel, geen afgeleide werken)
-      </option>
-      <option value="http://">Gebruiksvoorwaarden Geogedeeld</option>
-    </helper>
-    <help_link>http://wiki.geonovum.nl/index.php/2.5.20_Constraints</help_link>
     <condition>mandatory</condition>
   </element>
 

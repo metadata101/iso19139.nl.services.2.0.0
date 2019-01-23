@@ -145,6 +145,12 @@
                            data-thesaurus-concept-id-attribute="xlinkCOLONhref"/>
     </for>
 
+    <for name="gmd:nameOfMeasure" xpath="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/gmd:DQ_ConceptualConsistency/gmd:nameOfMeasure"
+         use="data-gn-keyword-picker">
+      <directiveAttributes data-thesaurus-key="external.theme.httpinspireeceuropaeumetadatacodelistqualityofservicecriteriacode-listqualityofservicecriteriacode"
+                           data-thesaurus-concept-id-attribute="xlinkCOLONhref"/>
+    </for>
+
     <for name="gmd:descriptiveKeywords" addDirective="data-gn-thesaurus-selector">
       <!--
       Example of configuration to disable free text keywords in the thesaurus selector
@@ -1484,7 +1490,7 @@
 
           <!--    5.23 Beschrijving scope kwaliteitsbeschrijving -->
           <field name="levelDescription"
-                xpath="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:scope/gmd:DQ_Scope/gmd:levelDescription/gmd:other" templateModeOnly="true"
+                xpath="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:scope/gmd:DQ_Scope/gmd:levelDescription/gmd:other" 
                 del="../.">
             </field>
 
@@ -1537,10 +1543,10 @@
 
           <!--   5.33 Conformiteitindicatie met de specificatie  -->
           <field name="conformanceStatement" or="report"
-                 xpath="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report[gmd:DQ_DomainConsistency]"
+                 xpath="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/gmd:DQ_DomainConsistency/gmd:result"
                  />
           <field name="DQ_ConceptualConsistency" or="report"
-            xpath="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report[gmd:DQ_ConceptualConsistency]"></field>
+            xpath="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/gmd:DQ_ConceptualConsistency"></field>
 
           <action type="add"
                   btnLabel="Add_DQ_ConceptualConsistency"
@@ -1551,12 +1557,12 @@
               <snippet>
                 <gmd:report>
                   <gmd:DQ_ConceptualConsistency>
-                    <gmd:nameOfMeasure>
-                      <gmx:Anchor
-                        xlink:href=""></gmx:Anchor>
+                  <gmd:nameOfMeasure>
+                    <gmx:Anchor
+                    xlink:href=""></gmx:Anchor>
                     </gmd:nameOfMeasure>
                     <gmd:measureDescription>
-                      <gco:CharacterString/>
+                    <gco:CharacterString/>
                     </gmd:measureDescription>
                     <gmd:result>
                       <gmd:DQ_QuantitativeResult>
@@ -1576,7 +1582,7 @@
 
           <!-- volledigheid -->
           <field name="DQ_CompletenessOmission" or="report"
-            xpath="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report[gmd:DQ_CompletenessOmission]"></field>
+            xpath="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/gmd:DQ_CompletenessOmission/gmd:result"></field>
 
           <action type="add"
                   btnLabel="Add_DQ_CompletenessOmission"
@@ -1587,12 +1593,6 @@
               <snippet>
                 <gmd:report>
                   <gmd:DQ_CompletenessOmission>
-                   <gmd:nameOfMeasure>
-                    <gco:CharacterString/>
-                   </gmd:nameOfMeasure>
-                   <gmd:measureDescription>
-                    <gco:CharacterString/>
-                   </gmd:measureDescription>
                     <gmd:result>
                       <gmd:DQ_QuantitativeResult>
                         <gmd:valueUnit>
@@ -1614,7 +1614,7 @@
 
           <!--    5.39 Topologische samenhang . -->
           <field name="DQ_TopologicalConsistency" or="report"
-            xpath="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report[gmd:DQ_TopologicalConsistency]"></field>
+            xpath="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/gmd:DQ_TopologicalConsistency/gmd:result"></field>
 
           <action type="add"
                   btnLabel="Add_DQ_TopologicalConsistency"
@@ -1625,12 +1625,6 @@
               <snippet>
                 <gmd:report>
                   <gmd:DQ_TopologicalConsistency>
-                   <gmd:nameOfMeasure>
-                    <gco:CharacterString/>
-                   </gmd:nameOfMeasure>
-                   <gmd:measureDescription>
-                    <gco:CharacterString/>
-                   </gmd:measureDescription>
                     <gmd:result>
                       <gmd:DQ_QuantitativeResult>
                         <gmd:valueUnit>
@@ -1651,7 +1645,7 @@
           </action>
 
           <field name="DQ_AbsoluteExternalPositionalAccuracy" or="report"
-            xpath="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report[gmd:DQ_AbsoluteExternalPositionalAccuracy]"></field>
+            xpath="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/gmd:DQ_AbsoluteExternalPositionalAccuracy/gmd:result"></field>
 
           <action type="add"
                   btnLabel="Add_DQ_AbsoluteExternalPositionalAccuracy"
@@ -1662,12 +1656,6 @@
               <snippet>
                 <gmd:report>
                   <gmd:DQ_AbsoluteExternalPositionalAccuracy>
-                   <gmd:nameOfMeasure>
-                    <gco:CharacterString/>
-                   </gmd:nameOfMeasure>
-                   <gmd:measureDescription>
-                    <gco:CharacterString/>
-                   </gmd:measureDescription>
                     <gmd:result>
                       <gmd:DQ_QuantitativeResult>
                         <gmd:valueUnit>
