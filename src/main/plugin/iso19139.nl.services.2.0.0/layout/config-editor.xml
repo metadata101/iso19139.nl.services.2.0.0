@@ -1550,7 +1550,6 @@
 
           <action type="add"
                   btnLabel="Add_DQ_ConceptualConsistency"
-                  if="count(gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/gmd:DQ_ConceptualConsistency) = 0"
                   name="DQ_ConceptualConsistency" or="report"
                   in="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality">
             <template>
@@ -1558,18 +1557,20 @@
                 <gmd:report>
                   <gmd:DQ_ConceptualConsistency>
                   <gmd:nameOfMeasure>
-                    <gmx:Anchor
-                    xlink:href=""></gmx:Anchor>
+                    <gmx:Anchor xlink:href=""></gmx:Anchor>
                     </gmd:nameOfMeasure>
                     <gmd:measureDescription>
                     <gco:CharacterString/>
                     </gmd:measureDescription>
                     <gmd:result>
                       <gmd:DQ_QuantitativeResult>
-                        <gmd:valueUnit
-                          xlink:href="http://www.opengis.net/def/uom/SI/second"/>
+                        <gmd:valueUnit>
+                          <gml:BaseUnit gml:id="ID">
+                            <gml:identifier codeSpace=""></gml:identifier>
+                          </gml:BaseUnit>
+                        </gmd:valueUnit>
                         <gmd:value>
-                          <gco:Record xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                          <gco:Record
                             xsi:type="xs:double"></gco:Record>
                         </gmd:value>
                       </gmd:DQ_QuantitativeResult>
@@ -2011,8 +2012,6 @@
         <for name="gmd:processor"/>
         <for name="gmd:topicCategory"/>
         <for name="gmd:distributionFormat"/>
-        <for name="gmd:report"/>
-        <for name="gmd:result"/>
         <for name="gmd:resourceConstraints"/>
       </flatModeExceptions>
 
