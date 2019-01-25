@@ -988,14 +988,12 @@
           </action>
 
           <!-- constraints -->
-          <field removable="true" del=".." name="legalConstraints" or="MD_LegalConstraints"
+          <field removable="true" del=".."
                  xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:resourceConstraints/gmd:MD_LegalConstraints"/>
 
           <action type="add"
-                  btnLabel="addOtherConstraints"
-                  name="otherConstraints" or="otherConstraints"
-                  in="/gmd:MD_Metadata/gmd:identificationInfo/SV_ServiceIdentification/gmd:resourceConstraints/gmd:MD_LegalConstraints/gmd:accessConstraints"
-                  if="count(gmd:MD_Metadata/gmd:identificationInfo/SV_ServiceIdentification/gmd:resourceConstraints/gmd:MD_LegalConstraints/gmd:accessConstraints/gmd:otherConstraints) &lt; 2">
+                  btnLabel="addOtherConstraints" or="otherConstraints"
+                  in="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:resourceConstraints/gmd:MD_LegalConstraints/gmd:accessConstraints">
             <template>
               <snippet>
                     <gmd:otherConstraints>
@@ -2004,6 +2002,7 @@
       <!-- Elements that should not use the "flat" mode -->
       <flatModeExceptions>
         <for name="gmd:descriptiveKeywords"/>
+        <for name="gmd:otherConstraints"/>
         <for name="gmd:keyword"/>
         <for name="gmd:spatialResolution"/>
         <for name="gmd:pointOfContact"/>

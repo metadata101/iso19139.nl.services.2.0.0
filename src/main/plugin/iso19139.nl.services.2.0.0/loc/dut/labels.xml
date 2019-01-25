@@ -757,9 +757,8 @@
 
   <!-- ==================================================== -->
 
-  <element name="gmd:MD_LegalConstraints"
-           context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/gmd:resourceConstraints/gmd:MD_LegalConstraints">
-    <label>Juridische restricties</label>
+  <element name="gmd:MD_LegalConstraints">
+    <label>Juridische beperkingen</label>
     <description>Restricties en juridische voorwaarden die van toepassing zijn op zowel het gebruik van als de
       toegang tot de data of service.
     </description>
@@ -855,13 +854,13 @@
   </element>
 
   <!-- ==================================================== -->
-
-  <element name="gmd:otherConstraints"
-           context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/gmd:resourceConstraints/gmd:MD_LegalConstraints/gmd:otherConstraints">
+  <element name="gmd:otherConstraints">
     <label>Overige beperkingen</label>
-    <description>Andere restricties of beperkingen. Dit veld is te gebruiken om de URL naar de licentie van Public
-      domain, Creative Commons Publieke Domein Verklaring (CC0) of Geo Gedeeld in te vullen.
+    <description>Andere restricties of beperkingen. Dit veld is binnen juridische toegangs restricties 
+      te gebruiken om de licentie van Public
+      domain, Creative Commons Publieke Domein Verklaring (CC0) of Geo Gedeeld in te vullen, dan wel de relevante waarden voor INSPIRE.
     </description>
+    <btnLabel>Overige beperking toevoegen</btnLabel>
     <condition>mandatory</condition>
   </element>
 
