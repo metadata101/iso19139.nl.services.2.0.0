@@ -1182,55 +1182,7 @@
   </element>
 
 
-  <!-- ==================================================== -->
-  <!-- === GML namespace -->
-  <!-- ==================================================== -->
-
-  <element name="gml:id"
-           context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/srv:extent/gmd:EX_Extent/gmd:temporalElement/gmd:EX_TemporalExtent/gmd:extent/gml:TimePeriod/@gml:id">
-    <label>Identificatie</label>
-    <description>Identificatie</description>
-  </element>
-
-  <!-- ==================================================== -->
-
-  <element name="gml:TimeInstant"
-           context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/srv:extent/gmd:EX_Extent/gmd:temporalElement/gmd:EX_TemporalExtent/gmd:extent/gml:TimePeriod/gml:TimePeriodTypeCHOICE_ELEMENT2/gml:begin/gml:TimeInstant">
-    <label>Temporele dekking begindatum</label>
-    <description>Periode waarop de data betrekking heeft. Dit kan een tijdsinterval zijn maar ook een datum. De
-      overall tijdsperiode gedekt door de inhoud van de service kan een samenstelling zijn van een of meer
-      waarden. Het formaat van de datum is +/-JJJJ-MM-DDTUU:MM:SS (met streepjes T van time en dubbele punt). Het
-      jaar 1 BC wordt als -0000, 2 BC -0001, etc. weergegeven. Maand dag en tijd zijn optioneel.
-    </description>
-  </element>
-
-  <!-- ==================================================== -->
-
-  <element name="gml:TimeInstant"
-           context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/srv:extent/gmd:EX_Extent/gmd:temporalElement/gmd:EX_TemporalExtent/gmd:extent/gml:TimePeriod/gml:TimePeriodTypeCHOICE_ELEMENT3/gml:end/gml:TimeInstant">
-    <label>Temporele dekking einddatum</label>
-    <description>Periode waarop de data betrekking heeft. Dit kan een tijdsinterval zijn maar ook een datum. De
-      overall tijdsperiode gedekt door de inhoud van de service kan een samenstelling zijn van een of meer
-      waarden. Het formaat van de datum is +/-JJJJ-MM-DDTUU:MM:SS (met streepjes T van time en dubbele punt). Het
-      jaar 1 BC wordt als -0000, 2 BC -0001, etc. weergegeven. Maand dag en tijd zijn optioneel.
-    </description>
-  </element>
-
-  <!-- ==================================================== -->
-
-  <element name="gml:id"
-           context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/srv:extent/gmd:EX_Extent/gmd:temporalElement/gmd:EX_TemporalExtent/gmd:extent/gml:TimePeriod/gml:begin/gml:TimeInstant/@gml:id">
-    <label>Temporele dekking begin</label>
-    <description>Identificatie</description>
-  </element>
-
-  <!-- ==================================================== -->
-
-  <element name="gml:id"
-           context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/srv:extent/gmd:EX_Extent/gmd:temporalElement/gmd:EX_TemporalExtent/gmd:extent/gml:TimePeriod/gml:end/gml:TimeInstant/@gml:id">
-    <label>Temporele dekking eind</label>
-    <description>Identificatie</description>
-  </element>
+  
 
   <!-- ==================================================== -->
   <!-- === SRV namespace for 19119 service metadata -->
@@ -1427,21 +1379,109 @@
   </element>
 
   <!-- ==================================================== -->
-
-  <element name="gml:beginPosition"
-           context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/srv:extent/gmd:EX_Extent/gmd:temporalElement/gmd:EX_TemporalExtent/gmd:extent/gml:TimePeriod/gml:beginPosition">
+  <!-- === GML namespace -->
+  <!-- ==================================================== -->
+  <!-- ==================================================== -->
+  <element name="gml:id" context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/gmd:extent/gmd:EX_Extent/gmd:temporalElement/gmd:EX_TemporalExtent/gmd:extent/gml:TimePeriod/@gml:id">
+    <label>Identificatie</label>
+    <description>Identificatie</description>
+  </element>
+  <element name="gml:TimeInstant" context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/gmd:extent/gmd:EX_Extent/gmd:temporalElement/gmd:EX_TemporalExtent/gmd:extent/gml:TimePeriod/gml:TimePeriodTypeCHOICE_ELEMENT2/gml:begin/gml:TimeInstant">
+    <label>Temporele dekking begindatum</label>
+    <description>Inhoudelijke geldigheid van de data, gespecificeerd naar begin- en einddatum.</description>
+  </element>
+  <element name="gml:TimeInstant" context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/gmd:extent/gmd:EX_Extent/gmd:temporalElement/gmd:EX_TemporalExtent/gmd:extent/gml:TimePeriod/gml:TimePeriodTypeCHOICE_ELEMENT3/gml:end/gml:TimeInstant">
+    <label>Temporele dekking einddatum</label>
+    <description>Inhoudelijke geldigheid van de data, gespecificeerd naar begin- en einddatum.</description>
+  </element>
+  <element name="gml:id" context="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/gmd:DQ_CompletenessOmission/gmd:result/gmd:DQ_QuantitativeResult/gmd:valueUnit/gml:BaseUnit/@gml:id">
+    <label>Compleetheid</label>
+    <description>Omschrijving van de compleetheid van de dataset</description>
+  </element>
+  <element name="gml:id" context="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/gmd:DQ_AbsoluteExternalPositionalAccuracy/gmd:result/gmd:DQ_QuantitativeResult/gmd:valueUnit/gml:BaseUnit/@gml:id">
+    <label>Geometrische nauwkeurigheid</label>
+    <description>Afwijking ten opzichte van de werkelijke plek op aarde</description>
+  </element>
+  <element name="gml:id" context="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/gmd:DQ_TopologicalConsistency/gmd:result/gmd:DQ_QuantitativeResult/gmd:valueUnit/gml:BaseUnit/@gml:id">
+    <label>Topologische samenhang</label>
+    <description>juistheid van de topologische samenhang</description>
+    <help_link>http://wiki.geonovum.nl/index.php/Topologische samenhang</help_link>
+    <condition>C</condition>
+  </element>
+  <element name="gml:BaseUnit" context="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/gmd:DQ_CompletenessOmission/gmd:result/gmd:DQ_QuantitativeResult/gmd:valueUnit/gml:BaseUnit">
+    <label>Basis eenheid</label>
+    <description/>
+  </element>
+  <element name="gml:BaseUnit" context="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/gmd:DQ_AbsoluteExternalPositionalAccuracy/gmd:result/gmd:DQ_QuantitativeResult/gmd:valueUnit/gml:BaseUnit">
+    <label>Basis eenheid</label>
+    <description/>
+  </element>
+   <element name="gml:uom">
+    <label>Eenheid</label>
+    <description>De eenheid van het coordinaatsysteem, bijvoorbeeld 'm'</description>
+  </element>
+  <element name="gml:beginPosition" context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/gmd:extent/gmd:EX_Extent/gmd:temporalElement/gmd:EX_TemporalExtent/gmd:extent/gml:TimePeriod/gml:beginPosition">
     <label>Begindatum</label>
     <description>Begindatum (YYYY-MM-DD).</description>
-    <help_link>http://wiki.geonovum.nl/index.php/2.5.16_Temporal_Reference</help_link>
+    <condition>mandatory</condition>
   </element>
-
-  <!-- ==================================================== -->
-
-  <element name="gml:endPosition"
-           context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/srv:extent/gmd:EX_Extent/gmd:temporalElement/gmd:EX_TemporalExtent/gmd:extent/gml:TimePeriod/gml:endPosition">
+  <element name="gml:endPosition" context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/gmd:extent/gmd:EX_Extent/gmd:temporalElement/gmd:EX_TemporalExtent/gmd:extent/gml:TimePeriod/gml:endPosition">
     <label>Einddatum</label>
     <description>Einddatum (YYYY-MM-DD).</description>
-    <help_link>http://wiki.geonovum.nl/index.php/2.5.16_Temporal_Reference</help_link>
+    <condition>C</condition>
+  </element>
+
+
+  <!-- ==================================================== -->
+  <element name="gml:TimePeriod" context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/gmd:extent/gmd:EX_Extent/gmd:temporalElement/gmd:EX_TemporalExtent/gmd:extent/gml:TimePeriod">
+    <label>Periode</label>
+    <description/>
+  </element>
+  <!-- ==================================================== -->
+  <element name="gml:begin" context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/gmd:extent/gmd:EX_Extent/gmd:temporalElement/gmd:EX_TemporalExtent/gmd:extent/gml:TimePeriod/gml:begin">
+    <label>Begin</label>
+    <description/>
+  </element>
+  <!-- ==================================================== -->
+  <element name="gml:end" context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/gmd:extent/gmd:EX_Extent/gmd:temporalElement/gmd:EX_TemporalExtent/gmd:extent/gml:TimePeriod/gml:end">
+    <label>Eind</label>
+    <description/>
+  </element>
+  <!-- ==================================================== -->
+  <element name="gml:identifier" context="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/gmd:DQ_CompletenessOmission/gmd:result/gmd:DQ_QuantitativeResult/gmd:valueUnit/gml:BaseUnit/gml:identifier">
+    <label>Identificatie van de Meeteenheid</label>
+    <description>Identificatie van de eenheid in het systeem</description>
+  </element>
+  <element name="gml:identifier" context="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/gmd:DQ_AbsoluteExternalPositionalAccuracy/gmd:result/gmd:DQ_QuantitativeResult/gmd:valueUnit/gml:BaseUnit/gml:identifier">
+    <label>Identificatie van de Meeteenheid</label>
+    <description>Identificatie van de eenheid in het systeem</description>
+  </element>
+  <element name="gml:identifier" context="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/gmd:DQ_TopologicalConsistency/gmd:result/gmd:DQ_QuantitativeResult/gmd:valueUnit/gml:BaseUnit/gml:identifier">
+    <label>Identificatie van de Meeteenheid</label>
+    <description>Identificatie van de eenheid in het systeem</description>
+  </element>
+  <element name="gml:identifier" context="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/gmd:DQ_ConceptualConsistency/gmd:result/gmd:DQ_QuantitativeResult/gmd:valueUnit/gml:BaseUnit/gml:identifier">
+    <label>Identificatie van de Meeteenheid</label>
+    <description>Identificatie van de eenheid in het systeem</description>
+  </element>
+
+  <element name="gml:unitsSystem" context="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/gmd:DQ_ConceptualConsistency/gmd:result/gmd:DQ_QuantitativeResult/gmd:valueUnit/gml:BaseUnit/gml:unitsSystem">
+    <label>Eenheden systeem</label>
+    <description>Indien  geen numerieke waarde wordt ingevuld, dient de waarde 'tekst' ingevuld te worden.</description>
+  </element>
+  <element name="gml:unitsSystem" context="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/gmd:DQ_CompletenessOmission/gmd:result/gmd:DQ_QuantitativeResult/gmd:valueUnit/gml:BaseUnit/gml:unitsSystem">
+    <label>Eenheden systeem</label>
+    <description>Indien  geen numerieke waarde wordt ingevuld, dient de waarde 'tekst' ingevuld te worden.</description>
+  </element>
+  <element name="gml:unitsSystem" context="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/gmd:DQ_AbsoluteExternalPositionalAccuracy/gmd:result/gmd:DQ_QuantitativeResult/gmd:valueUnit/gml:BaseUnit/gml:unitsSystem">
+    <label>Eenheden systeem</label>
+    <description>Indien  geen numerieke waarde wordt ingevuld, dient de waarde 'tekst' ingevuld te worden.</description>
+  </element>
+  <element name="gml:unitsSystem" context="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/gmd:DQ_TopologicalConsistency/gmd:result/gmd:DQ_QuantitativeResult/gmd:valueUnit/gml:BaseUnit/gml:unitsSystem">
+    <label>Eenheden systeem</label>
+    <description>Indien  geen numerieke waarde wordt ingevuld, dient de waarde 'tekst' ingevuld te worden.Verplicht voor INSPIRE als voor netwerken de aansluiting van hartlijnen niet is verzekerd. In dat geval moet de Connectivity tolerance parameter vastgelegd worden om automatische creatie van hartlijn topologie mogelijk te maken</description>
+    <help_link>http://wiki.geonovum.nl/index.php/Topologische samenhang</help_link>
+    <condition>C</condition>
   </element>
 
   <!-- ==================================================== -->
