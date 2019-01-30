@@ -505,6 +505,13 @@
     <condition>mandatory</condition>
   </element>
 
+  <element name="gmd:code"
+           context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/srv:extent/gmd:EX_Extent/gmd:geographicElement/gmd:EX_GeographicDescription/gmd:geographicIdentifier/gmd:MD_Identifier/gmd:code">
+    <label>Identifier gebied</label>
+    <description>Verwijzing naar een gebied dat de dekking van de service beschrijft
+    </description>
+  </element>
+
   <!-- ==================================================== -->
 
   <element name="gmd:electronicMailAddress"

@@ -185,7 +185,9 @@
     <name>gmd:portrayalCatalogueInfo</name>
     <name>gmd:portrayalCatalogueCitation</name>
     <name>gmd:thesaurusName</name>
-    <name>gmd:resourceConstraints</name>
+    <name>gmd:MD_LegalConstraints</name>
+    <name>gmd:MD_SecurityConstraints</name>
+    <name>gmd:MD_Constraints</name>
     <name>gmd:spatialRepresentationInfo</name>
     <name>gmd:pointOfContact</name>
     <name>gmd:contact</name>
@@ -204,8 +206,7 @@
     <name>gmd:attributes</name>
     <name>gmd:geographicBox</name>
     <name>gmd:EX_TemporalExtent</name>
-    <!-- TODO: Disabled in Dutch schema -->
-    <!--<name>gmd:EX_VerticalExtent</name>-->
+    <name>gmd:EX_VerticalExtent</name>
     <name>gmd:MD_Distributor</name>
     <name>srv:containsOperations</name>
     <!-- TODO: Disabled in Dutch schema -->
@@ -213,7 +214,6 @@
     <!-- TODO: Disabled in Dutch schema -->
     <!--<name>srv:connectPoint</name>-->
     <name>srv:SV_CoupledResource</name>
-    <name>gmd:metadataConstraints</name>
     <name>gmd:aggregationInfo</name>
     <name>gmd:processStep</name>
     <name>gmd:lineage</name>
@@ -992,18 +992,6 @@
                  xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:resourceConstraints/gmd:MD_LegalConstraints"/>
 
           <action type="add"
-                  btnLabel="addOtherConstraints" or="otherConstraints"
-                  in="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:resourceConstraints/gmd:MD_LegalConstraints/gmd:accessConstraints">
-            <template>
-              <snippet>
-                    <gmd:otherConstraints>
-                      <gmx:Anchor xlink:href=""></gmx:Anchor>
-                    </gmd:otherConstraints>
-              </snippet>
-            </template>
-          </action>
-
-          <action type="add"
                   btnLabel="addLegalConstraints"
                   name="legalConstraints" or="resourceConstraints" forceLabel="true"
                   in="/gmd:MD_Metadata/gmd:identificationInfo/*">
@@ -1440,26 +1428,6 @@
                 <gmd:dataQualityInfo>
                   <gmd:DQ_DataQuality></gmd:DQ_DataQuality>
                 </gmd:dataQualityInfo>
-              </snippet>
-            </template>
-          </action>
-          <!--    5.23 Niveau kwaliteitsbeschrijving -->
-          <field
-            xpath="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:scope"/>
-          <action type="add"
-                  btnLabel="addQualityLevel"
-                  if="count(gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:scope/gmd:DQ_Scope/gmd:level/gmd:MD_ScopeCode) = 0"
-                  name="DQ_Scope" or="DQ_Scope"
-                  in="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:scope">
-            <template>
-              <snippet>
-                <gmd:DQ_Scope>
-                  <gmd:level>
-                    <gmd:MD_ScopeCode
-                      codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#MD_ScopeCode"
-                      codeListValue="dataset"/>
-                  </gmd:level>
-                </gmd:DQ_Scope>
               </snippet>
             </template>
           </action>
@@ -2172,9 +2140,7 @@
         <template>
           <![CDATA[<gmd:MD_ProgressCode xmlns:gmd='http://www.isotc211.org/2005/gmd' codeListValue='{{value}}'/>]]></template>
       </field>
-    </section>
 
-    <section name="resourceConstraints">
       <!-- Insert a new access contraints
             Warning: Duplicates may be inserted.
       -->
@@ -2201,7 +2167,7 @@
              insertMode="gn_create"
              removable="true">
         <template>
-          <![CDATA[<gco:CharacterString xmlns:gco='http://www.isotc211.org/2005/gco'>{{value}}</gco:CharacterString>]]></template>
+          <![CDATA[<gmx:Anchor xmlns:gmx='http://www.isotc211.org/2005/gmx' xlink:href="">{{value}}</gmx:Anchor>]]></template>
       </field>
     </section>
 

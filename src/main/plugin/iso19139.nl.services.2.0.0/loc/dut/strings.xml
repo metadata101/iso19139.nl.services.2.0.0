@@ -73,7 +73,7 @@
   <hierarchyLevel>Hierarchisch niveau</hierarchyLevel>
   <publicationDate>Publicatie datum</publicationDate>
   <revisionDate>Revisie datum</revisionDate>
-  <temporalRangeSection>Temporal extent</temporalRangeSection>
+  <temporalRangeSection>Inhoudelijke geldigheid</temporalRangeSection>
   <beginPosition>Begin</beginPosition>
   <endPosition>Eind</endPosition>
   <conformity>Conformiteit</conformity>
@@ -290,9 +290,12 @@
 
 
   <conformanceStatement>Conformiteits indicatie</conformanceStatement>
-  <ExtentDescription>Omschrijving temporele dekking</ExtentDescription>
+  <ExtentDescription>Omschrijving inhoudelijke geldigheid</ExtentDescription>
   <DsCharacterSet>Karakterset dataset</DsCharacterSet>
   <Distribution>Distributie</Distribution>
+  <addDistribution>Distributie toevoegen</addDistribution>
+  <addDistributionFormat>Formaat toevoegen</addDistributionFormat>
+  <addDistributor>Distribiteur toevoegen</addDistributor>
   <encoding>Distributie formaat</encoding>
   <format>Naam distributie formaat</format>
   <format_version>Versie distributie formaat</format_version>
@@ -342,26 +345,27 @@
   <measure>Maatregel</measure>
   <description>Omschrijving</description>
   <addExtent>Omgrenzende rechthoek toevoegen</addExtent>
-
   <dsIdentifier>Identificatie dataset</dsIdentifier>
   <metadataLink>Metadata identificatie</metadataLink>
   <linkTitle>Link titel</linkTitle>
-
   <securityConstraints>Veiligheids beperkingen</securityConstraints>
   <addSecurityConstraints>Voeg veiligheids beperkingen toe</addSecurityConstraints>
   <addUseConstraint>Gebruiksbeperking toevoegen</addUseConstraint>
   <addOtherConstraint>Overige beperking toevoegen</addOtherConstraint>
   <addConceptualConsistency>Conceptuele consistentie toevoegen</addConceptualConsistency>
-  <addGeographicBoundingBox>Dekking toevoegen</addGeographicBoundingBox>
+  <addGeographicBoundingBox>Omgrenzende rechthoek toevoegen</addGeographicBoundingBox>
   <addQualityScope>Niveau kwaliteitsbeschrijving toevoegen</addQualityScope>
-  <addQualityScopeDesc>Beschrijving niveau kwaliteitsbeschrijving toevoegen</addQualityScopeDesc>
+  <addQualityScopeDesc>Niveau kwaliteitsbeschrijving naam toevoegen</addQualityScopeDesc>
   <spatialInfo>Ruimtelijke informatie</spatialInfo>
   <Add_DQ_ConceptualConsistency>Quality of service toevoegen</Add_DQ_ConceptualConsistency>
   <ConformanceResult>Conformiteit</ConformanceResult>
-<DomainConsistency>Conformiteit met een domein specificatie</DomainConsistency>
-<TopologicalConsistency>Topologische samenhang</TopologicalConsistency>
-<CompletenessOmission>Compleetheid</CompletenessOmission>
-<ConceptualConsistency>Quality of Service</ConceptualConsistency>
-<AbsoluteExternalPositionalAccuracy>Geometrische nauwkeurigheid</AbsoluteExternalPositionalAccuracy>
-<ProcessStep>Bewerkings stap</ProcessStep>
+  <levelDescription>Niveau kwaliteitsbeschrijving naam</levelDescription>
+  <DomainConsistency>Conformiteit met een domein specificatie</DomainConsistency>
+  <TopologicalConsistency>Topologische samenhang</TopologicalConsistency>
+  <CompletenessOmission>Compleetheid</CompletenessOmission>
+  <ConceptualConsistency>Quality of Service</ConceptualConsistency>
+  <AbsoluteExternalPositionalAccuracy>Geometrische nauwkeurigheid</AbsoluteExternalPositionalAccuracy>
+  <ProcessStep>Bewerkings stap</ProcessStep>
+  <addVerticalExtent>Verticale spreiding toevoegen</addVerticalExtent>
+  <addGeographicIdentifier>Identifier gebeid toevoegen</addGeographicIdentifier>
 </strings>
