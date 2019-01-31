@@ -42,11 +42,11 @@
   <inspire>INSPIRE</inspire>
   <inspire_sds>SDS</inspire_sds>
 
-  <overviews>Overviews</overviews>
+  <overviews>Thumbnail</overviews>
   <metadataInXML>XML</metadataInXML>
-  <providedBy>Provided by</providedBy>
-  <shareOnSocialSite>Share on social sites</shareOnSocialSite>
-  <viewMode>Views</viewMode>
+  <providedBy>Beschikbaar gesteld door</providedBy>
+  <shareOnSocialSite>Deel op sociale media</shareOnSocialSite>
+  <viewMode>Weergave opties</viewMode>
   <keywordFrom>Trefwoord uit </keywordFrom>
   <resource>Bron</resource>
   <xml>XML</xml>
@@ -73,7 +73,7 @@
   <hierarchyLevel>Hierarchisch niveau</hierarchyLevel>
   <publicationDate>Publicatie datum</publicationDate>
   <revisionDate>Revisie datum</revisionDate>
-  <temporalRangeSection>Inhoudelijke geldigheid</temporalRangeSection>
+  <temporalRangeSection>temporele dekking</temporalRangeSection>
   <beginPosition>Begin</beginPosition>
   <endPosition>Eind</endPosition>
   <conformity>Conformiteit</conformity>
@@ -81,9 +81,9 @@
   <conformity_date>Datum</conformity_date>
   <explanation>Verklaring</explanation>
   <pass>Conformiteit</pass>
-  <indeterminatePosition>Indeterminate position</indeterminatePosition>
-  <pointOfContact>Contact for the resource</pointOfContact>
-  <metadataPointOfContact>Contact for the metadata</metadataPointOfContact>
+  <indeterminatePosition>Niet vastgestelde positie</indeterminatePosition>
+  <pointOfContact>Contact voor de service</pointOfContact>
+  <metadataPointOfContact>Contact voor de metadata</metadataPointOfContact>
   <organisationName>Organisatie naam</organisationName>
   <electronicMailAddress>Email</electronicMailAddress>
   <positionName>Functie</positionName>
@@ -131,91 +131,7 @@
   <freeTextKeywords>Other keywords</freeTextKeywords>
 
   <addCrs>Projection</addCrs>
-  <addCrs4936>ETRS89-XYZ</addCrs4936>
-  <addCrs4937>ETRS89-GRS80h</addCrs4937>
-  <addCrs4258>ETRS89-GRS80</addCrs4258>
-  <addCrs3035>ETRS89-LAEA</addCrs3035>
-  <addCrs3034>ETRS89-LCC</addCrs3034>
-  <addCrs3038>ETRS89-TM26N</addCrs3038>
-  <addCrs3039>ETRS89-TM27N</addCrs3039>
-  <addCrs3040>ETRS89-TM28N</addCrs3040>
-  <addCrs3041>ETRS89-TM29N</addCrs3041>
-  <addCrs3042>ETRS89-TM30N</addCrs3042>
-  <addCrs3043>ETRS89-TM31N</addCrs3043>
-  <addCrs3044>ETRS89-TM32N</addCrs3044>
-  <addCrs3045>ETRS89-TM33N</addCrs3045>
-  <addCrs3046>ETRS89-TM34N</addCrs3046>
-  <addCrs3047>ETRS89-TM35N</addCrs3047>
-  <addCrs3048>ETRS89-TM36N</addCrs3048>
-  <addCrs3049>ETRS89-TM37N</addCrs3049>
-  <addCrs3050>ETRS89-TM38N</addCrs3050>
-  <addCrs3051>ETRS89-TM39N</addCrs3051>
-  <addCrs5730>EVRS</addCrs5730>
-  <addCrs7409>ETRS89-GRS80-EVRS</addCrs7409>
-
-  <!-- String for INSPIRE SDS tab -->
-
-  <inspire_sds_cc1>Conformance class 1: invocable</inspire_sds_cc1>
-  <inspire_sds_cc2>Conformance class 2: interoperable</inspire_sds_cc2>
-  <inspire_sds_cc3>Conformance class 3: harmonized</inspire_sds_cc3>
-
-  <sds-category>Category</sds-category>
-  <inspire_add_pass>Add pass element</inspire_add_pass>
-  <sds-add-dataquality>Add DataQuality element</sds-add-dataquality>
-  <sds-add-dataqualityHelp>TG4: For each spatial data service, there shall be one and only one set
-    of quality information (dataQualityInfo element) scoped to “service”.
-  </sds-add-dataqualityHelp>
-  <sds-add-tech-spec>Add a technical specification</sds-add-tech-spec>
-  <sds-add-tech-specHelp>TG8: The Specification metadata element shall at least refer to or contain
-    one technical specification to which the invocable spatial data service fully conforms,
-    providing all the necessary technical elements, to actually invoke the service and enable its
-    usage.
-  </sds-add-tech-specHelp>
-  <sds-tech-spec>Technical specification</sds-tech-spec>
-  <conformity_desc>Tech spec title</conformity_desc>
-  <conformity_linkage>Tech spec URL</conformity_linkage>
-
-  <sds-section-qos>Quality of Service</sds-section-qos>
-  <sds-add-qualityofservice>Add missing Quality of Service criteria</sds-add-qualityofservice>
-  <sds-add-qualityofserviceHelp>INSPIRE SDS requires three quality of service criteria to be
-    reported in the metadata: Availability, Performance and Capacity. This button will add the
-    missing criteria.
-  </sds-add-qualityofserviceHelp>
-  <qos_measure>Measure:</qos_measure>
-  <qos_uom>UOM</qos_uom>
-  <qos_description>Description</qos_description>
-  <qos_value>Value</qos_value>
-  <sds-section-crs>Coordinate reference system</sds-section-crs>
-
-  <sds-fix-category>Fix the Category element</sds-fix-category>
-  <sds-fix-categoryHelp>(Rec1) Replace gco:CharacterString with gmx:Anchor in the description
-    metadata element.
-  </sds-fix-categoryHelp>
-
-  <sds-accesspoint>Access Point URL</sds-accesspoint>
-  <sds-add-accesspoint>Add Access Point</sds-add-accesspoint>
-
-  <sds-endpoint>Endpoint URL</sds-endpoint>
-  <sds-add-endpoint>Voeg Endpoint toe</sds-add-endpoint>
-
-  <sds-addNoConstraints>Geen Limitatie</sds-addNoConstraints>
-  <sds-addNoConstraintsHelp>Add an element that documents that there are no limitation for this
-    service.
-  </sds-addNoConstraintsHelp>
-  <sds-addUnknownConstraints>Onbekende Limitatie</sds-addUnknownConstraints>
-  <sds-addConstraints>Customizable constraints</sds-addConstraints>
-
-  <sds>
-    <noConditionsApply>Beperkingen</noConditionsApply>
-    <conditionsUnknown>Voorwaarden onbekend</conditionsUnknown>
-  </sds>
-
-  <sds-limitation>Limitatie</sds-limitation>
-
-  <sds-section-custodian>Verantwoordelijke beheerder</sds-section-custodian>
-  <sds-addOperation>Operatie toevoegen</sds-addOperation>
-
-
+ 
   <!-- Dutch schema custom strings -->
   <viewTitle>
     <h3>Nederlands profiel voor Services 2.0 - Basis</h3>
@@ -290,7 +206,7 @@
 
 
   <conformanceStatement>Conformiteits indicatie</conformanceStatement>
-  <ExtentDescription>Omschrijving inhoudelijke geldigheid</ExtentDescription>
+  <ExtentDescription>Omschrijving temporele dekking</ExtentDescription>
   <DsCharacterSet>Karakterset dataset</DsCharacterSet>
   <Distribution>Distributie</Distribution>
   <addDistribution>Distributie toevoegen</addDistribution>
@@ -323,7 +239,7 @@
   <addHierarchyLevelName>Naam hiërarchisch niveau toevoegen</addHierarchyLevelName>
   <AddSource>Voeg bron toe</AddSource>
   <AddProcessStep>Voeg bewerkingsstap toe</AddProcessStep>
-  <addTemporalExtent>Voeg inhoudelijke geldigheid toe</addTemporalExtent>
+  <addTemporalExtent>Voeg temporele dekking toe</addTemporalExtent>
   <addResourceMaintenance>Voeg onderhouds informatie toe</addResourceMaintenance>
   <addSeries>Voeg serie informatie toe</addSeries>
 
@@ -350,6 +266,7 @@
   <linkTitle>Link titel</linkTitle>
   <securityConstraints>Veiligheids beperkingen</securityConstraints>
   <addSecurityConstraints>Voeg veiligheids beperkingen toe</addSecurityConstraints>
+  <addLocale>Taal toevoegen</addLocale>
   <addUseConstraint>Gebruiksbeperking toevoegen</addUseConstraint>
   <addOtherConstraint>Overige beperking toevoegen</addOtherConstraint>
   <addConceptualConsistency>Conceptuele consistentie toevoegen</addConceptualConsistency>
@@ -367,5 +284,5 @@
   <AbsoluteExternalPositionalAccuracy>Geometrische nauwkeurigheid</AbsoluteExternalPositionalAccuracy>
   <ProcessStep>Bewerkings stap</ProcessStep>
   <addVerticalExtent>Verticale spreiding toevoegen</addVerticalExtent>
-  <addGeographicIdentifier>Identifier gebeid toevoegen</addGeographicIdentifier>
+  <addGeographicIdentifier>Identifier gebied toevoegen</addGeographicIdentifier>
 </strings>

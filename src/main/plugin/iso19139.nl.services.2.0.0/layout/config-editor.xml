@@ -816,16 +816,16 @@
           </action>
 
           <field
-            xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:extent/gmd:EX_Extent/gmd:geographicElement[gmd:EX_GeographicDescription/gmd:geographicIdentifier]"/>
+            xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:EX_Extent/gmd:geographicElement[gmd:EX_GeographicDescription/gmd:geographicIdentifier]"/>
 
           <action type="add"
                   btnLabel="addGeographicIdentifier"
                   or="extent" name="geographicIdentifier" forceLabel="true"
                   in="/gmd:MD_Metadata/gmd:identificationInfo/*"
-                  if="count(gmd:MD_Metadata/gmd:identificationInfo/*/gmd:extent/gmd:EX_Extent/gmd:geographicElement/gmd:EX_GeographicDescription)=0">
+                  if="count(gmd:MD_Metadata/gmd:identificationInfo/*/gmd:EX_Extent/gmd:geographicElement/gmd:EX_GeographicDescription)=0">
             <template>
               <snippet>
-                <gmd:extent>
+                <srv:extent>
                   <gmd:EX_Extent>
                     <gmd:geographicElement>
                       <gmd:EX_GeographicDescription>
@@ -837,23 +837,23 @@
                       </gmd:EX_GeographicDescription>
                     </gmd:geographicElement>
                   </gmd:EX_Extent>
-                </gmd:extent>
+                </srv:extent>
               </snippet>
             </template>
           </action>
 
           <!--   vertical bounds -->
           <field
-            xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:extent/gmd:EX_Extent/gmd:verticalElement"/>
+            xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/srv:extent/gmd:EX_Extent/gmd:verticalElement"/>
 
           <action type="add"
                   btnLabel="addVerticalExtent"
                   or="extent" name="verticalElement" forceLabel="true"
                   in="/gmd:MD_Metadata/gmd:identificationInfo/*"
-                  if="count(gmd:MD_Metadata/gmd:identificationInfo/*/gmd:extent/gmd:EX_Extent/gmd:verticalElement)=0">
+                  if="count(gmd:MD_Metadata/gmd:identificationInfo/*/srv:extent/gmd:EX_Extent/gmd:verticalElement)=0">
             <template>
               <snippet>
-                <gmd:extent>
+                <srv:extent>
                   <gmd:EX_Extent>
                     <gmd:verticalElement>
                        <gmd:EX_VerticalExtent>
@@ -864,30 +864,30 @@
                              <gco:Real/>
                           </gmd:maximumValue>
                           <gmd:verticalCRS>
-                            <gml:VerticalCRS gml:id="vertical">
+                            <gml:VerticalCRS gml:id="">
                               <gml:identifier codeSpace="http://www.opengis.net/def/crs/EPSG/0/"/>
                             </gml:VerticalCRS>
                           </gmd:verticalCRS>
                        </gmd:EX_VerticalExtent>
                     </gmd:verticalElement>
                   </gmd:EX_Extent>
-                </gmd:extent>
+                </srv:extent>
               </snippet>
             </template>
           </action>
 
           <!-- temporele dekking -->
           <field name="temporalRangeSection" templateModeOnly="true" notDisplayedIfMissing="true"
-                 xpath="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/gmd:extent/gmd:EX_Extent/gmd:temporalElement"
+                 xpath="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/srv:extent/gmd:EX_Extent/gmd:temporalElement"
                  if="count(gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification) > 0">
             <template>
               <values>
                 <!-- -Need a * for gml:TimePeriodTypeCHOICE_ELEMENT2 added by editor enumerated tree
                       but this will make the XSLT formatter fails. Using // to access the element in both case. -->
                 <key label="beginPosition"
-                     xpath="gmd:EX_TemporalExtent/gmd:extent/gml:TimePeriod//gml:beginPosition"
+                     xpath="gmd:EX_TemporalExtent/srv:extent/gml:TimePeriod//gml:beginPosition"
                      use="gn-date-picker"
-                     tooltip="gmd:extent|gmd:EX_TemporalExtent">
+                     tooltip="srv:extent|gmd:EX_TemporalExtent">
                   <directiveAttributes
                     data-tag-name="gml:beginPosition"
                     data-indeterminate-position="eval#gmd:EX_TemporalExtent/gmd:extent/gml:TimePeriod/*/gml:beginPosition/@indeterminatePosition"/>
@@ -896,7 +896,7 @@
                 <key label="endPosition"
                      xpath="gmd:EX_TemporalExtent/gmd:extent/gml:TimePeriod//gml:endPosition"
                      use="gn-date-picker"
-                     tooltip="gmd:extent|gmd:EX_TemporalExtent">
+                     tooltip="srv:extent|gmd:EX_TemporalExtent">
                   <directiveAttributes
                     data-tag-name="gml:endPosition"
                     data-indeterminate-position="eval#gmd:EX_TemporalExtent/gmd:extent/gml:TimePeriod/*/gml:endPosition/@indeterminatePosition"/>
@@ -923,20 +923,22 @@
                   btnLabel="addTemporalExtent"
                   name="temporalExtent" or="extent"
                   in="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification"
-                  if="count(gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/gmd:extent/gmd:EX_Extent/gmd:temporalElement) = 0">
+                  if="count(gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/srv:extent/gmd:EX_Extent/gmd:temporalElement) = 0">
             <template>
-              <snippet><gmd:extent>
+              <snippet>
+              <srv:extent>
                 <gmd:EX_Extent>
                   <gmd:temporalElement>
                     <gmd:EX_TemporalExtent>
                       <gmd:extent>
-                        <gml:TimePeriod id="period">
+                        <gml:TimePeriod gml:id="">
                           <gml:beginPosition></gml:beginPosition>
                           <gml:endPosition></gml:endPosition>
                         </gml:TimePeriod>
                       </gmd:extent>
                     </gmd:EX_TemporalExtent>
-                  </gmd:temporalElement></gmd:EX_Extent></gmd:extent>
+                  </gmd:temporalElement></gmd:EX_Extent>
+                  </srv:extent>
               </snippet>
             </template>
           </action>
@@ -945,12 +947,12 @@
               Beschrijving temporeledekking
               -->
           <field
-            xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:extent/gmd:EX_Extent/gmd:description"></field>
+            xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/srv:extent/gmd:EX_Extent/gmd:description"></field>
           <action type="add"
-                  if="count(gmd:MD_Metadata/gmd:identificationInfo/*/gmd:extent/gmd:EX_Extent/gmd:description) = 0"
+                  if="count(gmd:MD_Metadata/gmd:identificationInfo/*/srv:extent/gmd:EX_Extent/gmd:description) = 0"
                   btnLabel="addExtentDescription"
                   name="ExtentDescription" or="description"
-                  in="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:extent/gmd:EX_Extent">
+                  in="/gmd:MD_Metadata/gmd:identificationInfo/*/srv:extent/gmd:EX_Extent">
             <template>
               <snippet>
                 <gmd:description>
@@ -1508,10 +1510,10 @@
           </action>
 
           <!--   5.33 Conformiteitindicatie met de specificatie  -->
-          <field name="conformanceStatement" or="report"
+          <field name="conformanceStatement" or="report" del ="../.."
                  xpath="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/gmd:DQ_DomainConsistency/gmd:result"
                  />
-          <field name="DQ_ConceptualConsistency" or="report"
+          <field name="DQ_ConceptualConsistency" or="report" del=".."
             xpath="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/gmd:DQ_ConceptualConsistency"></field>
 
           <action type="add"
@@ -1531,7 +1533,7 @@
                     <gmd:result>
                       <gmd:DQ_QuantitativeResult>
                         <gmd:valueUnit>
-                          <gml:BaseUnit gml:id="ID">
+                          <gml:BaseUnit gml:id="">
                             <gml:identifier codeSpace=""></gml:identifier>
                           </gml:BaseUnit>
                         </gmd:valueUnit>
@@ -1548,7 +1550,7 @@
           </action>
 
           <!-- volledigheid -->
-          <field name="DQ_CompletenessOmission" or="report"
+          <field name="DQ_CompletenessOmission" or="report" del="../.."
             xpath="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/gmd:DQ_CompletenessOmission/gmd:result"></field>
 
           <action type="add"
@@ -1563,7 +1565,7 @@
                     <gmd:result>
                       <gmd:DQ_QuantitativeResult>
                         <gmd:valueUnit>
-                          <gml:BaseUnit gml:id="id-1">
+                          <gml:BaseUnit gml:id="">
                              <gml:identifier codeSpace="http://www.opengis.net/def"/>
                              <gml:unitsSystem/>
                           </gml:BaseUnit>
@@ -1580,7 +1582,7 @@
           </action>
 
           <!--    5.39 Topologische samenhang . -->
-          <field name="DQ_TopologicalConsistency" or="report"
+          <field name="DQ_TopologicalConsistency" or="report" del="../.."
             xpath="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/gmd:DQ_TopologicalConsistency/gmd:result"></field>
 
           <action type="add"
@@ -1595,7 +1597,7 @@
                     <gmd:result>
                       <gmd:DQ_QuantitativeResult>
                         <gmd:valueUnit>
-                          <gml:BaseUnit gml:id="id">
+                          <gml:BaseUnit gml:id="">
                              <gml:identifier codeSpace="http://www.opengis.net/def"/>
                              <gml:unitsSystem><gco:CharacterString/></gml:unitsSystem>
                           </gml:BaseUnit>
@@ -1611,7 +1613,7 @@
             </template>
           </action>
 
-          <field name="DQ_AbsoluteExternalPositionalAccuracy" or="report"
+          <field name="DQ_AbsoluteExternalPositionalAccuracy" or="report" del="../.."
             xpath="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/gmd:DQ_AbsoluteExternalPositionalAccuracy/gmd:result"></field>
 
           <action type="add"
@@ -1626,7 +1628,7 @@
                     <gmd:result>
                       <gmd:DQ_QuantitativeResult>
                         <gmd:valueUnit>
-                          <gml:BaseUnit gml:id="id-2">
+                          <gml:BaseUnit gml:id="">
                              <gml:identifier codeSpace="http://www.opengis.net/def"/>
                              <gml:unitsSystem><gco:CharacterString/></gml:unitsSystem>
                           </gml:BaseUnit>
@@ -1731,6 +1733,26 @@
                   <gmd:LanguageCode codeList="http://www.loc.gov/standards/iso639-2/" codeListValue="dut">Nederlands
                   </gmd:LanguageCode>
                 </gmd:language>
+              </snippet>
+            </template>
+          </action>
+
+          <!--    5.56 locale -->
+          <field xpath="/gmd:MD_Metadata/gmd:locale" in="/gmd:MD_Metadata"/>
+
+          <action type="add" btnLabel="addLocale" name="locale" or="locale" in="/gmd:MD_Metadata">
+            <template>
+              <snippet>
+                <gmd:locale>
+                  <gmd:PT_Locale>
+                    <gmd:languageCode>
+                      <gmd:LanguageCode codeList="http://www.loc.gov/standards/iso639-2/" codeListValue=""></gmd:LanguageCode>
+                    </gmd:languageCode>
+                    <gmd:characterEncoding>
+                      <gmd:MD_CharacterSetCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_CharacterSetCode" codeListValue="utf8"/>
+                    </gmd:characterEncoding>
+                  </gmd:PT_Locale>
+                </gmd:locale>
               </snippet>
             </template>
           </action>
@@ -1941,27 +1963,6 @@
               </snippet>
             </template>
           </action>
-
-
-          <!--    5.56 locale -->
-          <field xpath="/gmd:MD_Metadata/gmd:locale/gmd:PT_Locale"/>
-          <action type="add"
-                  btnLabel="addLocale"
-                  or="metadataLocale"
-                  in="/gmd:MD_Metadata">
-            <template>
-              <snippet>
-                <gmd:locale>
-                  <gmd:PT_Locale>
-                    <gmd:languageCode>
-                      <gmd:LanguageCode codeList="http://www.loc.gov/standards/iso639-2/" codeListValue="dut">Nederlands</gmd:LanguageCode>
-                    </gmd:languageCode>
-                  </gmd:PT_Locale>
-                </gmd:locale>
-              </snippet>
-            </template>
-          </action>
-
 
         </section>
 
