@@ -26,7 +26,11 @@
                 xmlns:gco="http://www.isotc211.org/2005/gco"
                 xmlns:gmd="http://www.isotc211.org/2005/gmd"
                 xmlns:srv="http://www.isotc211.org/2005/srv"
-                version="2.0">
+                xmlns:gmx="http://www.isotc211.org/2005/gmx"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                xmlns:geonet="http://www.fao.org/geonetwork"
+                version="2.0" exclude-result-prefixes="#all">
   <xsl:import href="../iso19139/update-fixed-info.xsl"/>
 
 
@@ -50,6 +54,38 @@
     <xsl:copy-of select="."  copy-namespaces="no"/>
   </xsl:template>
 
+  <xsl:template
+    match="srv:SV_ServiceIdentification|*[contains(@gco:isoType, 'SV_ServiceIdentification')]">
+    <xsl:copy>
+      <xsl:copy-of select="@*"/>
+
+      <xsl:apply-templates select="gmd:citation" />
+      <xsl:apply-templates select="gmd:abstract" />
+      <xsl:apply-templates select="gmd:purpose" />
+      <xsl:apply-templates select="gmd:credit" />
+      <xsl:apply-templates select="gmd:status" />
+      <xsl:apply-templates select="gmd:pointOfContact" />
+      <xsl:apply-templates select="gmd:resourceMaintenance" />
+      <xsl:apply-templates select="gmd:graphicOverview" />
+      <xsl:apply-templates select="gmd:resourceFormat" />
+      <xsl:apply-templates select="gmd:descriptiveKeywords" />
+      <xsl:apply-templates select="gmd:resourceSpecificUsage" />
+
+      <!-- Order resource constraints. Related schematron validations depends on the order of the constraints
+          - gmd:MD_Constraints
+          - gmd:MD_LegalConstraints
+          - gmd:MD_SecurityConstraints
+      -->
+      <xsl:apply-templates select="gmd:resourceConstraints[gmd:MD_Constraints]" />
+      <xsl:apply-templates select="gmd:resourceConstraints[gmd:MD_LegalConstraints]" />
+      <xsl:apply-templates select="gmd:resourceConstraints[gmd:MD_SecurityConstraints]" />
+
+      <xsl:apply-templates select="gmd:aggregationInfo" />
+
+      <xsl:apply-templates select="srv:*"/>
+
+    </xsl:copy>
+  </xsl:template>
 
   <!-- Online resources description: accessPoint, endPoint -->
   <xsl:template match="gmd:onLine/gmd:CI_OnlineResource" priority="200">
