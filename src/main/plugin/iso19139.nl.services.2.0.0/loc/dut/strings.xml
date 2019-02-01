@@ -205,7 +205,7 @@
   <addReferenceSystem>Referentie systeem toevoegen</addReferenceSystem>
 
 
-  <conformanceStatement>Conformiteits indicatie</conformanceStatement>
+  <conformanceStatement>Conformiteitindicatie met de specificatie</conformanceStatement>
   <ExtentDescription>Omschrijving temporele dekking</ExtentDescription>
   <DsCharacterSet>Karakterset dataset</DsCharacterSet>
   <Distribution>Distributie</Distribution>
