@@ -1458,21 +1458,23 @@
 
           <!--    5.23 Beschrijving scope kwaliteitsbeschrijving -->
           <field name="levelDescription"
-                xpath="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:scope/gmd:DQ_Scope/gmd:levelDescription/gmd:other" 
-                del="../.">
+                xpath="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:scope/gmd:DQ_Scope/gmd:levelDescription/gmd:MD_ScopeDescription/gmd:other" 
+                del="../..">
             </field>
 
           <action type="add"
                   btnLabel="addQualityScopeDesc"
                   name="levelDescription" or="levelDescription"
-                  if="count(gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:scope/gmd:DQ_Scope/gmd:levelDescription/gmd:other)=0"
+                  if="count(gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:scope/gmd:DQ_Scope/gmd:levelDescription/gmd:MD_ScopeDescription/gmd:other)=0"
                   in="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:scope/gmd:DQ_Scope">
             <template>
               <snippet>
                   <gmd:levelDescription>
+                  <gmd:MD_ScopeDescription>
                     <gmd:other>
                       <gco:CharacterString />
                     </gmd:other>
+                    </gmd:MD_ScopeDescription>
                   </gmd:levelDescription>
               </snippet>
             </template>
@@ -1818,7 +1820,7 @@
           <field
             xpath="/gmd:MD_Metadata/gmd:hierarchyLevelName" removable="true" />
           <action type="add"
-                  btnLabel="addhierarchyLevelName"
+                  btnLabel="addHierarchyLevelName"
                   name="hierarchyLevelName" or="hierarchyLevelName"
                   if="count(gmd:MD_Metadata/gmd:hierarchyLevelName)=0"
                   in="/gmd:MD_Metadata">
@@ -1972,6 +1974,7 @@
       <flatModeExceptions>
         <for name="gmd:descriptiveKeywords"/>
         <for name="gmd:otherConstraints"/>
+        <for name="gmd:useConstraints"/>
         <for name="gmd:keyword"/>
         <for name="gmd:spatialResolution"/>
         <for name="gmd:pointOfContact"/>

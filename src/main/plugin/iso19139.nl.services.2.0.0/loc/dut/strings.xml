@@ -134,35 +134,39 @@
  
   <!-- Dutch schema custom strings -->
   <viewTitle>
-    <h3>Nederlands profiel voor Services 2.0 - Basis</h3>
+    <h3>Nederlands profiel op ISO 19119 voor Services versie 2.0 - Basis</h3>
   </viewTitle>
   <viewDescription>
     <div>Het basis formulier kan gebruikt worden voor het bewerken van metadata van services op Nederlandstalige datasets die
       gebaseerd zijn op het Rijksdriehoekstelsel. Dit formulier toont een beperkte set van elementen en doet een
       aantal aannames. Voor het bewerken van alle elementen uit het Nederlands profiel gebruikt u het formulier
       met titel "Optionele &amp; conditionele elementen" (via de weergave knop met het "oogje" aan de rechter zijkant).
+      Op de <a href="catalog.search#/page/Help?page=Help" target="_blank">Help pagina</a> vindt u meer informatie over deze applicatie.
     </div>
   </viewDescription>
 
   <dutchProfileTitle>
-    <h3>Nederlands profiel voor Services 2.0 - Optionele &amp; conditionele elementen</h3>
+    <h3>Nederlands profielop ISO 19119 voor Services versie 2.0 - Optionele &amp; conditionele elementen</h3>
   </dutchProfileTitle>
   <dutchProfileDescription>
-    <div>Dit formulier kan gebruikt worden voor het bewerken van metadata van services op Nederlandstalige datasets. In deze weergave worden de verplichte, optionele en conditionele elementen van het Nederlands profiel getoond.</div>
+    <div>Dit formulier kan gebruikt worden voor het bewerken van metadata van services op Nederlandstalige datasets. 
+    In deze weergave worden de verplichte, optionele en conditionele elementen van het Nederlands profiel getoond.
+  Op de <a href="catalog.search#/page/Help?page=Help" target="_blank">Help pagina</a> vindt u meer informatie over deze applicatie.</div>
   </dutchProfileDescription>
 
   <fullViewTitle>
-    <h3>Volledige iso19139 + services weergave</h3>
+    <h3>Nederlands profielop ISO 19119 voor Services versie 2.0 - Volledig iso19139 + services weergave</h3>
   </fullViewTitle>
   <fullViewDescription>
-    <div>De volledige weergave toont alle ISO elementen.</div>
+    <div>De volledige weergave toont alle ISO elementen.
+  Op de <a href="catalog.search#/page/Help?page=Help" target="_blank">Help pagina</a> vindt u meer informatie over deze applicatie.</div>
   </fullViewDescription>
 
   <xmlViewTitle>
     <h3>XML weergave</h3>
   </xmlViewTitle>
   <xmlViewDescription>
-    <div>In deze weergave worden alle ingevulde elementen getoond in XML.</div>
+    <div>In deze weergave wordt de metadata getoond in XML.</div>
   </xmlViewDescription>
 
   <Add_DQ_TopologicalConsistency>Topologische samenhang toevoegen</Add_DQ_TopologicalConsistency>
