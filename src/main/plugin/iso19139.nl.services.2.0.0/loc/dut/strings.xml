@@ -278,6 +278,7 @@
   <addQualityScope>Niveau kwaliteitsbeschrijving toevoegen</addQualityScope>
   <addQualityScopeDesc>Niveau kwaliteitsbeschrijving naam toevoegen</addQualityScopeDesc>
   <spatialInfo>Ruimtelijke informatie</spatialInfo>
+  <DQ_ConceptualConsistency>Quality of service</DQ_ConceptualConsistency>
   <Add_DQ_ConceptualConsistency>Quality of service toevoegen</Add_DQ_ConceptualConsistency>
   <ConformanceResult>Conformiteit</ConformanceResult>
   <levelDescription>Niveau kwaliteitsbeschrijving naam</levelDescription>

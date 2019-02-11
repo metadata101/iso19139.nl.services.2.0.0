@@ -1278,28 +1278,15 @@
 
   <!-- ==================================================== -->
 
-  <element name="srv:operatesOn"
-           context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/srv:operatesOn">
+  <element name="srv:operatesOn">
     <label>Gekoppelde bron</label>
     <description>Dit element is conditioneel in INSPIRE. Het is verplicht als er links naar de datasets waarop de
-      service opereert
-
-      beschikbaar zijn. Voor dataservices is het dus verplicht. Dit element geeft informatie (metadata) over de
+      service opereert beschikbaar zijn. Voor dataservices is het dus verplicht. Dit element geeft informatie (metadata) over de
       data die in de service beschikbaar wordt gesteld.
     </description>
     <help_link>http://wiki.geonovum.nl/index.php/2.5.6_Coupled_resource</help_link>
     <condition>conditional</condition>
   </element>
-
-  <!-- ==================================================== -->
-
-  <element name="srv:operatesOn"
-           context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/srv:operatesOn">
-    <label>Operates on titel</label>
-  </element>
-
-  <!-- ==================================================== -->
-
 
   <!-- ==================================================== -->
 
