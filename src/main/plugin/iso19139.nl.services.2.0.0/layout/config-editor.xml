@@ -1262,7 +1262,7 @@
           <!-- distributeur -->
           <field name="distributorContact" templateModeOnly="true" notDisplayedIfMissing="true" removable="true"
                  xpath="/gmd:MD_Metadata/gmd:distributionInfo/gmd:MD_Distribution/gmd:distributor/gmd:MD_Distributor/gmd:distributorContact"
-                 del="."
+                 del="../.."
                  if="count(gmd:MD_Metadata/gmd:distributionInfo/gmd:MD_Distribution) > 0">
 
             <template>
