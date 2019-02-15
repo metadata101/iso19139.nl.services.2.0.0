@@ -428,6 +428,7 @@
         <col xpath="gmd:processor/gmd:CI_ResponsibleParty/gmd:organisationName"/>
         <col xpath="gmd:processor/gmd:CI_ResponsibleParty/gmd:contactInfo/*/gmd:address/gmd:CI_Address/gmd:electronicMailAddress" />
         <col xpath="gmd:processor/gmd:CI_ResponsibleParty/gmd:role"/>
+        <col del=".."/>
       </row>
     </table>
 
@@ -1522,14 +1523,9 @@
                     </gmd:measureDescription>
                     <gmd:result>
                       <gmd:DQ_QuantitativeResult>
-                        <gmd:valueUnit>
-                          <gml:BaseUnit gml:id="">
-                            <gml:identifier codeSpace=""></gml:identifier>
-                          </gml:BaseUnit>
-                        </gmd:valueUnit>
+                        <gmd:valueUnit xlink:href="http://www.opengis.net/def/uom/SI/second"/>
                         <gmd:value>
-                          <gco:Record
-                            xsi:type="xs:double"></gco:Record>
+                          <gco:Record xsi:type="xs:double"></gco:Record>
                         </gmd:value>
                       </gmd:DQ_QuantitativeResult>
                     </gmd:result>

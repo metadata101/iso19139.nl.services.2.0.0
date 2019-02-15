@@ -429,7 +429,7 @@
   <!-- ==================================================== -->
 
   <element name="gmd:DQ_ConformanceResult">
-    <label>Conformiteit indicatie</label>
+    <label>Conformiteit indicatie met de specificatie</label>
     <description>Conformiteit met de specificatie.</description>
     <condition>mandatory</condition>
   </element>
