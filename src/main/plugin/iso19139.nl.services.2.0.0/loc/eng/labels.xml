@@ -305,7 +305,7 @@ Acronyms should be written in full when first used.]]></help>
     </help>
   </element>
  
-  <element name="gmd:protocol">
+  <element name="gmd:protocol" alias="protocol">
         <label>Protocol</label>
         <description> </description>
         <helper>
