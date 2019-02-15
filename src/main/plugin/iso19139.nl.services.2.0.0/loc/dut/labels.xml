@@ -896,8 +896,7 @@
 
   <!-- ==================================================== -->
 
-  <element name="gmd:protocol"
-             context="/gmd:MD_Metadata/gmd:distributionInfo/gmd:MD_Distribution/gmd:transferOptions/gmd:MD_DigitalTransferOptions/gmd:onLine/gmd:CI_OnlineResource/gmd:protocol">
+  <element name="gmd:protocol">
         <label>Protocol</label>
         <description>Dit element is conditioneel. Het is verplicht als er een URL is opgegeven. Bijvoorbeeld naar een
             WMS of WFS.Het bevat het protocol voor het afhandelen van de URL. Door het hanteren van INSPIRE servicetypes
