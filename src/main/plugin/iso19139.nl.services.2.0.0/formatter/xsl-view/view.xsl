@@ -780,10 +780,12 @@
         <dd>
           <ul>
             <xsl:for-each select="parent::node()/*[name() = $nodeName]">
-              <li>
-                <a href="{$nodeUrl}api/records/{@uuidref}">
+              <li itemprop="dataset" itemscope="itemscope" itemtype="http://schema.org/Dataset">
+                <a href="{$nodeUrl}api/records/{@uuidref}" itemprop="url">
                   <i class="fa fa-link"><xsl:comment select="'link'"/></i>
-                  <xsl:value-of select="gn-fn-render:getMetadataTitle(@uuidref, $langId)"/>
+                  <span itemprop="name"><xsl:comment select="'dataset'"/>
+                    <xsl:value-of select="gn-fn-render:getMetadataTitle(@uuidref, $langId)"/>
+                  </span>
                 </a>
               </li>
             </xsl:for-each>
