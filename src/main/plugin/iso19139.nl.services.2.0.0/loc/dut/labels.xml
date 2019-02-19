@@ -864,6 +864,13 @@
   </element>
 
   <!-- ==================================================== -->
+  <element name="gmd:other">
+    <label>Niveau kwaliteitsbeschrijving naam</label>
+    <description>Dit element bevat de naam van het niveau waarop de kwaliteitsinformatie betrekking heeft. Verplicht voor INSPIRE. Waarde is 'service'.</description>
+    <btnLabel>Niveau naam toevoegen</btnLabel>
+  </element>
+
+  <!-- ==================================================== -->
   <element name="gmd:accessConstraints"
            context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/gmd:resourceConstraints/gmd:MD_LegalConstraints/gmd:accessConstraints">
     <label>Juridische toegangsristricties</label>
