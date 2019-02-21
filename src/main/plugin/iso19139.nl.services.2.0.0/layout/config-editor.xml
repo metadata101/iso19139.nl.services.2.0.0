@@ -952,8 +952,8 @@
 
         <section name="restrictions">
 
-          <field del=".." removable="true" name="useLimitation" or="MD_Constraints"
-                 xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:resourceConstraints/gmd:MD_Constraints"/>
+          <field del="." removable="true" name="useLimitation" or="MD_Constraints"
+                 xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:resourceConstraints[gmd:MD_Constraints]"/>
 
           <action type="add"
                   btnLabel="addResourceConstraints"
@@ -974,8 +974,8 @@
           </action>
 
           <!-- constraints -->
-          <field removable="true" del=".."
-                 xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:resourceConstraints/gmd:MD_LegalConstraints"/>
+          <field removable="true" del="."
+                 xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:resourceConstraints[gmd:MD_LegalConstraints]"/>
 
           <action type="add"
                   btnLabel="addLegalConstraints"
@@ -999,9 +999,9 @@
             </template>
           </action>
 
-          <field removable="true" del=".."
+          <field removable="true" del="."
             name="securityConstraints" or="MD_SecurityConstraints"
-                 xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:resourceConstraints/gmd:MD_SecurityConstraints"/>
+                 xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:resourceConstraints[gmd:MD_SecurityConstraints]"/>
           <action type="add"
                   btnLabel="addSecurityConstraints"
                   name="securityConstraints" or="resourceConstraints" forceLabel="true"
