@@ -290,4 +290,10 @@
   <ProcessStep>Bewerkings stap</ProcessStep>
   <addVerticalExtent>Verticale spreiding toevoegen</addVerticalExtent>
   <addGeographicIdentifier>Identifier gebied toevoegen</addGeographicIdentifier>
+  <nameOfMeasure>Indicator</nameOfMeasure>
+  <measureDescription>Omschrijving indicator</measureDescription>
+  <valueUnit>Eenheid</valueUnit>
+  <unitsSystem>Eenheden systeem</unitsSystem>
+  
+
 </strings>
