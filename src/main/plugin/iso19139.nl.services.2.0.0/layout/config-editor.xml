@@ -143,6 +143,7 @@
          use="data-gn-keyword-picker">
       <directiveAttributes data-thesaurus-key="external.theme.httpinspireeceuropaeumetadatacodelistLimitationsOnPublicAccess-LimitationsOnPublicAccess"
                            data-thesaurus-orderById="true"
+                           data-display-definition="true"
                            data-thesaurus-concept-id-attribute="xlinkCOLONhref"/>
     </for>
 
@@ -150,6 +151,7 @@
          use="data-gn-keyword-picker">
       <directiveAttributes data-thesaurus-key="external.theme.httpinspireeceuropaeumetadatacodelistqualityofservicecriteriacode-listqualityofservicecriteriacode"
                            data-thesaurus-orderById="true"
+                           data-display-definition="true"
                            data-thesaurus-concept-id-attribute="xlinkCOLONhref"/>
     </for>
 
