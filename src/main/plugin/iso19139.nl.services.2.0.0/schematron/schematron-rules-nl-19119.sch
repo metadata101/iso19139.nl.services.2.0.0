@@ -337,7 +337,7 @@
 			<sch:let name="transferOptions_MediaType" value="gmd:distributionInfo/gmd:MD_Distribution/gmd:transferOptions/gmd:MD_DigitalTransferOptions/gmd:onLine[1]/gmd:CI_OnlineResource/gmd:protocol/*[normalize-space(text()) = 'gml' or normalize-space(text()) = 'kml' or normalize-space(text()) = 'geojson' or normalize-space(text()) = 'gpkg' or normalize-space(text()) = 'json' or normalize-space(text()) = 'jsonld' or normalize-space(text()) = 'rdf-xml' or normalize-space(text()) = 'xml' or normalize-space(text()) = 'zip' or normalize-space(text()) = 'png' or normalize-space(text()) = 'png' or normalize-space(text()) = 'gif' or normalize-space(text()) = 'jp2' or normalize-space(text()) = 'tiff' or normalize-space(text()) = 'csv' or normalize-space(text()) = 'mapbox-vector-tile']"/>
 
 			<!-- https://docs.geostandaarden.nl/md/mdprofiel-iso19119/#omschrijving -->
-			<sch:let name="transferOptions_Description_Value" value="normalize-space(gmd:distributionInfo/gmd:MD_Distribution/gmd:transferOptions/gmd:MD_DigitalTransferOptions/gmd:onLine[1]/gmd:CI_OnlineResource/gmd:description[./gco:CharacterString or ./gmx:Anchor]/*)"/>
+			<sch:let name="transferOptions_Description_Value" value="normalize-space(string-join(gmd:distributionInfo/gmd:MD_Distribution/gmd:transferOptions/gmd:MD_DigitalTransferOptions/gmd:onLine[1]/gmd:CI_OnlineResource/gmd:description[./gco:CharacterString or ./gmx:Anchor]//text(), ''))"/>
 
 			<!-- https://docs.geostandaarden.nl/md/mdprofiel-iso19119/#service-type -->
 		   	<sch:let name="serviceType_value" value="gmd:identificationInfo[1]/*/srv:serviceType/*/text()"/>
@@ -475,7 +475,7 @@
 		<!--  Conformiteitindicatie meerdere specificaties -->
 		<sch:rule id="Conformiteit_specificaties" etf_name="Conformiteit specificaties" context="//gmd:MD_Metadata/gmd:dataQualityInfo[1]/gmd:DQ_DataQuality/gmd:report/gmd:DQ_DomainConsistency/gmd:result/gmd:DQ_ConformanceResult">
 		<!-- Specificatie title, https://docs.geostandaarden.nl/md/mdprofiel-iso19119/#specificatie -->
-			<sch:let name="conformity_SpecTitle" value="normalize-space(gmd:specification/gmd:CI_Citation/gmd:title[./gco:CharacterString or ./gmx:Anchor]/*)"/>
+			<sch:let name="conformity_SpecTitle" value="normalize-space(string-join(gmd:specification/gmd:CI_Citation/gmd:title[./gco:CharacterString or ./gmx:Anchor]//text(), ''))"/>
 			<sch:let name="conformity_SpecTitleString" value="normalize-space(gmd:specification/gmd:CI_Citation/gmd:title/gco:CharacterString)"/>
 			<sch:let name="conformity_SpecTitleURI" value="normalize-space(gmd:specification/gmd:CI_Citation/gmd:title/gmx:Anchor/@xlink:href)"/>
 		<!-- Verklaring https://docs.geostandaarden.nl/md/mdprofiel-iso19119/#verklaring -->
