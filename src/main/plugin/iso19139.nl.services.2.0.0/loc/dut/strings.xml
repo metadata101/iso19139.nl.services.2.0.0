@@ -166,7 +166,7 @@
     <h3>XML weergave</h3>
   </xmlViewTitle>
   <xmlViewDescription>
-    <div>In deze weergave wordt de metadata getoond in XML.</div>
+    <div>In deze weergave wordt de metadata getoond in XML. Op de <a href="catalog.search#/page/Help?page=Help" target="_blank">Help pagina</a> vindt u meer informatie over deze applicatie.</div>
   </xmlViewDescription>
 
   <Add_DQ_TopologicalConsistency>Topologische samenhang toevoegen</Add_DQ_TopologicalConsistency>

@@ -380,12 +380,10 @@
     </table>
     <table for="srv:operatesOn">
       <header>
-        <col label="xlink:href"/>
-        <col label="uuidref"/>
+        <col label="operatesOn"/>
         <col/>
       </header>
       <row>
-        <col xpath="@uuidref"/>
         <col xpath="@xlink:href"/>
         <col del="."/>
       </row>

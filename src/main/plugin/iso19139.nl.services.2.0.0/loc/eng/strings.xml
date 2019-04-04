@@ -46,10 +46,10 @@
   <xmlViewTitle><h3>XML weergave</h3></xmlViewTitle>
   <xmlViewDescription><div>In deze weergave worden alle ingevulde elementen getoond in XML.</div></xmlViewDescription>
 
-  <advanced>Volledig</advanced>
-  <default>Nederlands profiel</default>
-  <dutchprofile>Nederlands profiel</dutchprofile>
-  <simple>Eenvoudig</simple>
+  <advanced>Full</advanced>
+  <default>Dutch profile</default>
+  <dutchprofile>Dutch profile</dutchprofile>
+  <simple>Simple</simple>
   <inspire>INSPIRE</inspire>
 
   <metadata>Over de metadata</metadata>
