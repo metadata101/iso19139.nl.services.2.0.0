@@ -52,9 +52,9 @@
     <for name="gmd:userNote" use="textarea"/>
     <for name="gmd:useLimitation" use="textarea"/>
 
-    <for name="gmd:code" xpath="/gmd:MD_Metadata/gmd:identifier/gmd:MD_Identifier/gmd:code" use="data-gn-anchor-switcher2"/>
-    <for name="gmd:supplementalInformation" use="data-gn-anchor-switcher2"/>
-    <for name="gmd:organisationName" use="data-gn-anchor-switcher2"/>
+    <for name="gmd:code" xpath="/gmd:MD_Metadata/gmd:identifier/gmd:MD_Identifier/gmd:code" use="data-gn-anchor-switcher"/>
+    <for name="gmd:supplementalInformation" use="data-gn-anchor-switcher"/>
+    <for name="gmd:organisationName" use="data-gn-anchor-switcher"/>
 
     <for name="gco:Distance" use="number"/>
     <for name="gco:Decimal" use="number"/>
@@ -176,7 +176,7 @@
                                             gmd:code/gmx:Anchor/
                                               concat('-', substring-after(text()[. != ''], 'geonetwork.thesaurus.')), ',')"/>-->
     </for>
-    <for name="gmd:code" use="data-gn-anchor-switcher2">
+    <for name="gmd:code" use="data-gn-anchor-switcher">
 
     </for>
   </fields>
