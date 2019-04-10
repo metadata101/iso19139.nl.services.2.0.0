@@ -28,6 +28,7 @@
                 xmlns:gco="http://www.isotc211.org/2005/gco"
                 xmlns:srv="http://www.isotc211.org/2005/srv"
                 xmlns:gmd="http://www.isotc211.org/2005/gmd"
+                xmlns:gmx="http://www.isotc211.org/2005/gmx"
                 xmlns:xlink="http://www.w3.org/1999/xlink"
                 xmlns:wfs="http://www.opengis.net/wfs"
                 xmlns:wfs20="http://www.opengis.net/wfs/2.0"
@@ -160,13 +161,7 @@
                 srv:keywords|
                 srv:extent"/>
 
-
-
       <xsl:for-each select="$wxsCapabilitiesDoc//Layer|$wxsCapabilitiesDoc//wms:Layer|$wxsCapabilitiesDoc//wmts:Layer|$wxsCapabilitiesDoc//ows11:Layer|$wxsCapabilitiesDoc//wfs:FeatureType">
-
-<xsl:message>hi
-<xsl:value-of select="."/>
-</xsl:message>
 
         <!-- todo: wfs inspire featuretype -->
         <!-- if inspire, extract the ds identifier from extended capabilities -->
@@ -197,7 +192,7 @@
                 </gco:CharacterString><!-- todo: should be gettile for wmts -->
               </srv:operationName>
               <srv:identifier>
-                <gco:CharacterString><xsl:value-of select="$Identifier"/></gco:CharacterString>
+                <gmx:Anchor><xsl:attribute name="xlink:href" select="$Identifier"/></gmx:Anchor>
               </srv:identifier>
               <gco:ScopedName codeSpace="{$Authority}"><xsl:value-of select="$mdName"/></gco:ScopedName>
             </srv:SV_CoupledResource>

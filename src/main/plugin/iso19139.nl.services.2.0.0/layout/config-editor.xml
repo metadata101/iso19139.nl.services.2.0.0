@@ -55,6 +55,7 @@
     <for name="gmd:code" xpath="/gmd:MD_Metadata/gmd:identifier/gmd:MD_Identifier/gmd:code" use="data-gn-anchor-switcher"/>
     <for name="gmd:supplementalInformation" use="data-gn-anchor-switcher"/>
     <for name="gmd:organisationName" use="data-gn-anchor-switcher"/>
+    <for name="srv:identifier" use="data-gn-anchor-switcher"/>
 
     <for name="gco:Distance" use="number"/>
     <for name="gco:Decimal" use="number"/>
@@ -1118,7 +1119,7 @@
                 <key label="operationName" tooltip="srv:operationName"
                      xpath="srv:SV_CoupledResource/srv:operationName/gco:CharacterString"/>
                 <key label="dsIdentifier" tooltip="srv:identifier"
-                     xpath="srv:SV_CoupledResource/srv:identifier/gco:CharacterString"/>
+                     xpath="srv:SV_CoupledResource/srv:identifier/gmx:Anchor/@xlink:href"/>
                 <key label="codeSpace" tooltip="codeSpace"
                      xpath="srv:SV_CoupledResource/gco:ScopedName/@codeSpace"/>
                 <key label="layername" tooltip="gco:ScopedName"
@@ -1131,7 +1132,7 @@
                       <gco:CharacterString>{{operationName}}</gco:CharacterString>
                     </srv:operationName>
                     <srv:identifier>
-                      <gco:CharacterString>{{dsIdentifier}}</gco:CharacterString>
+                      <gmx:Anchor xlink:href="{{dsIdentifier}}"></gmx:Anchor>
                     </srv:identifier>
                     <gco:ScopedName codeSpace="{{codeSpace}}">{{layername}}</gco:ScopedName>
                   </srv:SV_CoupledResource>
