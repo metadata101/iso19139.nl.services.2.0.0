@@ -84,6 +84,7 @@
   <indeterminatePosition>Niet vastgestelde positie</indeterminatePosition>
   <pointOfContact>Contact voor de service</pointOfContact>
   <metadataPointOfContact>Contact voor de metadata</metadataPointOfContact>
+  <individualName>Naam</individualName>
   <organisationName>Organisatie naam</organisationName>
   <electronicMailAddress>Email</electronicMailAddress>
   <positionName>Functie</positionName>
