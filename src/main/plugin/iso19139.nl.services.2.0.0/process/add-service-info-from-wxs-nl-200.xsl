@@ -117,8 +117,10 @@
           /><xsl:value-of select="geonet:i18n($wxs-info-loc-nl-200, 'b', $guiLang)"/>.</name>
           <operational>true</operational>
           <params>{
-            wxsServiceUrl:{type:'string', defaultValue:'<xsl:value-of select="normalize-space(gmd:linkage/gmd:URL)"/>'}
-            }</params>
+            "wxsServiceUrl":{
+  "type":"string",
+  "defaultValue":"<xsl:value-of select="normalize-space(gmd:linkage/gmd:URL)"/>"
+ }}</params>
         </suggestion>
       </xsl:for-each>
     </xsl:if>

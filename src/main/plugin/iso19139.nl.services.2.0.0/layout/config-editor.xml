@@ -364,7 +364,7 @@
                  or="parameters" in="srv:SV_OperationMetadata"/>
       </row>
     </table>
-    <table for="srv:SV_CoupledResource">
+   <!-- <table for="srv:SV_CoupledResource">
       <header>
         <col label="srv:operationName"/>
         <col label="gco:ScopedName"/>
@@ -377,7 +377,7 @@
         <col xpath="srv:identifier"/>
         <col del=".."/>
       </row>
-    </table>
+    </table>-->
     <table for="srv:operatesOn">
       <header>
         <col label="operatesOn"/>
@@ -1173,7 +1173,7 @@
                   if="count(gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification) > 0">
             <template>
               <snippet>
-                <srv:operatesOn uuidref="" xlink:href="" />
+                <srv:operatesOn xlink:href="" />
               </snippet>
             </template>
           </action>
