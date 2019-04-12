@@ -244,6 +244,7 @@
   <addHierarchyLevelName>Naam hiërarchisch niveau toevoegen</addHierarchyLevelName>
   <AddSource>Voeg bron toe</AddSource>
   <AddProcessStep>Voeg bewerkingsstap toe</AddProcessStep>
+  <temporalExtent>Temporele dekking</temporalExtent>
   <addTemporalExtent>Voeg temporele dekking toe</addTemporalExtent>
   <addResourceMaintenance>Voeg onderhouds informatie toe</addResourceMaintenance>
   <addSeries>Voeg serie informatie toe</addSeries>

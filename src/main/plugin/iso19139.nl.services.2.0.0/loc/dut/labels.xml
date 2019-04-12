@@ -558,8 +558,8 @@
 
   <element name="gmd:EX_TemporalExtent"
            context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/srv:extent/gmd:EX_Extent/gmd:temporalElement/gmd:EX_TemporalExtent">
-    <label>temporele dekking</label>
-    <btnLabel>temporele dekking toevoegen</btnLabel>
+    <label>Temporele dekking</label>
+    <btnLabel>Temporele dekking toevoegen</btnLabel>
     <description>Informatie over de temporele dekking.</description>
     <help_link>http://wiki.geonovum.nl/index.php/2.5.16_Temporal_Reference</help_link>
   </element>
@@ -1267,8 +1267,8 @@
 
   <element name="srv:extent"
            context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/srv:extent">
-    <label>Extent</label>
-    <description>Geographic/Temporal Extent of Service</description>
+    <label>Dekking</label>
+    <description>Geografische of temporele dekking van de Service</description>
   </element>
 
   <!-- ==================================================== -->
