@@ -1522,7 +1522,7 @@
                           data-display-definition="true"
                           data-thesaurus-concept-id-attribute="xlinkCOLONhref"/>
                 </key>
-                <key label="measureDescription" tooltip="gmd:measureDescription" xpath="gmd:DQ_ConceptualConsistency/gmd:result/gmd:DQ_QuantitativeResult/gmd:valueUnit/gml:BaseUnit/gml:unitsSystem/@xlink:href"></key>
+                <key label="measureDescription" tooltip="gmd:measureDescription" xpath="gmd:DQ_ConceptualConsistency/gmd:measureDescription/gco:CharacterString"></key>
                 <key label="value" tooltip="gmd:value" xpath="gmd:DQ_ConceptualConsistency/gmd:result/gmd:DQ_QuantitativeResult/gmd:value/gco:Record"></key>
                 <key label="valueUnit" tooltip="gmd:valueUnit" xpath="gmd:DQ_ConceptualConsistency/gmd:result/gmd:DQ_QuantitativeResult/gmd:valueUnit/gml:BaseUnit/gml:identifier">
                   <helper name="gml:identifier" />
@@ -1565,7 +1565,7 @@
               <snippet>
                 <gmd:report>
                   <gmd:DQ_ConceptualConsistency>
-                  <gmd:nameOfMeasure><gmx:Anchor xlink:href=""/></gmd:nameOfMeasure>
+                  <gmd:nameOfMeasure><gmx:Anchor xlink:href="http://">performance</gmx:Anchor></gmd:nameOfMeasure>
                   <gmd:measureDescription/>
                     <gmd:result>
                       <gmd:DQ_QuantitativeResult>
