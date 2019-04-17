@@ -150,7 +150,7 @@
 
     <for name="gmd:nameOfMeasure" xpath="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/gmd:DQ_ConceptualConsistency/gmd:nameOfMeasure"
          use="data-gn-keyword-picker">
-      <directiveAttributes data-thesaurus-key="external.theme.httpinspireeceuropaeumetadatacodelistqualityofservicecriteriacode-listqualityofservicecriteriacode"
+      <directiveAttributes data-thesaurus-key="external.theme.httpinspireeceuropaeumetadatacodelistQualityOfServiceCriteria-QualityOfServiceCriteria"
                            data-order-by-id="true"
                            data-display-definition="true"
                            data-thesaurus-concept-id-attribute="xlinkCOLONhref"/>
