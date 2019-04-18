@@ -753,7 +753,7 @@
         <xsl:variable name="xlinkHref" select="." />
 
         <xsl:choose>
-          <xsl:when test="not(starts-with($xlinkHref, $siteUrl))">
+          <xsl:when test="string(normalize-space($xlinkHref)) and not(starts-with($xlinkHref, $siteUrl))">
             <!-- also store the full URI in case this is not a CSW request -->
             <!--<Field name="operatesOn" string="{string(.)}" store="true"
                    index="true"/>-->
@@ -769,22 +769,25 @@
             <!-- Remote url that uuid is stored also locally: Use local -->
             <xsl:variable name="datasetUuid" select="$remoteDoc//gmd:fileIdentifier/gco:CharacterString" />
 
-            <xsl:variable name="existsLocally" select="not(normalize-space(util:getRecord($datasetUuid)) = '')" />
+            <xsl:if test="string($datasetUuid)">
+              <xsl:variable name="existsLocally" select="not(normalize-space(util:getRecord($datasetUuid)) = '')" />
 
-            <xsl:choose>
-              <xsl:when test="not($existsLocally)">
-                <xsl:variable name="datasetTitle" select="$remoteDoc//*[gmd:MD_DataIdentification or @gco:isoType='gmd:MD_DataIdentification']//gmd:citation//gmd:title/gco:CharacterString" />
+              <xsl:choose>
+                <xsl:when test="not($existsLocally)">
+                  <xsl:variable name="datasetTitle" select="$remoteDoc//*[gmd:MD_DataIdentification or @gco:isoType='gmd:MD_DataIdentification']//gmd:citation//gmd:title/gco:CharacterString" />
 
-                <xsl:variable name="datasetAbstract" select="$remoteDoc//*[gmd:MD_DataIdentification or @gco:isoType='gmd:MD_DataIdentification']//gmd:abstract/gco:CharacterString" />
+                  <xsl:variable name="datasetAbstract" select="$remoteDoc//*[gmd:MD_DataIdentification or @gco:isoType='gmd:MD_DataIdentification']//gmd:abstract/gco:CharacterString" />
 
-                <Field name="operatesOnRemote" string="{concat($datasetUuid, '|', normalize-space($datasetTitle), '|', normalize-space($datasetAbstract), '|', $xlinkHref)}" store="true"
-                       index="true"/>
-              </xsl:when>
-              <xsl:otherwise>
-                <Field name="operatesOn" string="{$datasetUuid}" store="true"
-                       index="true"/>
-              </xsl:otherwise>
-            </xsl:choose>
+                  <Field name="operatesOnRemote" string="{concat($datasetUuid, '|', normalize-space($datasetTitle), '|', normalize-space($datasetAbstract), '|', $xlinkHref)}" store="true"
+                         index="true"/>
+                </xsl:when>
+                <xsl:otherwise>
+                  <Field name="operatesOn" string="{$datasetUuid}" store="true"
+                         index="true"/>
+                </xsl:otherwise>
+              </xsl:choose>
+            </xsl:if>
+
           </xsl:when>
           <xsl:otherwise>
 
