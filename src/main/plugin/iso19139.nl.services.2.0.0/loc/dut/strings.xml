@@ -280,14 +280,14 @@
   <addQualityScope>Niveau kwaliteitsbeschrijving toevoegen</addQualityScope>
   <addQualityScopeDesc>Niveau kwaliteitsbeschrijving naam toevoegen</addQualityScopeDesc>
   <spatialInfo>Ruimtelijke informatie</spatialInfo>
-  <DQ_ConceptualConsistency>Quality of service</DQ_ConceptualConsistency>
-  <Add_DQ_ConceptualConsistency>Quality of service toevoegen</Add_DQ_ConceptualConsistency>
+  <DQ_ConceptualConsistency>Service kwaliteit</DQ_ConceptualConsistency>
+  <Add_DQ_ConceptualConsistency>Service kwaliteit toevoegen</Add_DQ_ConceptualConsistency>
   <ConformanceResult>Conformiteit</ConformanceResult>
   <levelDescription>Niveau kwaliteitsbeschrijving naam</levelDescription>
   <DomainConsistency>Conformiteit met een domein specificatie</DomainConsistency>
   <TopologicalConsistency>Topologische samenhang</TopologicalConsistency>
   <CompletenessOmission>Compleetheid</CompletenessOmission>
-  <ConceptualConsistency>Quality of Service</ConceptualConsistency>
+  <ConceptualConsistency>Service kwaliteit</ConceptualConsistency>
   <AbsoluteExternalPositionalAccuracy>Geometrische nauwkeurigheid</AbsoluteExternalPositionalAccuracy>
   <ProcessStep>Bewerkings stap</ProcessStep>
   <addVerticalExtent>Verticale spreiding toevoegen</addVerticalExtent>

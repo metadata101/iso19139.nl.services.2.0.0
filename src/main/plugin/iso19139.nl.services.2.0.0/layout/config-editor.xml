@@ -337,9 +337,9 @@
     </table>
     <table for="gmd:CI_OnlineResource">
       <header>
-        <col label="gmd:protocol" class="gn-required"/>
-        <col label="gmd:linkage" class="gn-required"/>
-        <col label="gmd:name"/>
+        <col label="protocol" class="gn-required"/>
+        <col label="linkage" class="gn-required"/>
+        <col label="name"/>
         <col/>
       </header>
       <row>
@@ -351,9 +351,9 @@
     </table>
     <table for="srv:SV_OperationMetadata">
       <header>
-        <col label="srv:operationName"/>
-        <col label="srv:DCP"/>
-        <col label="srv:connectPoint"/>
+        <col label="operationName" class="gn-required" />
+        <col label="DCP" class="gn-required"/>
+        <col label="connectPoint" class="gn-required"/>
         <col/>
       </header>
       <row>
@@ -391,8 +391,8 @@
     </table>
     <table for="gmd:MD_Format">
       <header>
-        <col label="gmd:name"/>
-        <col label="gmd:version"/>
+        <col label="name" class="gn-required"/>
+        <col label="version"/>
         <col/>
       </header>
       <row>
@@ -403,8 +403,8 @@
     </table>
     <table for="gmd:PT_Locale">
       <header>
-        <col label="gmd:languageCode"/>
-        <col label="gmd:characterEncoding"/>
+        <col label="languageCode" class="gn-required"/>
+        <col label="characterEncoding"/>
         <col/>
       </header>
       <row>
@@ -416,11 +416,11 @@
 
     <table for="gmd:LI_ProcessStep" label="ProcessStep">
       <header>
-        <col label="gmd:description"/>
-        <col label="gmd:dateTime"/>
-        <col label="gmd:organisationName"/>
-        <col label="gmd:electronicMailAddress"/>
-        <col label="gmd:role"/>
+        <col label="description"/>
+        <col label="dateTime"/>
+        <col label="organisationName"/>
+        <col label="electronicMailAddress"/>
+        <col label="role"/>
         <col/>
       </header>
       <row>
