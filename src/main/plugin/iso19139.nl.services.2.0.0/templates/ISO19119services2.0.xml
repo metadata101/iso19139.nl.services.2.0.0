@@ -18,6 +18,10 @@
    <gmd:language>
       <gmd:LanguageCode codeList="http://www.loc.gov/standards/iso639-2/" codeListValue="dut"/>
    </gmd:language>
+   <gmd:characterSet>
+      <gmd:MD_CharacterSetCode codeList="http://www.isotc211.org/2005/resources/codeList.xml#MD_CharacterSetCode"
+                               codeListValue="utf8"/>
+   </gmd:characterSet>
    <gmd:hierarchyLevel>
       <gmd:MD_ScopeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#MD_ScopeCode"
         codeListValue="service"/>
@@ -237,29 +241,8 @@
         <!-- Vaste waarde "tight" voor een View service-->
         <srv:SV_CouplingType codeList="http://www.isotc211.org/2005/iso19119/resources/Codelist/gmxCodelists.xml#SV_CouplingType"
                                  codeListValue="tight"/>
-         </srv:couplingType>
-         <srv:containsOperations>
-        <!-- Beschrijft minimaal 1 operatie van de service, voor de hand ligt GetCapabilities  -->
-        <!-- Nederlands Profiel legt ook alle andere (GetMap, GetFeatureInfo, GetLegendURL, etc.) operaties vast  -->
-        <!-- Deze zijn makkelijk te genereren vanuit de Capabilities, maar bij handmatige invoer van een metadata -->
-        <!-- voor services document zou je kunnen volstaan met alleen de beschrijving van GetCapabilities -->
-        <srv:SV_OperationMetadata>
-               <srv:operationName>
-                  <gco:CharacterString>GetCapabilities</gco:CharacterString>
-               </srv:operationName>
-               <srv:DCP>
-                  <srv:DCPList codeList="http://www.isotc211.org/2005/iso19119/resources/Codelist/gmxCodelists.xml#DCPList"
-                               codeListValue="WebServices"/>
-               </srv:DCP>
-               <srv:connectPoint>
-                  <gmd:CI_OnlineResource>
-                     <gmd:linkage>
-                        <gmd:URL/>
-                     </gmd:linkage>
-                  </gmd:CI_OnlineResource>
-               </srv:connectPoint>
-            </srv:SV_OperationMetadata>
-         </srv:containsOperations>
+        </srv:couplingType>
+        <srv:operatesOn xlink:href=""/>
       </srv:SV_ServiceIdentification>
    </gmd:identificationInfo>
    <gmd:dataQualityInfo>

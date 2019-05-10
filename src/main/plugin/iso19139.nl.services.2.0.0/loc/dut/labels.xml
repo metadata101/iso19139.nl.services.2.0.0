@@ -52,7 +52,7 @@
       uit de klasse CI_OnlineResource. Dit element heeft hetzelfde doel als Resource Locator
     </description>
     <help_link>http://wiki.geonovum.nl/index.php/2.5.5_Connect_Point_Linkage</help_link>
-    <condition>mandatory</condition>
+    <condition>M</condition>
   </element>
 
   <!-- ==================================================== -->
@@ -75,13 +75,13 @@
     <label>Samenvatting</label>
     <description>Omschrijving van de inhoud van de service.</description>
     <help_link>http://wiki.geonovum.nl/index.php/2.5.2_Resource_abstract</help_link>
-    <condition>mandatory</condition>
+    <condition>M</condition>
   </element>
 
   <element name="gmd:abstract">
     <label>Samenvatting</label>
     <description>Korte beschrijving van de inhoud van de dataset.</description>
-    <condition>mandatory</condition>
+    <condition>M</condition>
   </element>
 
   <!-- ==================================================== -->
@@ -366,7 +366,7 @@
       weergegeven in datum type. Het formaat van de datum is JJJJ-MM-DD(met streepjes).Dit element is conditioneel
       in dit profiel. Het is alleen verplicht als de service een INSPIRE bron is.
     </description>
-    <condition>mandatory</condition>
+    <condition>M</condition>
   </element>
 
   <!-- ==================================================== -->
@@ -375,7 +375,7 @@
     <label>Metadata datum</label>
     <description>Datum waarop de metadata is gecre&#235;erd of gewijzigd (YYYY-MM-DD).</description>
     <help_link>http://wiki.geonovum.nl/index.php/2.5.26_Metadata_date</help_link>
-    <condition>mandatory</condition>
+    <condition>M</condition>
   </element>
 
   <!-- ==================================================== -->
@@ -405,7 +405,7 @@
     <description>Dit element bevat het type gebeurtenis waar de datum betrekking op heeft. Dit element is
       conditioneel in dit profiel. Het is alleen verplicht als de service een INSPIRE bron is.
     </description>
-    <condition>mandatory</condition>
+    <condition>M</condition>
   </element>
 
   <!-- ==================================================== -->
@@ -431,7 +431,7 @@
   <element name="gmd:DQ_ConformanceResult">
     <label>Conformiteit indicatie</label>
     <description>Conformiteit met de specificatie.</description>
-    <condition>mandatory</condition>
+    <condition>M</condition>
   </element>
 
 <element name="gmd:DQ_QuantitativeResult"
@@ -491,7 +491,7 @@
            context="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:scope/gmd:DQ_Scope">
     <label>Niveau</label>
     <description>Niveau waar de kwaliteitsbeschrijving betrekking op heeft.</description>
-    <condition>mandatory</condition>
+    <condition>M</condition>
   </element>
 
   <!-- ==================================================== -->
@@ -502,7 +502,7 @@
     <description>Meest oostelijke coordinaat uit de horizontale dekking van het object weergegeven in longitude en
       lattitude in decimale graden (noord en oost als positieve waarden).
     </description>
-    <condition>mandatory</condition>
+    <condition>M</condition>
   </element>
 
   <element name="gmd:code"
@@ -519,7 +519,7 @@
     <label>Verantwoordelijke organisatie e-mail</label>
     <description>E-mail adres van de verantwoordelijke organisatie</description>
     <help_link>http://wiki.geonovum.nl/index.php/2.5.24_Metadata_point_of_contact</help_link>
-    <condition>mandatory</condition>
+    <condition>M</condition>
   </element>
 
   <!-- ==================================================== -->
@@ -529,7 +529,7 @@
     <label>Verantwoordelijke organisatie e-mail</label>
     <description>E-mail adres van de verantwoordelijke organisatie of persoon.</description>
     <help_link>http://wiki.geonovum.nl/index.php/2.5.22_Responsible_party</help_link>
-    <condition>mandatory</condition>
+    <condition>M</condition>
   </element>
 
   <!-- ==================================================== -->
@@ -592,7 +592,7 @@
     <label>Metadata unieke identifier</label>
     <description>Unieke identifier voor de metadata file.</description>
     <help_link>http://wiki.geonovum.nl/index.php/2.4.40_Metadata_unieke_identifier</help_link>
-    <condition>mandatory</condition>
+    <condition>M</condition>
   </element>
 
   <!-- ==================================================== -->
@@ -610,7 +610,7 @@
     <description>Hiërarchisch niveau waar de metadata betrekking op heeft. Voor services is de code: service.
     </description>
     <help_link>http://wiki.geonovum.nl/index.php/2.5.3_Resource_type</help_link>
-    <condition>mandatory</condition>
+    <condition>M</condition>
   </element>
 
 <!-- ==================================================== -->
@@ -637,7 +637,7 @@
     <description>Volledige naam van de karakterset die is gebruikt voor de
       opslag van de (meta)data. Voor de meeste data is dat utf8
     </description>
-    <condition>mandatory</condition>
+    <condition>M</condition>
   </element>
 
   <!-- ==================================================== -->
@@ -659,7 +659,7 @@
       keywords met bijvoorbeeld het thema worden opgenomen
     </description>
     <help_link>http://wiki.geonovum.nl/index.php/2.5.13_Keyword_value</help_link>
-    <condition>mandatory</condition>
+    <condition>M</condition>
   </element>
 
   <!-- ==================================================== -->
@@ -668,7 +668,7 @@
     <label>Metadata taal</label>
     <description>Taal waarin de metadata is beschreven.</description>
     <help_link>http://wiki.geonovum.nl/index.php/2.5.25_Metadata_language</help_link>
-    <condition>mandatory</condition>
+    <condition>M</condition>
   </element>
 
   <!-- ==================================================== -->
@@ -677,7 +677,7 @@
     <label>Metadata standaard naam</label>
     <description>Naam van de gebruikte metadata-standaard (Voor NL profiel 1.2.1 is dat: ISO 19119).</description>
     <help_link>http://wiki.geonovum.nl/index.php/Metadata_standaard_naam</help_link>
-    <condition>mandatory</condition>
+    <condition>M</condition>
   </element>
 
   <!-- ==================================================== -->
@@ -694,7 +694,7 @@
       </option>
     </helper>
     <help_link>http://wiki.geonovum.nl/index.php/Metadata_standaard_versie</help_link>
-    <condition>mandatory</condition>
+    <condition>M</condition>
   </element>
 
   <!-- ==================================================== -->
@@ -703,7 +703,13 @@
            context="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:scope/gmd:DQ_Scope/gmd:level">
     <label>Niveau kwaliteitsbeschrijving</label>
     <description>Niveau waar de kwaliteitsbeschrijving betrekking op heeft.</description>
-    <condition>mandatory</condition>
+    <condition>M</condition>
+  </element>
+
+<element name="gmd:other" context="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:scope/gmd:DQ_Scope/gmd:DQ_Scope/levelDescription/gmd:MD_ScopeDescription/gmd:other">
+    <label>Niveau kwaliteitsbeschrijving naam</label>
+    <description>Dit element bevat de naam van het niveau waarop de kwaliteitsinformatie betrekking heeft.</description>
+    <condition>M</condition>
   </element>
 
   <!-- ==================================================== -->
@@ -715,7 +721,7 @@
       instance via het verplichte element linkage, uit de klasse CI_OnlineResource. Dit element heeft hetzelfde
       doel als Resource Locator
     </description>
-    <condition>mandatory</condition>
+    <condition>M</condition>
   </element>
 
   <!-- ==================================================== -->
@@ -830,7 +836,7 @@
     <description>Meest noordelijke coordinaat uit de horizontale dekking van het object weergegeven in longitude en
       lattitude in decimale graden (noord en oost als positieve waarden).
     </description>
-    <condition>mandatory</condition>
+    <condition>M</condition>
   </element>
 
   <!-- ==================================================== -->
@@ -848,7 +854,7 @@
     <label>Verantwoordelijke organisatie</label>
     <description>Volledige naam van de voor metadata verantwoordelijke organisatie.</description>
     <help_link>http://wiki.geonovum.nl/index.php/2.5.24_Metadata_point_of_contact</help_link>
-    <condition>mandatory</condition>
+    <condition>M</condition>
   </element>
 
   <!-- ==================================================== -->
@@ -858,7 +864,7 @@
     <label>Verantwoordelijke organisatie</label>
     <description>Naam van de verantwoordelijke organisatie.</description>
     <help_link>http://wiki.geonovum.nl/index.php/2.5.22_Responsible_party</help_link>
-    <condition>mandatory</condition>
+    <condition>M</condition>
   </element>
 
   <!-- ==================================================== -->
@@ -869,7 +875,7 @@
       domain, Creative Commons Publieke Domein Verklaring (CC0) of Geo Gedeeld in te vullen, dan wel de relevante waarden voor INSPIRE.
     </description>
     <btnLabel>Overige beperking toevoegen</btnLabel>
-    <condition>mandatory</condition>
+    <condition>M</condition>
   </element>
 
   <!-- ==================================================== -->
@@ -880,7 +886,7 @@
       elke andere speciale beperkingen voor het verkrijgen van de metadata of data. Kies hier de waarde anders
     </description>
     <help_link>http://wiki.geonovum.nl/index.php/2.5.20_Constraints</help_link>
-    <condition>mandatory</condition>
+    <condition>M</condition>
   </element>
   <!-- ==================================================== -->
 
@@ -1045,7 +1051,7 @@
     <label>Verantwoordelijke organisatie rol</label>
     <description>Beschrijving op welke manier de organisatie betrokken is bij de metadata.</description>
     <help_link>http://wiki.geonovum.nl/index.php/2.5.24_Metadata_point_of_contact</help_link>
-    <condition>mandatory</condition>
+    <condition>M</condition>
   </element>
 
   <!-- ==================================================== -->
@@ -1055,7 +1061,7 @@
     <label>Verantwoordelijke organisatie rol</label>
     <description>Functie die wordt uitgevoerd door de verantwoordelijke organisatie.</description>
     <help_link>http://wiki.geonovum.nl/index.php/2.5.23_Responsible_party_role</help_link>
-    <condition>mandatory</condition>
+    <condition>M</condition>
   </element>
 
   <!-- ==================================================== -->
@@ -1063,7 +1069,7 @@
   <element name="gmd:scope" context="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:scope">
     <label>Niveau</label>
     <description>Niveau waar de kwaliteitsbeschrijving betrekking op heeft.</description>
-    <condition>mandatory</condition>
+    <condition>M</condition>
   </element>
 
   <!-- ==================================================== -->
@@ -1074,7 +1080,7 @@
     <description>Meest zuidelijke en noordelijke coordinaat uit de horizontale dekking van het object weergegeven in
       longitude en lattitude in decimale graden (noord en oost als positieve waarden).
     </description>
-    <condition>mandatory</condition>
+    <condition>M</condition>
   </element>
 
   <!-- ==================================================== -->
@@ -1131,7 +1137,7 @@
     <label>Titel van de bron</label>
     <description>Titel van de service</description>
     <help_link>http://wiki.geonovum.nl/index.php/2.5.1_Resource_Title</help_link>
-    <condition>mandatory</condition>
+    <condition>M</condition>
   </element>
 
   <!-- ==================================================== -->
@@ -1163,7 +1169,7 @@
     <label>Gebruiks beperkingen</label>
     <description>. Toepassingen waarvoor de data of service niet geschikt is.</description>
     <help_link>http://wiki.geonovum.nl/index.php/2.5.21_Conditions_applying_to_access_and_use</help_link>
-    <condition>mandatory</condition>
+    <condition>M</condition>
   </element>
 
   <!-- ==================================================== -->
@@ -1184,7 +1190,7 @@
     <description>Meest westelijke coordinaat uit de horizontale dekking van het object weergegeven in longitude en
       lattitude in decimale graden (noord en oost als positieve waarden).
     </description>
-    <condition>mandatory</condition>
+    <condition>M</condition>
   </element>
 
 
@@ -1203,7 +1209,7 @@
       instance via het verplichte element linkage, uit de klasse CI_OnlineResource. Dit element heeft hetzelfde
       doel als Resource Locator
     </description>
-    <condition>mandatory</condition>
+    <condition>M</condition>
   </element>
 
   <!-- ==================================================== -->
@@ -1238,7 +1244,7 @@
       <option value="loose">Zwak</option>
     </helper>
     <help_link>http://wiki.geonovum.nl/index.php/2.5.8_Coupling_Type</help_link>
-    <condition>mandatory</condition>
+    <condition>M</condition>
   </element>
 
   <!-- ==================================================== -->
@@ -1250,7 +1256,7 @@
       van de default waarde WebServices uit.
     </description>
     <help_link>http://wiki.geonovum.nl/index.php/2.5.12_DCP</help_link>
-    <condition>mandatory</condition>
+    <condition>M</condition>
   </element>
 
   <!-- ==================================================== -->
@@ -1315,7 +1321,7 @@
     <label>Operatie naam</label>
     <description>De naam van de operaties die met deze service mogelijk zijn.</description>
     <help_link>http://wiki.geonovum.nl/index.php/2.5.11_Operation_Name</help_link>
-    <condition>mandatory</condition>
+    <condition>M</condition>
   </element>
 
   <!-- ==================================================== -->
@@ -1333,7 +1339,7 @@
     <label>Coupling Type</label>
     <description>CouplingType definieert het type koppeling tussen een service instance en een dataset.
     </description>
-    <condition>mandatory</condition>
+    <condition>M</condition>
   </element>
 
   <!-- ==================================================== -->
@@ -1365,7 +1371,7 @@
       <option value="other">other service</option>
     </helper>
     <help_link>http://wiki.geonovum.nl/index.php/2.5.9_Spatial_data_service_type</help_link>
-    <condition>mandatory</condition>
+    <condition>M</condition>
   </element>
 
   <!-- ==================================================== -->
@@ -1425,7 +1431,7 @@
   <element name="gml:beginPosition" context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/gmd:extent/gmd:EX_Extent/gmd:temporalElement/gmd:EX_TemporalExtent/gmd:extent/gml:TimePeriod/gml:beginPosition">
     <label>Begindatum</label>
     <description>Begindatum (YYYY-MM-DD).</description>
-    <condition>mandatory</condition>
+    <condition>M</condition>
   </element>
   <element name="gml:endPosition" context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/gmd:extent/gmd:EX_Extent/gmd:temporalElement/gmd:EX_TemporalExtent/gmd:extent/gml:TimePeriod/gml:endPosition">
     <label>Einddatum</label>
@@ -1691,7 +1697,7 @@
   <element name="gmd:valueUnit">
     <label>Waarde eenheid</label>
     <description>Waarde eenheid om data kwaliteit te rapporteren</description>
-    <condition>mandatory</condition>
+    <condition>M</condition>
   </element>
 
  <!-- ==================================================== -->
