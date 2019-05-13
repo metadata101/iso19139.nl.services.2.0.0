@@ -1502,9 +1502,10 @@
           </action>
 
           <!--   5.33 Conformiteitindicatie met de specificatie  -->
-          <field name="conformanceStatement" or="report" del ="../.."
-                 xpath="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/gmd:DQ_DomainConsistency/gmd:result"
-                 />
+          <field 
+            name="conformanceStatement" xpath="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report[gmd:DQ_DomainConsistency]" 
+            or="report" in="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality"/>
+
 
           <!-- QOS -->
           <field name="DQ_ConceptualConsistency" or="report" removable="true"
