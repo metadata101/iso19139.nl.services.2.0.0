@@ -59,7 +59,7 @@
       <gmd:citation>
         <gmd:CI_Citation>
           <gmd:title>
-                  <gco:CharacterString>2. Template NL profiel op ISO 19119 voor services 2.0 en INSPIRE SDS invocable</gco:CharacterString>
+                  <gco:CharacterString>2. Template NL profiel op ISO 19119 voor services 2.0.0 en INSPIRE SDS invocable</gco:CharacterString>
           </gmd:title>
           <gmd:date>
             <gmd:CI_Date>

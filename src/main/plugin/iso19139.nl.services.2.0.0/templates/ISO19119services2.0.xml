@@ -102,7 +102,7 @@
          <gmd:citation>
             <gmd:CI_Citation>
                <gmd:title>
-                  <gco:CharacterString>1. Template Nederlands metadata profiel op ISO 19119 voor services 2.0</gco:CharacterString>
+                  <gco:CharacterString>1. Template Nederlands metadata profiel op ISO 19119 voor services 2.0.0</gco:CharacterString>
                </gmd:title>
                <gmd:date>
                   <gmd:CI_Date>
