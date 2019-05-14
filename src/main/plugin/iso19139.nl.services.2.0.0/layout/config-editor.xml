@@ -1891,7 +1891,7 @@
           </action>
 
           <!--  charcterset van de metadata.. -->
-          <field xpath="/gmd:MD_Metadata/gmd:characterSet" />
+          <field xpath="/gmd:MD_Metadata/gmd:characterSet" or="characterSet" in="/gmd:MD_Metadata"/>
           <action type="add"
                   btnLabel="addCharacterSet"
                   if="count(gmd:MD_Metadata/gmd:characterSet) = 0"
