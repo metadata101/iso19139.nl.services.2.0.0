@@ -60,11 +60,8 @@
   <element name="gmd:URL"
            context="/gmd:MD_Metadata/gmd:distributionInfo/gmd:MD_Distribution/gmd:transferOptions/gmd:MD_DigitalTransferOptions/gmd:onLine/gmd:CI_OnlineResource/gmd:linkage/gmd:URL">
     <label>Link</label>
-    <description>Dit element is conditioneel in INSPIRE. Als er een link naar de service beschikbaar is, is het een
-      verplicht element. Voor bijvoorbeeld services waar een restrictieve toegang voor geldt kan dit element niet
-      ingevuld worden. Het bevat de valide URL voor on-line toegang tot de service.
+    <description>Voor een service bevat het element een accessPoint URL. Een accessPoint URL levert informatie over de service inclusief zijn endPoints. Dat kan bijvoorbeeld een capabilities of WSDL document zijn.
     </description>
-    <help_link>http://wiki.geonovum.nl/index.php/2.5.4_Resource_locator</help_link>
     <condition>conditional</condition>
   </element>
 
@@ -511,6 +508,14 @@
     <description>Verwijzing naar een gebied dat de dekking van de service beschrijft
     </description>
   </element>
+  <element name="gmd:code" context="/gmd:MD_Metadata/gmd:referenceSystemInfo/gmd:MD_ReferenceSystem/gmd:referenceSystemIdentifier/gmd:RS_Identifier/gmd:code">
+    <label>Code referentiesysteem</label>
+    <description>
+      Voor INSPIRE interoperabele services worden de coördinaat referentie systemen die de service ondersteunt hier opgenomen middels een URI. Voor RD is dat
+      &lt;a href='http://www.opengis.net/def/crs/EPSG/0/28992' target='_blank'&gt;http://www.opengis.net/def/crs/EPSG/0/28992&lt;/a&gt;.
+    </description>
+    <condition>mandatory</condition>
+  </element>
 
   <!-- ==================================================== -->
 
@@ -606,10 +611,12 @@
   <!-- ==================================================== -->
 
   <element name="gmd:hierarchyLevel" context="/gmd:MD_Metadata/gmd:hierarchyLevel">
-    <label>Hiërarchisch niveau</label>
-    <description>Hiërarchisch niveau waar de metadata betrekking op heeft. Voor services is de code: service.
+    <label>Hiërarchieniveau</label>
+    <description>
+      Het element geeft aan waarop de metadata betrekking heeft, in dit geval service. Dit niveau wordt gekozen uit
+      &lt;a href='https://docs.geostandaarden.nl/md/mdprofiel-iso19119/#codelist-scopecode' target="blank"&gt;codelijst ScopeCode&lt;/a&gt;.
+      Mogelijke niveau is: service.
     </description>
-    <help_link>http://wiki.geonovum.nl/index.php/2.5.3_Resource_type</help_link>
     <condition>mandatory</condition>
   </element>
 
@@ -728,9 +735,8 @@
 
   <element name="gmd:linkage"
            context="/gmd:MD_Metadata/gmd:distributionInfo/gmd:MD_Distribution/gmd:transferOptions/gmd:MD_DigitalTransferOptions/gmd:onLine/gmd:CI_OnlineResource/gmd:linkage">
-    <label>Online Bronnen URL</label>
-    <description>Valide URL voor online toegang tot (informatie over)de bron (bijvoorbeeld de link naar een WMS
-      service of download).
+    <label>Link naar een bron</label>
+    <description>Deze elementengroep kan meerdere keren voorkomen, bijvoorbeeld als link naar een direct downloadbaar bestand, WMS, WFS en specifieke lagen of featurtypes in de services.
     </description>
     <condition>conditional</condition>
   </element>
@@ -771,10 +777,11 @@
 
   <!-- ==================================================== -->
 
-  <element name="gmd:MD_LegalConstraints">
-    <label>Juridische beperkingen</label>
-    <description>Restricties en juridische voorwaarden die van toepassing zijn op zowel het gebruik van als de
-      toegang tot de data of service.
+  <element name="gmd:MD_LegalConstraints" >
+    <label>Juridische toegangs beperkingen</label>
+    <description>
+      Het is verplicht voorwaarden voor toegang en gebruik op te nemen in één Juridische toegangs beperkingen element groep, bestaande uit (Juridische) toegangsrestricties en overige beperkingen. Deze kan met de plus knop worden toegevoegd.
+      Daarnaast is het verplicht een waarde op te nemen voor beperkingen op publieke toegang in één andere, een tweede, Juridische toegangs beperkingen element groep, bestaande uit (Juridische) toegangsrestricties en overige beperkingen.
     </description>
   </element>
 
@@ -870,22 +877,28 @@
   <!-- ==================================================== -->
   <element name="gmd:otherConstraints">
     <label>Overige beperkingen</label>
-    <description>Andere restricties of beperkingen. Dit veld is binnen juridische toegangs restricties 
-      te gebruiken om de licentie van Public
-      domain, Creative Commons Publieke Domein Verklaring (CC0) of Geo Gedeeld in te vullen, dan wel de relevante waarden voor INSPIRE.
-    </description>
     <btnLabel>Overige beperking toevoegen</btnLabel>
+    <description>
+      Hierin wordt voor één elementgroep (Juridische toegangs beperkingen) in dit element de voorwaarden voor toegang en gebruik met een link naar de licentie en de bijbehorende beschrijving opgenomen.
+      In codelijst
+      &lt;a href='https://docs.geostandaarden.nl/md/mdprofiel-iso19119/#codelist-datalicenties' target='_blank'>DataLicenties&lt;/a&gt;
+      zijn de beschrijvingen en de bijbehorende link naar de mogelijke licenties opgenomen.
+
+      Daarnaast wordt voor de tweede elementgroep (Juridische toegangs beperkingen) in dit element de beperkingen op publieke toegang met een waarde uit
+      &lt;a href='https://docs.geostandaarden.nl/md/mdprofiel-iso19119/#Codelijst-INSPIRE-LimitationsOnPublicAccess' target='_blank'>codelijst LimitationsOnPublicAccess&lt;/a&gt; opgenomen. Lees hier meer over
+      &lt;a href='https://docs.geostandaarden.nl/md/mdprofiel-iso19119/#overige-beperkingen' target='_blank'>overige beperkingen&lt;/a&gt; en
+      &lt;a href='https://docs.geostandaarden.nl/md/mdprofiel-iso19119/#string-elementen'&gt;string elementen&lt;/a&gt; meer.
+    </description>
     <condition>mandatory</condition>
   </element>
 
   <!-- ==================================================== -->
-  <element name="gmd:accessConstraints"
-           context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/gmd:resourceConstraints/gmd:MD_LegalConstraints/gmd:accessConstraints">
-    <label>Juridische toegangsristricties</label>
-    <description>Toegangseisen die er zorg voor dragen dat privacy of intellectueel eigendom gewaarborgd zijn en
-      elke andere speciale beperkingen voor het verkrijgen van de metadata of data. Kies hier de waarde anders
-    </description>
-    <help_link>http://wiki.geonovum.nl/index.php/2.5.20_Constraints</help_link>
+  <element name="gmd:accessConstraints">
+    <label>(Juridische) toegangsrestricties</label>
+    <description>
+      (Juridische) toegangsrestricties zal in de meeste gevallen de waarde "anders" hebben, als het de waarde anders
+      heeft, dan kan het metadata element overige beperkingen ingevuld worden.
+      &lt;a href='https://docs.geostandaarden.nl/md/mdprofiel-iso19119/#juridische-toegangsrestricties' target='_blank'&gt;Lees verder&lt;/a&gt;.</description>
     <condition>mandatory</condition>
   </element>
   <!-- ==================================================== -->
@@ -913,10 +926,11 @@
 
   <element name="gmd:protocol" alias="protocol">
     <label>Protocol</label>
-    <description>Dit element is conditioneel. Het is verplicht als er een URL is opgegeven. Bijvoorbeeld naar een
-      WMS of WFS.Het bevat het protocol voor het afhandelen van de URL. Door het hanteren van INSPIRE servicetypes
-      bij het element service type is de relatie met de OGC types verloren, tenzij dit element wordt aangegeven.
-      De namen uit codelijst SV_ServiceType (bijlage 1) wordt hier gehanteerd.
+    <description>
+      Als de URL een 'endPoint' betreft dan dient een waarde geselecteerd te worden uit de &lt;a href='https://docs.geostandaarden.nl/md/mdprofiel-iso19119/#codelist-mediatypes' target='_blank'&gt;codelijst MediaType&lt;/a&gt;.
+      Als de URL een 'accessPoint' betreft, dient een waarde geselecteerd te worden uit de &lt;a href='https://docs.geostandaarden.nl/md/mdprofiel-iso19119/#codelist-protocol' target='_blank'&gt;codelijst Protocol&lt;/a&gt;.
+      &lt;a href='https://docs.geostandaarden.nl/md/mdprofiel-iso19119/#protocol' target='blank'&gt;Lees verder&lt;/a&gt;.
+
     </description>
     <helper>
       <option value="" title="separator">-- AccessPoints --</option>
@@ -1538,7 +1552,7 @@
   <element name="gmd:description" context="*/gmd:CI_OnlineResource/gmd:description">
     <label>Omschrijving van de link</label>
     <btnLabel>Omschrijving toevoegen</btnLabel>
-    <description>Omschrijving</description>
+    <description>Geef een waarde uit de &lt;a href='https://docs.geostandaarden.nl/md/mdprofiel-iso19119/#Codelist-INSPIRE-OnLineDescriptionCode' target=''&gt;codelijst OnLineDescriptionCode&lt;/a&gt; die het type URL beschrijft</description>
   </element>
 
   <!-- ==================================================== -->
