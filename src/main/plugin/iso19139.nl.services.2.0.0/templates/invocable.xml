@@ -16,7 +16,7 @@
     <gmd:LanguageCode codeList="http://www.loc.gov/standards/iso639-2/" codeListValue="dut" />
   </gmd:language>
   <gmd:characterSet>
-      <gmd:MD_CharacterSetCode codeList="http://www.isotc211.org/2005/resources/codeList.xml#MD_CharacterSetCode"
+      <gmd:MD_CharacterSetCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_CharacterSetCode"
                                codeListValue="utf8"/>
   </gmd:characterSet>
   <gmd:hierarchyLevel>
@@ -59,7 +59,7 @@
       <gmd:citation>
         <gmd:CI_Citation>
           <gmd:title>
-                  <gco:CharacterString>2. Template NL profiel op ISO 19119 voor services 2.0 en INSPIRE SDS invocable</gco:CharacterString>
+                  <gco:CharacterString>2. Template NL profiel op ISO 19119 voor services 2.0.0 en INSPIRE SDS invocable</gco:CharacterString>
           </gmd:title>
           <gmd:date>
             <gmd:CI_Date>
