@@ -1509,19 +1509,18 @@
 
           <!-- QOS -->
           <field name="DQ_ConceptualConsistency" or="report" removable="true"
-            xpath="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report[gmd:DQ_ConceptualConsistency]"
-            templateModeOnly="true" notDisplayedIfMissing="true" del=".">
+                 xpath="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report[gmd:DQ_ConceptualConsistency]"
+                 templateModeOnly="true" notDisplayedIfMissing="true" del=".">
             <template>
               <values>
                 <key label="nameOfMeasure"
-                     xpath="gmd:DQ_ConceptualConsistency/gmd:result/gmd:DQ_QuantitativeResult/gmd:valueUnit/gml:BaseUnit/gml:identifier"
-                     use="gn-keyword-picker"
+                     xpath="gmd:DQ_ConceptualConsistency/gmd:nameOfMeasure"
+                     use="data-gn-keyword-picker"
                      tooltip="gmd:nameOfMeasure">
-                  <directiveAttributes 
-                          data-thesaurus-key="external.theme.httpinspireeceuropaeumetadatacodelistqualityofservicecriteriacode-listqualityofservicecriteriacode"
-                          data-thesaurus-orderById="true"
-                          data-display-definition="true"
-                          data-thesaurus-concept-id-attribute="xlinkCOLONhref"/>
+                  <directiveAttributes data-thesaurus-key="external.theme.httpinspireeceuropaeumetadatacodelistQualityOfServiceCriteria-QualityOfServiceCriteria"
+                                       data-order-by-id="true"
+                                       data-display-definition="true"
+                                       data-thesaurus-concept-id-attribute="xlinkCOLONhref"/>
                 </key>
                 <key label="measureDescription" tooltip="gmd:measureDescription" xpath="gmd:DQ_ConceptualConsistency/gmd:measureDescription/gco:CharacterString"></key>
                 <key label="value" tooltip="gmd:value" xpath="gmd:DQ_ConceptualConsistency/gmd:result/gmd:DQ_QuantitativeResult/gmd:value/gco:Record"></key>
