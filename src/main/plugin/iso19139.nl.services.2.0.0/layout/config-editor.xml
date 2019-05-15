@@ -231,6 +231,7 @@
 
     <!-- TODO: Review Specific for Dutch schema -->
     <name>gmd:verticalCRS</name>
+    <name>srv:parameters</name>
   </fieldsWithFieldset>
 
   <multilingualFields>
@@ -351,9 +352,9 @@
     </table>
     <table for="srv:SV_OperationMetadata">
       <header>
-        <col label="operationName" class="gn-required" />
-        <col label="DCP" class="gn-required"/>
-        <col label="connectPoint" class="gn-required"/>
+        <col label="srv:operationName" class="gn-required" />
+        <col label="srv:DCP" class="gn-required"/>
+        <col label="srv:connectPoint" class="gn-required"/>
         <col/>
       </header>
       <row>
@@ -2115,6 +2116,7 @@
         <for name="gmd:topicCategory"/>
         <for name="gmd:distributionFormat"/>
         <for name="gmd:resourceConstraints"/>
+        <for name="srv:parameters" />
       </flatModeExceptions>
 
       <thesaurusList>

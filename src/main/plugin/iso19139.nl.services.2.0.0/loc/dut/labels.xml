@@ -1263,15 +1263,14 @@
 
   <!-- ==================================================== -->
 
-  <element name="srv:DCP"
-           context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/srv:containsOperations/srv:SV_OperationMetadata/srv:DCP">
-    <label>Platform</label>
-    <description>Distributed Computing Platforms waarop de operatie is geimplementeerd.INSPIRE gaat
-      van de default waarde WebServices uit.
-    </description>
-    <help_link>http://wiki.geonovum.nl/index.php/2.5.12_DCP</help_link>
-    <condition>mandatory</condition>
-  </element>
+    <element name="srv:DCP"
+             context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/srv:containsOperations/srv:SV_OperationMetadata/srv:DCP">
+        <label>Platform</label>
+        <description>DCP staat voor Distributed Computing Platforms waarop de operatie is geimplementeerd.INSPIRE gaat van de default waarde WebServices uit.
+        </description>
+        <help_link>http://wiki.geonovum.nl/index.php/2.5.12_DCP</help_link>
+        <condition>mandatory</condition>
+    </element>
 
   <!-- ==================================================== -->
 
@@ -1321,12 +1320,12 @@
 
   <!-- ==================================================== -->
 
-  <element name="srv:operationName"
-           context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/srv:coupledResource/srv:SV_CoupledResource/srv:operationName">
-    <label>Operatie naam</label>
-    <description>De naam van de operatie.</description>
-    <help_link>http://wiki.geonovum.nl/index.php/2.5.7_Scoped_Name</help_link>
-  </element>
+    <element name="srv:operationName"
+             context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/srv:coupledResource/srv:SV_CoupledResource/srv:operationName">
+        <label>Operatie</label>
+        <description>De naam van de operatie.</description>
+        <help_link>http://wiki.geonovum.nl/index.php/2.5.7_Scoped_Name</help_link>
+    </element>
 
   <!-- ==================================================== -->
 

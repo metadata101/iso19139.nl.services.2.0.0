@@ -130,6 +130,9 @@
   <otherConstraints>Other constraints</otherConstraints>
   <extent>Geographic bounding box</extent>
   <freeTextKeywords>Other keywords</freeTextKeywords>
+  <operationName>Operatie</operationName>
+  <DCP>Type</DCP>
+  <connectPoint>Endpoint</connectPoint>
 
   <addCrs>Projection</addCrs>
  
