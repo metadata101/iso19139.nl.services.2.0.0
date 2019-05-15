@@ -77,7 +77,7 @@
 
   <element name="gmd:abstract">
     <label>Samenvatting</label>
-    <description>Korte beschrijving van de inhoud van de dataset.</description>
+    <description>Korte beschrijving van de inhoud van de service.</description>
     <condition>mandatory</condition>
   </element>
 
@@ -434,7 +434,7 @@
 <element name="gmd:DQ_QuantitativeResult"
   context="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/gmd:DQ_TopologicalConsistency/gmd:result/gmd:DQ_QuantitativeResult">
     <label>Topologische Consistentie</label>
-    <description>Juistheid van de topologische kenmerken van de dataset. &lt;a href='http://geonovum.github.io/Metadata-ISO19115/#Type-waarde'&gt;Lees verder&lt;/a&gt;</description>
+    <description>Juistheid van de topologische kenmerken van de service. &lt;a href='http://geonovum.github.io/Metadata-ISO19115/#Type-waarde'&gt;Lees verder&lt;/a&gt;</description>
   </element>
   <element name="gmd:DQ_QuantitativeResult" 
   context="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/gmd:DQ_AbsoluteExternalPositionalAccuracy/gmd:result/gmd:DQ_QuantitativeResult">
@@ -449,12 +449,12 @@
   <element name="gmd:DQ_QuantitativeResult"
   context="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/gmd:DQ_CompletenessOmission/gmd:result/gmd:DQ_QuantitativeResult" >
     <label>Compleetheid</label>
-    <description>Data welke niet aanwezig is in de dataset zoals beschreven in het toepassingsgebied.</description>
+    <description>Data welke niet aanwezig is in de service zoals beschreven in het toepassingsgebied.</description>
   </element>
 
 <element name="gmd:DQ_TopologicalConsistency">
     <label>Topologische Consistentie</label>
-    <description>Juistheid van de topologische kenmerken van de dataset. &lt;a href='http://geonovum.github.io/Metadata-ISO19115/#Type-waarde'&gt;Lees verder&lt;/a&gt;</description>
+    <description>Juistheid van de topologische kenmerken van de service. &lt;a href='http://geonovum.github.io/Metadata-ISO19115/#Type-waarde'&gt;Lees verder&lt;/a&gt;</description>
   </element>
   <element name="gmd:DQ_AbsoluteExternalPositionalAccuracy" >
     <label>Geometrische nauwkeurigheid</label>
@@ -466,7 +466,7 @@
   </element>
   <element name="gmd:DQ_CompletenessOmission" >
     <label>Compleetheid</label>
-    <description>Data welke niet aanwezig is in de dataset zoals beschreven in het toepassingsgebied.</description>
+    <description>Data welke niet aanwezig is in de service zoals beschreven in het toepassingsgebied.</description>
   </element>
   <element name="gmd:DQ_DomainConsistency"
            >
@@ -634,7 +634,7 @@
            context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/gmd:graphicOverview">
     <label>Voorbeeldweergave</label>
     <btnLabel>Weergave toevoegen</btnLabel>
-    <description>Een afbeelding welke de inhoud van de dataset weergeeft .</description>
+    <description>Een afbeelding welke de inhoud van de service weergeeft .</description>
   </element>
 
   <!-- ==================================================== -->
@@ -713,7 +713,7 @@
     <condition>mandatory</condition>
   </element>
 
-<element name="gmd:other" context="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:scope/gmd:DQ_Scope/gmd:DQ_Scope/levelDescription/gmd:MD_ScopeDescription/gmd:other">
+<element name="gmd:other" context="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:scope/gmd:DQ_Scope/gmd:DQ_Scope/gmd:levelDescription/gmd:MD_ScopeDescription/gmd:other">
     <label>Niveau kwaliteitsbeschrijving naam</label>
     <description>Dit element bevat de naam van het niveau waarop de kwaliteitsinformatie betrekking heeft.</description>
     <condition>mandatory</condition>
@@ -1292,7 +1292,7 @@
 
   <element name="srv:identifier"
            context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/srv:coupledResource/srv:SV_CoupledResource/srv:identifier">
-    <label>Identificatie dataset</label>
+    <label>Identificatie service</label>
     <description>Unieke code voor het object.</description>
     <help_link>http://wiki.geonovum.nl/index.php/2.5.7_Scoped_Name</help_link>
   </element>
@@ -1417,7 +1417,7 @@
   </element>
   <element name="gml:id" context="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/gmd:DQ_CompletenessOmission/gmd:result/gmd:DQ_QuantitativeResult/gmd:valueUnit/gml:BaseUnit/@gml:id">
     <label>Compleetheid</label>
-    <description>Omschrijving van de compleetheid van de dataset</description>
+    <description>Omschrijving van de compleetheid van de service</description>
   </element>
   <element name="gml:id" context="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/gmd:DQ_AbsoluteExternalPositionalAccuracy/gmd:result/gmd:DQ_QuantitativeResult/gmd:valueUnit/gml:BaseUnit/@gml:id">
     <label>Geometrische nauwkeurigheid</label>
@@ -1714,7 +1714,7 @@
  <!-- ==================================================== -->
   <element name="gco:Record" context="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/gmd:DQ_CompletenessOmission/gmd:result/gmd:DQ_QuantitativeResult/gmd:value/gco:Record">
     <label>Compleetheid</label>
-    <description>Omschrijving in hoeverre een dataset compleet is, of anders gezegd, een inschatting van wat er nog ontbreekt.</description>
+    <description>Omschrijving in hoeverre een service compleet is, of anders gezegd, een inschatting van wat er nog ontbreekt.</description>
   </element>
   <element name="gco:Record" context="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/gmd:DQ_AbsoluteExternalPositionalAccuracy/gmd:result/gmd:DQ_QuantitativeResult/gmd:value/gco:Record">
     <label>Geometrische nauwkeurigheid</label>
@@ -1722,13 +1722,9 @@
   </element>
   <element name="gco:Record" context="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/gmd:DQ_TopologicalConsistency/gmd:result/gmd:DQ_QuantitativeResult/gmd:value/gco:Record">
     <label>Topologische samenhang</label>
-    <description>juistheid van de topologische kenmerkenvan de dataset, Verplicht voor INSPIRE als voor netwerken de aansluiting van hartlijnen niet is verzekerd. In dat geval moet de Connectivity tolerance parameter vastgelegd worden om automatische creatie van hartlijn topologie mogelijk te maken</description>
+    <description>juistheid van de topologische kenmerken van de service, Verplicht voor INSPIRE als voor netwerken de aansluiting van hartlijnen niet is verzekerd. In dat geval moet de Connectivity tolerance parameter vastgelegd worden om automatische creatie van hartlijn topologie mogelijk te maken</description>
     <help_link>http://wiki.geonovum.nl/index.php/Topologische samenhang</help_link>
     <condition>C</condition>
-  </element>
-  <element name="gco:LocalName" context="/gmd:MD_Metadata/gmd:contentInfo/gmd:MD_FeatureCatalogueDescription/gmd:featureTypes/gco:LocalName">
-    <label>FeatureTypes</label>
-    <description>Featuretypes uit de featurecatalog die in de dataset voorkomen.</description>
   </element>
 
 <!-- ==================================================== -->
