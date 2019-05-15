@@ -1741,5 +1741,20 @@
     <description>Code die de scope van het beschreven element aangeeft</description>
   </element>
 
+  <element name="valueUnitHref">
+    <label>Valueunit Definition</label>
+    <helper>
+      <option value="urn:ogc:def:uom:OGC::percent">Procent</option>
+      <option value="http://www.opengis.net/def/uom/SI/second">Seconde</option>
+      <option value="http://www.opengis.net/def/uom/SI/ampere">Ampere</option>
+      <option value="http://www.opengis.net/def/uom/SI/candela">Candela</option>	
+      <option value="http://www.opengis.net/def/uom/SI/kelvin	">Kelvin</option>
+      <option value="http://www.opengis.net/def/uom/SI/kilogram">Kilo</option>	
+      <option value="http://www.opengis.net/def/uom/SI/metre">Meter</option>	
+      <option value="http://www.opengis.net/def/uom/SI/mole">Mol</option>	
+      <option value="http://www.opengis.net/def/uom/OGC/1.0/unity">Eenheden</option>
+    </helper>
+  </element>
+
 
 </labels>

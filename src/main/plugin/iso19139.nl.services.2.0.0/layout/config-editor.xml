@@ -1528,7 +1528,7 @@
                 <key label="measureDescription" tooltip="gmd:measureDescription" xpath="gmd:DQ_ConceptualConsistency/gmd:measureDescription/gco:CharacterString"></key>
                 <key label="value" tooltip="gmd:value" xpath="gmd:DQ_ConceptualConsistency/gmd:result/gmd:DQ_QuantitativeResult/gmd:value/gco:Record"></key>
                 <key label="valueUnit" tooltip="gmd:valueUnit" xpath="gmd:DQ_ConceptualConsistency/gmd:result/gmd:DQ_QuantitativeResult/gmd:valueUnit/@xlink:href">
-                  <helper name="valueUnit" />
+                  <helper name="valueUnitHref" />
                 </key>
                 </values>
               <snippet>
