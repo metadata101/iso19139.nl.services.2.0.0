@@ -1526,11 +1526,10 @@
                 </key>
                 <key label="measureDescription" tooltip="gmd:measureDescription" xpath="gmd:DQ_ConceptualConsistency/gmd:measureDescription/gco:CharacterString"></key>
                 <key label="value" tooltip="gmd:value" xpath="gmd:DQ_ConceptualConsistency/gmd:result/gmd:DQ_QuantitativeResult/gmd:value/gco:Record"></key>
-                <key label="valueUnit" tooltip="gmd:valueUnit" xpath="gmd:DQ_ConceptualConsistency/gmd:result/gmd:DQ_QuantitativeResult/gmd:valueUnit/gml:BaseUnit/gml:identifier">
-                  <helper name="gml:identifier" />
+                <key label="valueUnit" tooltip="gmd:valueUnit" xpath="gmd:DQ_ConceptualConsistency/gmd:result/gmd:DQ_QuantitativeResult/gmd:valueUnit/@xlink:href">
+                  <helper name="valueUnit" />
                 </key>
-                <key label="unitsSystem" tooltip="gml:unitsSystem" xpath="gmd:DQ_ConceptualConsistency/gmd:result/gmd:DQ_QuantitativeResult/gmd:valueUnit/gml:BaseUnit/gml:unitsSystem/@xlink:href"></key>
-              </values>
+                </values>
               <snippet>
               <gmd:report>
                   <gmd:DQ_ConceptualConsistency>
@@ -1542,12 +1541,7 @@
                   </gmd:measureDescription>
                     <gmd:result>
                       <gmd:DQ_QuantitativeResult>
-                        <gmd:valueUnit>
-                          <gml:BaseUnit gml:id="">
-                             <gml:identifier codeSpace="http://www.opengis.net/def">{{valueUnit}}</gml:identifier>
-                             <gml:unitsSystem xlink:href="{{unitsSystem}}"/>
-                          </gml:BaseUnit>
-                        </gmd:valueUnit>
+                        <gmd:valueUnit xlink:href="{{valueUnit}}"/>
                         <gmd:value>
                           <gco:Record>{{value}}</gco:Record>
                         </gmd:value>
@@ -1571,12 +1565,7 @@
                   <gmd:measureDescription/>
                     <gmd:result>
                       <gmd:DQ_QuantitativeResult>
-                        <gmd:valueUnit>
-                          <gml:BaseUnit gml:id="">
-                             <gml:identifier codeSpace="http://www.opengis.net/def"/>
-                             <gml:unitsSystem xlink:href="http://www.opengis.net/def/uom"/>
-                          </gml:BaseUnit>
-                        </gmd:valueUnit>
+                        <gmd:valueUnit xlink:href="" />
                         <gmd:value>
                           <gco:Record></gco:Record>
                         </gmd:value>
@@ -1892,7 +1881,7 @@
           </action>
 
           <!--  charcterset van de metadata.. -->
-          <field xpath="/gmd:MD_Metadata/gmd:characterSet" or="characterSet" in="/gmd:MD_Metadata"/>
+          <field xpath="/gmd:MD_Metadata/gmd:characterSet" />
           <action type="add"
                   btnLabel="addCharacterSet"
                   if="count(gmd:MD_Metadata/gmd:characterSet) = 0"
