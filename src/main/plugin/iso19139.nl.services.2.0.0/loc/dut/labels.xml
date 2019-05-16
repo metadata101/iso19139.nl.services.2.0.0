@@ -622,7 +622,7 @@
 
 <!-- ==================================================== -->
   <element name="gmd:hierarchyLevelName" context="/gmd:MD_Metadata/gmd:hierarchyLevelName">
-    <label>Hiërarchisch niveau naam</label>
+    <label>Naam hiërarchisch niveau</label>
     <description>Naam van het hiërarchisch niveau waar de metadata betrekking op heeft.</description>
     <help_link>http://wiki.geonovum.nl/index.php/2.4.4_Hi%C3%ABrarchieniveau naam</help_link>
     <condition>mandatory</condition>
