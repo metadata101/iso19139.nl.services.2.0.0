@@ -1562,7 +1562,7 @@
               <snippet>
                 <gmd:report>
                   <gmd:DQ_ConceptualConsistency>
-                  <gmd:nameOfMeasure><gmx:Anchor xlink:href="http://">performance</gmx:Anchor></gmd:nameOfMeasure>
+                  <gmd:nameOfMeasure><gmx:Anchor xlink:href="http://"></gmx:Anchor></gmd:nameOfMeasure>
                   <gmd:measureDescription/>
                     <gmd:result>
                       <gmd:DQ_QuantitativeResult>

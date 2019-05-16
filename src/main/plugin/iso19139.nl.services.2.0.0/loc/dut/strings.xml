@@ -280,13 +280,13 @@
   <addOtherConstraint>Overige beperking toevoegen</addOtherConstraint>
   <addConceptualConsistency>Conceptuele consistentie toevoegen</addConceptualConsistency>
   <addGeographicBoundingBox>Omgrenzende rechthoek toevoegen</addGeographicBoundingBox>
-  <addQualityScope>Niveau kwaliteitsbeschrijving toevoegen</addQualityScope>
-  <addQualityScopeDesc>Niveau kwaliteitsbeschrijving naam toevoegen</addQualityScopeDesc>
+  <addQualityScope>Niveau kwaliteits-beschrijving toevoegen</addQualityScope>
+  <addQualityScopeDesc>Niveau kwaliteits-beschrijving naam toevoegen</addQualityScopeDesc>
   <spatialInfo>Ruimtelijke informatie</spatialInfo>
   <DQ_ConceptualConsistency>Service kwaliteit</DQ_ConceptualConsistency>
   <Add_DQ_ConceptualConsistency>Service kwaliteit toevoegen</Add_DQ_ConceptualConsistency>
   <ConformanceResult>Conformiteit</ConformanceResult>
-  <levelDescription>Niveau kwaliteitsbeschrijving naam</levelDescription>
+  <levelDescription>Niveau kwaliteits-beschrijving naam</levelDescription>
   <DomainConsistency>Conformiteit met een domein specificatie</DomainConsistency>
   <TopologicalConsistency>Topologische samenhang</TopologicalConsistency>
   <CompletenessOmission>Compleetheid</CompletenessOmission>

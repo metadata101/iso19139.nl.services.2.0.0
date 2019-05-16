@@ -297,7 +297,7 @@
   <!-- ==================================================== -->
 
   <element name="gmd:dataQualityInfo" context="/gmd:MD_Metadata/gmd:dataQualityInfo">
-    <label>Kwaliteitsbeschrijving</label>
+    <label>Kwaliteits-beschrijving</label>
     <description>Informatie over de kwaliteit van de gegevens.</description>
   </element>
 
@@ -487,7 +487,7 @@
   <element name="gmd:DQ_Scope"
            context="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:scope/gmd:DQ_Scope">
     <label>Niveau</label>
-    <description>Niveau waar de kwaliteitsbeschrijving betrekking op heeft.</description>
+    <description>Niveau waar de kwaliteits-beschrijving betrekking op heeft.</description>
     <condition>mandatory</condition>
   </element>
 
@@ -708,15 +708,23 @@
 
   <element name="gmd:level"
            context="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:scope/gmd:DQ_Scope/gmd:level">
-    <label>Niveau kwaliteitsbeschrijving</label>
+    <label>Niveau kwaliteits-beschrijving</label>
     <description>Niveau waar de kwaliteitsbeschrijving betrekking op heeft.</description>
     <condition>mandatory</condition>
   </element>
 
-<element name="gmd:other" context="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:scope/gmd:DQ_Scope/gmd:DQ_Scope/gmd:levelDescription/gmd:MD_ScopeDescription/gmd:other">
-    <label>Niveau kwaliteitsbeschrijving naam</label>
+  <element name="gmd:other" context="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:scope/gmd:DQ_Scope/gmd:DQ_Scope/gmd:levelDescription/gmd:MD_ScopeDescription/gmd:other">
+    <label>Naam niveau kwaliteits-beschrijving</label>
     <description>Dit element bevat de naam van het niveau waarop de kwaliteitsinformatie betrekking heeft.</description>
     <condition>mandatory</condition>
+  </element>
+  <element name="gmd:nameOfMeasure">
+    <label>Indicator</label>
+    <description>Naam van de gemeten indicator</description>
+  </element>
+  <element name="gmd:measureDescription" id="102.0">
+    <label>Omschrijving indicator</label>
+    <description>Beschrijf hoe de indicator gemeten wordt</description>
   </element>
 
   <!-- ==================================================== -->
