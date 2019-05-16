@@ -2107,6 +2107,7 @@
         <for name="gmd:distributionFormat"/>
         <for name="gmd:resourceConstraints"/>
         <for name="srv:parameters" />
+        <for name="gmd:useLimitation" />
       </flatModeExceptions>
 
       <thesaurusList>
