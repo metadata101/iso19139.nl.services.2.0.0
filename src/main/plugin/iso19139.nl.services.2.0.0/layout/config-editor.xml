@@ -630,7 +630,7 @@
               <snippet>
                 <gmd:status>
                   <gmd:MD_ProgressCode codeListValue="onGoing"
-                                       codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_ProgressCode"/>
+                                       codeList="https://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#MD_ProgressCode"/>
                 </gmd:status>
               </snippet>
             </template>
@@ -704,7 +704,7 @@
                         </gmd:onlineResource>
                       </gmd:CI_Contact>
                     </gmd:contactInfo>
-                    <gmd:role><gmd:CI_RoleCode codeListValue="{{role}}" codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_RoleCode"/></gmd:role>
+                    <gmd:role><gmd:CI_RoleCode codeListValue="{{role}}" codeList="https://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#CI_RoleCode"/></gmd:role>
                   </gmd:CI_ResponsibleParty>
                 </gmd:pointOfContact>
               </snippet>
@@ -730,7 +730,7 @@
                         </gmd:address>
                       </gmd:CI_Contact>
                     </gmd:contactInfo>
-                    <gmd:role><gmd:CI_RoleCode codeListValue="pointOfContact" codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_RoleCode"/></gmd:role>
+                    <gmd:role><gmd:CI_RoleCode codeListValue="pointOfContact" codeList="https://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#CI_RoleCode"/></gmd:role>
                   </gmd:CI_ResponsibleParty>
                 </gmd:pointOfContact>
               </snippet>
@@ -991,7 +991,7 @@
                   <gmd:MD_LegalConstraints>
                     <gmd:accessConstraints>
                       <gmd:MD_RestrictionCode
-                        codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_RestrictionCode"
+                        codeList="https://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#MD_RestrictionCode"
                         codeListValue="otherRestrictions"/>
                     </gmd:accessConstraints>
                     <gmd:otherConstraints>
@@ -1015,7 +1015,7 @@
                 <gmd:resourceConstraints>
                   <gmd:MD_SecurityConstraints>
                    <gmd:classification>
-                      <gmd:MD_ClassificationCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_ClassificationCode" codeListValue=""/>
+                      <gmd:MD_ClassificationCode codeList="https://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#MD_ClassificationCode" codeListValue=""/>
                    </gmd:classification>
                    <gmd:userNote>
                       <gco:CharacterString/>
@@ -1330,7 +1330,7 @@
                         </gmd:onlineResource>
                       </gmd:CI_Contact>
                     </gmd:contactInfo>
-                    <gmd:role><gmd:CI_RoleCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="{{role}}"/></gmd:role>
+                    <gmd:role><gmd:CI_RoleCode codeList="https://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="{{role}}"/></gmd:role>
                   </gmd:CI_ResponsibleParty>
                 </gmd:distributorContact>
               </snippet>
@@ -1353,7 +1353,7 @@
                             <gmd:electronicMailAddress><gco:CharacterString >{{electronicMailAddress}}</gco:CharacterString></gmd:electronicMailAddress>
                           </gmd:CI_Address>
                         </gmd:address></gmd:CI_Contact></gmd:contactInfo>
-                        <gmd:role><gmd:CI_RoleCode codeListValue="pointOfContact" codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_RoleCode"/></gmd:role>
+                        <gmd:role><gmd:CI_RoleCode codeListValue="pointOfContact" codeList="https://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#CI_RoleCode"/></gmd:role>
                       </gmd:CI_ResponsibleParty>
                     </gmd:distributorContact>
                   </gmd:MD_Distributor>
@@ -1427,7 +1427,7 @@
             </template>
           </action>
 
-            <!--    5.23 Niveau kwaliteitsbeschrijving -->
+            <!--    5.23 Niveau kwaliteitsbeschrijving > hidden because value is always service
           <field
             xpath="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:scope/gmd:DQ_Scope/gmd:level"/>
 
@@ -1441,19 +1441,19 @@
                 <gmd:DQ_Scope>
                   <gmd:level>
                     <gmd:MD_ScopeCode
-                      codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#MD_ScopeCode"
+                      codeList="https://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#MD_ScopeCode"
                       codeListValue="dataset"/>
                   </gmd:level>
                 </gmd:DQ_Scope>
               </snippet>
             </template>
-          </action>
+          </action> -->
 
-          <!--    5.23 Beschrijving scope kwaliteitsbeschrijving -->
+          <!--    5.23 Beschrijving scope kwaliteitsbeschrijving = hidden because value is always service
           <field name="levelDescription"
                 xpath="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:scope/gmd:DQ_Scope/gmd:levelDescription/gmd:MD_ScopeDescription/gmd:other" 
                 del="../..">
-            </field>
+            </field> 
 
           <action type="add"
                   btnLabel="addQualityScopeDesc"
@@ -1471,7 +1471,7 @@
                   </gmd:levelDescription>
               </snippet>
             </template>
-          </action>
+          </action> -->
 
 
           <!--   5.24 Algemene beschrijving herkomst .. -->
@@ -1791,7 +1791,7 @@
                             <gmd:electronicMailAddress><gco:CharacterString >{{electronicMailAddress}}</gco:CharacterString></gmd:electronicMailAddress>
                           </gmd:CI_Address>
                         </gmd:address></gmd:CI_Contact></gmd:contactInfo>
-                        <gmd:role><gmd:CI_RoleCode codeListValue="pointOfContact" codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_RoleCode"/></gmd:role>
+                        <gmd:role><gmd:CI_RoleCode codeListValue="pointOfContact" codeList="https://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#CI_RoleCode"/></gmd:role>
                       </gmd:CI_ResponsibleParty>
                     </gmd:processor>
                   </gmd:LI_ProcessStep>
@@ -1829,7 +1829,7 @@
                         <gmd:processor>
                           <gmd:CI_ResponsibleParty>
                             <gmd:organisationName><gco:CharacterString></gco:CharacterString></gmd:organisationName>
-                            <gmd:role><gmd:CI_RoleCode codeListValue="pointOfContact" codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_RoleCode"/></gmd:role>
+                            <gmd:role><gmd:CI_RoleCode codeListValue="pointOfContact" codeList="https://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#CI_RoleCode"/></gmd:role>
                           </gmd:CI_ResponsibleParty>
                         </gmd:processor>
                       </gmd:LI_ProcessStep>
@@ -1873,7 +1873,7 @@
                       <gmd:LanguageCode codeList="http://www.loc.gov/standards/iso639-2/" codeListValue=""></gmd:LanguageCode>
                     </gmd:languageCode>
                     <gmd:characterEncoding>
-                      <gmd:MD_CharacterSetCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_CharacterSetCode" codeListValue="utf8"/>
+                      <gmd:MD_CharacterSetCode codeList="https://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#MD_CharacterSetCode" codeListValue="utf8"/>
                     </gmd:characterEncoding>
                   </gmd:PT_Locale>
                 </gmd:locale>
@@ -1892,7 +1892,7 @@
               <snippet>
                 <gmd:characterSet>
                   <gmd:MD_CharacterSetCode
-                    codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_CharacterSetCode"
+                    codeList="https://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#MD_CharacterSetCode"
                     codeListValue="utf8">
                   </gmd:MD_CharacterSetCode>
                 </gmd:characterSet>
@@ -1932,7 +1932,7 @@
               <snippet>
                 <gmd:hierarchyLevel>
                   <gmd:MD_ScopeCode
-                    codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_ScopeCode"
+                    codeList="https://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#MD_ScopeCode"
                     codeListValue="dataset"/>
                 </gmd:hierarchyLevel>
               </snippet>
@@ -2019,7 +2019,7 @@
                         </gmd:onlineResource>
                       </gmd:CI_Contact>
                     </gmd:contactInfo>
-                    <gmd:role><gmd:CI_RoleCode codeListValue="{{role}}" codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_RoleCode"/></gmd:role>
+                    <gmd:role><gmd:CI_RoleCode codeListValue="{{role}}" codeList="https://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#CI_RoleCode"/></gmd:role>
                   </gmd:CI_ResponsibleParty>
                 </gmd:contact>
               </snippet>
@@ -2039,7 +2039,7 @@
                     </gmd:organisationName>
 
                     <gmd:role>
-                      <gmd:CI_RoleCode                      codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#CI_RoleCode"
+                      <gmd:CI_RoleCode                      codeList="https://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#CI_RoleCode"
                                                             codeListValue="pointOfContact"/>
                     </gmd:role>
                   </gmd:CI_ResponsibleParty>

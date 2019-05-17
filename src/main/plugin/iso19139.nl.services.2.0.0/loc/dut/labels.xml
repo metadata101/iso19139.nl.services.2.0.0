@@ -509,7 +509,7 @@
     </description>
   </element>
   <element name="gmd:code" context="/gmd:MD_Metadata/gmd:referenceSystemInfo/gmd:MD_ReferenceSystem/gmd:referenceSystemIdentifier/gmd:RS_Identifier/gmd:code">
-    <label>Code referentiesysteem</label>
+    <label>Code referentie systeem</label>
     <description>
       Voor INSPIRE interoperabele services worden de coördinaat referentie systemen die de service ondersteunt hier opgenomen middels een URI. Voor RD is dat
       &lt;a href='http://www.opengis.net/def/crs/EPSG/0/28992' target='_blank'&gt;http://www.opengis.net/def/crs/EPSG/0/28992&lt;/a&gt;.
@@ -713,7 +713,7 @@
     <condition>mandatory</condition>
   </element>
 
-  <element name="gmd:other" context="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:scope/gmd:DQ_Scope/gmd:DQ_Scope/gmd:levelDescription/gmd:MD_ScopeDescription/gmd:other">
+  <element name="gmd:other" context="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:scope/gmd:DQ_Scope/gmd:levelDescription/gmd:MD_ScopeDescription/gmd:other">
     <label>Naam niveau kwaliteits-beschrijving</label>
     <description>Dit element bevat de naam van het niveau waarop de kwaliteitsinformatie betrekking heeft.</description>
     <condition>mandatory</condition>
@@ -828,7 +828,7 @@
 
   <element name="gmd:MD_SecurityConstraints"
            context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/gmd:resourceConstraints/gmd:MD_SecurityConstraints">
-    <label>Veiligheidsrestricties</label>
+    <label>Veiligheids restricties</label>
     <description>Restricties op de data of service met betrekking tot het onderwerp (nationale) veiligheid.
     </description>
   </element>
@@ -902,7 +902,7 @@
 
   <!-- ==================================================== -->
   <element name="gmd:accessConstraints">
-    <label>(Juridische) toegangsrestricties</label>
+    <label>(Juridische) toegangs restricties</label>
     <description>
       (Juridische) toegangsrestricties zal in de meeste gevallen de waarde "anders" hebben, als het de waarde anders
       heeft, dan kan het metadata element overige beperkingen ingevuld worden.

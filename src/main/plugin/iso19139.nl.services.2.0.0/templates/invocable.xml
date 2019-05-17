@@ -16,7 +16,7 @@
     <gmd:LanguageCode codeList="http://www.loc.gov/standards/iso639-2/" codeListValue="dut" />
   </gmd:language>
   <gmd:characterSet>
-      <gmd:MD_CharacterSetCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_CharacterSetCode"
+      <gmd:MD_CharacterSetCode codeList="https://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#MD_CharacterSetCode"
                                codeListValue="utf8"/>
   </gmd:characterSet>
   <gmd:hierarchyLevel>
@@ -122,7 +122,7 @@
                               <gco:Date>2008-06-01</gco:Date>
                   </gmd:date>
                   <gmd:dateType>
-                              <gmd:CI_DateTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#CI_DateTypeCode"
+                              <gmd:CI_DateTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#CI_DateTypeCode"
                                                    codeListValue="publication">publication</gmd:CI_DateTypeCode>
                   </gmd:dateType>
                 </gmd:CI_Date>
@@ -176,7 +176,7 @@
       </srv:extent>
       <srv:coupledResource />
       <srv:couplingType>
-            <srv:SV_CouplingType codeList="http://www.isotc211.org/2005/iso19119/resources/Codelist/gmxCodelists.xml#SV_CouplingType"
+            <srv:SV_CouplingType codeList="https://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#SV_CouplingType"
                                  codeListValue=""/>
       </srv:couplingType>
       <srv:containsOperations>
@@ -185,7 +185,7 @@
                   <gco:CharacterString/>
           </srv:operationName>
           <srv:DCP>
-                  <srv:DCPList codeList="http://www.isotc211.org/2005/iso19119/resources/Codelist/gmxCodelists.xml#DCPList"
+                  <srv:DCPList codeList="https://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#DCPList"
                                codeListValue=""/>
           </srv:DCP>
           <srv:connectPoint>

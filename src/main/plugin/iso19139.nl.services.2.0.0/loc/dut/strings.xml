@@ -213,7 +213,7 @@
   <addReferenceSystem>Referentie systeem toevoegen</addReferenceSystem>
 
 
-  <conformanceStatement>Conformiteitindicatie met de specificatie</conformanceStatement>
+  <conformanceStatement>Conformiteit indicatie met de specificatie</conformanceStatement>
   <ExtentDescription>Omschrijving temporele dekking</ExtentDescription>
   <DsCharacterSet>Karakterset dataset</DsCharacterSet>
   <Distribution>Distributie</Distribution>
@@ -276,7 +276,7 @@
   <securityConstraints>Veiligheids beperkingen</securityConstraints>
   <addSecurityConstraints>Voeg veiligheids beperkingen toe</addSecurityConstraints>
   <addLocale>Taal toevoegen</addLocale>
-  <addUseConstraint>Gebruiksbeperking toevoegen</addUseConstraint>
+  <addUseConstraint>Gebruiks beperking toevoegen</addUseConstraint>
   <addOtherConstraint>Overige beperking toevoegen</addOtherConstraint>
   <addConceptualConsistency>Conceptuele consistentie toevoegen</addConceptualConsistency>
   <addGeographicBoundingBox>Omgrenzende rechthoek toevoegen</addGeographicBoundingBox>
