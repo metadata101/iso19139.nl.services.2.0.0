@@ -34,6 +34,105 @@
                 version="2.0" exclude-result-prefixes="#all">
   <xsl:import href="../iso19139/update-fixed-info.xsl"/>
 
+  <!-- Fix/add hierarchyLevel to service -->
+  <xsl:template match="gmd:MD_Metadata" priority="100">
+    <xsl:copy>
+      <xsl:namespace name="xsi" select="'http://www.w3.org/2001/XMLSchema-instance'"/>
+      <xsl:apply-templates select="@*"/>
+
+      <gmd:fileIdentifier>
+        <gco:CharacterString>
+          <xsl:value-of select="/root/env/uuid"/>
+        </gco:CharacterString>
+      </gmd:fileIdentifier>
+
+      <xsl:apply-templates select="gmd:language"/>
+      <xsl:apply-templates select="gmd:characterSet"/>
+
+      <xsl:choose>
+        <xsl:when test="/root/env/parentUuid!=''">
+          <gmd:parentIdentifier>
+            <gco:CharacterString>
+              <xsl:value-of select="/root/env/parentUuid"/>
+            </gco:CharacterString>
+          </gmd:parentIdentifier>
+        </xsl:when>
+        <xsl:when test="gmd:parentIdentifier">
+          <xsl:apply-templates select="gmd:parentIdentifier"/>
+        </xsl:when>
+      </xsl:choose>
+
+      <xsl:if test="not(gmd:hierarchyLevel)">
+        <gmd:hierarchyLevel>
+          <gmd:MD_ScopeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#MD_ScopeCode"
+                            codeListValue="service">
+            <xsl:value-of select="java:getCodelistTranslation('gmd:MD_ScopeCode', 'service', string($mainLanguage))"/>
+          </gmd:MD_ScopeCode>
+        </gmd:hierarchyLevel>
+      </xsl:if>
+
+      <xsl:apply-templates select="
+        gmd:hierarchyLevel|
+        gmd:hierarchyLevelName|
+        gmd:contact|
+        gmd:dateStamp|
+        gmd:metadataStandardName|
+        gmd:metadataStandardVersion|
+        gmd:dataSetURI"/>
+
+      <!-- Copy existing locales and create an extra one for the default metadata language. -->
+      <xsl:if test="$isMultilingual">
+        <xsl:apply-templates select="gmd:locale[*/gmd:languageCode/*/@codeListValue != $mainLanguage]"/>
+        <gmd:locale>
+          <gmd:PT_Locale id="{$mainLanguageId}">
+            <gmd:languageCode>
+              <gmd:LanguageCode codeList="http://www.loc.gov/standards/iso639-2/"
+                                codeListValue="{$mainLanguage}"/>
+            </gmd:languageCode>
+            <gmd:characterEncoding>
+              <gmd:MD_CharacterSetCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#MD_CharacterSetCode"
+                                       codeListValue="{$defaultEncoding}"/>
+            </gmd:characterEncoding>
+          </gmd:PT_Locale>
+        </gmd:locale>
+      </xsl:if>
+
+      <xsl:apply-templates select="
+        gmd:spatialRepresentationInfo|
+        gmd:referenceSystemInfo|
+        gmd:metadataExtensionInfo|
+        gmd:identificationInfo|
+        gmd:contentInfo|
+        gmd:distributionInfo|
+        gmd:dataQualityInfo|
+        gmd:portrayalCatalogueInfo|
+        gmd:metadataConstraints|
+        gmd:applicationSchemaInfo|
+        gmd:metadataMaintenance|
+        gmd:series|
+        gmd:describes|
+        gmd:propertyType|
+        gmd:featureType|
+        gmd:featureAttribute"/>
+
+      <!-- Handle ISO profiles extensions. -->
+      <xsl:apply-templates select="
+        *[namespace-uri()!='http://www.isotc211.org/2005/gmd' and
+          namespace-uri()!='http://www.isotc211.org/2005/srv']"/>
+    </xsl:copy>
+  </xsl:template>
+
+  <xsl:template match="gmd:hierarchyLevel|gmd:level"
+                priority="200">
+    <xsl:copy>
+      <xsl:copy-of select="@*" />
+      <gmd:MD_ScopeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#MD_ScopeCode"
+                        codeListValue="service">
+        <xsl:value-of select="java:getCodelistTranslation('gmd:MD_ScopeCode', 'service', string($mainLanguage))"/>
+      </gmd:MD_ScopeCode>
+    </xsl:copy>
+  </xsl:template>
+
   <!-- Add codelist labels -->
   <xsl:template match="gmd:LanguageCode[@codeListValue]" priority="220">
     <gmd:LanguageCode codeList="http://www.loc.gov/standards/iso639-2/">

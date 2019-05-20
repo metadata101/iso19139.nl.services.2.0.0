@@ -1922,24 +1922,6 @@
 
           <!-- 5.4 Hiërarchieniveau.-->
           <field
-            xpath="/gmd:MD_Metadata/gmd:hierarchyLevel" removable="false" />
-          <action type="add"
-                  btnLabel="addHierarchy"
-                  or="hierarchyLevel"
-                  if="count(gmd:MD_Metadata/gmd:hierarchyLevel)=0"
-                  in="/gmd:MD_Metadata" >
-            <template>
-              <snippet>
-                <gmd:hierarchyLevel>
-                  <gmd:MD_ScopeCode
-                    codeList="https://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#MD_ScopeCode"
-                    codeListValue="dataset"/>
-                </gmd:hierarchyLevel>
-              </snippet>
-            </template>
-          </action>
-
-          <field
             xpath="/gmd:MD_Metadata/gmd:hierarchyLevelName" removable="true" />
           <action type="add"
                   btnLabel="addHierarchyLevelName"
