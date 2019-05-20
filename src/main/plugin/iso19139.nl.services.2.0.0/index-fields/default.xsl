@@ -514,7 +514,7 @@
         <xsl:for-each select="*/gmd:otherConstraints">
 
           <xsl:variable name="otherConstrCS" select="gco:CharacterString"/>
-          <xsl:variable name="otherConstrAnchor" select="./gmx:Anchor/@xlink:href"/>
+          <xsl:variable name="otherConstrAnchor" select="./gmx:Anchor"/>
           <!-- gmd:OtherConstraints can contain a gco:CharacterString or a gmx:Anchor -->
           <xsl:choose>
             <xsl:when test="./gco:CharacterString">
