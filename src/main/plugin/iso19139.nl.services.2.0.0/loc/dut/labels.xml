@@ -788,8 +788,8 @@
   <element name="gmd:MD_LegalConstraints" >
     <label>Juridische toegangs beperkingen</label>
     <description>
-      Het is verplicht voorwaarden voor toegang en gebruik op te nemen in één Juridische toegangs beperkingen element groep, bestaande uit (Juridische) toegangsrestricties en overige beperkingen. Deze kan met de plus knop worden toegevoegd.
-      Daarnaast is het verplicht een waarde op te nemen voor beperkingen op publieke toegang in één andere, een tweede, Juridische toegangs beperkingen element groep, bestaande uit (Juridische) toegangsrestricties en overige beperkingen.
+      Het is verplicht voorwaarden voor toegang en gebruik op te nemen in één Juridische toegangs beperkingen element groep, bestaande uit (Juridische) toegangs restricties en overige beperkingen. Deze kan met de plus knop worden toegevoegd.
+      Daarnaast is het verplicht een waarde op te nemen voor beperkingen op publieke toegang in één andere, een tweede, Juridische toegangs beperkingen element groep, bestaande uit (Juridische) toegangs restricties en overige beperkingen.
     </description>
   </element>
 
