@@ -610,7 +610,7 @@
 
   <!-- ==================================================== -->
 
-  <element name="gmd:hierarchyLevel" context="/gmd:MD_Metadata/gmd:hierarchyLevel">
+  <element name="gmd:hierarchyLevel">
     <label>Hiërarchieniveau</label>
     <description>
       Het element geeft aan waarop de metadata betrekking heeft, in dit geval service. Dit niveau wordt gekozen uit
@@ -621,10 +621,10 @@
   </element>
 
 <!-- ==================================================== -->
-  <element name="gmd:hierarchyLevelName" context="/gmd:MD_Metadata/gmd:hierarchyLevelName">
+  <element name="gmd:hierarchyLevelName">
     <label>Naam hiërarchisch niveau</label>
     <description>Naam van het hiërarchisch niveau waar de metadata betrekking op heeft.</description>
-    <help_link>http://wiki.geonovum.nl/index.php/2.4.4_Hi%C3%ABrarchieniveau naam</help_link>
+    <help_link>https://docs.geostandaarden.nl/md/mdprofiel-iso19119/#hi%C3%ABrarchieniveaunaam</help_link>
     <condition>mandatory</condition>
   </element>
 
