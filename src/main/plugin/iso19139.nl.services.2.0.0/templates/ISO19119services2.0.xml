@@ -6,9 +6,8 @@
   xmlns:xlink="http://www.w3.org/1999/xlink"
   xmlns:gmx="http://www.isotc211.org/2005/gmx"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xmlns:gml="http://www.opengis.net/gml"
-  xsi:schemaLocation="
-    http://www.isotc211.org/2005/gmd http://schemas.opengis.net/csw/2.0.2/profiles/apiso/1.0.0/apiso.xsd">
+  xmlns:gml="http://www.opengis.net/gml/3.2"
+  xsi:schemaLocation="http://www.isotc211.org/2005/gmd http://schemas.opengis.net/csw/2.0.2/profiles/apiso/1.0.0/apiso.xsd">
 
   <gmd:fileIdentifier>
       <gco:CharacterString>2ddc8dac-386f-47b3-b947-491ba9b68108</gco:CharacterString>

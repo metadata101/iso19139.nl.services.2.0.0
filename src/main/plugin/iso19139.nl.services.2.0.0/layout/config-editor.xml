@@ -28,7 +28,7 @@
         xmlns:gmd="http://www.isotc211.org/2005/gmd"
         xmlns:gmx="http://www.isotc211.org/2005/gmx"
         xmlns:srv="http://www.isotc211.org/2005/srv"
-        xmlns:gml="http://www.opengis.net/gml"
+        xmlns:gml="http://www.opengis.net/gml/3.2"
         xmlns:xlink="http://www.w3.org/1999/xlink"
         xsi:noNamespaceSchemaLocation="../../../../../../config-editor.xsd">
 
@@ -865,6 +865,8 @@
           </action>
 
           <!-- temporele dekking -->
+
+          <!-- temporele dekking -->
           <field name="temporalRangeSection" templateModeOnly="true" notDisplayedIfMissing="true"
                  xpath="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/srv:extent/gmd:EX_Extent/gmd:temporalElement"
                  if="count(gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification) > 0">
@@ -873,14 +875,14 @@
                 <!-- -Need a * for gml:TimePeriodTypeCHOICE_ELEMENT2 added by editor enumerated tree
                       but this will make the XSLT formatter fails. Using // to access the element in both case. -->
                 <key label="beginPosition"
-                     xpath="gmd:EX_TemporalExtent/srv:extent/gml:TimePeriod//gml:beginPosition"
+                     xpath="gmd:EX_TemporalExtent/gmd:extent/gml:TimePeriod//gml:beginPosition"
                      use="gn-date-picker"
                      tooltip="srv:extent|gmd:EX_TemporalExtent">
                   <directiveAttributes
                     data-tag-name="gml:beginPosition"
                     data-indeterminate-position="eval#gmd:EX_TemporalExtent/gmd:extent/gml:TimePeriod/*/gml:beginPosition/@indeterminatePosition"/>
-
                 </key>
+
                 <key label="endPosition"
                      xpath="gmd:EX_TemporalExtent/gmd:extent/gml:TimePeriod//gml:endPosition"
                      use="gn-date-picker"
@@ -888,8 +890,6 @@
                   <directiveAttributes
                     data-tag-name="gml:endPosition"
                     data-indeterminate-position="eval#gmd:EX_TemporalExtent/gmd:extent/gml:TimePeriod/*/gml:endPosition/@indeterminatePosition"/>
-
-
                 </key>
               </values>
               <snippet>

@@ -29,10 +29,48 @@
                 xmlns:gmx="http://www.isotc211.org/2005/gmx"
                 xmlns:xlink="http://www.w3.org/1999/xlink"
                 xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                xmlns:gml="http://www.opengis.net/gml/3.2"
                 xmlns:geonet="http://www.fao.org/geonetwork"
                 xmlns:java="java:org.fao.geonet.util.XslUtil"
                 version="2.0" exclude-result-prefixes="#all">
   <xsl:import href="../iso19139/update-fixed-info.xsl"/>
+
+
+  <!-- gml elements to use 3.2 -->
+  <xsl:template match="@gml:id" priority="100">
+    <xsl:choose>
+      <xsl:when test="normalize-space(.)=''">
+        <xsl:attribute name="gml:id">
+          <xsl:value-of select="generate-id(.)"/>
+        </xsl:attribute>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:copy-of select="."/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+
+  <!-- Add required gml attributes if missing -->
+  <xsl:template match="gml:Polygon[not(@gml:id) and not(@srsName)]" priority="100">
+    <xsl:copy>
+      <xsl:attribute name="gml:id">
+        <xsl:value-of select="generate-id(.)"/>
+      </xsl:attribute>
+      <xsl:attribute name="srsName">
+        <xsl:text>urn:x-ogc:def:crs:EPSG:6.6:4326</xsl:text>
+      </xsl:attribute>
+      <xsl:copy-of select="@*"/>
+      <xsl:copy-of select="*"/>
+    </xsl:copy>
+  </xsl:template>
+
+  <xsl:template match="gml:*" priority="100">
+    <xsl:call-template name="correct_ns_prefix">
+      <xsl:with-param name="element" select="."/>
+      <xsl:with-param name="prefix" select="'gml'"/>
+    </xsl:call-template>
+  </xsl:template>
+
 
   <!-- Fix/add hierarchyLevel to service -->
   <xsl:template match="gmd:MD_Metadata" priority="100">
