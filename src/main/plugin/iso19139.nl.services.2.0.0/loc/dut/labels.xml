@@ -1388,7 +1388,6 @@
       <option value="download">Download service</option>
       <option value="discovery">Discovery service</option>
       <option value="transformation">Transformation service</option>
-      <option value="invoke">Invoke service</option>
       <option value="other">other service</option>
     </helper>
     <help_link>http://wiki.geonovum.nl/index.php/2.5.9_Spatial_data_service_type</help_link>
