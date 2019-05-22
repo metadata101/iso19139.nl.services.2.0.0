@@ -1477,34 +1477,9 @@
     <description/>
   </element>
   <!-- ==================================================== -->
-  <element name="gml:identifier" context="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/gmd:DQ_CompletenessOmission/gmd:result/gmd:DQ_QuantitativeResult/gmd:valueUnit/gml:BaseUnit/gml:identifier">
-    <label>Identificatie van de Meeteenheid</label>
-    <description>Identificatie van de eenheid in het systeem</description>
-  </element>
-  <element name="gml:identifier" context="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/gmd:DQ_AbsoluteExternalPositionalAccuracy/gmd:result/gmd:DQ_QuantitativeResult/gmd:valueUnit/gml:BaseUnit/gml:identifier">
-    <label>Identificatie van de Meeteenheid</label>
-    <description>Identificatie van de eenheid in het systeem</description>
-  </element>
-  <element name="gml:identifier" context="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/gmd:DQ_TopologicalConsistency/gmd:result/gmd:DQ_QuantitativeResult/gmd:valueUnit/gml:BaseUnit/gml:identifier">
-    <label>Identificatie van de Meeteenheid</label>
-    <description>Identificatie van de eenheid in het systeem</description>
-  </element>
-  <!-- ==================================================== -->
   <element name="gml:identifier">
     <label>Meeteenheid</label>
     <description>Identificatie van de eenheid in het systeem</description>
-    <helper>
-      <option value="unity">Aantal</option>
-      <option value="Percentage">Percentage</option>
-      <option value="ampere">Ampere</option>
-      <option value="candela">Candela</option>
-      <option value="kilogram">Kilogram</option>
-      <option value="metre">Meter</option>
-      <option value="second">Seconde</option>
-      <option value="mole">Mol</option>
-      <option value="kelvin">Graden Kelvin</option>
-      <option value="celsius">Graden Celsius</option>
-    </helper>
   </element>
   <element name="gml:unitsSystem">
     <label>Eenheden systeem</label>

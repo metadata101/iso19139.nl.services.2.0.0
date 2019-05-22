@@ -1555,7 +1555,6 @@
           </field>
           <action type="add"
                   btnLabel="Add_DQ_ConceptualConsistency"
-                  if="count(gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/gmd:DQ_ConceptualConsistency) = 0"
                   name="DQ_ConceptualConsistency" or="report"
                   in="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality">
             <template>
@@ -1585,22 +1584,16 @@
             <template>
               <values>
                 <key label="value" tooltip="gmd:value" xpath="gmd:DQ_CompletenessOmission/gmd:result/gmd:DQ_QuantitativeResult/gmd:value/gco:Record"></key>
-                <key label="valueUnit" tooltip="gmd:valueUnit" xpath="gmd:DQ_CompletenessOmission/gmd:result/gmd:DQ_QuantitativeResult/gmd:valueUnit/gml:BaseUnit/gml:identifier">
-                  <helper name="gml:identifier" />
+                <key label="valueUnit" tooltip="gmd:valueUnit" xpath="gmd:DQ_CompletenessOmission/gmd:result/gmd:DQ_QuantitativeResult/gmd:valueUnit/@xlink:href">
+                  <helper name="valueUnitHref" />
                 </key>
-                <key label="unitsSystem" tooltip="gml:unitsSystem" xpath="gmd:DQ_CompletenessOmission/gmd:result/gmd:DQ_QuantitativeResult/gmd:valueUnit/gml:BaseUnit/gml:unitsSystem/@xlink:href"></key>
               </values>
               <snippet>
               <gmd:report>
                   <gmd:DQ_CompletenessOmission>
                     <gmd:result>
                       <gmd:DQ_QuantitativeResult>
-                        <gmd:valueUnit>
-                          <gml:BaseUnit gml:id="">
-                             <gml:identifier codeSpace="http://www.opengis.net/def">{{valueUnit}}</gml:identifier>
-                             <gml:unitsSystem xlink:href="{{unitsSystem}}"/>
-                          </gml:BaseUnit>
-                        </gmd:valueUnit>
+                        <gmd:valueUnit xlink:href="{{valueUnit}}"/>
                         <gmd:value>
                           <gco:Record>{{value}}</gco:Record>
                         </gmd:value>
@@ -1622,12 +1615,7 @@
                   <gmd:DQ_CompletenessOmission>
                     <gmd:result>
                       <gmd:DQ_QuantitativeResult>
-                        <gmd:valueUnit>
-                          <gml:BaseUnit gml:id="">
-                             <gml:identifier codeSpace="http://www.opengis.net/def"/>
-                             <gml:unitsSystem xlink:href="http://www.opengis.net/def/uom"/>
-                          </gml:BaseUnit>
-                        </gmd:valueUnit>
+                        <gmd:valueUnit xlink:href=""/>
                         <gmd:value>
                           <gco:Record></gco:Record>
                         </gmd:value>
@@ -1646,22 +1634,16 @@
             <template>
               <values>
                 <key label="value" tooltip="gmd:value" xpath="gmd:DQ_TopologicalConsistency/gmd:result/gmd:DQ_QuantitativeResult/gmd:value/gco:Record"></key>
-                <key label="valueUnit" tooltip="gmd:valueUnit" xpath="gmd:DQ_TopologicalConsistency/gmd:result/gmd:DQ_QuantitativeResult/gmd:valueUnit/gml:BaseUnit/gml:identifier">
-                  <helper name="gml:identifier" />
+                <key label="valueUnit" tooltip="gmd:valueUnit" xpath="gmd:DQ_TopologicalConsistency/gmd:result/gmd:DQ_QuantitativeResult/gmd:valueUnit/@xlink:href">
+                  <helper name="valueUnitHref" />
                 </key>
-                <key label="unitsSystem" tooltip="gml:unitsSystem" xpath="gmd:DQ_TopologicalConsistency/gmd:result/gmd:DQ_QuantitativeResult/gmd:valueUnit/gml:BaseUnit/gml:unitsSystem/@xlink:href"></key>
               </values>
               <snippet>
               <gmd:report>
                   <gmd:DQ_TopologicalConsistency>
                     <gmd:result>
                       <gmd:DQ_QuantitativeResult>
-                        <gmd:valueUnit>
-                          <gml:BaseUnit gml:id="">
-                             <gml:identifier codeSpace="http://www.opengis.net/def">{{valueUnit}}</gml:identifier>
-                             <gml:unitsSystem xlink:href="{{unitsSystem}}"/>
-                          </gml:BaseUnit>
-                        </gmd:valueUnit>
+                        <gmd:valueUnit xlink:href="{{valueUnit}}"/>
                         <gmd:value>
                           <gco:Record>{{value}}</gco:Record>
                         </gmd:value>
@@ -1684,12 +1666,7 @@
                   <gmd:DQ_TopologicalConsistency>
                    <gmd:result>
                       <gmd:DQ_QuantitativeResult>
-                        <gmd:valueUnit>
-                          <gml:BaseUnit gml:id="">
-                             <gml:identifier codeSpace="http://www.opengis.net/def"/>
-                             <gml:unitsSystem xlink:href="http://www.opengis.net/def/uom"/>
-                          </gml:BaseUnit>
-                        </gmd:valueUnit>
+                        <gmd:valueUnit xlink:href=""/>
                         <gmd:value>
                           <gco:Record></gco:Record>
                         </gmd:value>
@@ -1708,22 +1685,16 @@
             <template>
               <values>
                 <key label="value" tooltip="gmd:value" xpath="gmd:DQ_AbsoluteExternalPositionalAccuracy/gmd:result/gmd:DQ_QuantitativeResult/gmd:value/gco:Record"></key>
-                <key label="valueUnit" tooltip="gmd:valueUnit" xpath="gmd:DQ_AbsoluteExternalPositionalAccuracy/gmd:result/gmd:DQ_QuantitativeResult/gmd:valueUnit/gml:BaseUnit/gml:identifier">
-                  <helper name="gml:identifier" />
+                <key label="valueUnit" tooltip="gmd:valueUnit" xpath="gmd:DQ_AbsoluteExternalPositionalAccuracy/gmd:result/gmd:DQ_QuantitativeResult/gmd:valueUnit/@xlink:href">
+                  <helper name="valueUnitHref" />
                 </key>
-                <key label="unitsSystem" tooltip="gml:unitsSystem" xpath="gmd:DQ_AbsoluteExternalPositionalAccuracy/gmd:result/gmd:DQ_QuantitativeResult/gmd:valueUnit/gml:BaseUnit/gml:unitsSystem/@xlink:href"></key>
               </values>
               <snippet>
               <gmd:report>
                   <gmd:DQ_AbsoluteExternalPositionalAccuracy>
                     <gmd:result>
                       <gmd:DQ_QuantitativeResult>
-                        <gmd:valueUnit>
-                          <gml:BaseUnit gml:id="">
-                             <gml:identifier codeSpace="http://www.opengis.net/def">{{valueUnit}}</gml:identifier>
-                             <gml:unitsSystem xlink:href="{{unitsSystem}}"/>
-                          </gml:BaseUnit>
-                        </gmd:valueUnit>
+                        <gmd:valueUnit xlink:href="{{valueUnit}}"/>
                         <gmd:value>
                           <gco:Record>{{value}}</gco:Record>
                         </gmd:value>
@@ -1746,12 +1717,7 @@
                   <gmd:DQ_AbsoluteExternalPositionalAccuracy>
                   <gmd:result>
                       <gmd:DQ_QuantitativeResult>
-                        <gmd:valueUnit>
-                          <gml:BaseUnit gml:id="">
-                             <gml:identifier codeSpace="http://www.opengis.net/def"/>
-                             <gml:unitsSystem xlink:href="http://www.opengis.net/def/uom"/>
-                          </gml:BaseUnit>
-                        </gmd:valueUnit>
+                        <gmd:valueUnit xlink:href=""/>
                         <gmd:value>
                           <gco:Record></gco:Record>
                         </gmd:value>
