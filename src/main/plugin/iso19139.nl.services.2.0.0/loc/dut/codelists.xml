@@ -1996,28 +1996,6 @@
       <code>WebServices</code>
       <label>WebServices</label>
     </entry>
-    <entry>
-      <code>httpGet</code>
-      <label>httpGet</label>
-      <description>Vraagt een representatie van de specifieke resource, door middel van een URL
-        codering of naam/waarde paar.
-      </description>
-    </entry>
-    <entry>
-      <code>httpPost</code>
-      <label>httpPost</label>
-      <description>Verzend gebruikersdata naar de ge&#239;dentificeerde resource. De data is
-        opgenomen in de "request".
-      </description>
-    </entry>
-    <entry>
-      <code>httpSoap</code>
-      <label>httpSoap</label>
-      <description>Verzend gebruikersdata naar de ge&#239;dentificeerde resource over httpPost. De
-        data is opgenomen
-        in de "request". Deze "request" is een "SOAP request".
-      </description>
-    </entry>
   </codelist>
   <!--=== CouplingType from ISO19119 ===-->
   <codelist name="srv:SV_CouplingType">
@@ -2151,32 +2129,32 @@
 
   <codelist name="SDS_DCP">
     <entry>
-      <code>xml</code>
+      <code>XML</code>
       <label>XML</label>
       <description>XML</description>
     </entry>
     <entry>
-      <code>corba</code>
+      <code>CORBA</code>
       <label>CORBA</label>
       <description>CORBA</description>
     </entry>
     <entry>
-      <code>java</code>
+      <code>JAVA</code>
       <label>JAVA</label>
       <description>JAVA</description>
     </entry>
     <entry>
-      <code>com</code>
+      <code>COM</code>
       <label>COM</label>
       <description>COM</description>
     </entry>
     <entry>
-      <code>sql</code>
+      <code>SQL</code>
       <label>SQL</label>
       <description>SQL</description>
     </entry>
     <entry>
-      <code>webServices</code>
+      <code>WebServices</code>
       <label>Web Services</label>
       <description>Web Services</description>
     </entry>
