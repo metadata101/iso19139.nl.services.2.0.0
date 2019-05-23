@@ -1997,44 +1997,16 @@
 
           </action>
 
-          <!--      5.50 Verantwoordelijke organisatie metadata: rol ..-->
-          <!--  5.51 Verantwoordelijke organisatie metadata: e-mail . -->
+          <!--    5.50 Verantwoordelijke organisatie metadata: rol ..-->
+          <!--    5.51 Verantwoordelijke organisatie metadata: e-mail . -->
           <!--    5.52 Metadata datum . -->
 
 
-          <!--      5.54 Metadata standaard naam -->
+          <!--    5.54 Metadata standaard naam (set as readonly in layout-custom-fields.xls)-->
           <field xpath="/gmd:MD_Metadata/gmd:metadataStandardName"/>
-          <action type="add"
-                  btnLabel="addStandardName"
-                  if="count(gmd:MD_Metadata/gmd:metadataStandardName) = 0"
-                  name="metadataStandardName" or="metadataStandardName"
-                  in="/gmd:MD_Metadata">
-            <template>
-              <snippet>
-                <gmd:metadataStandardName>
-                  <gco:CharacterString >ISO 19115</gco:CharacterString>
-                </gmd:metadataStandardName>
-              </snippet>
-            </template>
-          </action>
 
-
-          <!--    5.55 Metadata standaard versie -->
+          <!--    5.55 Metadata standaard versie (set as readonly in layout-custom-fields.xls)-->
           <field xpath="/gmd:MD_Metadata/gmd:metadataStandardVersion"/>
-          <action type="add"
-                  btnLabel="addStandardVersion"
-                  if="count(gmd:MD_Metadata/gmd:metadataStandardVersion) = 0"
-                  name="metadataStandardVersion" or="metadataStandardVersion"
-                  in="/gmd:MD_Metadata">
-            <template>
-              <snippet>
-                <gmd:metadataStandardVersion>
-                  <gco:CharacterString >Nederlandse metadata profiel op ISO 19115 voor geografie 1.3.1
-                  </gco:CharacterString>
-                </gmd:metadataStandardVersion>
-              </snippet>
-            </template>
-          </action>
 
         </section>
 
