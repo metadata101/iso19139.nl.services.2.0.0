@@ -1630,6 +1630,22 @@
 
   <!-- ==================================================== -->
 
+  <element name="srv:optionality"
+           context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/srv:containsOperations/srv:SV_OperationMetadata/srv:parameters/srv:SV_Parameter/srv:optionality">
+    <label>Optioneel</label>
+    <description>Optioneel</description>
+  </element>
+
+  <!-- ==================================================== -->
+
+  <element name="srv:repeatability"
+           context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/srv:containsOperations/srv:SV_OperationMetadata/srv:parameters/srv:SV_Parameter/srv:repeatability">
+    <label>Herhaling</label>
+    <description>Herhaling</description>
+  </element>
+
+  <!-- ==================================================== -->
+
   <element name="gco:aName"
            context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/srv:containsOperations/srv:SV_OperationMetadata/srv:parameters/srv:SV_Parameter/srv:name/gco:attributeType/gco:TypeName/gco:aName">
     <label>Attribuut type</label>
