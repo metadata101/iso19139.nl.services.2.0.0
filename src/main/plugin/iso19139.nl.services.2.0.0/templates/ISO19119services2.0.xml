@@ -23,6 +23,9 @@
       <gmd:MD_ScopeCode codeList="https://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#MD_ScopeCode"
         codeListValue="service"/>
    </gmd:hierarchyLevel>
+   <gmd:hierarchyLevelName gco:nilReason="missing">
+     <gco:CharacterString>service</gco:CharacterString>
+   </gmd:hierarchyLevelName>
    <gmd:contact>
       <gmd:CI_ResponsibleParty>
          <gmd:individualName gco:nilReason="missing">

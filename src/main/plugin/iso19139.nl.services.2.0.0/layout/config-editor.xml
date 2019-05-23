@@ -1887,8 +1887,27 @@
         </action>-->
 
           <!-- 5.4 Hiërarchieniveau.-->
+<!--          <field xpath="/gmd:MD_Metadata/gmd:hierarchyLevel" or="hierarchyLevel"
+                 in="/gmd:MD_Metadata"/>
+          <action type="add"
+                  btnLabel="addHierarchyLevel"
+                  name="hierarchyLevel" or="hierarchyLevel"
+                  if="count(gmd:MD_Metadata/gmd:hierarchyLevel)=0"
+                  in="/gmd:MD_Metadata">
+            <template>
+              <snippet>
+                <gmd:hierarchyLevel>
+                  <gmd:MD_ScopeCode codeList="https://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#MD_ScopeCode"
+                                    codeListValue="service"/>
+                </gmd:hierarchyLevel>
+              </snippet>
+            </template>
+          </action>
+          -->
+
+
           <field
-            xpath="/gmd:MD_Metadata/gmd:hierarchyLevelName" removable="true" />
+            xpath="/gmd:MD_Metadata/gmd:hierarchyLevelName"/>
           <action type="add"
                   btnLabel="addHierarchyLevelName"
                   name="hierarchyLevelName" or="hierarchyLevelName"
@@ -1897,7 +1916,7 @@
             <template>
               <snippet>
                 <gmd:hierarchyLevelName>
-                  <gco:CharacterString></gco:CharacterString>
+                  <gco:CharacterString>service</gco:CharacterString>
                 </gmd:hierarchyLevelName>
               </snippet>
             </template>
