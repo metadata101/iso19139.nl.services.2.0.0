@@ -61,14 +61,6 @@
           uri="schema/gsr/gsr.xsd"/>
   <system systemId="http://www.isotc211.org/2005/gss/gss.xsd"
           uri="schema/gss/gss.xsd"/>
-  <system systemId="http://schemas.opengis.net/iso/19139/20060504/srv/srv.xsd"
-          uri="schema/srv/srv.xsd"/>
-  <system systemId="http://schemas.opengis.net/iso/19139/20060504/gmd/gmd.xsd"
-          uri="schema/gmd/gmd.xsd"/>
-  <system systemId="http://schemas.opengis.net/iso/19139/20060504/gmx/gmx.xsd"
-          uri="schema/gmx/gmx.xsd"/>
-  <system systemId="http://schemas.opengis.net/iso/19139/20060504/gco/gco.xsd"
-          uri="schema/gco/gco.xsd"/>
   <system systemId="http://schemas.opengis.net/csw/2.0.2/profiles/apiso/1.0.0/apiso.xsd"
           uri="schema/apiso/apiso.xsd"/>
   <system systemId="http://schemas.opengis.net/iso/19139/20070417/srv/1.0/srv.xsd"
