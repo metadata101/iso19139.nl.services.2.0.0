@@ -144,7 +144,7 @@
 			<sch:let name="serviceTitle" value="normalize-space(gmd:identificationInfo[1]/*/gmd:citation/*/gmd:title/gco:CharacterString)"/>
 		 <!-- Service referentie datum -->
 			<!-- https://docs.geostandaarden.nl/md/mdprofiel-iso19119/#datum-van-de-bron en https://docs.geostandaarden.nl/md/mdprofiel-iso19119/#datum-type-van-de-bron -->
-			<sch:let name="date" value="string(gmd:identificationInfo[1]/*/gmd:citation/*/gmd:date/*/gmd:date/gco:Date)"/>
+			<sch:let name="date" value="string(gmd:identificationInfo[1]/*/gmd:citation/*/gmd:date[1]/*/gmd:date/gco:Date)"/>
 			<sch:let name="dateYear" value="((number(substring(substring-before($date,'-'),1,4)) &gt; 1000 ))"/>
 
 			<sch:let name="publicationDateString" value="string(gmd:identificationInfo[1]/*/gmd:citation/*/gmd:date[./*/gmd:dateType/*/@codeListValue='publication']/*/gmd:date/gco:Date)"/>
@@ -214,10 +214,13 @@
 		<sch:let name="otherConstraint2" value="normalize-space(string-join(gmd:identificationInfo/*/gmd:resourceConstraints[2]/gmd:MD_LegalConstraints/gmd:otherConstraints[2][gco:CharacterString or gmx:Anchor/@xlink:href]//text(), ''))"/>
 
 		<sch:let name="otherConstraints" value="concat($otherConstraint1,$otherConstraint2)"/>
+		<sch:let name="otherConstraintsCharacterString" value="normalize-space(string-join(gmd:identificationInfo/*/gmd:resourceConstraints/gmd:MD_LegalConstraints/gmd:otherConstraints/gco:CharacterString, ', '))"/>
 
 		<!-- Aanname: dit is altijd het 2e blok resourceConstraints. Of beter per definitie het blok waarin NIET de codelijst http://inspire.ec.europa.eu/metadata-codelist/LimitationsOnPublicAccess zit? -->
 		<sch:let name="otherConstraintURI1" value="gmd:identificationInfo/*/gmd:resourceConstraints[2]/gmd:MD_LegalConstraints/gmd:otherConstraints[1]/gmx:Anchor"/>
 		<sch:let name="otherConstraintURI2" value="gmd:identificationInfo/*/gmd:resourceConstraints[2]/gmd:MD_LegalConstraints/gmd:otherConstraints[2]/gmx:Anchor"/>
+
+		<sch:let name="nrMDLegalConstraints" value="count(gmd:identificationInfo/*/gmd:resourceConstraints/gmd:MD_LegalConstraints)"/>
 
 		<!-- Nota bene: een ander extra blok voor de codelijst LimitationsOnPublicAccess -->
 		<sch:let name="otherConstraintURILimitationsOnPublicAccess" value="gmd:identificationInfo/*/gmd:resourceConstraints/gmd:MD_LegalConstraints/gmd:otherConstraints[1]/gmx:Anchor[contains(@xlink:href, 'http://inspire.ec.europa.eu/metadata-codelist/LimitationsOnPublicAccess')]/@xlink:href"/>
@@ -336,10 +339,10 @@
 			<sch:assert id="Juridische_toegangsrestricties_verplicht_met_'otherRestrictions'_aanwezig" etf_name="Juridische toegangsrestricties verplicht met 'otherRestrictions' aanwezig" test="$accessConstraints_value">Het element Juridische toegangsrestricties met de waarde 'otherRestrictions' is niet aanwezig, maar is wel verplicht voor INSPIRE  (https://docs.geostandaarden.nl/md/mdprofiel-iso19119/#juridische-toegangsrestricties).</sch:assert>
 
 			<!-- 5.2.17 Voor INSPIRE moet 2 maal MD_LegalConstraints aanwezig zijn -->
-			<sch:assert id="Juridische_toegangsrestricties:_het_element__MD_LegalConstraints_moet_2_maal_aanwezig_zijn" etf_name="Juridische toegangsrestricties: het element  MD_LegalConstraints moet 2 maal aanwezig zijn" test="$otherConstraint1 and $otherConstraint2">Het element MD_LegalConstraints moet 2 maal aanwezig zijn, maar is dat niet (https://docs.geostandaarden.nl/md/mdprofiel-iso19119/#juridische-toegangsrestricties).</sch:assert>
+			<sch:assert id="Juridische_toegangsrestricties:_het_element__MD_LegalConstraints_moet_2_maal_aanwezig_zijn" etf_name="Juridische toegangsrestricties: het element MD_LegalConstraints moet 2 maal aanwezig zijn" test="$nrMDLegalConstraints = 2">Het element MD_LegalConstraints moet 2 maal aanwezig zijn, maar is dat niet (https://docs.geostandaarden.nl/md/mdprofiel-iso19119/#juridische-toegangsrestricties).</sch:assert>
 
 			<!-- 5.2.18 Voor INSPIRE is het gebruik van URIs verplicht -->
-			<sch:assert id="Overige_beperkingen:_verplicht_gebruik_van_Anchors_voor_INSPIRE" etf_name="Overige beperkingen: verplicht gebruik van Anchors voor INSPIRE" test="$otherConstraintURI1 and $otherConstraintURI2">Overige beperkingen: voor INSPIRE is het verplicht om een Anchor te gebruiken met URIs, maar dat is niet het geval (https://docs.geostandaarden.nl/md/mdprofiel-iso19119/#overige-beperkingen).</sch:assert>
+			<sch:assert id="Overige_beperkingen:_verplicht_gebruik_van_Anchors_voor_INSPIRE" etf_name="Overige beperkingen: verplicht gebruik van Anchors voor INSPIRE" test="string-length($otherConstraintsCharacterString) = 0">Overige beperkingen: voor INSPIRE is het verplicht om een Anchor te gebruiken met URIs, maar dat is niet het geval (https://docs.geostandaarden.nl/md/mdprofiel-iso19119/#overige-beperkingen). De volgende waarden voor Overige beperkingen staan niet in een Anchor: <sch:value-of select="$otherConstraintsCharacterString"/>.</sch:assert>
 
 			<!-- 5.2.18 verplicht gebruik van een waarde uit LimitationsOnPublicAccess -->
 			<sch:assert id="Overige_beperkingen:_verplicht_gebruik_van_een_waarde_uit_LimitationsOnPublicAccess_voor_INSPIRE" etf_name="Overige beperkingen: verplicht gebruik van een waarde uit LimitationsOnPublicAccess voor INSPIRE" test="$otherConstraintIsLimitationsOnPublicAccess">Overige beperkingen: voor INSPIRE is het verplicht om een waarde uit de codelijst LimitationsOnPublicAccess op te nemen via een Anchor (https://docs.geostandaarden.nl/md/mdprofiel-iso19119/#overige-beperkingen en https://docs.geostandaarden.nl/md/mdprofiel-iso19119/#Codelijst-INSPIRE-LimitationsOnPublicAccess).</sch:assert>
@@ -438,8 +441,6 @@
 			<sch:assert id="Protocol_ISO_nr_398" etf_name="Protocol (ISO nr. 398)" test="not($resourceLocatorString) or ($resourceLocatorString and $transferOptions_Protocol)">Protocol (https://docs.geostandaarden.nl/md/mdprofiel-iso19119/#protocol) is verplicht als URL is ingevuld.</sch:assert>
 			<sch:report id="Protocol_ISO_nr_398_info" etf_name="Protocol (ISO nr. 398) info" test="$transferOptions_Protocol">Protocol (https://docs.geostandaarden.nl/md/mdprofiel-iso19119/#protocol): <sch:value-of select="normalize-space(gmd:identificationInfo[1]/*/gmd:transferOptions[1]/*/gmd:onLine/*/gmd:protocol/*/text())"/>
 			</sch:report>
-
-			<!-- $resourceLocatorString -->
 
 			<!-- Thijs Brentjens: nieuwe assertion. Als de URL een endpoint is, moet de codelijst https://docs.geostandaarden.nl/md/mdprofiel-iso19119/#codelist-mediatypes gebruikt worden. Bij een accessPoint de codelijst https://docs.geostandaarden.nl/md/mdprofiel-iso19119/#codelist-protocol -->
 			<sch:assert id="Bij_een_URL_endPoint_moet_een_waarde_uit_de_codelijst_mediatype_opgegeven_zijn" etf_name="Bij een URL endPoint moet een waarde uit de codelijst mediatype opgegeven zijn" test="not($transferOptions_Description_Value = 'endPoint') or ($transferOptions_Description_Value = 'endPoint' and $transferOptions_MediaType)">Protocol (https://docs.geostandaarden.nl/md/mdprofiel-iso19119/#protocol) moet een waarde uit de codelijst media types (https://docs.geostandaarden.nl/md/mdprofiel-iso19119/#codelist-mediatypes) bevatten als de URL omschrijving (https://docs.geostandaarden.nl/md/mdprofiel-iso19119/#Codelist-INSPIRE-OnLineDescriptionCode) een endPoint is.</sch:assert>
@@ -719,7 +720,7 @@
 
 		<!-- INSPIRE interop SDS Referentiesysteem  -->
 		<!-- Referentiesysteem -->
-		<sch:rule id="Referentiesysteem" etf_name="Referentiesysteem" context="//gmd:MD_Metadata/gmd:referenceSystemInfo/*">
+		<sch:rule id="Referentiesysteem" etf_name="Referentiesysteem" context="//gmd:MD_Metadata/gmd:referenceSystemInfo/gmd:MD_ReferenceSystem">
 			<!--  Ruimtelijk referentiesysteem  https://docs.geostandaarden.nl/md/mdprofiel-iso19119/#codereferentiesysteem -->
 			<!-- Oud commentaar: geen RS_Identifier meer, maar alleen een MD_Identifier -->
 			<!-- N.a.v. test 21 november 2018 beide toestaan -->
@@ -729,6 +730,8 @@
 			<sch:assert id="Code_referentiesysteem_ISO_nr_207_2" etf_name="Code referentiesysteem (ISO nr. 207)" test="$referenceSystemInfo_CodeString or $referenceSystemInfo_CodeURI">Code referentiesysteem (https://docs.geostandaarden.nl/md/mdprofiel-iso19119/#codereferentiesysteem) ontbreekt</sch:assert>
 			<sch:report id="Code_referentiesysteem_ISO_nr_207_info" etf_name="Code referentiesysteem (ISO nr. 207) info" test="$referenceSystemInfo_CodeString or $referenceSystemInfo_CodeURI">Code referentiesysteem (https://docs.geostandaarden.nl/md/mdprofiel-iso19119/#codereferentiesysteem): <sch:value-of select="$referenceSystemInfo_CodeString"/> <sch:value-of select="$referenceSystemInfo_CodeURI"/>
 			</sch:report>
+
+			<sch:assert id="Code_referentiesysteem_ISO_nr_207_is_een_URI" etf_name="Code referentiesysteem (ISO nr. 207) is een URI" test="starts-with($referenceSystemInfo_CodeString,'http') or starts-with($referenceSystemInfo_CodeURI,'http')">Code referentiesysteem (https://docs.geostandaarden.nl/md/mdprofiel-iso19119/#codereferentiesysteem) moet een URI zijn, maar is dat niet. Opgegeven waarde: <sch:value-of select="$referenceSystemInfo_CodeString"/> <sch:value-of select="$referenceSystemInfo_CodeURI"/></sch:assert>
 
 		</sch:rule>
 

@@ -138,7 +138,7 @@
 		 <!-- Service referentie datum -->
 			<!-- https://docs.geostandaarden.nl/md/mdprofiel-iso19119/#datum-van-de-bron en https://docs.geostandaarden.nl/md/mdprofiel-iso19119/#datum-type-van-de-bron -->
 
-			<sch:let name="date" value="string(gmd:identificationInfo[1]/*/gmd:citation/*/gmd:date/*/gmd:date/gco:Date)"/>
+			<sch:let name="date" value="string(gmd:identificationInfo[1]/*/gmd:citation/*/gmd:date[1]/*/gmd:date/gco:Date)"/>
 			<sch:let name="dateYear" value="((number(substring(substring-before($date,'-'),1,4)) &gt; 1000 ))"/>
 
 			<sch:let name="publicationDateString" value="string(gmd:identificationInfo[1]/*/gmd:citation/*/gmd:date[./*/gmd:dateType/*/@codeListValue='publication']/*/gmd:date/gco:Date)"/>
@@ -363,7 +363,7 @@
 
 		<!-- assertions and reports -->
 		<!-- dcp -->
-			<sch:assert id="DCP" etf_name="DCP" test="$dcp_value = 'WebServices'"> DCP ontbreekt  of heeft de verkeerde waarde </sch:assert>
+			<sch:assert id="DCP" etf_name="DCP" test="$dcp_value = 'WebServices' or $dcp_value = 'XML' or $dcp_value = 'CORBA' or $dcp_value = 'JAVA' or $dcp_value = 'COM' or $dcp_value = 'SQL'">DCP ontbreekt of heeft de verkeerde waarde </sch:assert>
 			<sch:report id="DCP_info" etf_name="DCP info" test="$dcp_value">DCP: <sch:value-of select="$dcp_value"/></sch:report>
 		<!-- operationName -->
 			<sch:assert id="Operatie_naam" etf_name="Operatie naam" test="$operationName">Operatie naam (https://docs.geostandaarden.nl/md/mdprofiel-iso19119/#operatie-naam) ontbreekt of heeft de verkeerde waarde.</sch:assert>
@@ -639,7 +639,7 @@
 		<!-- INSPIRE interop SDS Referentiesysteem
 		-->
 		<!-- Referentiesysteem  -->
-		<sch:rule id="Referentiesysteem" etf_name="Referentiesysteem" context="//gmd:MD_Metadata/gmd:referenceSystemInfo/*">
+		<sch:rule id="Referentiesysteem" etf_name="Referentiesysteem" context="//gmd:MD_Metadata/gmd:referenceSystemInfo/gmd:MD_ReferenceSystem">
 			<!--  Ruimtelijk referentiesysteem  https://docs.geostandaarden.nl/md/mdprofiel-iso19119/#codereferentiesysteem -->
 			<!-- Oud commentaar: geen RS_Identifier meer, maar alleen een MD_Identifier -->
 			<!-- N.a.v. test 21 november 2018 beide toestaan -->
@@ -650,6 +650,7 @@
 			<sch:report id="Code_referentiesysteem_ISO_nr_207_info" etf_name="Code referentiesysteem (ISO nr. 207) info" test="$referenceSystemInfo_CodeString or $referenceSystemInfo_CodeURI">Code referentiesysteem (https://docs.geostandaarden.nl/md/mdprofiel-iso19119/#codereferentiesysteem): <sch:value-of select="$referenceSystemInfo_CodeString"/> <sch:value-of select="$referenceSystemInfo_CodeURI"/>
 			</sch:report>
 
+			<sch:assert id="Code_referentiesysteem_ISO_nr_207_is_een_URI" etf_name="Code referentiesysteem (ISO nr. 207) is een URI" test="starts-with($referenceSystemInfo_CodeString,'http') or starts-with($referenceSystemInfo_CodeURI,'http')">Code referentiesysteem (https://docs.geostandaarden.nl/md/mdprofiel-iso19119/#codereferentiesysteem) moet een URI zijn, maar is dat niet. Opgegeven waarde: <sch:value-of select="$referenceSystemInfo_CodeString"/> <sch:value-of select="$referenceSystemInfo_CodeURI"/></sch:assert>
 
 		</sch:rule>
 
