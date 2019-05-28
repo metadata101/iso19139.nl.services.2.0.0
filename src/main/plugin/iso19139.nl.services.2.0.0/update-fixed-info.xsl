@@ -314,12 +314,7 @@
 
       <!-- gmd:description -->
       <xsl:choose>
-        <!-- Access points -->
-        <xsl:when test="geonet:contains-any-of($protocol, ('OGC:WMS', 'OGC:WMTS', 'OGC:WFS', 'OGC:WCS', 'INSPIRE Atom',
-          'landingpage', 'application', 'dataset', 'OGC:WPS', 'OGC:SOS',
-          'OGC:SensorThings', 'OAS', 'W3C:SPARQL', 'OASIS:OData', 'OGC:CSW',
-          'OGC:WCTS', 'OGC:WFS-G', 'OGC:SPS', 'OGC:SAS', 'OGC:WNS', 'OGC:ODS', 'OGC:OGS', 'OGC:OUS', 'OGC:OPS', 'OGC:ORS', 'UKST'))">
-
+        <xsl:when test="gmd:description/*/text() = 'accessPoint'">
           <gmd:description>
             <gmx:Anchor
               xlink:href="http://inspire.ec.europa.eu/metadata-codelist/OnLineDescriptionCode/accessPoint">
@@ -327,14 +322,45 @@
           </gmd:description>
         </xsl:when>
 
-        <!-- End points -->
-        <xsl:when test="geonet:contains-any-of($protocol, ('gml', 'geojson', 'gpkg', 'tiff', 'kml', 'csv', 'zip',
-          'wmc', 'json', 'jsonld', 'rdf-xml', 'xml', 'png', 'gif', 'jp2', 'mapbox-vector-tile', 'UKMT'))">
+        <xsl:when test="gmd:description/*/text() = 'endPoint'">
           <gmd:description>
             <gmx:Anchor
               xlink:href="http://inspire.ec.europa.eu/metadata-codelist/OnLineDescriptionCode/endPoint">
               endPoint</gmx:Anchor>
           </gmd:description>
+        </xsl:when>
+
+        <!-- Empty: check the protocol -->
+        <xsl:when test="not(string(gmd:description/*/text()))">
+          <xsl:choose>
+            <!-- Access points -->
+            <xsl:when test="geonet:contains-any-of($protocol, ('OGC:WMS', 'OGC:WMTS', 'OGC:WFS', 'OGC:WCS', 'INSPIRE Atom',
+          'landingpage', 'application', 'dataset', 'OGC:WPS', 'OGC:SOS',
+          'OGC:SensorThings', 'OAS', 'W3C:SPARQL', 'OASIS:OData', 'OGC:CSW',
+          'OGC:WCTS', 'OGC:WFS-G', 'OGC:SPS', 'OGC:SAS', 'OGC:WNS', 'OGC:ODS', 'OGC:OGS', 'OGC:OUS', 'OGC:OPS', 'OGC:ORS', 'UKST'))">
+
+              <gmd:description>
+                <gmx:Anchor
+                  xlink:href="http://inspire.ec.europa.eu/metadata-codelist/OnLineDescriptionCode/accessPoint">
+                  accessPoint</gmx:Anchor>
+              </gmd:description>
+            </xsl:when>
+
+            <!-- End points -->
+            <xsl:when test="geonet:contains-any-of($protocol, ('gml', 'geojson', 'gpkg', 'tiff', 'kml', 'csv', 'zip',
+          'wmc', 'json', 'jsonld', 'rdf-xml', 'xml', 'png', 'gif', 'jp2', 'mapbox-vector-tile', 'UKMT'))">
+              <gmd:description>
+                <gmx:Anchor
+                  xlink:href="http://inspire.ec.europa.eu/metadata-codelist/OnLineDescriptionCode/endPoint">
+                  endPoint</gmx:Anchor>
+              </gmd:description>
+            </xsl:when>
+
+            <!-- Other cases: copy current gmd:description element -->
+            <xsl:otherwise>
+              <xsl:apply-templates select="gmd:description" />
+            </xsl:otherwise>
+          </xsl:choose>
         </xsl:when>
 
         <!-- Other cases: copy current gmd:description element -->
