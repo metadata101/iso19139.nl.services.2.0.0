@@ -56,6 +56,8 @@
     <for name="gmd:supplementalInformation" use="data-gn-anchor-switcher"/>
     <for name="gmd:organisationName" use="data-gn-anchor-switcher"/>
     <for name="srv:identifier" use="data-gn-anchor-switcher"/>
+    <for name="gmd:keyword" use="data-gn-anchor-switcher"/>
+    <for name="gmd:title" xpath="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/gmd:DQ_DomainConsistency/gmd:result/gmd:specification/gmd:CI_Citation/gmd:title" use="data-gn-anchor-switcher"/>
 
     <for name="gco:Distance" use="number"/>
     <for name="gco:Decimal" use="number"/>
