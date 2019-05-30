@@ -1517,6 +1517,11 @@
                   <directiveAttributes data-thesaurus-key="external.theme.httpinspireeceuropaeumetadatacodelistQualityOfServiceCriteria-QualityOfServiceCriteria"
                                        data-order-by-id="true"
                                        data-display-definition="true"
+                                       data-template-field="true"
+                                       data-template-field-element="gco:CharacterString"
+                                       data-template-field-element-with-concept-id="gmx:Anchor"
+                                       data-template-field-value="eval#gmd:DQ_ConceptualConsistency/gmd:nameOfMeasure/*/text()"
+                                       data-template-field-concept-id-value="eval#gmd:DQ_ConceptualConsistency/gmd:nameOfMeasure/gmx:Anchor/@xlink:href"
                                        data-thesaurus-concept-id-attribute="xlinkCOLONhref"/>
                 </key>
                 <key label="measureDescription" tooltip="gmd:measureDescription" xpath="gmd:DQ_ConceptualConsistency/gmd:measureDescription/gco:CharacterString"></key>
