@@ -1093,7 +1093,7 @@
                     <srv:DCP>
                       <srv:DCPList
                         codeList="http://inspire.ec.europa.eu/metadata-codelist/DCPList"
-                        codeListValue="webServices">Web services
+                        codeListValue="WebServices">Web services
                       </srv:DCPList>
                     </srv:DCP>
                     <srv:connectPoint>
