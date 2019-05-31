@@ -783,13 +783,9 @@
         <Field name="operatesOn" string="{string(.)}" store="true" index="true"/>
       </xsl:for-each>
 
+      <xsl:variable name="siteUrl" select="util:getSiteUrl()" />
+
       <xsl:for-each select="srv:operatesOn/@xlink:href">
-        <!-- extract the uuid from csw request and add as operateson -->
-        <Field name="operatesOn" string="{tokenize(tokenize(string(.),'&amp;id=')[2],'&amp;')[1]}" store="true"
-               index="true"/>
-
-        <xsl:variable name="siteUrl" select="util:getSiteUrl()" />
-
         <xsl:variable name="xlinkHref" select="." />
 
         <xsl:choose>
@@ -809,27 +805,61 @@
             <!-- Remote url that uuid is stored also locally: Use local -->
             <xsl:variable name="datasetUuid" select="$remoteDoc//gmd:fileIdentifier/gco:CharacterString" />
 
-            <xsl:if test="string($datasetUuid)">
-              <xsl:variable name="existsLocally" select="not(normalize-space(util:getRecord($datasetUuid)) = '')" />
+            <xsl:choose>
+              <xsl:when test="string($datasetUuid)">
+                <xsl:variable name="existsLocally" select="not(normalize-space(util:getRecord($datasetUuid)) = '')" />
 
-              <xsl:choose>
-                <xsl:when test="not($existsLocally)">
-                  <xsl:variable name="datasetTitle" select="$remoteDoc//*[gmd:MD_DataIdentification or @gco:isoType='gmd:MD_DataIdentification']//gmd:citation//gmd:title/gco:CharacterString" />
+                <xsl:choose>
+                  <xsl:when test="not($existsLocally)">
+                    <xsl:variable name="datasetTitle" select="$remoteDoc//*[gmd:MD_DataIdentification or @gco:isoType='gmd:MD_DataIdentification']//gmd:citation//gmd:title/gco:CharacterString" />
 
-                  <xsl:variable name="datasetAbstract" select="$remoteDoc//*[gmd:MD_DataIdentification or @gco:isoType='gmd:MD_DataIdentification']//gmd:abstract/gco:CharacterString" />
+                    <xsl:variable name="datasetAbstract" select="$remoteDoc//*[gmd:MD_DataIdentification or @gco:isoType='gmd:MD_DataIdentification']//gmd:abstract/gco:CharacterString" />
 
-                  <Field name="operatesOnRemote" string="{concat($datasetUuid, '|', normalize-space($datasetTitle), '|', normalize-space($datasetAbstract), '|', $xlinkHref)}" store="true"
-                         index="true"/>
-                </xsl:when>
-                <xsl:otherwise>
-                  <Field name="operatesOn" string="{$datasetUuid}" store="true"
-                         index="true"/>
-                </xsl:otherwise>
-              </xsl:choose>
-            </xsl:if>
+                    <Field name="operatesOnRemote" string="{concat($datasetUuid, '|', normalize-space($datasetTitle), '|', normalize-space($datasetAbstract), '|', $xlinkHref)}" store="true"
+                           index="true"/>
+                  </xsl:when>
+                  <xsl:otherwise>
+                    <Field name="operatesOnRemote" string="{concat($datasetUuid, '|', $datasetUuid, '|', '|', $xlinkHref)}" store="true"
+                           index="true"/>
+                  </xsl:otherwise>
+                </xsl:choose>
+              </xsl:when>
 
+              <xsl:otherwise>
+                <xsl:variable name="uuidFromCsw"  select="tokenize(tokenize(string(.),'&amp;id=')[2],'&amp;')[1]" />
+
+                <xsl:choose>
+                  <!-- Assume is a CSW request and extract the uuid from csw request and add as operatesOnRemote -->
+                  <xsl:when test="string($uuidFromCsw)">
+                    <Field name="operatesOnRemote" string="{concat($uuidFromCsw, '|', $uuidFromCsw,'|', '|', $xlinkHref)}" store="true"
+                           index="true"/>
+                  </xsl:when>
+
+                  <!-- If no CSW request, store the link -->
+                  <xsl:otherwise>
+                    <Field name="operatesOnRemote" string="{concat($xlinkHref, '|', $xlinkHref, '|', '|', $xlinkHref)}" store="true"
+                           index="true"/>
+                  </xsl:otherwise>
+                </xsl:choose>
+              </xsl:otherwise>
+            </xsl:choose>
           </xsl:when>
           <xsl:otherwise>
+            <xsl:variable name="uuidFromCsw"  select="tokenize(tokenize(string(.),'&amp;id=')[2],'&amp;')[1]" />
+
+            <xsl:choose>
+              <!-- Assume is a CSW request and extract the uuid from csw request and add as operatesOn -->
+              <xsl:when test="string($uuidFromCsw)">
+                <Field name="operatesOn" string="{concat($uuidFromCsw, '|', $uuidFromCsw,'|', '|', $xlinkHref)}" store="true"
+                       index="true"/>
+              </xsl:when>
+
+              <!-- If no CSW request, store the link -->
+              <xsl:otherwise>
+                <Field name="operatesOn" string="{concat($xlinkHref, '|', $xlinkHref, '|', '|', $xlinkHref)}" store="true"
+                       index="true"/>
+              </xsl:otherwise>
+            </xsl:choose>
 
           </xsl:otherwise>
         </xsl:choose>
