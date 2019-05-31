@@ -343,26 +343,26 @@
               <gmd:specification>
                 <gmd:CI_Citation>
                   <gmd:title>
-                              <gco:CharacterString>VERORDENING (EU) Nr. 1089/2010 VAN DE COMMISSIE van 23 november 2010 ter uitvoering van Richtlijn 2007/2/EG van het Europees Parlement en de Raad betreffende de interoperabiliteit van verzamelingen ruimtelijke gegevens en van diensten met betrekking tot ruimtelijke gegevens</gco:CharacterString>
+                    <gmx:Anchor xlink:href="http://data.europa.eu/eli/reg/2010/1089">VERORDENING (EU) Nr. 1089/2010 VAN DE COMMISSIE van 23 november 2010 ter uitvoering van Richtlijn 2007/2/EG van het Europees Parlement en de Raad betreffende de interoperabiliteit van verzamelingen ruimtelijke gegevens en van diensten met betrekking tot ruimtelijke gegevens</gmx:Anchor>
                   </gmd:title>
                   <gmd:date>
                     <gmd:CI_Date>
                       <gmd:date>
-                                    <gco:Date>2010-12-08</gco:Date>
+                        <gco:Date>2010-12-08</gco:Date>
                       </gmd:date>
                       <gmd:dateType>
-                                    <gmd:CI_DateTypeCode codeList="https://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#CI_DateTypeCode"
-                                                         codeListValue="publication"/>
+                        <gmd:CI_DateTypeCode codeList="https://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#CI_DateTypeCode"
+                                             codeListValue="publication"/>
                       </gmd:dateType>
                     </gmd:CI_Date>
                   </gmd:date>
                 </gmd:CI_Citation>
               </gmd:specification>
               <gmd:explanation>
-                        <gco:CharacterString>Deze service voldoet aan de specificaties voor spatial data services</gco:CharacterString>
+                <gco:CharacterString>Deze service voldoet aan de specificaties voor spatial data services</gco:CharacterString>
               </gmd:explanation>
               <gmd:pass>
-                        <gco:Boolean>true</gco:Boolean>
+                <gco:Boolean>true</gco:Boolean>
               </gmd:pass>
             </gmd:DQ_ConformanceResult>
           </gmd:result>
@@ -375,26 +375,26 @@
               <gmd:specification>
                 <gmd:CI_Citation>
                   <gmd:title>
-                              <gco:CharacterString>harmonised</gco:CharacterString>
+                    <gmx:Anchor xlink:href="http://inspire.ec.europa.eu/id/ats/metadata/2.0/sds-harmonised">harmonised</gmx:Anchor>
                   </gmd:title>
                   <gmd:date>
                     <gmd:CI_Date>
                       <gmd:date>
-                                    <gco:Date>2014-12-11</gco:Date>
+                        <gco:Date>2014-12-11</gco:Date>
                       </gmd:date>
                       <gmd:dateType>
-                                    <gmd:CI_DateTypeCode codeList="https://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#CI_DateTypeCode"
-                                                         codeListValue="publication"/>
+                        <gmd:CI_DateTypeCode codeList="https://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#CI_DateTypeCode"
+                                             codeListValue="publication"/>
                       </gmd:dateType>
                     </gmd:CI_Date>
                   </gmd:date>
                 </gmd:CI_Citation>
               </gmd:specification>
               <gmd:explanation>
-                        <gco:CharacterString>De service voldoet aan de requirements van de harmonised conformance class</gco:CharacterString>
+                <gco:CharacterString>De service voldoet aan de requirements van de harmonised conformance class</gco:CharacterString>
               </gmd:explanation>
               <gmd:pass>
-                        <gco:Boolean>true</gco:Boolean>
+                <gco:Boolean>true</gco:Boolean>
               </gmd:pass>
             </gmd:DQ_ConformanceResult>
           </gmd:result>
@@ -406,27 +406,27 @@
             <gmd:DQ_ConformanceResult>
               <gmd:specification>
                 <gmd:CI_Citation>
-                           <gmd:title gco:nilReason="missing">
+                  <gmd:title gco:nilReason="missing">
                     <gco:CharacterString />
                   </gmd:title>
                   <gmd:date>
                     <gmd:CI_Date>
                       <gmd:date>
-                                    <gco:Date xsi:nil="true"/>
+                        <gco:Date xsi:nil="true"/>
                       </gmd:date>
                       <gmd:dateType>
-                                    <gmd:CI_DateTypeCode codeList="https://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#CI_DateTypeCode"
-                                                         codeListValue=""/>
+                        <gmd:CI_DateTypeCode codeList="https://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#CI_DateTypeCode"
+                                             codeListValue=""/>
                       </gmd:dateType>
                     </gmd:CI_Date>
                   </gmd:date>
                 </gmd:CI_Citation>
               </gmd:specification>
               <gmd:explanation>
-                        <gco:CharacterString>Technische specificatie waarmee de service volledig conform is</gco:CharacterString>
+                <gco:CharacterString>Technische specificatie waarmee de service volledig conform is</gco:CharacterString>
               </gmd:explanation>
               <gmd:pass>
-                        <gco:Boolean>true</gco:Boolean>
+                <gco:Boolean>true</gco:Boolean>
               </gmd:pass>
             </gmd:DQ_ConformanceResult>
           </gmd:result>
