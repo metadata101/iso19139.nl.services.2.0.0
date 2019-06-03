@@ -1373,8 +1373,8 @@
               <snippet>
                 <gmd:MD_StandardOrderProcess>
                   <gmd:fees><gco:CharacterString>{{fees}}</gco:CharacterString></gmd:fees>
-                  <gmd:turnaround><gco:CharacterString>{{turnaround}}</gco:CharacterString></gmd:turnaround>
                   <gmd:orderingInstructions><gco:CharacterString>{{orderingInstructions}}</gco:CharacterString></gmd:orderingInstructions>
+                  <gmd:turnaround><gco:CharacterString>{{turnaround}}</gco:CharacterString></gmd:turnaround>
                 </gmd:MD_StandardOrderProcess>
               </snippet>
             </template>
@@ -1389,8 +1389,8 @@
                 <gmd:distributionOrderProcess>
                   <gmd:MD_StandardOrderProcess>
                     <gmd:fees><gco:CharacterString></gco:CharacterString></gmd:fees>
-                    <gmd:turnaround><gco:CharacterString></gco:CharacterString></gmd:turnaround>
                     <gmd:orderingInstructions><gco:CharacterString></gco:CharacterString></gmd:orderingInstructions>
+                    <gmd:turnaround><gco:CharacterString></gco:CharacterString></gmd:turnaround>
                   </gmd:MD_StandardOrderProcess>
                 </gmd:distributionOrderProcess>
               </snippet>
@@ -1421,7 +1421,7 @@
             </template>
           </action>
 
-            <!--    5.23 Niveau kwaliteitsbeschrijving > hidden because value is always service
+            <!--    5.23 Niveau kwaliteitsbeschrijving > hidden because value is always service -->
           <field
             xpath="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:scope/gmd:DQ_Scope/gmd:level"/>
 
@@ -1441,9 +1441,9 @@
                 </gmd:DQ_Scope>
               </snippet>
             </template>
-          </action> -->
+          </action> 
 
-          <!--    5.23 Beschrijving scope kwaliteitsbeschrijving = hidden because value is always service
+          <!--    5.23 Beschrijving scope kwaliteitsbeschrijving = hidden because value is always service -->
           <field name="levelDescription"
                 xpath="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:scope/gmd:DQ_Scope/gmd:levelDescription/gmd:MD_ScopeDescription/gmd:other" 
                 del="../..">
@@ -1465,7 +1465,7 @@
                   </gmd:levelDescription>
               </snippet>
             </template>
-          </action> -->
+          </action> 
 
 
           <!--   5.24 Algemene beschrijving herkomst .. -->
