@@ -349,13 +349,13 @@
       <header>
         <col label="srv:operationName" class="gn-required" />
         <col label="srv:DCP" class="gn-required"/>
-        <col label="srv:connectPoint" class="gn-required"/>
+        <!--<col label="srv:connectPoint" class="gn-required"/>-->
         <col/>
       </header>
       <row>
         <col xpath="srv:operationName"/>
         <col xpath="srv:DCP"/>
-        <col xpath="srv:connectPoint/gmd:CI_OnlineResource/gmd:linkage"/>
+        <!--<col xpath="srv:connectPoint/gmd:CI_OnlineResource/gmd:linkage"/>-->
         <col del=".."/>
         <section xpath="srv:SV_OperationMetadata/srv:parameters"
                  or="parameters" in="srv:SV_OperationMetadata"/>

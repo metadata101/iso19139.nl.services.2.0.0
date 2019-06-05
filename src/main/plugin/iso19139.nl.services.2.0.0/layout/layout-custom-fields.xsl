@@ -219,4 +219,7 @@
 
   </xsl:template>
 
+
+  <!-- srv:connectPoint not editable, it's filled in updated-fixed-info from transfer options -->
+  <xsl:template  mode="mode-iso19139" match="srv:connectPoint[$schema='iso19139.nl.services.2.0.0']" priority="3000" />
 </xsl:stylesheet>

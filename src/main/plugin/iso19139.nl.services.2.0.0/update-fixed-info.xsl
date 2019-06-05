@@ -257,8 +257,123 @@
 
       <xsl:apply-templates select="gmd:aggregationInfo" />
 
-      <xsl:apply-templates select="srv:*"/>
+      <xsl:apply-templates select="srv:serviceType"/>
+      <xsl:apply-templates select="srv:serviceTypeVersion"/>
+      <xsl:apply-templates select="srv:accessProperties"/>
+      <xsl:apply-templates select="srv:restrictions"/>
+      <xsl:apply-templates select="srv:keywords"/>
+      <xsl:apply-templates select="srv:extent"/>
+      <xsl:apply-templates select="srv:coupledResource"/>
+      <xsl:apply-templates select="srv:couplingType"/>
 
+      <!-- Copy url from 1st online resource pointing a service as srv:connectPoint elements -->
+      <xsl:choose>
+        <xsl:when test="count(//gmd:distributionInfo/*/gmd:transferOptions/*/gmd:onLine[
+          gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OGC:WMS' or
+          gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OGC:WMTS' or
+          gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OGC:WFS' or
+          gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OGC:WCS' or
+          gmd:CI_OnlineResource/gmd:protocol/*/text() = 'INSPIRE Atom']) > 0">
+
+          <xsl:choose>
+            <xsl:when test="srv:containsOperations">
+
+              <!-- Replace connectPoints in all srv:containsOperations -->
+              <xsl:for-each select="srv:containsOperations">
+                  <xsl:copy>
+                    <xsl:copy-of select="@*" />
+
+                    <xsl:for-each select="srv:SV_OperationMetadata">
+                      <xsl:copy>
+                        <xsl:copy-of select="@*" />
+
+                        <xsl:apply-templates select="srv:operationName" />
+                        <xsl:apply-templates select="srv:DCP" />
+                        <xsl:apply-templates select="srv:operationDescription" />
+                        <xsl:apply-templates select="srv:invocationName" />
+                        <xsl:apply-templates select="srv:parameters" />
+
+                        <xsl:variable name="onlineResourceToProcess" select="//gmd:distributionInfo/*/gmd:transferOptions/*/gmd:onLine[
+                          gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OGC:WMS' or
+                          gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OGC:WMTS' or
+                          gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OGC:WFS' or
+                          gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OGC:WCS' or
+                          gmd:CI_OnlineResource/gmd:protocol/*/text() = 'INSPIRE Atom'][1]" />
+
+                        <srv:connectPoint>
+                          <gmd:CI_OnlineResource>
+                            <gmd:linkage>
+                              <gmd:URL><xsl:value-of select="$onlineResourceToProcess/gmd:CI_OnlineResource/gmd:linkage/gmd:URL" /></gmd:URL>
+                            </gmd:linkage>
+                          </gmd:CI_OnlineResource>
+                        </srv:connectPoint>
+
+                        <xsl:apply-templates select="srv:dependsOn" />
+                      </xsl:copy>
+                    </xsl:for-each>
+
+                  </xsl:copy>
+              </xsl:for-each>
+
+            </xsl:when>
+
+            <xsl:otherwise>
+              <srv:containsOperations>
+                <srv:SV_OperationMetadata>
+                  <srv:operationName><gco:CharacterString /></srv:operationName>
+                  <srv:DCP>
+                   <srv:DCPList codeList="https://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#DCPList"
+                               codeListValue=""/>
+                  </srv:DCP>
+
+                <xsl:variable name="onlineResourceToProcess" select="//gmd:distributionInfo/*/gmd:transferOptions/*/gmd:onLine[
+                        gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OGC:WMS' or
+                        gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OGC:WMTS' or
+                        gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OGC:WFS' or
+                        gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OGC:WCS' or
+                        gmd:CI_OnlineResource/gmd:protocol/*/text() = 'INSPIRE Atom'][1]" />
+
+                  <srv:connectPoint>
+                    <gmd:CI_OnlineResource>
+                      <gmd:linkage>
+                        <gmd:URL><xsl:value-of select="$onlineResourceToProcess/gmd:CI_OnlineResource/gmd:linkage/gmd:URL" /></gmd:URL>
+                      </gmd:linkage>
+                    </gmd:CI_OnlineResource>
+                  </srv:connectPoint>
+
+                </srv:SV_OperationMetadata>
+              </srv:containsOperations>
+            </xsl:otherwise>
+          </xsl:choose>
+
+        </xsl:when>
+
+        <xsl:otherwise>
+          <!-- Add empty connectPoint in all srv:containsOperations -->
+          <xsl:for-each select="srv:containsOperations">
+            <xsl:copy>
+              <xsl:copy-of select="@*" />
+
+              <xsl:for-each select="srv:SV_OperationMetadata">
+                <xsl:copy>
+                  <xsl:apply-templates select="srv:operationName" />
+                  <xsl:apply-templates select="srv:DCP" />
+                  <xsl:apply-templates select="srv:operationDescription" />
+                  <xsl:apply-templates select="srv:invocationName" />
+                  <xsl:apply-templates select="srv:parameters" />
+
+                  <srv:connectPoint />
+
+                  <xsl:apply-templates select="srv:dependsOn" />
+                </xsl:copy>
+              </xsl:for-each>
+            </xsl:copy>
+          </xsl:for-each>
+
+        </xsl:otherwise>
+      </xsl:choose>
+
+      <xsl:apply-templates select="srv:operatesOn"/>
     </xsl:copy>
   </xsl:template>
 
