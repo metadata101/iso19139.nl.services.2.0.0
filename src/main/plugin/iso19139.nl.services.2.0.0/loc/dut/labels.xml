@@ -1189,17 +1189,29 @@
   <element name="gmd:useLimitation"
            context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/gmd:resourceConstraints/gmd:MD_Constraints/gmd:useLimitation">
     <label>Gebruiks beperkingen</label>
-    <description>. Toepassingen waarvoor de data of service niet geschikt is.</description>
+    <btnLabel>Gebruiks beperking toevoegen</btnLabel>
+    <description>Toepassingen waarvoor de data of service niet geschikt is.</description>
     <help_link>http://wiki.geonovum.nl/index.php/2.5.21_Conditions_applying_to_access_and_use</help_link>
     <condition>mandatory</condition>
   </element>
 
+
+
+  <element name="gmd:useLimitation"
+           context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/gmd:resourceConstraints/gmd:MD_LegalConstraints/gmd:useLimitation">
+    <label>(Juridische) gebruiks beperkingen</label>
+    <btnLabel>(Juridische) gebruiks beperking toevoegen</btnLabel>
+    <description>Toepassingen waarvoor de data of service juridisch niet geschikt is.</description>
+    <help_link>http://wiki.geonovum.nl/index.php/2.5.21_Conditions_applying_to_access_and_use</help_link>
+    <condition>mandatory</condition>
+  </element>
+ 
   <!-- ==================================================== -->
 
   <element name="gmd:MD_Constraints">
     <label>Beperkingen</label>
     <btnLabel>Beperking toevoegen</btnLabel>
-    <description>beperkingen die van toepassing zijn op de wijze van
+    <description>Beperkingen die van toepassing zijn op de wijze van
       toegang of het gebruik
     </description>
   </element>
