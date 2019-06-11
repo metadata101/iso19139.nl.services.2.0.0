@@ -320,13 +320,16 @@
             <xsl:otherwise>
               <srv:containsOperations>
                 <srv:SV_OperationMetadata>
-                  <srv:operationName><gco:CharacterString /></srv:operationName>
+                  <srv:operationName>
+                    <gco:CharacterString>GetCapabilities</gco:CharacterString>
+                  </srv:operationName>
+
                   <srv:DCP>
-                   <srv:DCPList codeList="https://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#DCPList"
-                               codeListValue=""/>
+                    <srv:DCPList codeList="https://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#DCPList"
+                                 codeListValue="WebServices">WebServices</srv:DCPList>
                   </srv:DCP>
 
-                <xsl:variable name="onlineResourceToProcess" select="//gmd:distributionInfo/*/gmd:transferOptions/*/gmd:onLine[
+                  <xsl:variable name="onlineResourceToProcess" select="//gmd:distributionInfo/*/gmd:transferOptions/*/gmd:onLine[
                         gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OGC:WMS' or
                         gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OGC:WMTS' or
                         gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OGC:WFS' or
