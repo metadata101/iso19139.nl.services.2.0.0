@@ -773,7 +773,11 @@
                  use="data-gn-keyword-picker"
                  xpath="/gmd:MD_Metadata/gmd:referenceSystemInfo/gmd:MD_ReferenceSystem/gmd:referenceSystemIdentifier/gmd:RS_Identifier/gmd:code"
                  del="../../../..">
-            <directiveAttributes data-thesaurus-key="external.theme.projections" data-thesaurus-concept-id-attribute="xlinkCOLONhref"/>
+            <directiveAttributes 
+            data-thesaurus-key="external.theme.projections" 
+            data-order-by-id="true"
+            data-display-definition="true"
+            data-thesaurus-concept-id-attribute="xlinkCOLONhref"/>
           </field>
           <action type="add" del="."
                   btnLabel="addReferenceSystem"
