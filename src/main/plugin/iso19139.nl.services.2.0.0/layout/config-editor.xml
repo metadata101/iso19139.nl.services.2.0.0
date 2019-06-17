@@ -54,7 +54,15 @@
 
     <for name="gmd:code" xpath="/gmd:MD_Metadata/gmd:identifier/gmd:MD_Identifier/gmd:code" use="data-gn-anchor-switcher"/>
     <for name="gmd:supplementalInformation" use="data-gn-anchor-switcher"/>
-    <for name="gmd:organisationName" use="data-gn-anchor-switcher"/>
+    <for name="gmd:organisationName" use="data-gn-keyword-picker">
+                  <directiveAttributes data-thesaurus-key="external.theme.organisatie"
+                                       data-template-field="true"
+                                       data-template-field-element="gco:CharacterString"
+                                       data-template-field-element-with-concept-id="gmx:Anchor"
+                                       data-template-field-value="eval#gmd:CI_ResponsibleParty/gmd:organisationName/*/text()"
+                                       data-template-field-concept-id-value="eval#gmd:CI_ResponsibleParty/gmd:organisationName/gmx:Anchor/@xlink:href"
+                                       data-thesaurus-concept-id-attribute="xlinkCOLONhref"/>
+    </for>
     <for name="srv:identifier" use="data-gn-anchor-switcher"/>
     <for name="gmd:keyword" use="data-gn-anchor-switcher"/>
     <for name="gmd:title" xpath="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/gmd:DQ_DomainConsistency/gmd:result/gmd:specification/gmd:CI_Citation/gmd:title" use="data-gn-anchor-switcher"/>
@@ -643,8 +651,20 @@
               <values readonlyIf="count(@xlink:href) > 0">
                 <key label="individualName" tooltip="gmd:individualName"
                      xpath="gmd:CI_ResponsibleParty/gmd:individualName/gco:CharacterString"/>
-                <key label="organisationName" required="true" tooltip="gmd:organisationName"
-                     xpath="gmd:CI_ResponsibleParty/gmd:organisationName/gco:CharacterString"/>
+               <!-- <key label="organisationName" required="true" tooltip="gmd:organisationName"
+                     xpath="gmd:CI_ResponsibleParty/gmd:organisationName/gco:CharacterString"/> -->
+                <key label="organisationName"
+                     xpath="gmd:CI_ResponsibleParty/gmd:organisationName"
+                     use="data-gn-keyword-picker"
+                     tooltip="gmd:organisationName">
+                  <directiveAttributes data-thesaurus-key="external.theme.organisatie"
+                                       data-template-field="true"
+                                       data-template-field-element="gco:CharacterString"
+                                       data-template-field-element-with-concept-id="gmx:Anchor"
+                                       data-template-field-value="eval#gmd:CI_ResponsibleParty/gmd:organisationName/*/text()"
+                                       data-template-field-concept-id-value="eval#gmd:CI_ResponsibleParty/gmd:organisationName/gmx:Anchor/@xlink:href"
+                                       data-thesaurus-concept-id-attribute="xlinkCOLONhref"/>
+                </key>
                 <key label="positionName" tooltip="gmd:positionName"
                      xpath="gmd:CI_ResponsibleParty/gmd:positionName/gco:CharacterString"/>
                 <key label="voice" tooltip="gmd:voice"
@@ -675,7 +695,7 @@
                 <gmd:pointOfContact>
                   <gmd:CI_ResponsibleParty>
                     <gmd:individualName><gco:CharacterString>{{individualName}}</gco:CharacterString></gmd:individualName>
-                    <gmd:organisationName><gco:CharacterString>{{organisationName}}</gco:CharacterString></gmd:organisationName>
+                    <gmd:organisationName>{{organisationName}}</gmd:organisationName>
                     <gmd:positionName><gco:CharacterString>{{positionName}}</gco:CharacterString></gmd:positionName>
                     <gmd:contactInfo>
                       <gmd:CI_Contact>
@@ -1704,8 +1724,15 @@
               <values readonlyIf="count(@xlink:href) > 0">
                 <key label="individualName" tooltip="gmd:individualName"
                      xpath="gmd:CI_ResponsibleParty/gmd:individualName/gco:CharacterString"/>
-                <key label="organisationName" required="true" tooltip="gmd:organisationName"
-                     xpath="gmd:CI_ResponsibleParty/gmd:organisationName/gco:CharacterString"/>
+                <!--<key label="organisationName" required="true" tooltip="gmd:organisationName"
+                     xpath="gmd:CI_ResponsibleParty/gmd:organisationName/gco:CharacterString"/>-->
+                <key label="organisationName"
+                     xpath="gmd:CI_ResponsibleParty/gmd:organisationName"
+                     use="data-gn-keyword-picker"
+                     tooltip="gmd:organisationName">
+                  <directiveAttributes data-thesaurus-key="external.theme.organisatie"
+                                       data-thesaurus-concept-id-attribute="xlinkCOLONhref"/>
+                </key>
                 <key label="positionName" tooltip="gmd:positionName"
                      xpath="gmd:CI_ResponsibleParty/gmd:positionName/gco:CharacterString"/>
                 <key label="voice" tooltip="gmd:voice"
@@ -1736,7 +1763,7 @@
                 <gmd:contact>
                   <gmd:CI_ResponsibleParty>
                     <gmd:individualName><gco:CharacterString>{{individualName}}</gco:CharacterString></gmd:individualName>
-                    <gmd:organisationName><gco:CharacterString>{{organisationName}}</gco:CharacterString></gmd:organisationName>
+                    <gmd:organisationName>{{organisationName}}</gmd:organisationName>
                     <gmd:positionName><gco:CharacterString>{{positionName}}</gco:CharacterString></gmd:positionName>
                     <gmd:contactInfo>
                       <gmd:CI_Contact>

@@ -1561,7 +1561,7 @@
   <element name="gmd:description" context="*/gmd:LI_ProcessStep/gmd:description">
     <label>Omschrijving</label>
     <btnLabel>Omschrijving toevoegen</btnLabel>
-    <description>Omschrijving</description>
+    <description>Omschrijving van de bewerking</description>
   </element>
 
   <!-- ==================================================== -->
@@ -1569,7 +1569,7 @@
   <element name="gmd:description" context="*/gmd:LI_Source/gmd:description">
     <label>Omschrijving</label>
     <btnLabel>Omschrijving toevoegen</btnLabel>
-    <description>Omschrijving</description>
+    <description>Omschrijving van de bron</description>
   </element>
 
   <!-- ==================================================== -->
