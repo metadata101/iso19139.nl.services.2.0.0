@@ -258,6 +258,7 @@
   <serviceInfo>Service operaties en gekoppelde bronnen</serviceInfo>
   <restrictions>Beperkingen</restrictions>
   <dataQuality>Service kwaliteit</dataQuality>
+  <dataIdentificatie>Algemene eigenschappen</dataIdentificatie>
   <coupledResource>Relatie operatie met dataset</coupledResource>
   <addCoupledResource>Dataset operaties toevoegen</addCoupledResource>
   <operatesOn>Gekoppelde bron</operatesOn>

@@ -1180,7 +1180,7 @@
           </action>
         </section>
 
-        <section name="DataQuality">
+        <section name="dataQuality">
 
           <action type="add"
                   if="count(gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality) = 0"

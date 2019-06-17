@@ -118,7 +118,7 @@
   <element name="gmd:CI_Citation"
            context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/gmd:citation/gmd:CI_Citation">
     <label>Citatie</label>
-    <description>Beschrijving van de bron.</description>
+    <description>Beschrijving van de service.</description>
   </element>
 
   <!-- ==================================================== -->
@@ -126,7 +126,7 @@
   <element name="gmd:CI_Citation"
            context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/gmd:descriptiveKeywords/gmd:MD_Keywords/gmd:thesaurusName/gmd:CI_Citation">
     <label>Citatie</label>
-    <description>Beschrijving van de bron.</description>
+    <description>Beschrijving van de service.</description>
   </element>
 
   <!-- ==================================================== -->
@@ -136,7 +136,7 @@
   <element name="gmd:CI_Citation"
            context="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/DQ_DomainConsistency/gmd:result/gmd:DQ_ConformanceResult/gmd:specification/gmd:CI_Citation">
     <label>Citatie</label>
-    <description>Beschrijving van de bron.</description>
+    <description>Beschrijving van de service.</description>
   </element>
 
   <!-- ==================================================== -->
@@ -243,7 +243,7 @@
 
     <label>Citatie</label>
 
-    <description>Beschrijvingen van de bron.</description>
+    <description>Beschrijvingen van de service.</description>
 
   </element>
 
@@ -315,7 +315,7 @@
 
   <element name="gmd:date"
            context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/gmd:citation/gmd:CI_Citation/gmd:date/gmd:CI_Date/gmd:date">
-    <label>Datum van de bron</label>
+    <label>Datum van de service</label>
     <description>Datum van creatie, publicatie of wijziging. Het formaat van de datum is JJJJ-MM-DD (met
       streepjes).
     </description>
@@ -624,7 +624,7 @@
   <element name="gmd:hierarchyLevelName">
     <label>Naam hiërarchisch niveau</label>
     <description>Naam van het hiërarchisch niveau waar de metadata betrekking op heeft.</description>
-    <help_link>https://docs.geostandaarden.nl/md/mdprofiel-iso19119/#hi%C3%ABrarchieniveaunaam</help_link>
+    <help_link>https://docs.geostandaarden.nl/md/mdprofiel-iso19119/#hiërarchieniveaunaam</help_link>
     <condition>mandatory</condition>
   </element>
 
@@ -1156,7 +1156,7 @@
 
   <element name="gmd:title"
            context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/gmd:citation/gmd:CI_Citation/gmd:title">
-    <label>Titel van de bron</label>
+    <label>Titel</label>
     <description>Titel van de service</description>
     <help_link>http://wiki.geonovum.nl/index.php/2.5.1_Resource_Title</help_link>
     <condition>mandatory</condition>
@@ -1329,11 +1329,21 @@
     <condition>conditional</condition>
   </element>
 
- <element name="xlink:href"
+  <element name="xlink:href"
            context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/srv:operatesOn">
     <label>Metadata url</label>
     <description>Link naar een xml representatie van de metadata</description>
     <condition>conditional</condition>
+  </element>
+
+  <element name="xlink:href">
+    <label>URL Verwijzing</label>
+    <description>Een hyperlink waarop meer informatie over dit item te vinden is.</description>
+  </element>
+
+  <element name="xlink:title">
+    <label>Titel</label>
+    <description>Een titel die de link beschrijft</description>
   </element>
 
   <!-- ==================================================== -->
@@ -1633,6 +1643,13 @@
   </element>
 
   <!-- ==================================================== -->
+
+ <element name="srv:parameters"
+          context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/srv:containsOperations/srv:SV_OperationMetadata/srv:parameters">
+    <label>Parameters</label>
+    <description>De parameters van de Service</description>
+    <btnLabel>Voeg parameter toe</btnLabel>
+  </element>
 
   <element name="gco:aName"
            context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/srv:containsOperations/srv:SV_OperationMetadata/srv:parameters/srv:SV_Parameter/srv:name/gco:aName">
