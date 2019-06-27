@@ -1731,7 +1731,13 @@
                      use="data-gn-keyword-picker"
                      tooltip="gmd:organisationName">
                   <directiveAttributes data-thesaurus-key="external.theme.organisatie"
-                                       data-thesaurus-concept-id-attribute="xlinkCOLONhref"/>
+                                       data-thesaurus-concept-id-attribute="xlinkCOLONhref"
+                                       data-template-field="true"
+                                       data-template-field-element="gco:CharacterString"
+                                       data-template-field-element-with-concept-id="gmx:Anchor"
+                                       data-template-field-value="eval#gmd:CI_ResponsibleParty/gmd:organisationName/*/text()"
+                                       data-template-field-concept-id-value="eval#gmd:CI_ResponsibleParty/gmd:organisationName/gmx:Anchor/@xlink:href"
+                                       />
                 </key>
                 <key label="positionName" tooltip="gmd:positionName"
                      xpath="gmd:CI_ResponsibleParty/gmd:positionName/gco:CharacterString"/>
