@@ -514,7 +514,6 @@
       Voor INSPIRE interoperabele services worden de coördinaat referentie systemen die de service ondersteunt hier opgenomen middels een URI. Voor RD is dat
       &lt;a href='http://www.opengis.net/def/crs/EPSG/0/28992' target='_blank'&gt;http://www.opengis.net/def/crs/EPSG/0/28992&lt;/a&gt;.
     </description>
-    <condition>mandatory</condition>
   </element>
 
   <!-- ==================================================== -->
