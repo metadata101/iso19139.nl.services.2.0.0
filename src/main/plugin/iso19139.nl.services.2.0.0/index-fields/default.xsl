@@ -786,7 +786,15 @@
       <xsl:variable name="siteUrl" select="util:getSiteUrl()" />
 
       <xsl:for-each select="srv:operatesOn/@xlink:href">
-        <xsl:variable name="xlinkHref" select="." />
+        <!-- The xlink: href attribute must contain a URI to the MD_DataIdentification part of the metadata record of the dataset.
+             Example:
+                <srv:operatesOn uuidref="c9c62f4f-a8da-438e-a514-5963fb1b047b"
+                    xlink:href="https://server/geonetwork/srv/dut/csw?service=CSW&amp;request=GetRecordById&amp;version=2.0.2&amp;outputSchema=http://www.isotc211.org/2005/gmd&amp;elementSetName=full&amp;
+                    id=c9c62f4f-a8da-438e-a514-5963fb1b047b#MD_DataIdentification"/>
+
+             Ignore it for indexing.
+        -->
+        <xsl:variable name="xlinkHref" select="replace(., '#MD_DataIdentification', '')" />
 
         <xsl:choose>
           <xsl:when test="string(normalize-space($xlinkHref)) and not(starts-with($xlinkHref, $siteUrl))">
