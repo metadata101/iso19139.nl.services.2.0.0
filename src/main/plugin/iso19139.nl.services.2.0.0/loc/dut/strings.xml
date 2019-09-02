@@ -109,7 +109,7 @@
   <spatialDistance>Spatial resolutie (afstand)</spatialDistance>
 
   <useConstraints>Gebruiks beperkingen</useConstraints>
-  <useLimitation>Gebruiks limitatie</useLimitation>
+  <useLimitation>Gebruiks beperking</useLimitation>
   <add-resource-id>Compute resource identifier</add-resource-id>
   <add-resource-idHelp>Compose the resource identifier using the catalog URL and the metadata
     identifier (eg. http://www.organization.org/catalogue/5391bf69-44bc-4ea0-8cc0-6cf6c3bc81ae).
@@ -130,6 +130,9 @@
   <otherConstraints>Other constraints</otherConstraints>
   <extent>Geographic bounding box</extent>
   <freeTextKeywords>Other keywords</freeTextKeywords>
+  <operationName>Operatie</operationName>
+  <DCP>Type</DCP>
+  <connectPoint>Endpoint</connectPoint>
 
   <addCrs>Projection</addCrs>
  
@@ -186,7 +189,7 @@
   <addCharacterset>Karakterset toevoegen</addCharacterset>
   <addDate>Datum toevoegen</addDate>
   <addLineage>Herkomst toevoegen</addLineage>
-  <addUseLimitation>Gebruiksbeperking toevoegen</addUseLimitation>
+  <addUseLimitation>Gebruiks beperking toevoegen</addUseLimitation>
   <legalConstraints>Juridische beperkingen</legalConstraints>
   <addLegalConstraints>Juridische beperking toevoegen</addLegalConstraints>
   <addResourceConstraints>Beperking toevoegen</addResourceConstraints>
@@ -210,7 +213,7 @@
   <addReferenceSystem>Referentie systeem toevoegen</addReferenceSystem>
 
 
-  <conformanceStatement>Conformiteitindicatie met de specificatie</conformanceStatement>
+  <conformanceStatement>Conformiteit indicatie met de specificatie</conformanceStatement>
   <ExtentDescription>Omschrijving temporele dekking</ExtentDescription>
   <DsCharacterSet>Karakterset dataset</DsCharacterSet>
   <Distribution>Distributie</Distribution>
@@ -255,6 +258,7 @@
   <serviceInfo>Service operaties en gekoppelde bronnen</serviceInfo>
   <restrictions>Beperkingen</restrictions>
   <dataQuality>Service kwaliteit</dataQuality>
+  <dataIdentificatie>Algemene eigenschappen</dataIdentificatie>
   <coupledResource>Relatie operatie met dataset</coupledResource>
   <addCoupledResource>Dataset operaties toevoegen</addCoupledResource>
   <operatesOn>Gekoppelde bron</operatesOn>
@@ -273,21 +277,21 @@
   <securityConstraints>Veiligheids beperkingen</securityConstraints>
   <addSecurityConstraints>Voeg veiligheids beperkingen toe</addSecurityConstraints>
   <addLocale>Taal toevoegen</addLocale>
-  <addUseConstraint>Gebruiksbeperking toevoegen</addUseConstraint>
+  <addUseConstraint>Gebruiks beperking toevoegen</addUseConstraint>
   <addOtherConstraint>Overige beperking toevoegen</addOtherConstraint>
   <addConceptualConsistency>Conceptuele consistentie toevoegen</addConceptualConsistency>
   <addGeographicBoundingBox>Omgrenzende rechthoek toevoegen</addGeographicBoundingBox>
-  <addQualityScope>Niveau kwaliteitsbeschrijving toevoegen</addQualityScope>
-  <addQualityScopeDesc>Niveau kwaliteitsbeschrijving naam toevoegen</addQualityScopeDesc>
+  <addQualityScope>Niveau kwaliteits-beschrijving toevoegen</addQualityScope>
+  <addQualityScopeDesc>Niveau kwaliteits-beschrijving naam toevoegen</addQualityScopeDesc>
   <spatialInfo>Ruimtelijke informatie</spatialInfo>
-  <DQ_ConceptualConsistency>Quality of service</DQ_ConceptualConsistency>
-  <Add_DQ_ConceptualConsistency>Quality of service toevoegen</Add_DQ_ConceptualConsistency>
+  <DQ_ConceptualConsistency>Service kwaliteit</DQ_ConceptualConsistency>
+  <Add_DQ_ConceptualConsistency>Service kwaliteit toevoegen</Add_DQ_ConceptualConsistency>
   <ConformanceResult>Conformiteit</ConformanceResult>
-  <levelDescription>Niveau kwaliteitsbeschrijving naam</levelDescription>
+  <levelDescription>Niveau kwaliteits-beschrijving naam</levelDescription>
   <DomainConsistency>Conformiteit met een domein specificatie</DomainConsistency>
   <TopologicalConsistency>Topologische samenhang</TopologicalConsistency>
   <CompletenessOmission>Compleetheid</CompletenessOmission>
-  <ConceptualConsistency>Quality of Service</ConceptualConsistency>
+  <ConceptualConsistency>Service kwaliteit</ConceptualConsistency>
   <AbsoluteExternalPositionalAccuracy>Geometrische nauwkeurigheid</AbsoluteExternalPositionalAccuracy>
   <ProcessStep>Bewerkings stap</ProcessStep>
   <addVerticalExtent>Verticale spreiding toevoegen</addVerticalExtent>

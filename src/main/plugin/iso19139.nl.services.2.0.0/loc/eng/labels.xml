@@ -25,7 +25,7 @@
 <labels xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xmlns:gco="http://www.isotc211.org/2005/gco"
         xmlns:gmd="http://www.isotc211.org/2005/gmd"
-        xmlns:srv="http://www.isotc211.org/2005/srv" xmlns:gml="http://www.opengis.net/gml"
+        xmlns:srv="http://www.isotc211.org/2005/srv" xmlns:gml="http://www.opengis.net/gml/3.2"
         xmlns:gts="http://www.isotc211.org/2005/gts" xmlns:gmx="http://www.isotc211.org/2005/gmx"
         xsi:noNamespaceSchemaLocation="../../../../../../../schema-labels.xsd">
 
@@ -420,4 +420,36 @@ Acronyms should be written in full when first used.]]></help>
       <option value="Technical Guidance for the implementation of INSPIRE View Services">View Services</option>
     </helper>
   </element>
+
+<element name="srv:serviceType"
+           context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/srv:serviceType">
+    <label>Service type</label>
+    <description>Het type service, view, download etc.</description>
+    <helper>
+      <option value="view">View service</option>
+      <option value="download">Download service</option>
+      <option value="discovery">Discovery service</option>
+      <option value="transformation">Transformation service</option>
+      <option value="other">Other service</option>
+    </helper>
+    <help_link>http://wiki.geonovum.nl/index.php/2.5.9_Spatial_data_service_type</help_link>
+    <condition>mandatory</condition>
+  </element>
+
+  <element name="valueUnitHref">
+    <label>Valueunit Definition</label>
+    <helper>
+      <option value="urn:ogc:def:uom:OGC::percent">Procent</option>
+      <option value="http://www.opengis.net/def/uom/SI/second">Seconde</option>
+      <option value="http://www.opengis.net/def/uom/SI/ampere">Ampere</option>
+      <option value="http://www.opengis.net/def/uom/SI/candela">Candela</option>	
+      <option value="http://www.opengis.net/def/uom/SI/kelvin	">Kelvin</option>
+      <option value="http://www.opengis.net/def/uom/SI/kilogram">Kilo</option>	
+      <option value="http://www.opengis.net/def/uom/SI/metre">Meter</option>	
+      <option value="http://www.opengis.net/def/uom/SI/mole">Mol</option>	
+      <option value="http://www.opengis.net/def/uom/OGC/1.0/unity">Eenheden</option>
+    </helper>
+  </element>
+
+
 </labels>

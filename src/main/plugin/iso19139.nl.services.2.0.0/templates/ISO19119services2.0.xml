@@ -6,11 +6,8 @@
   xmlns:xlink="http://www.w3.org/1999/xlink"
   xmlns:gmx="http://www.isotc211.org/2005/gmx"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xmlns:gml="http://www.opengis.net/gml"
-  xsi:schemaLocation="
-    http://www.isotc211.org/2005/gmd http://schemas.opengis.net/iso/19139/20060504/gmd/gmd.xsd
-    http://www.isotc211.org/2005/srv http://schemas.opengis.net/iso/19139/20070417/srv/1.0/srv.xsd
-    http://www.isotc211.org/2005/gmx http://schemas.opengis.net/iso/19139/20060504/gmx/gmx.xsd">
+  xmlns:gml="http://www.opengis.net/gml/3.2"
+  xsi:schemaLocation="http://www.isotc211.org/2005/gmd http://schemas.opengis.net/csw/2.0.2/profiles/apiso/1.0.0/apiso.xsd">
 
   <gmd:fileIdentifier>
       <gco:CharacterString>2ddc8dac-386f-47b3-b947-491ba9b68108</gco:CharacterString>
@@ -18,10 +15,17 @@
    <gmd:language>
       <gmd:LanguageCode codeList="http://www.loc.gov/standards/iso639-2/" codeListValue="dut"/>
    </gmd:language>
+   <gmd:characterSet>
+      <gmd:MD_CharacterSetCode codeList="hhttps://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#MD_CharacterSetCode"
+                               codeListValue="utf8"/>
+   </gmd:characterSet>
    <gmd:hierarchyLevel>
-      <gmd:MD_ScopeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#MD_ScopeCode"
+      <gmd:MD_ScopeCode codeList="https://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#MD_ScopeCode"
         codeListValue="service"/>
    </gmd:hierarchyLevel>
+   <gmd:hierarchyLevelName gco:nilReason="missing">
+     <gco:CharacterString>service</gco:CharacterString>
+   </gmd:hierarchyLevelName>
    <gmd:contact>
       <gmd:CI_ResponsibleParty>
          <gmd:individualName gco:nilReason="missing">
@@ -71,12 +75,12 @@
          </gmd:contactInfo>
          <gmd:role>
             <gmd:CI_RoleCode codeListValue="pointOfContact"
-                             codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#CI_RoleCode"/>
+                             codeList="https://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#CI_RoleCode"/>
          </gmd:role>
       </gmd:CI_ResponsibleParty>
   </gmd:contact>
    <gmd:dateStamp>
-      <gco:Date>2018-01-01</gco:Date>
+      <gco:Date>2019-01-01</gco:Date>
    </gmd:dateStamp>
    <gmd:metadataStandardName>
       <gco:CharacterString>ISO 19119</gco:CharacterString>
@@ -84,12 +88,23 @@
    <gmd:metadataStandardVersion>
       <gco:CharacterString>Nederlands metadata profiel op ISO 19119 voor services 2.0</gco:CharacterString>
    </gmd:metadataStandardVersion>
+   <gmd:referenceSystemInfo>
+      <gmd:MD_ReferenceSystem>
+        <gmd:referenceSystemIdentifier>
+          <gmd:RS_Identifier>
+            <gmd:code>
+              <gmx:Anchor xlink:href="http://www.opengis.net/def/crs/EPSG/0/28992">Rijks Driehoeksstelsel</gmx:Anchor>
+            </gmd:code>
+          </gmd:RS_Identifier>
+        </gmd:referenceSystemIdentifier>
+      </gmd:MD_ReferenceSystem>
+   </gmd:referenceSystemInfo>
    <gmd:identificationInfo>
       <srv:SV_ServiceIdentification>
          <gmd:citation>
             <gmd:CI_Citation>
                <gmd:title>
-                  <gco:CharacterString>1. Template Nederlands metadata profiel op ISO 19119 voor services 2.0</gco:CharacterString>
+                  <gco:CharacterString>1. Template Nederlands metadata profiel op ISO 19119 voor services 2.0.0</gco:CharacterString>
                </gmd:title>
                <gmd:date>
                   <gmd:CI_Date>
@@ -98,7 +113,7 @@
                         <gco:Date/>
                      </gmd:date>
                      <gmd:dateType>
-                        <gmd:CI_DateTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#CI_DateTypeCode"
+                        <gmd:CI_DateTypeCode codeList="https://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#CI_DateTypeCode"
                                              codeListValue="creation"/>
                      </gmd:dateType>
                   </gmd:CI_Date>
@@ -164,7 +179,7 @@
                </gmd:contactInfo>
                <gmd:role>
                   <gmd:CI_RoleCode codeListValue="pointOfContact"
-                                   codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#CI_RoleCode"/>
+                                   codeList="https://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#CI_RoleCode"/>
                </gmd:role>
             </gmd:CI_ResponsibleParty>
          </gmd:pointOfContact>
@@ -191,7 +206,7 @@
             <!-- Moet overeenkomen met element WMS_Capabilities/Service/AccessConstraints in het Capabilities bestand -->
             <!-- Als er geen gebruiksrestricties zijn: otherRestrictions bij element MD_RestrictionCode en verwijzing naar Public Domain verklaring of CC0  bij otherConstraints -->
             <!-- Anders een geogedeeld licentie aanmaken en bij  otherConstraints de verwijzing naar die licentie opnemen. -->
-            <gmd:MD_RestrictionCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#MD_RestrictionCode"
+            <gmd:MD_RestrictionCode codeList="https://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#MD_RestrictionCode"
                 codeListValue="otherRestrictions"/>
                </gmd:accessConstraints>
                <gmd:otherConstraints>
@@ -224,31 +239,10 @@
          </srv:extent>
          <srv:couplingType>
         <!-- Vaste waarde "tight" voor een View service-->
-        <srv:SV_CouplingType codeList="http://www.isotc211.org/2005/iso19119/resources/Codelist/gmxCodelists.xml#SV_CouplingType"
+        <srv:SV_CouplingType codeList="https://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#SV_CouplingType"
                                  codeListValue="tight"/>
-         </srv:couplingType>
-         <srv:containsOperations>
-        <!-- Beschrijft minimaal 1 operatie van de service, voor de hand ligt GetCapabilities  -->
-        <!-- Nederlands Profiel legt ook alle andere (GetMap, GetFeatureInfo, GetLegendURL, etc.) operaties vast  -->
-        <!-- Deze zijn makkelijk te genereren vanuit de Capabilities, maar bij handmatige invoer van een metadata -->
-        <!-- voor services document zou je kunnen volstaan met alleen de beschrijving van GetCapabilities -->
-        <srv:SV_OperationMetadata>
-               <srv:operationName>
-                  <gco:CharacterString>GetCapabilities</gco:CharacterString>
-               </srv:operationName>
-               <srv:DCP>
-                  <srv:DCPList codeList="http://www.isotc211.org/2005/iso19119/resources/Codelist/gmxCodelists.xml#DCPList"
-                               codeListValue="WebServices"/>
-               </srv:DCP>
-               <srv:connectPoint>
-                  <gmd:CI_OnlineResource>
-                     <gmd:linkage>
-                        <gmd:URL/>
-                     </gmd:linkage>
-                  </gmd:CI_OnlineResource>
-               </srv:connectPoint>
-            </srv:SV_OperationMetadata>
-         </srv:containsOperations>
+        </srv:couplingType>
+        <srv:operatesOn xlink:href=""/>
       </srv:SV_ServiceIdentification>
    </gmd:identificationInfo>
    <gmd:dataQualityInfo>
@@ -256,9 +250,14 @@
          <gmd:scope>
             <gmd:DQ_Scope>
                <gmd:level>
-                  <gmd:MD_ScopeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#MD_ScopeCode"
+                  <gmd:MD_ScopeCode codeList="https://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#MD_ScopeCode"
                     codeListValue="service"/>
                </gmd:level>
+               <gmd:levelDescription>
+                  <gmd:MD_ScopeDescription>
+                     <gmd:other><gco:CharacterString>Service</gco:CharacterString></gmd:other>
+                  </gmd:MD_ScopeDescription>
+               </gmd:levelDescription>
             </gmd:DQ_Scope>
          </gmd:scope>
       </gmd:DQ_DataQuality>

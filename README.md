@@ -1,6 +1,6 @@
 # ISO19139 dutch service schema plugin schema plugin
 
-ISO19139 dutch service schema plugin
+ISO19139 dutch service schema plugin.
 
 ## Installing the plugin
 

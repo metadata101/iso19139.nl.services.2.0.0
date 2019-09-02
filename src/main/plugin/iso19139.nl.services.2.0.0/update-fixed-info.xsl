@@ -29,10 +29,185 @@
                 xmlns:gmx="http://www.isotc211.org/2005/gmx"
                 xmlns:xlink="http://www.w3.org/1999/xlink"
                 xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                xmlns:gml="http://www.opengis.net/gml/3.2"
                 xmlns:geonet="http://www.fao.org/geonetwork"
+                xmlns:java="java:org.fao.geonet.util.XslUtil"
                 version="2.0" exclude-result-prefixes="#all">
   <xsl:import href="../iso19139/update-fixed-info.xsl"/>
 
+
+  <!-- gml elements to use 3.2 -->
+  <xsl:template match="@gml:id" priority="100">
+    <xsl:choose>
+      <xsl:when test="normalize-space(.)=''">
+        <xsl:attribute name="gml:id">
+          <xsl:value-of select="generate-id(.)"/>
+        </xsl:attribute>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:copy-of select="."/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+
+  <!-- Add required gml attributes if missing -->
+  <xsl:template match="gml:Polygon[not(@gml:id) and not(@srsName)]" priority="100">
+    <xsl:copy>
+      <xsl:attribute name="gml:id">
+        <xsl:value-of select="generate-id(.)"/>
+      </xsl:attribute>
+      <xsl:attribute name="srsName">
+        <xsl:text>urn:x-ogc:def:crs:EPSG:6.6:4326</xsl:text>
+      </xsl:attribute>
+      <xsl:copy-of select="@*"/>
+      <xsl:copy-of select="*"/>
+    </xsl:copy>
+  </xsl:template>
+
+  <xsl:template match="gml:*" priority="100">
+    <xsl:call-template name="correct_ns_prefix">
+      <xsl:with-param name="element" select="."/>
+      <xsl:with-param name="prefix" select="'gml'"/>
+    </xsl:call-template>
+  </xsl:template>
+
+
+  <!-- Fix/add hierarchyLevel to service -->
+  <xsl:template match="gmd:MD_Metadata" priority="100">
+    <xsl:copy>
+      <xsl:namespace name="xsi" select="'http://www.w3.org/2001/XMLSchema-instance'"/>
+      <xsl:apply-templates select="@*"/>
+
+      <gmd:fileIdentifier>
+        <gco:CharacterString>
+          <xsl:value-of select="/root/env/uuid"/>
+        </gco:CharacterString>
+      </gmd:fileIdentifier>
+
+      <xsl:apply-templates select="gmd:language"/>
+      <xsl:apply-templates select="gmd:characterSet"/>
+
+      <xsl:choose>
+        <xsl:when test="/root/env/parentUuid!=''">
+          <gmd:parentIdentifier>
+            <gco:CharacterString>
+              <xsl:value-of select="/root/env/parentUuid"/>
+            </gco:CharacterString>
+          </gmd:parentIdentifier>
+        </xsl:when>
+        <xsl:when test="gmd:parentIdentifier">
+          <xsl:apply-templates select="gmd:parentIdentifier"/>
+        </xsl:when>
+      </xsl:choose>
+
+      <xsl:if test="not(gmd:hierarchyLevel)">
+        <gmd:hierarchyLevel>
+          <gmd:MD_ScopeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#MD_ScopeCode"
+                            codeListValue="service">
+            <xsl:value-of select="java:getCodelistTranslation('gmd:MD_ScopeCode', 'service', string($mainLanguage))"/>
+          </gmd:MD_ScopeCode>
+        </gmd:hierarchyLevel>
+      </xsl:if>
+
+      <xsl:apply-templates select="
+        gmd:hierarchyLevel|
+        gmd:hierarchyLevelName|
+        gmd:contact|
+        gmd:dateStamp|
+        gmd:metadataStandardName|
+        gmd:metadataStandardVersion|
+        gmd:dataSetURI"/>
+
+      <!-- Copy existing locales and create an extra one for the default metadata language. -->
+      <xsl:if test="$isMultilingual">
+        <xsl:apply-templates select="gmd:locale[*/gmd:languageCode/*/@codeListValue != $mainLanguage]"/>
+        <gmd:locale>
+          <gmd:PT_Locale id="{$mainLanguageId}">
+            <gmd:languageCode>
+              <gmd:LanguageCode codeList="http://www.loc.gov/standards/iso639-2/"
+                                codeListValue="{$mainLanguage}"/>
+            </gmd:languageCode>
+            <gmd:characterEncoding>
+              <gmd:MD_CharacterSetCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#MD_CharacterSetCode"
+                                       codeListValue="{$defaultEncoding}"/>
+            </gmd:characterEncoding>
+          </gmd:PT_Locale>
+        </gmd:locale>
+      </xsl:if>
+
+      <xsl:apply-templates select="
+        gmd:spatialRepresentationInfo|
+        gmd:referenceSystemInfo|
+        gmd:metadataExtensionInfo|
+        gmd:identificationInfo|
+        gmd:contentInfo|
+        gmd:distributionInfo|
+        gmd:dataQualityInfo|
+        gmd:portrayalCatalogueInfo|
+        gmd:metadataConstraints|
+        gmd:applicationSchemaInfo|
+        gmd:metadataMaintenance|
+        gmd:series|
+        gmd:describes|
+        gmd:propertyType|
+        gmd:featureType|
+        gmd:featureAttribute"/>
+
+      <!-- Handle ISO profiles extensions. -->
+      <xsl:apply-templates select="
+        *[namespace-uri()!='http://www.isotc211.org/2005/gmd' and
+          namespace-uri()!='http://www.isotc211.org/2005/srv']"/>
+    </xsl:copy>
+  </xsl:template>
+
+  <xsl:template match="gmd:hierarchyLevel|gmd:level"
+                priority="200">
+    <xsl:copy>
+      <xsl:copy-of select="@*" />
+      <gmd:MD_ScopeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#MD_ScopeCode"
+                        codeListValue="service">
+        <xsl:value-of select="java:getCodelistTranslation('gmd:MD_ScopeCode', 'service', string($mainLanguage))"/>
+      </gmd:MD_ScopeCode>
+    </xsl:copy>
+  </xsl:template>
+
+  <!-- Add codelist labels -->
+  <xsl:template match="gmd:LanguageCode[@codeListValue]" priority="220">
+    <gmd:LanguageCode codeList="http://www.loc.gov/standards/iso639-2/">
+      <xsl:apply-templates select="@*[name(.)!='codeList']"/>
+
+      <xsl:value-of select="java:getIsoLanguageLabel(@codeListValue, $mainLanguage)" />
+    </gmd:LanguageCode>
+  </xsl:template>
+
+  <xsl:template match="gmd:*[@codeListValue]"  priority="200">
+    <xsl:copy>
+      <xsl:apply-templates select="@*"/>
+      <xsl:attribute name="codeList">
+        <xsl:value-of
+          select="concat('https://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#',local-name(.))"/>
+      </xsl:attribute>
+
+      <xsl:if test="string(@codeListValue)">
+        <xsl:value-of select="java:getCodelistTranslation(name(), string(@codeListValue), string($mainLanguage))"/>
+      </xsl:if>
+    </xsl:copy>
+  </xsl:template>
+
+
+  <xsl:template match="srv:*[@codeListValue]">
+    <xsl:copy>
+      <xsl:apply-templates select="@*"/>
+      <xsl:attribute name="codeList">
+        <xsl:value-of
+          select="concat('https://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#',local-name(.))"/>
+      </xsl:attribute>
+
+      <xsl:if test="string(@codeListValue)">
+        <xsl:value-of select="java:getCodelistTranslation(name(), string(@codeListValue), string($mainLanguage))"/>
+      </xsl:if>
+    </xsl:copy>
+  </xsl:template>
 
   <!-- Dutch profile uses gco:Date instead of gco:DateTime -->
   <xsl:template match="gmd:dateStamp" priority="99">
@@ -82,8 +257,126 @@
 
       <xsl:apply-templates select="gmd:aggregationInfo" />
 
-      <xsl:apply-templates select="srv:*"/>
+      <xsl:apply-templates select="srv:serviceType"/>
+      <xsl:apply-templates select="srv:serviceTypeVersion"/>
+      <xsl:apply-templates select="srv:accessProperties"/>
+      <xsl:apply-templates select="srv:restrictions"/>
+      <xsl:apply-templates select="srv:keywords"/>
+      <xsl:apply-templates select="srv:extent"/>
+      <xsl:apply-templates select="srv:coupledResource"/>
+      <xsl:apply-templates select="srv:couplingType"/>
 
+      <!-- Copy url from 1st online resource pointing a service as srv:connectPoint elements -->
+      <xsl:choose>
+        <xsl:when test="count(//gmd:distributionInfo/*/gmd:transferOptions/*/gmd:onLine[
+          gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OGC:WMS' or
+          gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OGC:WMTS' or
+          gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OGC:WFS' or
+          gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OGC:WCS' or
+          gmd:CI_OnlineResource/gmd:protocol/*/text() = 'INSPIRE Atom']) > 0">
+
+          <xsl:choose>
+            <xsl:when test="srv:containsOperations">
+
+              <!-- Replace connectPoints in all srv:containsOperations -->
+              <xsl:for-each select="srv:containsOperations">
+                  <xsl:copy>
+                    <xsl:copy-of select="@*" />
+
+                    <xsl:for-each select="srv:SV_OperationMetadata">
+                      <xsl:copy>
+                        <xsl:copy-of select="@*" />
+
+                        <xsl:apply-templates select="srv:operationName" />
+                        <xsl:apply-templates select="srv:DCP" />
+                        <xsl:apply-templates select="srv:operationDescription" />
+                        <xsl:apply-templates select="srv:invocationName" />
+                        <xsl:apply-templates select="srv:parameters" />
+
+                        <xsl:variable name="onlineResourceToProcess" select="//gmd:distributionInfo/*/gmd:transferOptions/*/gmd:onLine[
+                          gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OGC:WMS' or
+                          gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OGC:WMTS' or
+                          gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OGC:WFS' or
+                          gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OGC:WCS' or
+                          gmd:CI_OnlineResource/gmd:protocol/*/text() = 'INSPIRE Atom'][1]" />
+
+                        <srv:connectPoint>
+                          <gmd:CI_OnlineResource>
+                            <gmd:linkage>
+                              <gmd:URL><xsl:value-of select="$onlineResourceToProcess/gmd:CI_OnlineResource/gmd:linkage/gmd:URL" /></gmd:URL>
+                            </gmd:linkage>
+                          </gmd:CI_OnlineResource>
+                        </srv:connectPoint>
+
+                        <xsl:apply-templates select="srv:dependsOn" />
+                      </xsl:copy>
+                    </xsl:for-each>
+
+                  </xsl:copy>
+              </xsl:for-each>
+
+            </xsl:when>
+
+            <xsl:otherwise>
+              <srv:containsOperations>
+                <srv:SV_OperationMetadata>
+                  <srv:operationName>
+                    <gco:CharacterString>GetCapabilities</gco:CharacterString>
+                  </srv:operationName>
+
+                  <srv:DCP>
+                    <srv:DCPList codeList="https://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#DCPList"
+                                 codeListValue="WebServices">WebServices</srv:DCPList>
+                  </srv:DCP>
+
+                  <xsl:variable name="onlineResourceToProcess" select="//gmd:distributionInfo/*/gmd:transferOptions/*/gmd:onLine[
+                        gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OGC:WMS' or
+                        gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OGC:WMTS' or
+                        gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OGC:WFS' or
+                        gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OGC:WCS' or
+                        gmd:CI_OnlineResource/gmd:protocol/*/text() = 'INSPIRE Atom'][1]" />
+
+                  <srv:connectPoint>
+                    <gmd:CI_OnlineResource>
+                      <gmd:linkage>
+                        <gmd:URL><xsl:value-of select="$onlineResourceToProcess/gmd:CI_OnlineResource/gmd:linkage/gmd:URL" /></gmd:URL>
+                      </gmd:linkage>
+                    </gmd:CI_OnlineResource>
+                  </srv:connectPoint>
+
+                </srv:SV_OperationMetadata>
+              </srv:containsOperations>
+            </xsl:otherwise>
+          </xsl:choose>
+
+        </xsl:when>
+
+        <xsl:otherwise>
+          <!-- Add empty connectPoint in all srv:containsOperations -->
+          <xsl:for-each select="srv:containsOperations">
+            <xsl:copy>
+              <xsl:copy-of select="@*" />
+
+              <xsl:for-each select="srv:SV_OperationMetadata">
+                <xsl:copy>
+                  <xsl:apply-templates select="srv:operationName" />
+                  <xsl:apply-templates select="srv:DCP" />
+                  <xsl:apply-templates select="srv:operationDescription" />
+                  <xsl:apply-templates select="srv:invocationName" />
+                  <xsl:apply-templates select="srv:parameters" />
+
+                  <srv:connectPoint />
+
+                  <xsl:apply-templates select="srv:dependsOn" />
+                </xsl:copy>
+              </xsl:for-each>
+            </xsl:copy>
+          </xsl:for-each>
+
+        </xsl:otherwise>
+      </xsl:choose>
+
+      <xsl:apply-templates select="srv:operatesOn"/>
     </xsl:copy>
   </xsl:template>
 
@@ -139,12 +432,7 @@
 
       <!-- gmd:description -->
       <xsl:choose>
-        <!-- Access points -->
-        <xsl:when test="geonet:contains-any-of($protocol, ('OGC:WMS', 'OGC:WMTS', 'OGC:WFS', 'OGC:WCS', 'INSPIRE Atom',
-          'landingpage', 'application', 'dataset', 'OGC:WPS', 'OGC:SOS',
-          'OGC:SensorThings', 'OAS', 'W3C:SPARQL', 'OASIS:OData', 'OGC:CSW',
-          'OGC:WCTS', 'OGC:WFS-G', 'OGC:SPS', 'OGC:SAS', 'OGC:WNS', 'OGC:ODS', 'OGC:OGS', 'OGC:OUS', 'OGC:OPS', 'OGC:ORS', 'UKST'))">
-
+        <xsl:when test="gmd:description/*/text() = 'accessPoint'">
           <gmd:description>
             <gmx:Anchor
               xlink:href="http://inspire.ec.europa.eu/metadata-codelist/OnLineDescriptionCode/accessPoint">
@@ -152,14 +440,45 @@
           </gmd:description>
         </xsl:when>
 
-        <!-- End points -->
-        <xsl:when test="geonet:contains-any-of($protocol, ('gml', 'geojson', 'gpkg', 'tiff', 'kml', 'csv', 'zip',
-          'wmc', 'json', 'jsonld', 'rdf-xml', 'xml', 'png', 'gif', 'jp2', 'mapbox-vector-tile', 'UKMT'))">
+        <xsl:when test="gmd:description/*/text() = 'endPoint'">
           <gmd:description>
             <gmx:Anchor
               xlink:href="http://inspire.ec.europa.eu/metadata-codelist/OnLineDescriptionCode/endPoint">
               endPoint</gmx:Anchor>
           </gmd:description>
+        </xsl:when>
+
+        <!-- Empty: check the protocol -->
+        <xsl:when test="not(string(gmd:description/*/text()))">
+          <xsl:choose>
+            <!-- Access points -->
+            <xsl:when test="geonet:contains-any-of($protocol, ('OGC:WMS', 'OGC:WMTS', 'OGC:WFS', 'OGC:WCS', 'INSPIRE Atom',
+          'landingpage', 'application', 'dataset', 'OGC:WPS', 'OGC:SOS',
+          'OGC:SensorThings', 'OAS', 'W3C:SPARQL', 'OASIS:OData', 'OGC:CSW',
+          'OGC:WCTS', 'OGC:WFS-G', 'OGC:SPS', 'OGC:SAS', 'OGC:WNS', 'OGC:ODS', 'OGC:OGS', 'OGC:OUS', 'OGC:OPS', 'OGC:ORS', 'UKST'))">
+
+              <gmd:description>
+                <gmx:Anchor
+                  xlink:href="http://inspire.ec.europa.eu/metadata-codelist/OnLineDescriptionCode/accessPoint">
+                  accessPoint</gmx:Anchor>
+              </gmd:description>
+            </xsl:when>
+
+            <!-- End points -->
+            <xsl:when test="geonet:contains-any-of($protocol, ('gml', 'geojson', 'gpkg', 'tiff', 'kml', 'csv', 'zip',
+          'wmc', 'json', 'jsonld', 'rdf-xml', 'xml', 'png', 'gif', 'jp2', 'mapbox-vector-tile', 'UKMT'))">
+              <gmd:description>
+                <gmx:Anchor
+                  xlink:href="http://inspire.ec.europa.eu/metadata-codelist/OnLineDescriptionCode/endPoint">
+                  endPoint</gmx:Anchor>
+              </gmd:description>
+            </xsl:when>
+
+            <!-- Other cases: copy current gmd:description element -->
+            <xsl:otherwise>
+              <xsl:apply-templates select="gmd:description" />
+            </xsl:otherwise>
+          </xsl:choose>
         </xsl:when>
 
         <!-- Other cases: copy current gmd:description element -->
