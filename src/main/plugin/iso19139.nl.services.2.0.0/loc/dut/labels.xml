@@ -1184,9 +1184,7 @@
   </element>
 
   <!-- ==================================================== -->
-
-  <element name="gmd:useLimitation"
-           context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/gmd:resourceConstraints/gmd:MD_Constraints/gmd:useLimitation">
+  <element name="gmd:useLimitation">
     <label>Gebruiks beperkingen</label>
     <btnLabel>Gebruiks beperking toevoegen</btnLabel>
     <description>Toepassingen waarvoor de data of service niet geschikt is.</description>
@@ -1195,22 +1193,14 @@
   </element>
 
 
-
-  <element name="gmd:useLimitation"
-           context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/gmd:resourceConstraints/gmd:MD_LegalConstraints/gmd:useLimitation">
-    <label>(Juridische) gebruiks beperkingen</label>
-    <btnLabel>(Juridische) gebruiks beperking toevoegen</btnLabel>
-    <description>Toepassingen waarvoor de data of service juridisch niet geschikt is.</description>
-    <help_link>http://wiki.geonovum.nl/index.php/2.5.21_Conditions_applying_to_access_and_use</help_link>
-    <condition>mandatory</condition>
-  </element>
  
   <!-- ==================================================== -->
 
   <element name="gmd:MD_Constraints">
     <label>Beperkingen</label>
     <btnLabel>Beperking toevoegen</btnLabel>
-    <description>Beperkingen die van toepassing zijn op de wijze van
+    <description>
+      Beperkingen die van toepassing zijn op de wijze van
       toegang of het gebruik
     </description>
   </element>
@@ -1318,8 +1308,7 @@
 
   <!-- ==================================================== -->
 
-  <element name="srv:operatesOn"
-           context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/srv:operatesOn">
+  <element name="srv:operatesOn">
     <label>Gekoppelde bron</label>
     <description>Dit element is conditioneel in INSPIRE. Het is verplicht als er links naar de datasets waarop de
       service opereert beschikbaar zijn. Voor dataservices is het dus verplicht. Dit element geeft informatie (metadata) over de
@@ -1330,9 +1319,9 @@
 
   <element name="xlink:href"
            context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/srv:operatesOn">
-    <label>Metadata url</label>
-    <description>Link naar een xml representatie van de metadata</description>
-    <condition>conditional</condition>
+    <label>Gekoppelde bron</label>
+    <description>Link naar een xml representatie van de metadata van de gekoppelde bron</description>
+    <condition>mandatory</condition>
   </element>
 
   <element name="xlink:href">
