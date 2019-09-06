@@ -779,9 +779,9 @@
         <Field name="operation" string="{string(.)}" store="true" index="true"/>
       </xsl:for-each>
 
-      <xsl:for-each select="srv:operatesOn/@uuidref">
+      <!--<xsl:for-each select="srv:operatesOn/@uuidref">
         <Field name="operatesOn" string="{string(.)}" store="true" index="true"/>
-      </xsl:for-each>
+      </xsl:for-each>-->
 
       <xsl:variable name="siteUrl" select="util:getSiteUrl()" />
 
@@ -797,7 +797,8 @@
         <xsl:variable name="xlinkHref" select="replace(., '#MD_DataIdentification', '')" />
 
         <xsl:choose>
-          <xsl:when test="string(normalize-space($xlinkHref)) and not(starts-with($xlinkHref, $siteUrl))">
+          <!-- replace($xlinkHref, 'http://', 'https://') used to avoid difference only in protocol in case the server can be accessed by http and https -->
+          <xsl:when test="string(normalize-space($xlinkHref)) and not(starts-with(replace($xlinkHref, 'http://', 'https://'), replace($siteUrl, 'http://', 'https://')))">
             <!-- also store the full URI in case this is not a CSW request -->
             <!--<Field name="operatesOn" string="{string(.)}" store="true"
                    index="true"/>-->
@@ -826,15 +827,18 @@
                     <Field name="operatesOnRemote" string="{concat($datasetUuid, '|', normalize-space($datasetTitle), '|', normalize-space($datasetAbstract), '|', $xlinkHref)}" store="true"
                            index="true"/>
                   </xsl:when>
+                  <!-- Do we need this check? maybe in this case use operatesOn instead of operatesOnRemote to use local info? -->
                   <xsl:otherwise>
-                    <Field name="operatesOnRemote" string="{concat($datasetUuid, '|', $datasetUuid, '|', '|', $xlinkHref)}" store="true"
+                    <xsl:variable name="datasetTitle" select="$remoteDoc//*[gmd:MD_DataIdentification or @gco:isoType='gmd:MD_DataIdentification']//gmd:citation//gmd:title/gco:CharacterString" />
+                    <xsl:variable name="datasetAbstract" select="$remoteDoc//*[gmd:MD_DataIdentification or @gco:isoType='gmd:MD_DataIdentification']//gmd:abstract/gco:CharacterString" />
+                    <Field name="operatesOnRemote" string="{concat($datasetUuid, '|', normalize-space($datasetTitle), '|', normalize-space($datasetAbstract), '|', $xlinkHref)}" store="true"
                            index="true"/>
                   </xsl:otherwise>
                 </xsl:choose>
               </xsl:when>
 
               <xsl:otherwise>
-                <xsl:variable name="uuidFromCsw"  select="tokenize(tokenize(string(.),'&amp;id=')[2],'&amp;')[1]" />
+                <xsl:variable name="uuidFromCsw"  select="tokenize(tokenize(string($xlinkHref),'&amp;id=')[2],'&amp;')[1]" />
 
                 <xsl:choose>
                   <!-- Assume is a CSW request and extract the uuid from csw request and add as operatesOnRemote -->
@@ -853,7 +857,7 @@
             </xsl:choose>
           </xsl:when>
           <xsl:otherwise>
-            <xsl:variable name="uuidFromCsw"  select="tokenize(tokenize(string(.),'&amp;id=')[2],'&amp;')[1]" />
+            <xsl:variable name="uuidFromCsw"  select="tokenize(tokenize(string($xlinkHref),'&amp;id=')[2],'&amp;')[1]" />
 
             <xsl:choose>
               <!-- Assume is a CSW request and extract the uuid from csw request and add as operatesOn -->
