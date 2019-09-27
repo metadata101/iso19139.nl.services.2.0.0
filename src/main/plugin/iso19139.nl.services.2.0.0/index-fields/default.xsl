@@ -815,7 +815,7 @@
             <xsl:variable name="datasetUuid" select="$remoteDoc//gmd:fileIdentifier/gco:CharacterString" />
 
             <xsl:choose>
-              <xsl:when test="string($datasetUuid)">
+              <xsl:when test="count($datasetUuid) = 1 and string($datasetUuid)">
                 <xsl:variable name="existsLocally" select="not(normalize-space(util:getRecord($datasetUuid)) = '')" />
 
                 <xsl:choose>
