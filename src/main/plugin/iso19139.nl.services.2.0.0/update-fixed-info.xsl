@@ -273,6 +273,10 @@
           gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OGC:WMTS' or
           gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OGC:WFS' or
           gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OGC:WCS' or
+          gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OGC:WPS' or
+          gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OGC:SOS' or
+          gmd:CI_OnlineResource/gmd:protocol/*/text() = 'TMS' or
+          gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OGC:CSW' or
           gmd:CI_OnlineResource/gmd:protocol/*/text() = 'INSPIRE Atom']) > 0">
 
           <xsl:choose>
@@ -298,6 +302,10 @@
                           gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OGC:WMTS' or
                           gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OGC:WFS' or
                           gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OGC:WCS' or
+                          gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OGC:WPS' or
+                          gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OGC:SOS' or
+                          gmd:CI_OnlineResource/gmd:protocol/*/text() = 'TMS' or
+                          gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OGC:CSW' or
                           gmd:CI_OnlineResource/gmd:protocol/*/text() = 'INSPIRE Atom'][1]" />
 
                         <srv:connectPoint>
@@ -334,6 +342,10 @@
                         gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OGC:WMTS' or
                         gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OGC:WFS' or
                         gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OGC:WCS' or
+                        gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OGC:WPS' or
+                        gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OGC:SOS' or
+                        gmd:CI_OnlineResource/gmd:protocol/*/text() = 'TMS' or
+                        gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OGC:CSW' or
                         gmd:CI_OnlineResource/gmd:protocol/*/text() = 'INSPIRE Atom'][1]" />
 
                   <srv:connectPoint>
@@ -390,7 +402,7 @@
 
       <xsl:choose>
         <!-- Add request=GetCapabilities if missing -->
-        <xsl:when test="geonet:contains-any-of($protocol, ('OGC:WMS', 'OGC:WMTS', 'OGC:WFS', 'OGC:WCS'))">
+        <xsl:when test="geonet:contains-any-of($protocol, ('OGC:WMS', 'OGC:WMTS', 'OGC:WFS', 'OGC:WCS', 'OGC:CSW', 'OGC:WPS', 'OGC:SOS'))">
           <xsl:variable name="url" select="gmd:linkage/gmd:URL" />
           <xsl:variable name="paramRequest" select="'request=GetCapabilities'" />
 
@@ -453,7 +465,7 @@
           <xsl:choose>
             <!-- Access points -->
             <xsl:when test="geonet:contains-any-of($protocol, ('OGC:WMS', 'OGC:WMTS', 'OGC:WFS', 'OGC:WCS', 'INSPIRE Atom',
-          'landingpage', 'application', 'dataset', 'OGC:WPS', 'OGC:SOS',
+          'landingpage', 'application', 'dataset', 'OGC:WPS', 'OGC:SOS', 'TMS',
           'OGC:SensorThings', 'OAS', 'W3C:SPARQL', 'OASIS:OData', 'OGC:CSW',
           'OGC:WCTS', 'OGC:WFS-G', 'OGC:SPS', 'OGC:SAS', 'OGC:WNS', 'OGC:ODS', 'OGC:OGS', 'OGC:OUS', 'OGC:OPS', 'OGC:ORS', 'UKST'))">
 
