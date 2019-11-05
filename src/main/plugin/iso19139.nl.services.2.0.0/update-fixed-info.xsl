@@ -402,7 +402,7 @@
 
       <xsl:choose>
         <!-- Add request=GetCapabilities if missing -->
-        <xsl:when test="geonet:contains-any-of($protocol, ('OGC:WMS', 'OGC:WMTS', 'OGC:WFS', 'OGC:WCS', 'OGC:CSW, 'OGC:WPS', 'OGC:SOS'))">
+        <xsl:when test="geonet:contains-any-of($protocol, ('OGC:WMS', 'OGC:WMTS', 'OGC:WFS', 'OGC:WCS', 'OGC:CSW', 'OGC:WPS', 'OGC:SOS'))">
           <xsl:variable name="url" select="gmd:linkage/gmd:URL" />
           <xsl:variable name="paramRequest" select="'request=GetCapabilities'" />
 
