@@ -794,7 +794,8 @@
 
              Ignore it for indexing.
         -->
-        <xsl:variable name="xlinkHref" select="replace(., '#MD_DataIdentification', '')" />
+        
+        <xsl:variable name="xlinkHref" select="tokenize(., '#')[1]" />
 
         <xsl:choose>
           <!-- replace($xlinkHref, 'http://', 'https://') used to avoid difference only in protocol in case the server can be accessed by http and https -->
