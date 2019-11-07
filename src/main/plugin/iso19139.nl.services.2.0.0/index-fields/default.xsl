@@ -838,7 +838,7 @@
               </xsl:when>
 
               <xsl:otherwise>
-                <xsl:variable name="uuidFromCsw"  select="tokenize(tokenize(string($xlinkHref),'&amp;id=')[2],'&amp;')[1]" />
+                <xsl:variable name="uuidFromCsw"  select="tokenize(tokenize(tokenize(string($xlinkHref),'#')[1],'&amp;id=')[2],'&amp;')[1]" />
 
                 <xsl:choose>
                   <!-- Assume is a CSW request and extract the uuid from csw request and add as operatesOnRemote -->
@@ -857,7 +857,7 @@
             </xsl:choose>
           </xsl:when>
           <xsl:otherwise>
-            <xsl:variable name="uuidFromCsw"  select="tokenize(tokenize(string($xlinkHref),'&amp;id=')[2],'&amp;')[1]" />
+            <xsl:variable name="uuidFromCsw"  select="tokenize(tokenize(tokenize(string($xlinkHref),'#')[1],'&amp;id=')[2],'&amp;')[1]" />
 
             <xsl:choose>
               <!-- Assume is a CSW request and extract the uuid from csw request and add as operatesOn -->
