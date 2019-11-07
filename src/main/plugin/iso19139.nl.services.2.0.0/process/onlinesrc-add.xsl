@@ -36,6 +36,7 @@
                         normalize-space($updateKey) = concat(
                         gmd:CI_OnlineResource/gmd:linkage/gmd:URL,
                         gmd:CI_OnlineResource/gmd:protocol/*/text(),
+                        gmd:CI_OnlineResource/gmd:applicationProfile/*/text(),
                         gmd:CI_OnlineResource/gmd:name/gco:CharacterString,
                         gmd:CI_OnlineResource/gmd:name/gmd:PT_FreeText/gmd:textGroup/gmd:LocalisedCharacterString[@locale = '#DE'])
                         ]">
@@ -106,51 +107,19 @@
                   </xsl:choose>
                 </gmd:protocol>
 
-                <xsl:if test="$applicationProfile != ''">
-                  <gmd:applicationProfile>
-                    <xsl:choose>
-                      <xsl:when test="contains($applicationProfile, '#')">
-                        <xsl:for-each select="tokenize($applicationProfile, $separator)">
-                          <xsl:variable name="nameLang"
-                                        select="substring-before(., '#')"></xsl:variable>
-                          <xsl:variable name="nameValue"
-                                        select="substring-after(., '#')"></xsl:variable>
-                          <xsl:if
-                            test="$useOnlyPTFreeText = 'false' and $nameLang = $mainLang">
-                            <gco:CharacterString>
-                              <xsl:value-of select="$nameValue"/>
-                            </gco:CharacterString>
-                          </xsl:if>
-                        </xsl:for-each>
-
-                        <gmd:PT_FreeText>
-                          <xsl:for-each select="tokenize($applicationProfile, $separator)">
-                            <xsl:variable name="nameLang"
-                                          select="substring-before(., '#')"></xsl:variable>
-                            <xsl:variable name="nameValue"
-                                          select="substring-after(., '#')"></xsl:variable>
-
-                            <xsl:if
-                              test="$useOnlyPTFreeText = 'true' or $nameLang != $mainLang">
-                              <gmd:textGroup>
-                                <gmd:LocalisedCharacterString
-                                  locale="{concat('#', $nameLang)}">
-                                  <xsl:value-of select="$nameValue"/>
-                                </gmd:LocalisedCharacterString>
-                              </gmd:textGroup>
-                            </xsl:if>
-
-                          </xsl:for-each>
-                        </gmd:PT_FreeText>
-                      </xsl:when>
-                      <xsl:otherwise>
-                        <gco:CharacterString>
-                          <xsl:value-of select="$applicationProfile"/>
-                        </gco:CharacterString>
-                      </xsl:otherwise>
-                    </xsl:choose>
-                  </gmd:applicationProfile>
-                </xsl:if>
+                <!-- gmd:applicationProfile -->
+                <xsl:choose>
+                  <xsl:when test="geonet:contains-any-of($applicationProfile, ('discovery','view','download','transformation','invoke','other'))">
+                    <gmd:applicationProfile>
+                      <gmx:Anchor xlink:href="http://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceType/{$applicationProfile}">
+                        {$applicationProfile}
+                      </gmx:Anchor>
+                    </gmd:applicationProfile>
+                  </xsl:when>
+                  <xsl:otherwise>
+                    <xsl:apply-templates select="gmd:applicationProfile"/>
+                  </xsl:otherwise>
+                </xsl:choose>
 
                 <xsl:variable name="curName" select="."></xsl:variable>
                 <xsl:if test="$curName != ''">
@@ -288,51 +257,19 @@
                 </gmd:protocol>
               </xsl:if>
 
-              <xsl:if test="$applicationProfile != ''">
-                <gmd:applicationProfile>
-                  <xsl:choose>
-                    <xsl:when test="contains($applicationProfile, '#')">
-                      <xsl:for-each select="tokenize($applicationProfile, $separator)">
-                        <xsl:variable name="nameLang"
-                                      select="substring-before(., '#')"></xsl:variable>
-                        <xsl:variable name="nameValue"
-                                      select="substring-after(., '#')"></xsl:variable>
-                        <xsl:if
-                          test="$useOnlyPTFreeText = 'false' and $nameLang = $mainLang">
-                          <gco:CharacterString>
-                            <xsl:value-of select="$nameValue"/>
-                          </gco:CharacterString>
-                        </xsl:if>
-                      </xsl:for-each>
-
-                      <gmd:PT_FreeText>
-                        <xsl:for-each select="tokenize($applicationProfile, $separator)">
-                          <xsl:variable name="nameLang"
-                                        select="substring-before(., '#')"></xsl:variable>
-                          <xsl:variable name="nameValue"
-                                        select="substring-after(., '#')"></xsl:variable>
-
-                          <xsl:if
-                            test="$useOnlyPTFreeText = 'true' or $nameLang != $mainLang">
-                            <gmd:textGroup>
-                              <gmd:LocalisedCharacterString
-                                locale="{concat('#', $nameLang)}">
-                                <xsl:value-of select="$nameValue"/>
-                              </gmd:LocalisedCharacterString>
-                            </gmd:textGroup>
-                          </xsl:if>
-
-                        </xsl:for-each>
-                      </gmd:PT_FreeText>
-                    </xsl:when>
-                    <xsl:otherwise>
-                      <gco:CharacterString>
-                        <xsl:value-of select="$applicationProfile"/>
-                      </gco:CharacterString>
-                    </xsl:otherwise>
-                  </xsl:choose>
-                </gmd:applicationProfile>
-              </xsl:if>
+              <!-- gmd:applicationProfile -->
+              <xsl:choose>
+                <xsl:when test="geonet:contains-any-of($applicationProfile, ('discovery','view','download','transformation','invoke','other'))">
+                  <gmd:applicationProfile>
+                    <gmx:Anchor xlink:href="http://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceType/{$applicationProfile}">
+                      {$applicationProfile}
+                    </gmx:Anchor>
+                  </gmd:applicationProfile>
+                </xsl:when>
+                <xsl:otherwise>
+                  <xsl:apply-templates select="gmd:applicationProfile"/>
+                </xsl:otherwise>
+              </xsl:choose>
 
               <xsl:if test="$name != ''">
                 <gmd:name>
@@ -439,5 +376,18 @@
       </xsl:choose>
     </xsl:if>
   </xsl:template>
+  
+  <!-- Search for any of the searchStrings provided -->
+  <xsl:function name="geonet:contains-any-of" as="xs:boolean">
+    <xsl:param name="arg" as="xs:string?"/>
+    <xsl:param name="searchStrings" as="xs:string*"/>
+
+    <xsl:sequence
+      select="
+      some $searchString in $searchStrings
+      satisfies contains($arg,$searchString)
+      "
+    />
+  </xsl:function>
 
 </xsl:stylesheet>
