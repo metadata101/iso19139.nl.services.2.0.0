@@ -439,16 +439,14 @@
         </xsl:otherwise>
       </xsl:choose>
 
-
       <xsl:apply-templates select="gmd:protocol" />
-      <xsl:apply-templates select="gmd:name" />
-      
+
       <!-- gmd:applicationProfile -->
       <xsl:choose>
         <xsl:when test="geonet:contains-any-of($applicationProfile, ('discovery','view','download','transformation','invoke','other'))">
           <gmd:applicationProfile>
               <gmx:Anchor xlink:href="http://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceType/{$applicationProfile}">
-              {$applicationProfile}</gmx:Anchor>
+              <xsl:value-of select="$applicationProfile" /></gmx:Anchor>
           </gmd:applicationProfile>
         </xsl:when>
 
@@ -456,6 +454,8 @@
           <xsl:apply-templates select="gmd:applicationProfile" />
         </xsl:otherwise>
       </xsl:choose>
+
+      <xsl:apply-templates select="gmd:name" />
 
       <!-- gmd:description -->
       <xsl:choose>
