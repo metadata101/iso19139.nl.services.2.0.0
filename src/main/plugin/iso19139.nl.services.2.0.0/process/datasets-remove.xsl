@@ -31,8 +31,5 @@
 
   <!-- TODO: Review with ISO19139 version, some differences -->
   <xsl:template match="geonet:*|
-                      srv:coupledResource[normalize-space(
-                      srv:SV_CoupledResource/srv:identifier/gco:CharacterString) = $uuidref]|
-                      srv:operatesOn[@uuidref = $uuidref]|
-                      srv:operatesOn[ends-with(@xlink:href, $uuidref)]" priority="2"/>
+                      srv:operatesOn[contains(@xlink:href, $uuidref)]" priority="2"/>
 </xsl:stylesheet>
