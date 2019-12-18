@@ -33,22 +33,14 @@
   <xsl:param name="atomProtocol"/>
 
   <xsl:template match="gmd:MD_Metadata">
-    <!--<feeds>
-    <xsl:for-each  select="gmd:identificationInfo/srv:SV_ServiceIdentification/srv:containsOperations/srv:SV_OperationMetadata/srv:connectPoint[ends-with(gmd:CI_OnlineResource/gmd:linkage/gmd:URL, 'xml')]">
-        <atomfeed><xsl:value-of select="gmd:CI_OnlineResource/gmd:linkage/gmd:URL"/></atomfeed>
-    </xsl:for-each>
-    </feeds>-->
-
-    <xsl:variable name="lower">abcdefghijklmnopqrstuvwxyz</xsl:variable>
-    <xsl:variable name="upper">ABCDEFGHIJKLMNOPQRSTUVWXYZ</xsl:variable>
-
+   
     <!-- Get first element. TODO: Check if can be several -->
     <xsl:choose>
-      <xsl:when test="string(gmd:identificationInfo/srv:SV_ServiceIdentification/srv:containsOperations/srv:SV_OperationMetadata/srv:connectPoint/gmd:CI_OnlineResource[translate(gmd:protocol/gco:CharacterString, $upper, $lower) = translate($atomProtocol, $upper, $lower)]/gmd:linkage/gmd:URL)">
+      <!--<xsl:when test="string(gmd:identificationInfo/srv:SV_ServiceIdentification/srv:containsOperations/srv:SV_OperationMetadata/srv:connectPoint/gmd:CI_OnlineResource[translate(gmd:protocol/gco:CharacterString, $upper, $lower) = translate($atomProtocol, $upper, $lower)]/gmd:linkage/gmd:URL)">
         <atomfeed><xsl:value-of select="gmd:identificationInfo/srv:SV_ServiceIdentification/srv:containsOperations/srv:SV_OperationMetadata/srv:connectPoint/gmd:CI_OnlineResource[translate(gmd:protocol/gco:CharacterString, $upper, $lower) = translate($atomProtocol, $upper, $lower)]/gmd:linkage/gmd:URL"/></atomfeed>
-      </xsl:when>
-      <xsl:when test="string(gmd:distributionInfo/gmd:MD_Distribution/gmd:transferOptions/gmd:MD_DigitalTransferOptions/gmd:onLine/gmd:CI_OnlineResource[translate(gmd:protocol/gco:CharacterString, $upper, $lower) = translate($atomProtocol, $upper, $lower)]/gmd:linkage/gmd:URL)">
-        <atomfeed><xsl:value-of select="gmd:distributionInfo/gmd:MD_Distribution/gmd:transferOptions/gmd:MD_DigitalTransferOptions/gmd:onLine/gmd:CI_OnlineResource[translate(gmd:protocol/gco:CharacterString, $upper, $lower) = translate($atomProtocol, $upper, $lower)]/gmd:linkage/gmd:URL"/></atomfeed>
+      </xsl:when>-->
+      <xsl:when test="string(gmd:distributionInfo/gmd:MD_Distribution/gmd:transferOptions/gmd:MD_DigitalTransferOptions/gmd:onLine/gmd:CI_OnlineResource[lower-case(gmd:protocol/*/text()) = lower-case($atomProtocol)]/gmd:linkage/gmd:URL)">
+        <atomfeed><xsl:value-of select="gmd:distributionInfo/gmd:MD_Distribution/gmd:transferOptions/gmd:MD_DigitalTransferOptions/gmd:onLine/gmd:CI_OnlineResource[lower-case(gmd:protocol/*/text()) = lower-case($atomProtocol)]/gmd:linkage/gmd:URL"/></atomfeed>
       </xsl:when>
       <xsl:otherwise>
         <atomfeed></atomfeed>
