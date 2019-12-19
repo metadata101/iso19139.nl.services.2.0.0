@@ -542,30 +542,8 @@
           </action>
 
           <!-- herzieningsfrequentie -->
-          <field name="resourceMaintenance" templateModeOnly="true" notDisplayedIfMissing="true" del="."
-                 xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:resourceMaintenance">
-            <template>
-              <values>
-                <key label="maintenanceAndUpdateFrequency" tooltip="gmd:maintenanceAndUpdateFrequency"
-                     xpath="gmd:MD_MaintenanceInformation/gmd:maintenanceAndUpdateFrequency/gmd:MD_MaintenanceFrequencyCode/@codeListValue">
-                  <codelist name="gmd:MD_MaintenanceFrequencyCode" /></key>
-                <key label="dateOfNextUpdate"
-                     xpath="gmd:MD_MaintenanceInformation/gmd:dateOfNextUpdate/gco:Date" use="gn-date-picker"
-                     tooltip="gmd:dateOfNextUpdate">
-                  <directiveAttributes data-hide-time="true"/>
-                </key>
-              </values>
-              <snippet>
-                <gmd:resourceMaintenance>
-                  <gmd:MD_MaintenanceInformation>
-                    <gmd:maintenanceAndUpdateFrequency>
-                      <gmd:MD_MaintenanceFrequencyCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml" codeListValue="{{maintenanceAndUpdateFrequency}}"></gmd:MD_MaintenanceFrequencyCode>
-                    </gmd:maintenanceAndUpdateFrequency>
-                    <gmd:dateOfNextUpdate><gco:Date>{{dateOfNextUpdate}}</gco:Date></gmd:dateOfNextUpdate>
-                  </gmd:MD_MaintenanceInformation>
-                </gmd:resourceMaintenance>
-              </snippet>
-            </template>
+          <field name="resourceMaintenance" 
+                 xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:resourceMaintenance">           
           </field>
 
           <action type="add"
@@ -578,7 +556,7 @@
                 <gmd:resourceMaintenance>
                   <gmd:MD_MaintenanceInformation>
                     <gmd:MD_MaintenanceFrequencyCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml" codeListValue=""></gmd:MD_MaintenanceFrequencyCode>
-                    <gmd:dateOfNextUpdate></gmd:dateOfNextUpdate>
+                    <gmd:dateOfNextUpdate><gco:Date/></gmd:dateOfNextUpdate>
                   </gmd:MD_MaintenanceInformation>
                 </gmd:resourceMaintenance>
               </snippet>
