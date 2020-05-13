@@ -979,7 +979,7 @@
           <!-- ignore empty downloads -->
           <xsl:if test="string($linkage)!='' and not(contains($linkage,$download_check))">
             <xsl:variable name="protocols"
-                          select="'|OGC:CSW|OGC:WMS|OGC:WMTS|OGC:WFS|OGC:WCS|OGC:SOS|NSPIRE Atom|OGC:WCTS|OGC:WPS|OGC:WFS-G|OGC:SPS|OGC:SAS|OGC:WNS|OGC:ODS|OGC:OGS|OGC:OUS|OGC:OPS|OGC:ORS|OGC:SensorThings|W3C:SPARQL|OASIS:OData|OAS|landingpage|application|dataset|UKST|'"/>
+                          select="'|OGC:CSW|OGC:WMS|OGC:WMTS|OGC:WFS|OGC:WCS|OGC:SOS|INSPIRE Atom|OGC:WCTS|OGC:WPS|OGC:WFS-G|OGC:SPS|OGC:SAS|OGC:WNS|OGC:ODS|OGC:OGS|OGC:OUS|OGC:OPS|OGC:ORS|OGC:SensorThings|W3C:SPARQL|OASIS:OData|OAS|landingpage|application|dataset|UKST|'"/>
             <xsl:if test="contains($protocols,concat('|',string($protocol),'|'))">
               <Field name="protocol" string="{string($protocol)}" store="true" index="true"/>
             </xsl:if>
