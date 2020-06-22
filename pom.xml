@@ -49,6 +49,9 @@
 
     <resources>
       <resource>
+        <directory>src/main/resources</directory>
+      </resource>
+      <resource>
         <directory>src/main/plugin</directory>
         <targetPath>plugin</targetPath>
       </resource>
