@@ -12,7 +12,7 @@
                 xmlns:exslt="http://exslt.org/common" exclude-result-prefixes="#all">
 
   <!-- Readonly elements -->
-  
+
   <xsl:template mode="mode-iso19139" priority="2000" match="gmd:metadataStandardName[$schema='iso19139.nl.services.2.0.0']|gmd:metadataStandardVersion[$schema='iso19139.nl.services.2.0.0']">
     <xsl:param name="schema" select="$schema" required="no"/>
     <xsl:param name="labels" select="$labels" required="no"/>
@@ -201,7 +201,7 @@
             </xsl:element>
           </xsl:when>
           <xsl:otherwise>
-            <xsl:copy-of select="gn-fn-metadata:getFieldDirective($editorConfig, name(), '')"/>
+            <xsl:copy-of select="gn-fn-metadata:getFieldDirective($editorConfig, name(), name($theElement), $xpath)"/>
           </xsl:otherwise>
         </xsl:choose>
       </xsl:with-param>
