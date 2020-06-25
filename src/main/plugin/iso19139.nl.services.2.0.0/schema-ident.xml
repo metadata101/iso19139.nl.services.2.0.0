@@ -29,7 +29,8 @@
   <id>fd0615d2-ff7f-43ad-908e-f9ed774a34e5</id>
   <version>1.0</version>
   <appMinorVersionSupported>3.4.0</appMinorVersionSupported>
-  <title>ISO19139 dutch service schema plugin</title>
+  <title xml:lang="en">Dutch metadata profile on ISO 19119 for services versio 2.0.0</title>
+  <title xml:lang="nl">Nederlands metadata profiel op ISO 19119 voor services versie 2.0.0</title>
   <description>ISO19139 dutch service schema plugin</description>
   <standardUrl>http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=53798</standardUrl>
   <depends>iso19139</depends>
