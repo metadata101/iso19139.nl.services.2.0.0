@@ -235,6 +235,8 @@
     <!-- TODO: Review Specific for Dutch schema -->
     <name>gmd:verticalCRS</name>
     <name>srv:parameters</name>
+
+    <name>gmd:resourceMaintenance</name>
   </fieldsWithFieldset>
 
   <multilingualFields>
@@ -542,8 +544,8 @@
           </action>
 
           <!-- herzieningsfrequentie -->
-          <field name="resourceMaintenance" 
-                 xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:resourceMaintenance">           
+          <field name="resourceMaintenance"
+                 xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:resourceMaintenance">
           </field>
 
           <action type="add"
@@ -555,7 +557,9 @@
               <snippet>
                 <gmd:resourceMaintenance>
                   <gmd:MD_MaintenanceInformation>
-                    <gmd:MD_MaintenanceFrequencyCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml" codeListValue=""></gmd:MD_MaintenanceFrequencyCode>
+                    <gmd:maintenanceAndUpdateFrequency>
+                      <gmd:MD_MaintenanceFrequencyCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml" codeListValue=""></gmd:MD_MaintenanceFrequencyCode>
+                    </gmd:maintenanceAndUpdateFrequency>
                     <gmd:dateOfNextUpdate><gco:Date/></gmd:dateOfNextUpdate>
                   </gmd:MD_MaintenanceInformation>
                 </gmd:resourceMaintenance>
@@ -771,8 +775,8 @@
                  use="data-gn-keyword-picker"
                  xpath="/gmd:MD_Metadata/gmd:referenceSystemInfo/gmd:MD_ReferenceSystem/gmd:referenceSystemIdentifier/gmd:RS_Identifier/gmd:code"
                  del="../../../..">
-            <directiveAttributes 
-            data-thesaurus-key="external.theme.projections" 
+            <directiveAttributes
+            data-thesaurus-key="external.theme.projections"
             data-order-by-id="true"
             data-display-definition="true"
             data-thesaurus-concept-id-attribute="xlinkCOLONhref"/>
@@ -1214,13 +1218,13 @@
                 </gmd:DQ_Scope>
               </snippet>
             </template>
-          </action> 
+          </action>
 
           <!--    5.23 Beschrijving scope kwaliteitsbeschrijving = hidden because value is always service -->
           <field name="levelDescription"
-                xpath="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:scope/gmd:DQ_Scope/gmd:levelDescription/gmd:MD_ScopeDescription/gmd:other" 
+                xpath="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:scope/gmd:DQ_Scope/gmd:levelDescription/gmd:MD_ScopeDescription/gmd:other"
                 del="../..">
-            </field> 
+            </field>
 
           <action type="add"
                   btnLabel="addQualityScopeDesc"
@@ -1238,7 +1242,7 @@
                   </gmd:levelDescription>
               </snippet>
             </template>
-          </action> 
+          </action>
 
 
           <!--   5.24 Algemene beschrijving herkomst .. -->
@@ -1272,8 +1276,8 @@
           </action>
 
           <!--   5.33 Conformiteitindicatie met de specificatie  -->
-          <field 
-            name="conformanceStatement" xpath="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report[gmd:DQ_DomainConsistency]" 
+          <field
+            name="conformanceStatement" xpath="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report[gmd:DQ_DomainConsistency]"
             or="report" in="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality"/>
 
 
@@ -1672,13 +1676,14 @@
         <for name="gmd:spatialResolution"/>
         <for name="gmd:pointOfContact"/>
         <for name="gmd:distributor"/>
-        <for name="gmd:contact"/>
+        <for name="gmd:contact" excludeFrom="gmd:MD_MaintenanceInformation"/>
         <for name="gmd:processor"/>
         <for name="gmd:topicCategory"/>
         <for name="gmd:distributionFormat"/>
         <for name="gmd:resourceConstraints"/>
         <for name="srv:parameters" />
         <for name="gmd:useLimitation" />
+        <for name="gmd:dateOfNextUpdate" />
       </flatModeExceptions>
 
       <thesaurusList>

@@ -277,5 +277,7 @@
     <suggest name="gmd:useLimitation"/>
   </field>
 
-
+  <field name="gmd:dateOfNextUpdate">
+    <suggest name="gco:Date"/>
+  </field>
 </fields>
