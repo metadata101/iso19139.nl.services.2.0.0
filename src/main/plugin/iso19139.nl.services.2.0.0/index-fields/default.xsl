@@ -827,14 +827,15 @@
 
                     <xsl:variable name="datasetAbstract" select="$remoteDoc//*[gmd:MD_DataIdentification or @gco:isoType='gmd:MD_DataIdentification']//gmd:abstract/gco:CharacterString" />
 
-                    <Field name="operatesOnRemote" string="{concat($datasetUuid, '|', normalize-space($datasetTitle), '|', normalize-space($datasetAbstract), '|', $xlinkHref)}" store="true"
+                    <Field name="operatesOn" string="{concat($datasetUuid, '|R|', normalize-space($datasetTitle), '|', normalize-space($datasetAbstract), '|', $xlinkHref)}" store="true"
                            index="true"/>
                   </xsl:when>
-                  <!-- Do we need this check? maybe in this case use operatesOn instead of operatesOnRemote to use local info? -->
+                  <!-- Use the local info - can happen that the local copy is not the most updated ... -->
                   <xsl:otherwise>
                     <xsl:variable name="datasetTitle" select="$remoteDoc//*[gmd:MD_DataIdentification or @gco:isoType='gmd:MD_DataIdentification']//gmd:citation//gmd:title/gco:CharacterString" />
                     <xsl:variable name="datasetAbstract" select="$remoteDoc//*[gmd:MD_DataIdentification or @gco:isoType='gmd:MD_DataIdentification']//gmd:abstract/gco:CharacterString" />
-                    <Field name="operatesOnRemote" string="{concat($datasetUuid, '|', normalize-space($datasetTitle), '|', normalize-space($datasetAbstract), '|', $xlinkHref)}" store="true"
+
+                    <Field name="operatesOn" string="{concat($datasetUuid, '|L|', normalize-space($datasetTitle), '|', normalize-space($datasetAbstract), '|', $xlinkHref)}" store="true"
                            index="true"/>
                   </xsl:otherwise>
                 </xsl:choose>
@@ -846,13 +847,13 @@
                 <xsl:choose>
                   <!-- Assume is a CSW request and extract the uuid from csw request and add as operatesOnRemote -->
                   <xsl:when test="string($uuidFromCsw)">
-                    <Field name="operatesOnRemote" string="{concat($uuidFromCsw, '|', $uuidFromCsw,'|', '|', $xlinkHref)}" store="true"
+                    <Field name="operatesOn" string="{concat($uuidFromCsw, '|R|', $uuidFromCsw,'|', '|', $xlinkHref)}" store="true"
                            index="true"/>
                   </xsl:when>
 
                   <!-- If no CSW request, store the link -->
                   <xsl:otherwise>
-                    <Field name="operatesOnRemote" string="{concat($xlinkHref, '|', $xlinkHref, '|', '|', $xlinkHref)}" store="true"
+                    <Field name="operatesOn" string="{concat($xlinkHref, '|R|', $xlinkHref, '|', '|', $xlinkHref)}" store="true"
                            index="true"/>
                   </xsl:otherwise>
                 </xsl:choose>
@@ -865,13 +866,13 @@
             <xsl:choose>
               <!-- Assume is a CSW request and extract the uuid from csw request and add as operatesOn -->
               <xsl:when test="string($uuidFromCsw)">
-                <Field name="operatesOn" string="{concat($uuidFromCsw, '|', $uuidFromCsw,'|', '|', $xlinkHref)}" store="true"
+                <Field name="operatesOn" string="{concat($uuidFromCsw, '|L|', $uuidFromCsw,'|', '|', $xlinkHref)}" store="true"
                        index="true"/>
               </xsl:when>
 
               <!-- If no CSW request, store the link -->
               <xsl:otherwise>
-                <Field name="operatesOn" string="{concat($xlinkHref, '|', $xlinkHref, '|', '|', $xlinkHref)}" store="true"
+                <Field name="operatesOn" string="{concat(@uuidref, '|L|', @uuidref, '|', '|', $xlinkHref)}" store="true"
                        index="true"/>
               </xsl:otherwise>
             </xsl:choose>
