@@ -34,77 +34,91 @@
 
   <!-- New strings added for the AngularJS editor -->
   <!-- View and tabs -->
-  <viewTitle><h3>Basis weergave</h3></viewTitle>
-  <viewDescription><div>Het basis formulier kan gebruikt worden voor het bewerken van metadata van Nederlandstalige datasets die gebaseerd zijn op het Rijksdriehoekstelsel. Dit formulier toont een beperkte set van elementen en doet een aantal aannames. Voor het bewerken van alle elementen uit het Nederlands profiel gebruikt u het formulier met titel "Nederlands profiel" (via de weergave knop met het "oogje" aan de rechter zijkant).</div></viewDescription>
+<viewTitle>
+    <h3>Dutch profil on ISO 19119 voor Services version 2.1.0 - Standard</h3>
+  </viewTitle>
+  <viewDescription>
+    <div> </div>
+  </viewDescription>
 
-  <dutchProfileTitle><h3>Nederlands profiel weergave</h3></dutchProfileTitle>
-  <dutchProfileDescription><div>In deze weergave worden alle elementen van het Nederlands profiel getoond.</div></dutchProfileDescription>
+  <dutchProfileTitle>
+    <h3>Dutch profil on ISO 19119 voor Services version 2.1.0 - Optional &amp; conditional elements</h3>
+  </dutchProfileTitle>
+  <dutchProfileDescription>
+    <div></div>
+  </dutchProfileDescription>
+  <fullViewTitle>
+    <h3>Dutch profil on ISO 19119 voor Services version 2.1.0 - Volledig iso19139 + services weergave</h3>
+  </fullViewTitle>
+  <fullViewDescription>
+    <div/> 
+  </fullViewDescription>
 
-  <fullViewTitle><h3>Volledige weergave</h3></fullViewTitle>
-  <fullViewDescription><div>De volledige weergave toont alle ISO elementen.</div></fullViewDescription>
-
-  <xmlViewTitle><h3>XML weergave</h3></xmlViewTitle>
-  <xmlViewDescription><div>In deze weergave worden alle ingevulde elementen getoond in XML.</div></xmlViewDescription>
-
+  <xmlViewTitle>
+    <h3>XML display</h3>
+  </xmlViewTitle>
+  <xmlViewDescription>
+    <div></div>
+  </xmlViewDescription>
   <advanced>Full</advanced>
   <default>Dutch profile</default>
   <dutchprofile>Dutch profile</dutchprofile>
   <simple>Simple</simple>
   <inspire>INSPIRE</inspire>
 
-  <metadata>Over de metadata</metadata>
-  <identificationInfo>Identificatie info</identificationInfo>
-  <distributorContact>Contact informatie</distributorContact>
-  <distributionInfo>Distributie</distributionInfo>
-  <dataQualityInfo>Kwaliteit</dataQualityInfo>
+  <metadata>About the metadata</metadata>
+  <identificationInfo>Identification info</identificationInfo>
+  <distributorContact>Contact information</distributorContact>
+  <distributionInfo>Distribution</distributionInfo>
+  <dataQualityInfo>Quality</dataQualityInfo>
   <spatialRepresentationInfo>Spatial rep.</spatialRepresentationInfo>
-  <referenceSystemInfo>Referentie systeem</referenceSystemInfo>
+  <referenceSystemInfo>Referenence system</referenceSystemInfo>
   <contentInfo>Content</contentInfo>
   <portrayalCatalogueInfo>Portrayal</portrayalCatalogueInfo>
   <metadataConstraints>Md. constraints</metadataConstraints>
   <metadataMaintenance>Md. maintenance</metadataMaintenance>
   <applicationSchemaInfo>Schema info</applicationSchemaInfo>
-  <noThesaurusName>Trefwoorden</noThesaurusName>
+  <noThesaurusName>Keywords</noThesaurusName>
   <bboxesSection>Geographic coverage</bboxesSection>
 
-  <resource>Bron</resource>
+  <resource>resource</resource>
   <xml>XML</xml>
 
-  <Optional>Optionele elementen</Optional>
-  <Required>Verplichte elementen</Required>
-  <INSPIRE>INSPIRE elementen</INSPIRE>
+  <Optional>Optional elements</Optional>
+  <Required>Required elements</Required>
+  <INSPIRE>INSPIRE elements</INSPIRE>
 
-  <metadataPointOfContact>Contact gegevens</metadataPointOfContact>
-  <pointOfContact>Contactgegevens service</pointOfContact>
-  <lineage>Herkomst</lineage>
-  <CI_RoleCode>Rol</CI_RoleCode>
-  <role>Rol</role>
+  <metadataPointOfContact>Contact</metadataPointOfContact>
+  <pointOfContact>Contact service</pointOfContact>
+  <lineage>Lineage</lineage>
+  <CI_RoleCode>Role</CI_RoleCode>
+  <role>Role</role>
 
-  <individualName>Naam</individualName>
-  <organisationName>Organisatie</organisationName>
-  <positionName>Functie</positionName>
-  <voice>Telefoon</voice>
+  <individualName>Name</individualName>
+  <organisationName>Organisation</organisationName>
+  <positionName>Position</positionName>
+  <voice>Phone</voice>
   <facsimile>Fax</facsimile>
   <electronicMailAddress>Email</electronicMailAddress>
-  <deliveryPoint>Adres</deliveryPoint>
-  <postalCode>Postcode</postalCode>
-  <city>Plaats</city>
-  <administrativeArea>Provincie</administrativeArea>
-  <country>Land</country>
-  <telephone>Telefoon</telephone>
+  <deliveryPoint>Address</deliveryPoint>
+  <postalCode>Postal code</postalCode>
+  <city>City</city>
+  <administrativeArea>Province</administrativeArea>
+  <country>Country</country>
+  <telephone>Phone</telephone>
   <onlineResource>Url</onlineResource>
 
-  <temporalRangeSection>Temporele dekking</temporalRangeSection>
-  <beginPosition>Van</beginPosition>
-  <endPosition>Tot</endPosition>
-  <inspireTheme>INSPIRE Thema</inspireTheme>
-  <topicCategory>Thema</topicCategory>
-  <conformity>Conformiteit indicatie</conformity>
+  <temporalRangeSection>Temporal coverage</temporalRangeSection>
+  <beginPosition>From</beginPosition>
+  <endPosition>To</endPosition>
+  <inspireTheme>INSPIRE Theme</inspireTheme>
+  <topicCategory>Theme</topicCategory>
+  <conformity>Conformance</conformity>
 
-  <report>Conformiteit</report>
+  <report>Conformance</report>
   <isINSPIREConform></isINSPIREConform>
   <isNotINSPIREConform></isNotINSPIREConform>
-  <descriptiveKeywords>Trefwoord</descriptiveKeywords>
+  <descriptiveKeywords>Keyword</descriptiveKeywords>
 
   <datasetcode>Unieke Identifier van de bron</datasetcode>
   <ds_language>Taal dataset</ds_language>

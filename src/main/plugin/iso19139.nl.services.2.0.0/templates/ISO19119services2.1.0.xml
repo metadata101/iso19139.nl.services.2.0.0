@@ -86,7 +86,7 @@
       <gco:CharacterString>ISO 19119</gco:CharacterString>
    </gmd:metadataStandardName>
    <gmd:metadataStandardVersion>
-      <gco:CharacterString>Nederlands metadata profiel op ISO 19119 voor services 2.0</gco:CharacterString>
+      <gco:CharacterString>Nederlands metadata profiel op ISO 19119 voor services 2.1.0</gco:CharacterString>
    </gmd:metadataStandardVersion>
    <gmd:referenceSystemInfo>
       <gmd:MD_ReferenceSystem>
@@ -104,7 +104,7 @@
          <gmd:citation>
             <gmd:CI_Citation>
                <gmd:title>
-                  <gco:CharacterString>1. Template Nederlands metadata profiel op ISO 19119 voor services 2.0.0</gco:CharacterString>
+                  <gco:CharacterString>1. Template Nederlands metadata profiel op ISO 19119 voor services 2.1.0</gco:CharacterString>
                </gmd:title>
                <gmd:date>
                   <gmd:CI_Date>
