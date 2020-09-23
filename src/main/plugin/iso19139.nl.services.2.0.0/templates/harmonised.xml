@@ -52,14 +52,14 @@
       <gco:CharacterString>ISO 19119</gco:CharacterString>
   </gmd:metadataStandardName>
   <gmd:metadataStandardVersion>
-      <gco:CharacterString>Nederlands metadata profiel op ISO 19119 voor services 2.0</gco:CharacterString>
+      <gco:CharacterString>Nederlands metadata profiel op ISO 19119 voor services 2.1.0</gco:CharacterString>
   </gmd:metadataStandardVersion>
   <gmd:identificationInfo>
       <srv:SV_ServiceIdentification>
       <gmd:citation>
         <gmd:CI_Citation>
           <gmd:title>
-                  <gco:CharacterString>4. Template NL profiel op ISO 19119 voor services 2.0.0 en INSPIRE SDS harmonised</gco:CharacterString>
+                  <gco:CharacterString>4. Template NL profiel op ISO 19119 voor services 2.1.0 en INSPIRE SDS harmonised</gco:CharacterString>
           </gmd:title>
           <gmd:date>
             <gmd:CI_Date>

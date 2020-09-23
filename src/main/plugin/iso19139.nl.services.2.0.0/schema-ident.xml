@@ -27,12 +27,12 @@
         xsi:schemaLocation="http://geonetwork-opensource.org/schemas/schema-ident http://geonetwork-opensource.org/schemas/schema-ident/schema-ident.xsd">
   <name>iso19139.nl.services.2.0.0</name>
   <id>fd0615d2-ff7f-43ad-908e-f9ed774a34e5</id>
-  <version>1.0</version>
-  <appMinorVersionSupported>3.4.0</appMinorVersionSupported>
-  <title xml:lang="en">Dutch metadata profile on ISO 19119 for services versio 2.0.0</title>
-  <title xml:lang="nl">Nederlands metadata profiel op ISO 19119 voor services versie 2.0.0</title>
-  <description>ISO19139 dutch service schema plugin</description>
-  <standardUrl>http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=53798</standardUrl>
+  <version>2.1.0</version>
+  <appMinorVersionSupported>3.6.0</appMinorVersionSupported>
+  <title xml:lang="en">Dutch metadata profile on ISO 19119 for services versio 2.1.0</title>
+  <title xml:lang="nl">Nederlands metadata profiel op ISO 19119 voor services versie 2.1.0</title>
+  <description>Geonovum ontwikkelt en beheert het Nederlandse metadata profiel voor het beschrijven van services waarin geografische datasets ontsloten worden. Dit profiel is een verbijzondering van de internationale metadatastandaarden van ISO en is bedoeld om de interoperabiliteit binnen Nederland te bevorderen.</description>
+  <standardUrl>https://docs.geostandaarden.nl/md/mdprofiel-iso19119</standardUrl>
   <depends>iso19139</depends>
   <schemaLocation>http://www.isotc211.org/2005/gmd http://schemas.opengis.net/csw/2.0.2/profiles/apiso/1.0.0/apiso.xsd</schemaLocation>
   <autodetect xmlns:gmd="http://www.isotc211.org/2005/gmd"
@@ -44,7 +44,7 @@
         <gco:CharacterString>ISO 19119</gco:CharacterString>
       </gmd:metadataStandardName>
       <gmd:metadataStandardVersion>
-        <gco:CharacterString>Nederlands metadata profiel op ISO 19119 voor services 2.0|Nederlandse metadata profiel op ISO 19119 voor services 2.0</gco:CharacterString>
+        <gco:CharacterString>Nederlands metadata profiel op ISO 19119 voor services 2.1.0|Nederlandse metadata profiel op ISO 19119 voor services 2.1.0|Nederlands metadata profiel op ISO 19119 voor services 2.0|Nederlandse metadata profiel op ISO 19119 voor services 2.0</gco:CharacterString>
       </gmd:metadataStandardVersion>
     </elements>
 
