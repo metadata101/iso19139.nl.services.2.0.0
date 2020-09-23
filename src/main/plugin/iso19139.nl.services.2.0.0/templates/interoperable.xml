@@ -196,7 +196,7 @@
           </srv:connectPoint>
         </srv:SV_OperationMetadata>
       </srv:containsOperations>
-         <srv:operatesOn uuidref="" xlink:href=""/>
+
     </srv:SV_ServiceIdentification>
   </gmd:identificationInfo>
   <gmd:distributionInfo>

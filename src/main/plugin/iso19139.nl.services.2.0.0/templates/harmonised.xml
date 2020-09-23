@@ -222,8 +222,6 @@
           </srv:connectPoint>
         </srv:SV_OperationMetadata>
       </srv:containsOperations>
-         <srv:operatesOn uuidref=""
-                         xlink:href="http://www.nationaalgeoregister.nl/geonetwork/srv/dut/csw?service=CSW&amp;request=GetRecordById&amp;version=2.0.2&amp;outputSchema=http://www.isotc211.org/2005/gmd&amp;elementSetName=full&amp;id="/>
     </srv:SV_ServiceIdentification>
   </gmd:identificationInfo>
   <gmd:distributionInfo>

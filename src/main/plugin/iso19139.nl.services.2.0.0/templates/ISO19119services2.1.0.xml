@@ -242,7 +242,6 @@
         <srv:SV_CouplingType codeList="https://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#SV_CouplingType"
                                  codeListValue="tight"/>
         </srv:couplingType>
-        <srv:operatesOn xlink:href=""/>
       </srv:SV_ServiceIdentification>
    </gmd:identificationInfo>
    <gmd:dataQualityInfo>
