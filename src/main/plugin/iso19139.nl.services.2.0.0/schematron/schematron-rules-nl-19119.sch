@@ -12,8 +12,8 @@
 
 	<sch:let name="lowercase" value="'abcdefghijklmnopqrstuvwxyz'"/>
 	<sch:let name="uppercase" value="'ABCDEFGHIJKLMNOPQRSTUVWXYZ'"/>
-	<sch:pattern id="Validatie tegen het Nederlands metadata profiel op ISO 19119">
-		<sch:title>Validatie tegen het Nederlands metadata profiel op ISO 19119 voor services v 2.0.0</sch:title>
+	<sch:pattern id="Validatie tegen het Nederlands metadata profiel op ISO 19119 2.1.0">
+		<sch:title>Validatie tegen het Nederlands metadata profiel op ISO 19119 voor services versie 2.1.0 (2020)</sch:title>
 		<!-- INSPIRE Thesaurus en Conformiteit-->
 		<sch:let name="thesaurus1" value="normalize-space(string-join(/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:descriptiveKeywords[1]/gmd:MD_Keywords/gmd:thesaurusName/gmd:CI_Citation/gmd:title[gco:CharacterString or gmx:Anchor]//text(), ''))"/>
 		<sch:let name="thesaurus2" value="normalize-space(string-join(/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:descriptiveKeywords[2]/gmd:MD_Keywords/gmd:thesaurusName/gmd:CI_Citation/gmd:title[gco:CharacterString or gmx:Anchor]//text(), ''))"/>
@@ -61,7 +61,8 @@
 			<sch:let name="mdResponsibleParty_Role_INSPIRE" value="gmd:contact[1]/*/gmd:role/*/@codeListValue = 'pointOfContact'"/>
 
 		<!-- Metadata verantwoordelijke organisatie (role) NL profiel -->
-			<sch:let name="mdResponsibleParty_Role" value="gmd:contact[1]/gmd:CI_ResponsibleParty/gmd:role/*/@codeListValue = 'resourceProvider' or gmd:contact/gmd:CI_ResponsibleParty/gmd:role/*/@codeListValue = 'custodian' or gmd:contact/gmd:CI_ResponsibleParty/gmd:role/*/@codeListValue = 'owner' or gmd:contact/gmd:CI_ResponsibleParty/gmd:role/*/@codeListValue = 'user' or gmd:contact/gmd:CI_ResponsibleParty/gmd:role/*/@codeListValue = 'distributor' or gmd:contact/gmd:CI_ResponsibleParty/gmd:role/*/@codeListValue = 'owner' or gmd:contact/gmd:CI_ResponsibleParty/gmd:role/*/@codeListValue = 'originator' or gmd:contact/gmd:CI_ResponsibleParty/gmd:role/*/@codeListValue = 'pointOfContact' or gmd:contact/gmd:CI_ResponsibleParty/gmd:role/*/@codeListValue = 'principalInvestigator' or gmd:contact/gmd:CI_ResponsibleParty/gmd:role/*/@codeListValue = 'processor' or gmd:contact/gmd:CI_ResponsibleParty/gmd:role/*/@codeListValue = 'publisher' or gmd:contact/gmd:CI_ResponsibleParty/gmd:role/*/@codeListValue = 'author'"/>
+			<!-- fix for first mdResponsibele Party, https://github.com/Geonovum/metadata-schematron/issues/20 -->
+			<sch:let name="mdResponsibleParty_Role" value="gmd:contact/gmd:CI_ResponsibleParty/gmd:role/*[@codeListValue = 'resourceProvider' or @codeListValue = 'custodian' or @codeListValue = 'owner' or @codeListValue = 'user' or @codeListValue = 'distributor' or @codeListValue = 'owner' or @codeListValue = 'originator' or @codeListValue = 'pointOfContact' or @codeListValue = 'principalInvestigator' or @codeListValue = 'processor' or @codeListValue = 'publisher' or @codeListValue = 'author'][1]"/>
 
 		<!-- Metadata verantwoordelijke organisatie (url) -->
 			<sch:let name="mdResponsibleParty_Mail" value="normalize-space(gmd:contact[1]/*/gmd:contactInfo/*/gmd:address/*/gmd:electronicMailAddress[1]/gco:CharacterString)"/>
@@ -150,6 +151,9 @@
 
  		<!-- Verantwoordelijke organisatie bron rol, https://docs.geostandaarden.nl/md/mdprofiel-iso19119/#verantwoordelijke-organisatie-bron:-rol -->
  			<sch:let name="responsibleParty_Role" value="gmd:identificationInfo/*/gmd:pointOfContact[1]/gmd:CI_ResponsibleParty/gmd:role/*[@codeListValue = 'resourceProvider' or @codeListValue = 'custodian' or @codeListValue = 'owner' or @codeListValue = 'user' or @codeListValue = 'distributor' or @codeListValue = 'owner' or @codeListValue = 'originator' or @codeListValue = 'pointOfContact' or @codeListValue = 'principalInvestigator' or @codeListValue = 'processor' or @codeListValue = 'publisher' or @codeListValue = 'author']"/>
+
+			<sch:let name="responsibleParty_Role_custodian" value="gmd:identificationInfo/*/gmd:pointOfContact[1]/gmd:CI_ResponsibleParty/gmd:role/*[@codeListValue = 'custodian'][1]"/>
+
 
 		 <!-- Trefwoorden  voor INSPIRE -->
 			<sch:let name="keyword_INSPIRE" value="normalize-space((gmd:identificationInfo[1]/*/gmd:descriptiveKeywords/*/gmd:keyword[1][gco:CharacterString or gmx:Anchor]/*
@@ -264,9 +268,9 @@
 			</sch:report>
 
 		<!-- INSPIRE in combi met SDS interop INSPIRE -->
-			<sch:assert id="Rol_organisatie_SDSISO_nr_379" etf_name="Rol organisatie SDS(ISO nr. 379)" test="not($conformity_Spec_Title_SDS_Interop) or ($conformity_Spec_Title_SDS_Interop and contains($responsibleParty_Role, 'custodian'))">Rol organisatie (ISO nr. 379) ontbreekt of heeft een verkeerde waarde, voor INSPIRE interoperable SDS in ieder geval de rol beheerder opnemen</sch:assert>
-			<sch:assert id="Rol_organisatie_SDS_harmoISO_nr_379" etf_name="Rol organisatie SDS harmo(ISO nr. 379)" test="not($conformity_Spec_Title_SDS_Harmo) or ($conformity_Spec_Title_SDS_Harmo and contains($responsibleParty_Role, 'custodian'))">Rol organisatie (ISO nr. 379) ontbreekt of heeft een verkeerde waarde, voor INSPIRE harmonised SDS in ieder geval de rol beheerder opnemen</sch:assert>
-			<sch:report id="Rol_organisatie_SDSISO_nr_379_info" etf_name="Rol organisatie SDS(ISO nr. 379) info" test="$conformity_Spec_Title_SDS_Interop">Rol verantwoordelijke organisatie (ISO nr. 379): <sch:value-of select="$conformity_Spec_Title_SDS_Interop"/>
+			<sch:assert id="Rol_organisatie_SDSISO_nr_379" etf_name="Rol organisatie SDS (ISO nr. 379)" test="not($conformity_Spec_Title_SDS_Interop) or ($conformity_Spec_Title_SDS_Interop and contains($responsibleParty_Role, 'custodian'))">Rol organisatie (ISO nr. 379) ontbreekt of heeft een verkeerde waarde, voor INSPIRE interoperable SDS in ieder geval de rol beheerder opnemen</sch:assert>
+			<sch:assert id="Rol_organisatie_SDS_harmoISO_nr_379" etf_name="Rol organisatie SDS harmonised (ISO nr. 379)" test="not($conformity_Spec_Title_SDS_Harmo) or ($conformity_Spec_Title_SDS_Harmo and $responsibleParty_Role_custodian)">Rol organisatie (ISO nr. 379) ontbreekt of heeft een verkeerde waarde, voor INSPIRE harmonised SDS in ieder geval de rol beheerder opnemen</sch:assert>
+			<sch:report id="Rol_organisatie_SDSISO_nr_379_info" etf_name="Rol organisatie SDS (ISO nr. 379) info" test="$conformity_Spec_Title_SDS_Interop">Rol verantwoordelijke organisatie (ISO nr. 379): <sch:value-of select="$conformity_Spec_Title_SDS_Interop"/>
 			</sch:report>
 		<!-- eind INSPIRE in combi met SDS INSPIRE -->
 
@@ -323,9 +327,7 @@
 
 		<!-- Protocol -->
 		<!-- https://docs.geostandaarden.nl/md/mdprofiel-iso19119/#protocol -->
-			<sch:let name="transferOptions_Protocol" value="gmd:distributionInfo/gmd:MD_Distribution/gmd:transferOptions/gmd:MD_DigitalTransferOptions/gmd:onLine[1]/gmd:CI_OnlineResource/gmd:protocol/*[normalize-space(text()) = 'OGC:CSW' or normalize-space(text()) = 'OGC:WMS' or normalize-space(text()) = 'OGC:WMTS' or normalize-space(text()) = 'OGC:WFS' or normalize-space(text()) = 'OGC:WCS' or normalize-space(text()) = 'OGC:WCTS' or normalize-space(text()) = 'OGC:WPS' or normalize-space(text()) = 'UKST' or normalize-space(text()) = 'INSPIRE Atom' or normalize-space(text()) = 'OGC:WFS-G' or normalize-space(text()) = 'OGC:SOS' or normalize-space(text()) = 'OGC:SPS' or normalize-space(text()) = 'OGC:SAS' or normalize-space(text()) = 'OGC:WNS' or normalize-space(text()) = 'OGC:ODS' or normalize-space(text()) = 'OGC:OGS' or normalize-space(text()) = 'OGC:OUS' or normalize-space(text()) = 'OGC:OPS' or normalize-space(text()) = 'OGC:ORS' or normalize-space(text()) = 'OGC:SensorThings' or normalize-space(text()) = 'W3C:SPARQL' or normalize-space(text()) = 'OASIS:OData' or normalize-space(text()) = 'OAS' or normalize-space(text()) = 'landingpage'  or normalize-space(text()) = 'dataset' or normalize-space(text()) = 'application' or normalize-space(text()) = 'UKST' ]" />
-
-			<sch:let name="transferOptions_Protocol_isOGCService" value="gmd:distributionInfo/gmd:MD_Distribution/gmd:transferOptions/gmd:MD_DigitalTransferOptions/gmd:onLine[1]/gmd:CI_OnlineResource/gmd:protocol/*[normalize-space(text()) = 'OGC:WMS' or normalize-space(text()) = 'OGC:WFS' or normalize-space(text()) = 'OGC:WCS']"/>
+			<sch:let name="transferOptions_Protocol" value="gmd:distributionInfo/gmd:MD_Distribution/gmd:transferOptions/gmd:MD_DigitalTransferOptions/gmd:onLine[1]/gmd:CI_OnlineResource/gmd:protocol/*[normalize-space(text()) = 'OGC:CSW' or normalize-space(text()) = 'OGC:WMS' or normalize-space(text()) = 'OGC:WMTS' or normalize-space(text()) = 'OGC:WFS' or normalize-space(text()) = 'OGC:WCS' or normalize-space(text()) = 'INSPIRE Atom' or normalize-space(text()) = 'OGC:SOS' or normalize-space(text()) = 'OGC:API features' or normalize-space(text()) = 'OGC:SensorThings' or normalize-space(text()) = 'W3C:SPARQL' or normalize-space(text()) = 'OASIS:OData' or normalize-space(text()) = 'OAS' or normalize-space(text()) = 'landingpage'  or normalize-space(text()) = 'OGC:OLS' ]" />
 
 			<sch:let name="transferOptions_MediaType" value="gmd:distributionInfo/gmd:MD_Distribution/gmd:transferOptions/gmd:MD_DigitalTransferOptions/gmd:onLine[1]/gmd:CI_OnlineResource/gmd:protocol/*[normalize-space(text()) = 'gml' or normalize-space(text()) = 'kml' or normalize-space(text()) = 'geojson' or normalize-space(text()) = 'gpkg' or normalize-space(text()) = 'json' or normalize-space(text()) = 'jsonld' or normalize-space(text()) = 'rdf-xml' or normalize-space(text()) = 'xml' or normalize-space(text()) = 'zip' or normalize-space(text()) = 'png' or normalize-space(text()) = 'png' or normalize-space(text()) = 'gif' or normalize-space(text()) = 'jp2' or normalize-space(text()) = 'tiff' or normalize-space(text()) = 'csv' or normalize-space(text()) = 'mapbox-vector-tile']"/>
 
@@ -452,6 +454,14 @@
 			<sch:let name="dataQualityInfo" value="gmd:dataQualityInfo/gmd:DQ_DataQuality"/>
 			<sch:let name="level" value="string($dataQualityInfo/gmd:scope/gmd:DQ_Scope/gmd:level/*/@codeListValue[. = 'service'])"/>
 
+
+			<sch:let name="dataQualityInfoCount" value="count(gmd:dataQualityInfo)" />
+			<sch:assert id="dataQualityInfo_1_keer" etf_name="Kwaliteitsbeschrijving 1 keer" test="$dataQualityInfoCount &lt; 2">Set elementen kwaliteitsbeschrijving komt maximaal 1 keer voor</sch:assert>
+
+			<sch:let name="levelCount" value="count($dataQualityInfo/gmd:scope/gmd:DQ_Scope/gmd:level)" />
+			<sch:assert id="level_1_keer" etf_name="Niveau kwaliteitsbeschrijving 1 keer" test="$levelCount &lt; 2">Niveau kwaliteitsbeschrijving (https://docs.geostandaarden.nl/md/mdprofiel-iso19119/#niveau-kwaliteitsbeschrijving) komt vaker dan 1 keer voor</sch:assert>
+
+
 			<!-- TODO: check xpath in respec doc: lijkt niet te kloppen. Klopt dit onderstaande pad wel? Met namespaces etc? -->
 			<sch:let name="levelDescription" value="string($dataQualityInfo/gmd:scope/gmd:DQ_Scope/gmd:levelDescription/*/gmd:other)"/>
 
@@ -468,18 +478,14 @@
 		</sch:rule>
 
 		<!-- Nieuw: codelijst protocol apart testen -->
-		<sch:rule id="Codelijst_protocol" etf_name="Codelijst protocol" context="//gmd:distributionInfo/gmd:MD_Distribution/gmd:transferOptions/gmd:MD_DigitalTransferOptions/gmd:onLine[1]/gmd:CI_OnlineResource/gmd:protocol/gmx:Anchor[text() = 'OGC:CSW' or text() = 'OGC:WMS' or text() = 'OGC:WMTS' or text() = 'OGC:WFS' or text() = 'OGC:WCS' or text() = 'OGC:WCTS' or text() = 'OGC:WPS' or text() = 'UKST' or text() = 'INSPIRE Atom' or text() = 'OGC:WFS-G' or text() = 'OGC:SOS' or text() = 'OGC:SPS' or text() = 'OGC:SAS' or text() = 'OGC:WNS' or text() = 'OGC:ODS' or text() = 'OGC:OGS' or text() = 'OGC:OUS' or text() = 'OGC:OPS' or text() = 'OGC:ORS' or text() = 'OGC:SensorThings' or text() = 'W3C:SPARQL' or text() = 'OASIS:OData' or text() = 'OAS' or text() = 'landingpage'  or text() = 'dataset' or text() = 'application' or text() = 'UKST']">
+		<sch:rule id="Codelijst_protocol" etf_name="Codelijst protocol" context="//gmd:distributionInfo/gmd:MD_Distribution/gmd:transferOptions/gmd:MD_DigitalTransferOptions/gmd:onLine/gmd:CI_OnlineResource/gmd:protocol/gmx:Anchor[text() = 'OGC:CSW' or text() = 'OGC:WMS' or text() = 'OGC:WMTS' or text() = 'OGC:WFS' or text() = 'OGC:WCS' or text() = 'OGC:WCTS' or text() = 'OGC:WPS' or text() = 'UKST' or text() = 'INSPIRE Atom' or text() = 'OGC:WFS-G' or text() = 'OGC:SOS' or text() = 'OGC:SPS' or text() = 'OGC:SAS' or text() = 'OGC:WNS' or text() = 'OGC:ODS' or text() = 'OGC:OGS' or text() = 'OGC:OUS' or text() = 'OGC:OPS' or text() = 'OGC:ORS' or text() = 'OGC:SensorThings' or text() = 'W3C:SPARQL' or text() = 'OASIS:OData' or text() = 'OAS' or text() = 'landingpage'  or text() = 'dataset' or text() = 'application' or text() = 'UKST']">
 
 			<sch:let name="anchorUri" value="normalize-space(@xlink:href)"/>
 			<sch:let name="txt" value="normalize-space(text())"/>
 			<sch:let name="combination" value="concat($anchorUri, '=', $txt)"/>
-			<sch:let name="codelist" value="'http://www.opengeospatial.org/standards/cat=OGC:CSW, http://www.opengeospatial.org/standards/wms=OGC:WMS, http://www.opengeospatial.org/standards/wmts=OGC:WMTS, http://www.opengeospatial.org/standards/wfs=OGC:WFS, http://www.opengeospatial.org/standards/wcs=OGC:WCS, http://www.opengeospatial.org/standards/sos=OGC:SOS, =INSPIRE Atom, http://www.opengis.net/def/serviceType/ogc/csw=OGC:CSW, http://www.opengis.net/def/serviceType/ogc/wms=OGC:WMS, http://www.opengis.net/def/serviceType/ogc/wmts=OGC:WMTS, http://www.opengis.net/def/serviceType/ogc/wfs=OGC:WFS, http://www.opengis.net/def/serviceType/ogc/wcs=OGC:WCS, http://www.opengis.net/def/serviceType/ogc/sos=OGC:SOS, https://tools.ietf.org/html/rfc4287=INSPIRE Atom, http://www.opengeospatial.org/standards/=OGC:WCTS, http://www.opengeospatial.org/standards/wps=OGC:WPS, =OGC:WFS-G, http://www.opengeospatial.org/standards/sps=OGC:SPS, http://www.ogcnetwork.net/SAS=OGC:SAS, =OGC:WNS, http://www.opengeospatial.org/standards/ols#ODS=OGC:ODS, http://www.opengeospatial.org/standards/ols#OGS=OGC:OGS, http://www.opengeospatial.org/standards/ols#OUS=OGC:OUS, http://www.opengeospatial.org/standards/ols#OPS=OGC:OPS, http://www.opengeospatial.org/standards/ols#ORS=OGC:ORS, http://www.opengeospatial.org/standards/sensorthings=OGC:SensorThings, https://www.w3.org/TR/rdf-sparql-query/=W3C:SPARQL, https://www.oasis-open.org/committees/odata=OASIS:OData, https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md=OAS, =landingpage, =application, =dataset, =UKST'" />
+			<sch:let name="codelist" value="'http://www.opengis.net/def/serviceType/ogc/csw=OGC:CSW, http://www.opengis.net/def/serviceType/ogc/wms=OGC:WMS, http://www.opengis.net/def/serviceType/ogc/wmts=OGC:WMTS, http://www.opengis.net/def/serviceType/ogc/wfs=OGC:WFS, http://www.opengis.net/def/serviceType/ogc/wcs=OGC:WCS, http://www.opengis.net/def/serviceType/ogc/sos=OGC:SOS, https://tools.ietf.org/html/rfc4287=INSPIRE Atom, http://www.opengis.net/def/interface/ogcapi-features=OGC:API features, http://www.opengeospatial.org/standards/ols=OGC:OLS, http://www.opengis.net/def/serviceType/ogc/ols=OGC:OLS, http://www.opengeospatial.org/standards/sensorthings=OGC:SensorThings, https://www.w3.org/TR/rdf-sparql-query/=W3C:SPARQL, https://www.oasis-open.org/committees/odata=OASIS:OData, https://github.com/OAI/OpenAPI-Specification/=OAS, https://www.w3.org/TR/vocab-dcat-2/#Property:resource_landing_page=landingpage'" />
 
-			<sch:assert id="Codelijst_protocol:_geldige_combinatie_van_URI_en_waarde" etf_name="Codelijst protocol: geldige combinatie van URI en waarde" test="contains($codelist, $combination)">De combinatie van de URI '<sch:value-of select="$anchorUri"/>' en waarde '<sch:value-of select="$txt"/>' is geen geldige combinatie uit de codelijst protocol https://docs.geostandaarden.nl/md/mdprofiel-iso19115/#codelist-protocol</sch:assert>
-
-			<sch:let name="codelistNew" value="'http://www.opengis.net/def/serviceType/ogc/csw=OGC:CSW, http://www.opengis.net/def/serviceType/ogc/wms=OGC:WMS, http://www.opengis.net/def/serviceType/ogc/wmts=OGC:WMTS, http://www.opengis.net/def/serviceType/ogc/wfs=OGC:WFS, http://www.opengis.net/def/serviceType/ogc/wcs=OGC:WCS, http://www.opengis.net/def/serviceType/ogc/sos=OGC:SOS, https://tools.ietf.org/html/rfc4287=INSPIRE Atom'" />
-			<sch:let name="codelistNewServiceTypes" value="'OGC:CSW, OGC:WMS, OGC:WFS, OGC:WMTS, OGC:SOS, OGC:WCS, INSPIRE Atom'"/>
-			<!-- <sch:assert id="Codelijst_protocol_oude_URI_in_gebruik" etf_name="Codelijst protocol: er zijn nog codes voor protocol in gebruik uit de codelijst protocol die gaan vervallen" test="contains($codelist, $combination)">De combinatie van de URI '<sch:value-of select="$anchorUri"/>' en waarde '<sch:value-of select="$txt"/>' komt binnenkort te vervallen uit de codelijst https://docs.geostandaarden.nl/md/mdprofiel-iso19115/#codelist-protocol. Zie http://inspire.ec.europa.eu/metadata-codelist/ProtocolValue voor de codes die gebruikt gaan worden</sch:assert> -->
+			<sch:assert id="Codelijst_protocol:_geldige_combinatie_van_URI_en_waarde" etf_name="Codelijst protocol: geldige combinatie van URI en waarde" test="contains($codelist, $combination)">De combinatie van de URI '<sch:value-of select="$anchorUri"/>' en waarde '<sch:value-of select="$txt"/>' is geen geldige combinatie uit de codelijst protocol https://docs.geostandaarden.nl/md/mdprofiel-iso19119/#codelist-protocol</sch:assert>
 
 		</sch:rule>
 
@@ -609,22 +615,22 @@
 
 			<sch:let name="qosRequired" value="$harmonisedSDS or $interoperableSDS"/>
 
-			<sch:let name="quality_name_Of_Measure_Availability" value="normalize-space(gmd:report/gmd:DQ_ConceptualConsistency/gmd:nameOfMeasure/gmx:Anchor[@xlink:href='http://inspire.ec.europa.eu/metadata-codelist/QualityOfServiceCriteriaCode/availability'])"/>
-			<sch:let name="quality_name_Of_Measure_Performance" value="normalize-space(gmd:report/gmd:DQ_ConceptualConsistency/gmd:nameOfMeasure/gmx:Anchor[@xlink:href='http://inspire.ec.europa.eu/metadata-codelist/QualityOfServiceCriteriaCode/performance'])"/>
-			<sch:let name="quality_name_Of_Measure_Capacity" value="normalize-space(gmd:report/gmd:DQ_ConceptualConsistency/gmd:nameOfMeasure/gmx:Anchor[@xlink:href='http://inspire.ec.europa.eu/metadata-codelist/QualityOfServiceCriteriaCode/capacity'])"/>
+			<sch:let name="quality_name_Of_Measure_Availability" value="normalize-space(gmd:report/gmd:DQ_ConceptualConsistency/gmd:nameOfMeasure/gmx:Anchor[@xlink:href='http://inspire.ec.europa.eu/metadata-codelist/QualityOfServiceCriteria/availability'])"/>
+			<sch:let name="quality_name_Of_Measure_Performance" value="normalize-space(gmd:report/gmd:DQ_ConceptualConsistency/gmd:nameOfMeasure/gmx:Anchor[@xlink:href='http://inspire.ec.europa.eu/metadata-codelist/QualityOfServiceCriteria/performance'])"/>
+			<sch:let name="quality_name_Of_Measure_Capacity" value="normalize-space(gmd:report/gmd:DQ_ConceptualConsistency/gmd:nameOfMeasure/gmx:Anchor[@xlink:href='http://inspire.ec.europa.eu/metadata-codelist/QualityOfServiceCriteria/capacity'])"/>
 
-			<sch:let name="quality_measure_Description_Availability" value="normalize-space(gmd:report/gmd:DQ_ConceptualConsistency/gmd:measureDescription[../gmd:nameOfMeasure/gmx:Anchor/@xlink:href='http://inspire.ec.europa.eu/metadata-codelist/QualityOfServiceCriteriaCode/availability']/gco:CharacterString)"/>
-			<sch:let name="quality_measure_Description_Performance" value="normalize-space(gmd:report/gmd:DQ_ConceptualConsistency/gmd:measureDescription[../gmd:nameOfMeasure/gmx:Anchor/@xlink:href='http://inspire.ec.europa.eu/metadata-codelist/QualityOfServiceCriteriaCode/performance']/gco:CharacterString)"/>
-			<sch:let name="quality_measure_Description_Capacity" value="normalize-space(gmd:report/gmd:DQ_ConceptualConsistency/gmd:measureDescription[../gmd:nameOfMeasure/gmx:Anchor/@xlink:href='http://inspire.ec.europa.eu/metadata-codelist/QualityOfServiceCriteriaCode/capacity']/gco:CharacterString)"/>
+			<sch:let name="quality_measure_Description_Availability" value="normalize-space(gmd:report/gmd:DQ_ConceptualConsistency/gmd:measureDescription[../gmd:nameOfMeasure/gmx:Anchor/@xlink:href='http://inspire.ec.europa.eu/metadata-codelist/QualityOfServiceCriteria/availability']/gco:CharacterString)"/>
+			<sch:let name="quality_measure_Description_Performance" value="normalize-space(gmd:report/gmd:DQ_ConceptualConsistency/gmd:measureDescription[../gmd:nameOfMeasure/gmx:Anchor/@xlink:href='http://inspire.ec.europa.eu/metadata-codelist/QualityOfServiceCriteria/performance']/gco:CharacterString)"/>
+			<sch:let name="quality_measure_Description_Capacity" value="normalize-space(gmd:report/gmd:DQ_ConceptualConsistency/gmd:measureDescription[../gmd:nameOfMeasure/gmx:Anchor/@xlink:href='http://inspire.ec.europa.eu/metadata-codelist/QualityOfServiceCriteria/capacity']/gco:CharacterString)"/>
 
 			<!-- https://docs.geostandaarden.nl/md/mdprofiel-iso19119/#criteria-waarde -->
-			<sch:let name="quality_result_Availability" value="normalize-space(gmd:report/gmd:DQ_ConceptualConsistency/gmd:result[../gmd:nameOfMeasure/gmx:Anchor/@xlink:href='http://inspire.ec.europa.eu/metadata-codelist/QualityOfServiceCriteriaCode/availability']/gmd:DQ_QuantitativeResult/gmd:value/gco:Record)"/>
-			<sch:let name="quality_result_Performance" value="normalize-space(gmd:report/gmd:DQ_ConceptualConsistency/gmd:result[../gmd:nameOfMeasure/gmx:Anchor/@xlink:href='http://inspire.ec.europa.eu/metadata-codelist/QualityOfServiceCriteriaCode/performance']/gmd:DQ_QuantitativeResult/gmd:value/gco:Record)"/>
-			<sch:let name="quality_result_Capacity" value="normalize-space(gmd:report/gmd:DQ_ConceptualConsistency/gmd:result[../gmd:nameOfMeasure/gmx:Anchor/@xlink:href='http://inspire.ec.europa.eu/metadata-codelist/QualityOfServiceCriteriaCode/capacity']/gmd:DQ_QuantitativeResult/gmd:value/gco:Record)"/>
+			<sch:let name="quality_result_Availability" value="normalize-space(gmd:report/gmd:DQ_ConceptualConsistency/gmd:result[../gmd:nameOfMeasure/gmx:Anchor/@xlink:href='http://inspire.ec.europa.eu/metadata-codelist/QualityOfServiceCriteria/availability']/gmd:DQ_QuantitativeResult/gmd:value/gco:Record)"/>
+			<sch:let name="quality_result_Performance" value="normalize-space(gmd:report/gmd:DQ_ConceptualConsistency/gmd:result[../gmd:nameOfMeasure/gmx:Anchor/@xlink:href='http://inspire.ec.europa.eu/metadata-codelist/QualityOfServiceCriteria/performance']/gmd:DQ_QuantitativeResult/gmd:value/gco:Record)"/>
+			<sch:let name="quality_result_Capacity" value="normalize-space(gmd:report/gmd:DQ_ConceptualConsistency/gmd:result[../gmd:nameOfMeasure/gmx:Anchor/@xlink:href='http://inspire.ec.europa.eu/metadata-codelist/QualityOfServiceCriteria/capacity']/gmd:DQ_QuantitativeResult/gmd:value/gco:Record)"/>
 
-			<sch:let name="quality_value_unit_Availability" value="normalize-space(gmd:report/gmd:DQ_ConceptualConsistency/gmd:result[../gmd:nameOfMeasure/gmx:Anchor/@xlink:href='http://inspire.ec.europa.eu/metadata-codelist/QualityOfServiceCriteriaCode/availability']/gmd:DQ_QuantitativeResult/gmd:valueUnit/@xlink:href)"/>
-			<sch:let name="quality_value_unit_Performance" value="normalize-space(gmd:report/gmd:DQ_ConceptualConsistency/gmd:result[../gmd:nameOfMeasure/gmx:Anchor/@xlink:href='http://inspire.ec.europa.eu/metadata-codelist/QualityOfServiceCriteriaCode/performance']/gmd:DQ_QuantitativeResult/gmd:valueUnit/@xlink:href)"/>
-			<sch:let name="quality_value_unit_Capacity" value="normalize-space(gmd:report/gmd:DQ_ConceptualConsistency/gmd:result[../gmd:nameOfMeasure/gmx:Anchor/@xlink:href='http://inspire.ec.europa.eu/metadata-codelist/QualityOfServiceCriteriaCode/capacity']/gmd:DQ_QuantitativeResult/gmd:valueUnit/@xlink:href)"/>
+			<sch:let name="quality_value_unit_Availability" value="normalize-space(gmd:report/gmd:DQ_ConceptualConsistency/gmd:result[../gmd:nameOfMeasure/gmx:Anchor/@xlink:href='http://inspire.ec.europa.eu/metadata-codelist/QualityOfServiceCriteria/availability']/gmd:DQ_QuantitativeResult/gmd:valueUnit/@xlink:href)"/>
+			<sch:let name="quality_value_unit_Performance" value="normalize-space(gmd:report/gmd:DQ_ConceptualConsistency/gmd:result[../gmd:nameOfMeasure/gmx:Anchor/@xlink:href='http://inspire.ec.europa.eu/metadata-codelist/QualityOfServiceCriteria/performance']/gmd:DQ_QuantitativeResult/gmd:valueUnit/@xlink:href)"/>
+			<sch:let name="quality_value_unit_Capacity" value="normalize-space(gmd:report/gmd:DQ_ConceptualConsistency/gmd:result[../gmd:nameOfMeasure/gmx:Anchor/@xlink:href='http://inspire.ec.europa.eu/metadata-codelist/QualityOfServiceCriteria/capacity']/gmd:DQ_QuantitativeResult/gmd:valueUnit/@xlink:href)"/>
 
 			<sch:assert id="INSPIRE_interoperabele_service_kwaliteit_beschikbaarheid" etf_name="INSPIRE interoperabele service kwaliteit beschikbaarheid" test="not($qosRequired) or $quality_name_Of_Measure_Availability">De beschikbaarheid van de service is niet beschreven (https://docs.geostandaarden.nl/md/mdprofiel-iso19119/#criteria), maar is wel verplicht voor een INSPIRE interoperabele service</sch:assert>
 			<sch:assert id="INSPIRE_interoperabele_service_kwaliteit_performance" etf_name="INSPIRE interoperabele service kwaliteit performance" test="not($qosRequired) or $quality_name_Of_Measure_Performance">De performance van de service is niet beschreven (https://docs.geostandaarden.nl/md/mdprofiel-iso19119/#criteria), maar is wel verplicht voor een INSPIRE interoperabele service</sch:assert>
