@@ -1547,27 +1547,35 @@
 
   <!-- ==================================================== -->
 
-  <element name="gmd:description" context="*/gmd:LI_ProcessStep/gmd:description">
-    <label>Omschrijving</label>
-    <btnLabel>Omschrijving toevoegen</btnLabel>
-    <description>Omschrijving van de bewerking</description>
+  <element name="gmd:description" context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/gmd:extent/gmd:EX_Extent/gmd:description">
+    <label>Beschrijving temporele dekking</label>
+    <description>temporele dekking van de data, gespecificeerd als een periode.</description>
+  </element>
+  <element name="gmd:description" context="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:lineage/gmd:LI_Lineage/gmd:processStep/gmd:LI_ProcessStep/gmd:description">
+    <label>Beschrijving uitgevoerde bewerkingen</label>
+    <description>Beschrijving van de uitgevoerde bewerkingen.</description>
+  </element>
+  <element name="gmd:description" context="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:lineage/gmd:LI_Lineage/gmd:source/gmd:LI_Source/gmd:description">
+    <label>Beschrijving brondata</label>
+    <description>Algemene beschrijving of opmerking te geven betreft de kwaliteit van de (verschillende) brongegevens.</description>
+  </element>
+  <element name="gmd:description" context="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:lineage/gmd:LI_Lineage/gmd:source/gmd:LI_Source/gmd:sourceStep/gmd:LI_ProcessStep/gmd:description">
+    <label>Inwinningsmethode</label>
+    <description>Omschrijving processtap in bronproces.</description>
   </element>
 
   <!-- ==================================================== -->
-
-  <element name="gmd:description" context="*/gmd:LI_Source/gmd:description">
-    <label>Omschrijving</label>
-    <btnLabel>Omschrijving toevoegen</btnLabel>
-    <description>Omschrijving van de bron</description>
+  <element name="gmd:LI_ProcessStep">
+    <label>Uitgevoerde bewerking</label>
+    <description>Informatie over een specifieke stap in het proces waarmee de data tot stand is gekomen of bewerkt.</description>
   </element>
 
   <!-- ==================================================== -->
-
-  <element name="gmd:description" context="*/gmd:PT_LocaleContainer/gmd:description">
-    <label>Omschrijving</label>
-    <btnLabel>Omschrijving toevoegen</btnLabel>
-    <description>Omschrijving</description>
+  <element name="gmd:LI_Source" context="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:lineage/gmd:LI_Lineage/gmd:source/gmd:LI_Source">
+    <label>Bron</label>
+    <description>Informatie over de brongegevens die zijn gebruikt om de beschreven dataset te produceren.</description>
   </element>
+
 
   <!-- ==================================================== -->
 
