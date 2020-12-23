@@ -683,7 +683,6 @@
                   <gmd:EX_Extent>
                     <gmd:geographicElement>
                       <gmd:EX_GeographicBoundingBox>
-                      <gmd:EX_GeographicBoundingBox>
                         <gmd:westBoundLongitude>
                           <gco:Decimal></gco:Decimal>
                         </gmd:westBoundLongitude>
