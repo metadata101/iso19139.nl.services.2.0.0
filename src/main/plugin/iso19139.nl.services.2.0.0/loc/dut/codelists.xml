@@ -1993,6 +1993,22 @@
       <code>WebServices</code>
       <label>WebServices</label>
     </entry>
+    <entry>
+      <code>httpGet</code>
+      <label>httpGet</label>
+      <description>Vraagt een representatie van de specifieke resource, door middel van een URL codering of naam/waarde paar.</description>
+    </entry>
+    <entry>
+      <code>httpPost</code>
+      <label>httpPost</label>
+      <description>Verzend gebruikersdata naar de ge&#239;dentificeerde resource. De data is opgenomen in de "request".</description>
+    </entry>
+    <entry>
+      <code>httpSoap</code>
+      <label>httpSoap</label>
+      <description>Verzend gebruikersdata naar de ge&#239;dentificeerde resource over httpPost. De data is opgenomen
+        in de "request". Deze "request" is een "SOAP request".</description>
+    </entry>
   </codelist>
   <!--=== CouplingType from ISO19119 ===-->
   <codelist name="srv:SV_CouplingType">
