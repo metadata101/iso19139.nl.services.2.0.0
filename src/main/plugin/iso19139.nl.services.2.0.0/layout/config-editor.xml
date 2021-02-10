@@ -452,7 +452,7 @@
 
 
     <view
-        name="dutchprofile" default="true"
+        name="default" default="true"
         upAndDownControlHidden="true" hideTimeInCalendar="true"
         displayTooltips="true" displayTooltipsMode="icon">
 

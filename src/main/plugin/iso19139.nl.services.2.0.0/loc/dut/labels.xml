@@ -518,21 +518,10 @@
 
   <!-- ==================================================== -->
 
-  <element name="gmd:electronicMailAddress"
-           context="/gmd:MD_Metadata/gmd:contact/gmd:CI_ResponsibleParty/gmd:contactInfo/gmd:CI_Contact/gmd:address/gmd:CI_Address/gmd:electronicMailAddress">
+  <element name="gmd:electronicMailAddress">
     <label>Verantwoordelijke organisatie e-mail</label>
     <description>E-mail adres van de verantwoordelijke organisatie</description>
     <help_link>http://wiki.geonovum.nl/index.php/2.5.24_Metadata_point_of_contact</help_link>
-    <condition>mandatory</condition>
-  </element>
-
-  <!-- ==================================================== -->
-
-  <element name="gmd:electronicMailAddress"
-           context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/gmd:pointOfContact/gmd:CI_ResponsibleParty/gmd:contactInfo/gmd:CI_Contact/gmd:address/gmd:CI_Address/gmd:electronicMailAddress">
-    <label>Verantwoordelijke organisatie e-mail</label>
-    <description>E-mail adres van de verantwoordelijke organisatie of persoon.</description>
-    <help_link>http://wiki.geonovum.nl/index.php/2.5.22_Responsible_party</help_link>
     <condition>mandatory</condition>
   </element>
 
@@ -862,23 +851,18 @@
   </element>
 
   <!-- ==================================================== -->
-
-  <element name="gmd:organisationName"
-           context="/gmd:MD_Metadata/gmd:contact/gmd:CI_ResponsibleParty/gmd:organisationName">
-    <label>Verantwoordelijke organisatie</label>
-    <description>Volledige naam van de voor metadata verantwoordelijke organisatie.</description>
-    <help_link>http://wiki.geonovum.nl/index.php/2.5.24_Metadata_point_of_contact</help_link>
-    <condition>mandatory</condition>
-  </element>
-
-  <!-- ==================================================== -->
-
-  <element name="gmd:organisationName"
-           context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/gmd:pointOfContact/gmd:CI_ResponsibleParty/gmd:organisationName">
+  <element name="gmd:organisationName">
     <label>Verantwoordelijke organisatie</label>
     <description>Naam van de verantwoordelijke organisatie.</description>
     <help_link>http://wiki.geonovum.nl/index.php/2.5.22_Responsible_party</help_link>
     <condition>mandatory</condition>
+  </element>
+
+  <!-- ==================================================== -->
+  <element name="gmd:individualName">
+    <label>Naam contactpersoon</label>
+    <description>Naam van de contactpersoon.</description>
+    <help_link>http://wiki.geonovum.nl/index.php/2.5.22_Responsible_party</help_link>
   </element>
 
   <!-- ==================================================== -->
@@ -1069,20 +1053,10 @@
 
   <!-- ==================================================== -->
 
-  <element name="gmd:role" context="/gmd:MD_Metadata/gmd:contact/gmd:CI_ResponsibleParty/gmd:role">
+  <element name="gmd:role" >
     <label>Verantwoordelijke organisatie rol</label>
     <description>Beschrijving op welke manier de organisatie betrokken is bij de metadata.</description>
     <help_link>http://wiki.geonovum.nl/index.php/2.5.24_Metadata_point_of_contact</help_link>
-    <condition>mandatory</condition>
-  </element>
-
-  <!-- ==================================================== -->
-
-  <element name="gmd:role"
-           context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/gmd:pointOfContact/gmd:CI_ResponsibleParty/gmd:role">
-    <label>Verantwoordelijke organisatie rol</label>
-    <description>Functie die wordt uitgevoerd door de verantwoordelijke organisatie.</description>
-    <help_link>http://wiki.geonovum.nl/index.php/2.5.23_Responsible_party_role</help_link>
     <condition>mandatory</condition>
   </element>
 
