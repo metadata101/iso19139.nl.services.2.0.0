@@ -225,7 +225,7 @@
                 <xsl:if test="$function != ''">
                   <gmd:function>
                     <gmd:CI_OnLineFunctionCode
-                      codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#CI_OnLineFunctionCode"
+                      codeList="https://standards.iso.org/iso/19139/resources/gmxCodelists.xml#CI_OnLineFunctionCode"
                       codeListValue="{$function}"/>
                   </gmd:function>
                 </xsl:if>
@@ -379,7 +379,7 @@
               <xsl:if test="$function != ''">
                 <gmd:function>
                   <gmd:CI_OnLineFunctionCode
-                    codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#CI_OnLineFunctionCode"
+                    codeList="https://standards.iso.org/iso/19139/resources/gmxCodelists.xml#CI_OnLineFunctionCode"
                     codeListValue="{$function}"/>
                 </gmd:function>
               </xsl:if>

@@ -102,7 +102,7 @@
 
       <xsl:if test="not(gmd:hierarchyLevel)">
         <gmd:hierarchyLevel>
-          <gmd:MD_ScopeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#MD_ScopeCode"
+          <gmd:MD_ScopeCode codeList="https://standards.iso.org/iso/19139/resources/gmxCodelists.xml#MD_ScopeCode"
                             codeListValue="service">
             <xsl:value-of select="java:getCodelistTranslation('gmd:MD_ScopeCode', 'service', string($mainLanguage))"/>
           </gmd:MD_ScopeCode>
@@ -128,7 +128,7 @@
                                 codeListValue="{$mainLanguage}"/>
             </gmd:languageCode>
             <gmd:characterEncoding>
-              <gmd:MD_CharacterSetCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#MD_CharacterSetCode"
+              <gmd:MD_CharacterSetCode codeList="https://standards.iso.org/iso/19139/resources/gmxCodelists.xml#MD_CharacterSetCode"
                                        codeListValue="{$defaultEncoding}"/>
             </gmd:characterEncoding>
           </gmd:PT_Locale>
@@ -164,7 +164,7 @@
                 priority="200">
     <xsl:copy>
       <xsl:copy-of select="@*" />
-      <gmd:MD_ScopeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#MD_ScopeCode"
+      <gmd:MD_ScopeCode codeList="https://standards.iso.org/iso/19139/resources/gmxCodelists.xml#MD_ScopeCode"
                         codeListValue="service">
         <xsl:value-of select="java:getCodelistTranslation('gmd:MD_ScopeCode', 'service', string($mainLanguage))"/>
       </gmd:MD_ScopeCode>
@@ -185,7 +185,7 @@
       <xsl:apply-templates select="@*"/>
       <xsl:attribute name="codeList">
         <xsl:value-of
-          select="concat('https://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#',local-name(.))"/>
+          select="concat('https://standards.iso.org/iso/19139/resources/gmxCodelists.xml#',local-name(.))"/>
       </xsl:attribute>
 
       <xsl:if test="string(@codeListValue)">
@@ -200,7 +200,7 @@
       <xsl:apply-templates select="@*"/>
       <xsl:attribute name="codeList">
         <xsl:value-of
-          select="concat('https://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#',local-name(.))"/>
+          select="concat('https://standards.iso.org/iso/19139/resources/gmxCodelists.xml#',local-name(.))"/>
       </xsl:attribute>
 
       <xsl:if test="string(@codeListValue)">
@@ -333,7 +333,7 @@
                   </srv:operationName>
 
                   <srv:DCP>
-                    <srv:DCPList codeList="https://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#DCPList"
+                    <srv:DCPList codeList="https://standards.iso.org/iso/19139/resources/gmxCodelists.xml#DCPList"
                                  codeListValue="WebServices">WebServices</srv:DCPList>
                   </srv:DCP>
 
