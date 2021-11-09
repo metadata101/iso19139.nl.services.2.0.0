@@ -42,7 +42,7 @@
   <inspire>INSPIRE</inspire>
   <inspire_sds>SDS</inspire_sds>
 
-  <overviews>Thumbnail</overviews>
+  <overviews>Overzicht</overviews>
   <metadataInXML>XML</metadataInXML>
   <providedBy>Beschikbaar gesteld door</providedBy>
   <shareOnSocialSite>Deel op sociale media</shareOnSocialSite>
@@ -63,6 +63,7 @@
   <applicationSchemaInfo>Schema info</applicationSchemaInfo>
   <noThesaurusName>Trefwoorden</noThesaurusName>
   <bboxesSection>Geografische dekking</bboxesSection>
+  <spatialExtent>Ruimtelijke dekking</spatialExtent>
 
   <!-- INSPIRE view labels and help -->
   <url>Online resource</url>
@@ -135,7 +136,7 @@
   <connectPoint>Endpoint</connectPoint>
 
   <addCrs>Projection</addCrs>
- 
+
   <!-- Dutch schema custom strings -->
   <viewTitle>
     <h3>Nederlands profiel op ISO 19119 voor Services versie 2.1.0 - Basis</h3>
@@ -153,7 +154,7 @@
     <h3>Nederlands profiel op ISO 19119 voor Services versie 2.1.0 - Optionele &amp; conditionele elementen</h3>
   </dutchProfileTitle>
   <dutchProfileDescription>
-    <div>Dit formulier kan gebruikt worden voor het bewerken van metadata van services op Nederlandstalige datasets. 
+    <div>Dit formulier kan gebruikt worden voor het bewerken van metadata van services op Nederlandstalige datasets.
     In deze weergave worden de verplichte, optionele en conditionele elementen van het Nederlands profiel getoond.
   Op de <a href="catalog.search#/page/Help?page=Help" target="_blank">Help pagina</a> vindt u meer informatie over deze applicatie.</div>
   </dutchProfileDescription>
