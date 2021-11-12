@@ -167,13 +167,10 @@
 
       Exclude all thesaurus already used in the metadata:
       -->
-
-      <!-- TODO: Review in Dutch schema, in ISO19139 is enabled -->
-      <!--<directiveAttributes data-include="xpath::string-join(gmd:MD_Metadata/gmd:identificationInfo
-                                          //gmd:thesaurusName/*/gmd:identifier/*/
-                                            gmd:code/gmx:Anchor/
-                                              concat('-', substring-after(text()[. != ''], 'geonetwork.thesaurus.')), ',')"/>-->
-      <directiveAttributes data-transformation="to-iso19139-keyword-with-anchor" />
+      
+      <directiveAttributes data-include="xpath::string-join(gmd:MD_Metadata/gmd:identificationInfo
+          //gmd:thesaurusName/*/gmd:identifier/*/gmd:code/gmx:Anchor/
+          concat('-', substring-after(text()[. != ''], 'geonetwork.thesaurus.')), ',')" data-transformation="to-iso19139-keyword-with-anchor"/>
     </for>
     <for name="gmd:code" use="data-gn-anchor-switcher">
 
