@@ -50,6 +50,9 @@
     }],
     "multilingualFields": ["name", "desc"],
     "listLayerNamesOrTitles": "name",
-    "addInspireDescription": true
+    "addInspireDescription": true,
+    "wmsResources": {
+      "addLayerNamesMode": "resourcename"
+    }
   }
 }
