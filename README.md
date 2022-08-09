@@ -13,7 +13,7 @@ Use GeoNetwork 3.12. It's not supported in older versions so don't plug it into 
 
 The best approach is to add the plugin as a submodule:
 
-1. Use [add-schema.sh](https://github.com/geonetwork/core-geonetwork/blob/3.12.x/add-schema.sh) for automatic deployment:
+1. Use [`add-schema.sh`](https://github.com/geonetwork/core-geonetwork/blob/3.12.x/add-schema.sh) for automatic deployment:
 
    ```
    ./add-schema.sh iso19139.nl.services.2.0.0 https://github.com/metadata101/iso19139.nl.services.2.0.0 3.12.x
@@ -36,8 +36,8 @@ The best approach is to add the plugin as a submodule:
 
 After building the application, it's possible to deploy the schema plugin manually in an existing GeoNetwork installation:
 
-- Copy the content of the folder schemas/iso19139.nl.services.2.0.0/src/main/plugin to INSTALL_DIR/geonetwork/WEB-INF/data/config/schema_plugins/iso19139.nl.services.2.0.0
+- Copy the content of the folder schemas/iso19139.nl.services.2.0.0/src/main/plugin to `$INSTALL_DIR/geonetwork/WEB-INF/data/config/schema_plugins/iso19139.nl.services.2.0.0`
 
-- Copy the jar file schemas/iso19139.nl.services.2.0.0/target/schema-iso19139.nl.services.2.0.0-3.12.jar to INSTALL_DIR/geonetwork/WEB-INF/lib.
+- Copy the jar file schemas/iso19139.nl.services.2.0.0/target/schema-iso19139.nl.services.2.0.0-3.12.jar to `$INSTALL_DIR/geonetwork/WEB-INF/lib`.
 
-If there's no changes to the profile Java code or the configuration (config-spring-geonetwork.xml), the jar file is not required to be deployed each time.
+If there's no changes to the profile Java code or the configuration (`config-spring-geonetwork.xml`), the jar file is not required to be deployed each time.
