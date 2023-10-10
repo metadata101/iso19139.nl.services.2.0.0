@@ -468,33 +468,13 @@
       <xsl:variable name="email"
                     select="/gmd:MD_Metadata/gmd:contact[1]/gmd:CI_ResponsibleParty[1]/gmd:contactInfo[1]/gmd:CI_Contact[1]/gmd:address[1]/gmd:CI_Address[1]/gmd:electronicMailAddress[1]/gco:CharacterString[1]"/>
 
-      <xsl:for-each
-        select="gmd:pointOfContact/gmd:CI_ResponsibleParty/gmd:organisationName/gco:CharacterString|gmd:pointOfContact/gmd:CI_ResponsibleParty/gmd:organisationName/gmx:Anchor">
-
-        <xsl:variable name="role" select="../../gmd:role/*/@codeListValue"/>
-        <xsl:variable name="roleTranslation"
-                      select="util:getCodelistTranslation('gmd:CI_RoleCode', string($role), string($isoLangId))"/>
-        <xsl:variable name="logo" select="../..//gmx:FileName/@src"/>
-        <xsl:variable name="email"
-                      select="../../gmd:contactInfo/*/gmd:address/*/gmd:electronicMailAddress/gco:CharacterString"/>
-        <xsl:variable name="phone"
-                      select="../../gmd:contactInfo/*/gmd:phone/*/gmd:voice[normalize-space(.) != '']/*/text()"/>
-        <xsl:variable name="individualName" select="../../gmd:individualName/gco:CharacterString/text()"/>
-        <xsl:variable name="positionName" select="../../gmd:positionName/gco:CharacterString/text()"/>
-        <xsl:variable name="address"
-                      select="string-join(../../gmd:contactInfo/*/gmd:address/*/gmd:deliveryPoint/gco:CharacterString/text(), ', ')"/>
-        <xsl:variable name="city"
-                      select="string-join(../../gmd:contactInfo/*/gmd:address/*/gmd:city/gco:CharacterString/text(), ', ')"/>
-        <xsl:variable name="postalcode"
-                      select="string-join(../../gmd:contactInfo/*/gmd:address/*/gmd:postalCode/gco:CharacterString/text(), ', ')"/>
-        <xsl:variable name="country"
-                      select="string-join(../../gmd:contactInfo/*/gmd:address/*/(gmd:administrativeArea|gmd:country)/gco:CharacterString/text(), ', ')"/>
-        <xsl:variable name="web" select="../../gmd:contactInfo/*/gmd:onlineResource/*/gmd:linkage/gmd:URL/text()"/>
-
-        <Field name="responsibleParty"
-               string="{concat($roleTranslation, '|resource|', ., '|', $logo, '|',  string-join($email, ','), '|', $individualName, '|', $positionName, '|', $address, '|', $postalcode , '|', $city , '|', $country , '|',  string-join($phone, ','), '|',  string-join($web, ','))}"
-               store="true" index="false"/>
-
+      <xsl:for-each select="gmd:pointOfContact">
+        <xsl:apply-templates mode="index-contact"
+                             select="gmd:CI_ResponsibleParty|*[@gco:isoType = 'gmd:CI_ResponsibleParty']">
+          <xsl:with-param name="type" select="'resource'"/>
+          <xsl:with-param name="fieldPrefix" select="'responsibleParty'"/>
+          <xsl:with-param name="position" select="position()"/>
+        </xsl:apply-templates>
       </xsl:for-each>
 
       <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
@@ -1214,39 +1194,15 @@
 
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
-    <xsl:for-each
-      select="gmd:contact/*/gmd:organisationName/gco:CharacterString|gmd:contact/*/gmd:organisationName/gmx:Anchor">
-
-      <!-- only use mdorgs as searchable orgs -->
-      <Field name="orgName" string="{concat(upper-case(substring(string(.),1,1)),substring(string(.), 2))}" store="true"
-             index="true"/>
-      <Field name="orgNameTree" string="{string(.)}" store="true" index="true"/>
-
-      <Field name="metadataPOC" string="{string(.)}" store="true" index="true"/>
-
-      <xsl:variable name="role" select="../../gmd:role/*/@codeListValue"/>
-      <xsl:variable name="roleTranslation"
-                    select="util:getCodelistTranslation('gmd:CI_RoleCode', string($role), string($isoLangId))"/>
-      <xsl:variable name="logo" select="../..//gmx:FileName/@src"/>
-      <xsl:variable name="email"
-                    select="../../gmd:contactInfo/*/gmd:address/*/gmd:electronicMailAddress/gco:CharacterString"/>
-      <xsl:variable name="phone"
-                    select="../../gmd:contactInfo/*/gmd:phone/*/gmd:voice[normalize-space(.) != '']/*/text()"/>
-      <xsl:variable name="individualName" select="../../gmd:individualName/gco:CharacterString/text()"/>
-      <xsl:variable name="positionName" select="../../gmd:positionName/gco:CharacterString/text()"/>
-      <xsl:variable name="address"
-                    select="string-join(../../gmd:contactInfo/*/gmd:address/*/gmd:deliveryPoint/gco:CharacterString/text(), ', ')"/>
-      <xsl:variable name="city"
-                    select="string-join(../../gmd:contactInfo/*/gmd:address/*/gmd:city/gco:CharacterString/text(), ', ')"/>
-      <xsl:variable name="postalcode"
-                    select="string-join(../../gmd:contactInfo/*/gmd:address/*/gmd:postalCode/gco:CharacterString/text(), ', ')"/>
-      <xsl:variable name="country"
-                    select="string-join(../../gmd:contactInfo/*/gmd:address/*/(gmd:administrativeArea|gmd:country)/gco:CharacterString/text(), ', ')"/>
-      <xsl:variable name="web" select="../../gmd:contactInfo/*/gmd:onlineResource/*/gmd:linkage/gmd:URL/text()"/>
-
-      <Field name="responsibleParty"
-             string="{concat($roleTranslation, '|metadata|', ., '|', $logo, '|',  string-join($email, ','), '|', $individualName, '|', $positionName, '|', $address, '|', $postalcode , '|', $city , '|', $country , '|',  string-join($phone, ','), '|',  string-join($web, ','))}"
-             store="true" index="false"/>
+    <xsl:for-each select="gmd:contact">
+      <Field name="metadataPOC"
+             string="{string(*/gmd:organisationName/(gco:CharacterString|gmx:Anchor))}"
+             store="true" index="true"/>
+      <xsl:apply-templates mode="index-contact" select="*">
+        <xsl:with-param name="type" select="'metadata'"/>
+        <xsl:with-param name="fieldPrefix" select="'responsibleParty'"/>
+        <xsl:with-param name="position" select="position()"/>
+      </xsl:apply-templates>
     </xsl:for-each>
 
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
