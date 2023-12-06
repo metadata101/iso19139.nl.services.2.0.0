@@ -277,6 +277,12 @@
           gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OGC:SOS' or
           gmd:CI_OnlineResource/gmd:protocol/*/text() = 'TMS' or
           gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OGC:CSW' or
+          gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OAS' or
+          gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OGC:API features' or
+          gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OGC:OLS' or
+          gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OGC:SensorThings' or
+          gmd:CI_OnlineResource/gmd:protocol/*/text() = 'W3C:SPARQL' or
+          gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OASIS:OData' or
           gmd:CI_OnlineResource/gmd:protocol/*/text() = 'INSPIRE Atom']) > 0">
 
           <xsl:choose>
@@ -306,6 +312,12 @@
                           gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OGC:SOS' or
                           gmd:CI_OnlineResource/gmd:protocol/*/text() = 'TMS' or
                           gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OGC:CSW' or
+                          gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OAS' or
+                          gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OGC:API features' or
+                          gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OGC:OLS' or
+                          gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OGC:SensorThings' or
+                          gmd:CI_OnlineResource/gmd:protocol/*/text() = 'W3C:SPARQL' or
+                          gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OASIS:OData' or
                           gmd:CI_OnlineResource/gmd:protocol/*/text() = 'INSPIRE Atom'][1]" />
 
                         <srv:connectPoint>
@@ -346,6 +358,12 @@
                         gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OGC:SOS' or
                         gmd:CI_OnlineResource/gmd:protocol/*/text() = 'TMS' or
                         gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OGC:CSW' or
+                        gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OAS' or
+                        gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OGC:API features' or
+                        gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OGC:OLS' or
+                        gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OGC:SensorThings' or
+                        gmd:CI_OnlineResource/gmd:protocol/*/text() = 'W3C:SPARQL' or
+                        gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OASIS:OData' or
                         gmd:CI_OnlineResource/gmd:protocol/*/text() = 'INSPIRE Atom'][1]" />
 
                   <srv:connectPoint>
