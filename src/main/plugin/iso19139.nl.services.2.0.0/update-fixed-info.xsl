@@ -283,6 +283,7 @@
           gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OGC:SensorThings' or
           gmd:CI_OnlineResource/gmd:protocol/*/text() = 'W3C:SPARQL' or
           gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OASIS:OData' or
+          gmd:CI_OnlineResource/gmd:protocol/*/text() = 'landingpage' or
           gmd:CI_OnlineResource/gmd:protocol/*/text() = 'INSPIRE Atom']) > 0">
 
           <xsl:choose>
@@ -318,6 +319,7 @@
                           gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OGC:SensorThings' or
                           gmd:CI_OnlineResource/gmd:protocol/*/text() = 'W3C:SPARQL' or
                           gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OASIS:OData' or
+                          gmd:CI_OnlineResource/gmd:protocol/*/text() = 'landingpage' or
                           gmd:CI_OnlineResource/gmd:protocol/*/text() = 'INSPIRE Atom'][1]" />
 
                         <srv:connectPoint>
@@ -364,6 +366,7 @@
                         gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OGC:SensorThings' or
                         gmd:CI_OnlineResource/gmd:protocol/*/text() = 'W3C:SPARQL' or
                         gmd:CI_OnlineResource/gmd:protocol/*/text() = 'OASIS:OData' or
+                        gmd:CI_OnlineResource/gmd:protocol/*/text() = 'landingpage' or
                         gmd:CI_OnlineResource/gmd:protocol/*/text() = 'INSPIRE Atom'][1]" />
 
                   <srv:connectPoint>
